@@ -2,7 +2,8 @@
 import  wlIcon1 from "../../../../src/assets/wlmicon.svg"
 import  wlIchatcon1 from "../../../../src/assets/wlmchaticon.svg"
 import  wlIchatcon2 from "../../../../src/assets/wlmchaticon2.svg"
-import  wlIImage from "../../../../src/assets/WhyLodgeMeImage.svg"
+import  wlIImage from "../../../../src/assets/whyLodgeMeImage.svg"
+ 
 
 const WhyLodgeMeContainer = () =>{
 
