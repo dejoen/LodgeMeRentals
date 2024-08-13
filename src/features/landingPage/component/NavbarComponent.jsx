@@ -1,4 +1,4 @@
-import  LodgeMeIcon from '../../../assets/LodgeMeIcon.svg'
+import  LodgeMeIcon from '../../../assets/lodgeMeIcon.svg'
 import   sideImage  from '../../../assets/bgImage.svg'
 import   searchIcon  from '../../../assets/searchIcon.svg'
 import   menuIcon from '../../../assets/menuIcon.svg'
