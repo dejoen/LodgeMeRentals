@@ -1,7 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
 
-import { useEffect } from "react";
-
 
 
 const NavDrawerBar = () =>{
