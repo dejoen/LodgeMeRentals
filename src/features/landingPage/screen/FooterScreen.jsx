@@ -10,7 +10,7 @@ import appleIcon  from '../../../assets/appleIcon.svg'
 const FooterScreen = () =>{
 
     return (
-     <div className="mt-7 bg-[url('./src/assets/footerimage.svg')] bg-center bg-contain bg-no-repeat bg-fil sm:h-[1200px]  xl:h-[800px]">
+     <div className="mt-7 bg-footerImage bg-center bg-contain bg-no-repeat bg-fil sm:h-[1200px]  xl:h-[800px]">
  <div className="bg-blue-700 bg-opacity-45 h-[1200px]  md:h-full ">
  <div className="w-full h-full flex flex-wrap place-items-center justify-center">
 
