@@ -1,5 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 
+import { useEffect } from "react";
+
 
 
 const NavDrawerBar = () =>{
@@ -14,6 +16,8 @@ const NavDrawerBar = () =>{
 }
 
 export const openDrawer = () =>{
+
+   
     
     const drawer =   document.querySelector('.drawer')
     drawer.style.display= "block"

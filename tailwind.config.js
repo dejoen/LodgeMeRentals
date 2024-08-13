@@ -11,6 +11,9 @@ export default {
        'heroGradientImage':"url('../src/assets/Herogradient.svg')",
        'heroSmallScreen':"url('../src/assets/bgImage.svg')",
         'footerImage':"url('../src/assets/footerimage.svg')"
+      },
+      fontFamily:{
+        nunito:["Nunito"]
       }
     },
    

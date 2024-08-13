@@ -30,11 +30,11 @@ const NavBarComponent = () => {
      <div className="hero-text-container  w-full h-[355px] top-[140px] left-[10px] mx-auto bg-black bg-opacity-25 ">
 
         <div className="hero-text h-[219px] flex flex-col">
-           <div className=" text-white h-[54px]  mt-[10px] size-[50px] w-[300px] ms-[20px] text-3xl font-bold   leading-[50px] text-center place-self-center">
+           <div className=" text-white h-[54px]  mt-[30px] size-[50px] w-[300px] ms-[20px] text-3xl font-nunito font-bold   leading-[50px] text-center place-self-center">
            Premium rental homes, available on demand&quot;
            </div>
 
-           <div className="mt-[110px] text-white font-bold text-center z-10 text-balance text-xl">
+           <div className="mt-[80px] text-white font-bold text-center z-10 text-balance text-xl">
            Carefully selected, best homes thats meet with your rental needs   
            </div>
 

@@ -3,7 +3,7 @@
 const LandingPageScreen = () =>{
 
     return(
-      <div className="landingPageBody w-full ">
+      <div className="landingPageBody w-full font-nunito ">
         
         <HeroSectionScreen/>
        
