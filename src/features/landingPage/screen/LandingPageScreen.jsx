@@ -4,7 +4,10 @@ const LandingPageScreen = () =>{
 
     return(
       <div className="landingPageBody w-full ">
+        
         <HeroSectionScreen/>
+       
+      
         </div>
     );
 }

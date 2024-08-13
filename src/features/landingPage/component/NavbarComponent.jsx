@@ -2,6 +2,7 @@ import  LodgeMeIcon from '../../../assets/lodgeMeIcon.svg'
 import   sideImage  from '../../../assets/bgImage.svg'
 import   searchIcon  from '../../../assets/searchIcon.svg'
 import   menuIcon from '../../../assets/menuIcon.svg'
+import { OpenNavigationSmallScreen } from '../controller/NavDrawerController'
 
 
 const NavBarComponent = () => {
@@ -17,8 +18,8 @@ const NavBarComponent = () => {
     <img className='w-[41px] h-[30px]' src={LodgeMeIcon}/>
     <div className="flex w-full justify-end">
     <div className='  w-[100px]  flex justify-between'>
-      <img src={searchIcon}/>
-      <img src={menuIcon}/>
+      <img src={searchIcon} onClick={()=>{}}/>
+      <img src={menuIcon} onClick={()=>{OpenNavigationSmallScreen()}}/>
     </div>
     </div>
    
