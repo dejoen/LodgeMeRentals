@@ -8,6 +8,4 @@ export const OpenNavigationSmallScreen = () => {
 
 export const NavigateToAboutScreen =() =>{
   
-   
-  
 }

@@ -19,7 +19,7 @@ const HeroSectionScreen = () => {
     return (
       
 <div className="w-full  h-dvh  ">
- <NavBarComponent image={"bg-heroSectionBackgroundImage"}/>  
+ <NavBarComponent image={"bg-heroSectionBackgroundImage"} text={`Premium rental homes, available on demand"`} buttonOneText={"Get Started"} makeVisible={"hidden"}/>  
 <HeroBodyContainerOne/>
 <FooterScreen/>
 <NavDrawerBar/>

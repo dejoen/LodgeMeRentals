@@ -1,12 +1,14 @@
+/* eslint-disable react/prop-types */
 import  LodgeMeIcon from '../../../assets/lodgeMeIcon.svg'
 import   sideImage  from '../../../assets/bgImage.svg'
 import   searchIcon  from '../../../assets/searchIcon.svg'
 import   menuIcon from '../../../assets/menuIcon.svg'
 import { openDrawer } from './NavDrawerBar'
+import { useNavigate } from 'react-router-dom'
 
 
 const NavBarComponent = (props) => {
-
+  const navigate = useNavigate()
      return (
         <div className='nav-container'>
 
@@ -20,7 +22,7 @@ const NavBarComponent = (props) => {
     <div className='  w-[100px]  flex justify-between'>
       <img src={searchIcon} onClick={()=>{
       
-        alert('jdjj')
+        
          
       }}/>
       
@@ -33,20 +35,28 @@ const NavBarComponent = (props) => {
       </div>
 
      <div className={`hero-text-bg ${props.image}   bg-no-repeat bg-cover bg-center   w-full h-[461px] flex place-items-center bg-slate-500 `}>
-     <div className="hero-text-container  w-full h-[355px] top-[140px] left-[10px] mx-auto bg-black bg-opacity-25 ">
 
-        <div className="hero-text h-[219px] flex flex-col">
-           <div className=" text-white h-[54px]  mt-[30px] size-[50px] w-[300px] ms-[20px] text-3xl font-nunito font-bold   leading-[50px] text-center place-self-center">
-           Premium rental homes, available on demand&quot;
+     <div className={`hero-text-container  w-full h-[355px]  top-[140px]  left-[10px] mx-auto bg-black bg-opacity-25  ${props.adjustHeight}` }>
+
+        <div className={`hero-text h-[219px] ${props.adjustHeight}  flex flex-col p-2`}>
+
+           <div className={`text-white h-[54px]  mt-[30px] size-[50px] w-[300px] ms-[20px] text-3xl font-nunito font-bold   leading-[50px] text-center place-self-center ${props.lineHeight} ${props.textSize}`}>
+          {props.text}
            </div>
 
-           <div className="mt-[116px] text-white font-bold text-center z-10 text-balance text-xl">
+           <div className={`mt-[126px] text-white font-bold text-center z-10 text-balance text-xl `}>
            Carefully selected, best homes thats meet with your rental needs   
            </div>
 
-           <div className="bg-yellow-600 rounded-2xl  mt-12 place-self-center p-4 text-white z-10 hover:bg-white hover:text-yellow-600">
-             <p>Get Started</p>
+           <div className="bg-yellow-600 rounded-2xl  mt-8 place-self-center p-4 text-white z-10 hover:bg-white hover:text-yellow-600">
+             <p>{props.buttonOneText}</p>
            </div>
+
+            <div className={`${props.makeVisible} bg-white rounded-2xl  mt-5 place-self-center p-4 text-black z-10 hover:bg-white hover:text-yellow-600`}>
+            <p>Register</p>
+          </div>
+           
+
         </div>
 
      </div>
@@ -55,8 +65,10 @@ const NavBarComponent = (props) => {
         </div>
 
 
-      <div className="nav-container-large-screen  hidden md:block md:bg-heroSectionBackgroundImage bg-no-repeat bg-cover bg-center h-[600px]">
-       <div className="bg-heroGradientImage  md:gap-1  w-full mx-auto h-24 top-10 p-2 gap-2 text-white ">
+      <div className={`nav-container-large-screen  hidden md:block ${props.image}  bg-no-repeat bg-cover bg-center h-[600px]`}>
+
+       <div className={`bg-heroGradientImage  md:gap-1  w-full mx-auto h-24 top-10 p-2 gap-2 text-white `}>
+
 <div className="nav-container-body gap-10 flex  z-50 ">
 
         <img src={LodgeMeIcon} className=""/>
@@ -65,7 +77,9 @@ const NavBarComponent = (props) => {
           
           <div className=" w-fit h-5 
            size-4  flex  gap-x-0 md:gap-x-5  md:w-full md:place-content-evenly ">
-             <p className='hover:underline'>About</p>
+
+            <p className='hover:underline' onClick={()=>{navigate('/')}}>Home</p>
+            <p className='hover:underline' onClick={()=>{navigate('/about')}}>About</p>
              <p className='hover:underline ' >Blog</p>
              <p className='hover:underline ' >Copyrights</p>
              <p className='hover:underline ' >Terms & Conditions</p>
@@ -100,23 +114,28 @@ const NavBarComponent = (props) => {
 
         </div>
    <div className="mx-auto w-full h-[600px]  mt-20">
-        <div className=" xl:flex  ">
+        <div className=" xl:flex  font-nunito ">
 
-        <div className="hero-text-container xl-w-[20%] h-[355px] top-[140px] left-[10px] mx-auto bg-black bg-opacity-25 ">
+        <div className={`hero-text-container xl-w-[20%] h-[355px] ${props.adjustHeight}   top-[140px] left-[10px] mx-auto bg-black bg-opacity-25 `}>
 
-        <div className="hero-text h-[219px] flex flex-col">
+        <div className={`hero-text h-[219px] ${props.adjustHeight} flex flex-col `}>
 
-           <div className=" text-white h-[54px]  mt-[10px] size-[50px] w-[300px] ms-[20px] text-3xl font-bold   leading-[50px] text-center place-self-center">
-           Premium rental homes, available on demand&quot;
+           <div className={` text-white h-[54px]  mt-[10px] size-[50px] w-[300px] ms-[20px] text-3xl font-bold   leading-[50px] text-center place-self-center ${props.lineHeight} ${props.textSize}`}>
+           {props.text}
            </div>
 
-           <div className="mt-[110px] text-white font-bold text-center z-10 text-balance text-xl">
+           <div className="mt-[140px] text-white font-bold text-center z-10 text-balance text-xl">
            Carefully selected, best homes thats meet with your rental needs   
            </div>
 
            <div className="bg-yellow-600 rounded-2xl  mt-12 place-self-center p-4 text-white z-10 hover:bg-white hover:text-yellow-600">
-             <p>Get Started</p>
+           <p>{props.buttonOneText}</p>
            </div>
+
+           <div className={`${props.makeVisible} bg-white rounded-2xl  mt-5 place-self-center p-4 text-black z-10 hover:bg-white hover:text-yellow-600 `}>
+            <p>Register</p>
+          </div>
+
         </div>
 
      </div>
