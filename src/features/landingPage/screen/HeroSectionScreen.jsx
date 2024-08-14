@@ -1,11 +1,12 @@
 import { useEffect } from "react";
-import HeroBodyContainerOne from "../component/HeroBodyContainerOne";
 import NavBarComponent from "../component/NavbarComponent";
 import NavDrawerBar from "../component/NavDrawerBar";
 import FooterScreen from "./FooterScreen";
+import HeroBodyContainerOne from "../component/HeroBodyContainerOne";
 
 const HeroSectionScreen = () => {
     useEffect(()=>{
+       
     window.addEventListener('resize',()=>{
         document.querySelector('.drawer').style.display="none"
     })
@@ -17,13 +18,12 @@ const HeroSectionScreen = () => {
 
     return (
       
-    
 <div className="w-full  h-dvh  ">
-
-<NavBarComponent/>
+ <NavBarComponent image={"bg-heroSectionBackgroundImage"}/>  
 <HeroBodyContainerOne/>
 <FooterScreen/>
 <NavDrawerBar/>
+
  </div>
 
     );

@@ -2,10 +2,10 @@ import  LodgeMeIcon from '../../../assets/lodgeMeIcon.svg'
 import   sideImage  from '../../../assets/bgImage.svg'
 import   searchIcon  from '../../../assets/searchIcon.svg'
 import   menuIcon from '../../../assets/menuIcon.svg'
-import { OpenNavigationSmallScreen } from '../controller/NavDrawerController'
+import { openDrawer } from './NavDrawerBar'
 
 
-const NavBarComponent = () => {
+const NavBarComponent = (props) => {
 
      return (
         <div className='nav-container'>
@@ -18,15 +18,21 @@ const NavBarComponent = () => {
     <img className='w-[41px] h-[30px]' src={LodgeMeIcon}/>
     <div className="flex w-full justify-end">
     <div className='  w-[100px]  flex justify-between'>
-      <img src={searchIcon} onClick={()=>{}}/>
-      <img src={menuIcon} onClick={()=>{OpenNavigationSmallScreen()}}/>
+      <img src={searchIcon} onClick={()=>{
+      
+        alert('jdjj')
+         
+      }}/>
+      
+      <img src={menuIcon} onClick={()=>{
+        openDrawer()}}/>
     </div>
     </div>
    
   </div>
       </div>
 
-     <div className=' hero-text-bg bg-heroSmallScreen bg-no-repeat bg-cover bg-center   w-full h-[461px] flex place-items-center bg-slate-500 '>
+     <div className={`hero-text-bg ${props.image}   bg-no-repeat bg-cover bg-center   w-full h-[461px] flex place-items-center bg-slate-500 `}>
      <div className="hero-text-container  w-full h-[355px] top-[140px] left-[10px] mx-auto bg-black bg-opacity-25 ">
 
         <div className="hero-text h-[219px] flex flex-col">
@@ -34,7 +40,7 @@ const NavBarComponent = () => {
            Premium rental homes, available on demand&quot;
            </div>
 
-           <div className="mt-[80px] text-white font-bold text-center z-10 text-balance text-xl">
+           <div className="mt-[116px] text-white font-bold text-center z-10 text-balance text-xl">
            Carefully selected, best homes thats meet with your rental needs   
            </div>
 
