@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 
-import { Link, useNavigate} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 
 
@@ -20,7 +20,9 @@ const NavDrawerBar = () =>{
               navigate('/about') 
            }}>About</p>
            
-           <p><Link to={"about"}>Blog</Link></p>
+           <p className="hover:text-orange-400 hover:underline" onClick={()=>{
+              navigate('/blog/one') 
+           }}>Blog</p>
            <p>Copyrights</p>
            <p>Terms & Conditions</p>
            <div className="flex place-items-center bg-orange-500 rounded-md w-fit hover:bg-white hover:text-orange-500 p-2">

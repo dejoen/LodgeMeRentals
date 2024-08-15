@@ -5,6 +5,9 @@ import LandingPageScreen from './features/landingPage/screen/LandingPageScreen.j
  import  {createBrowserRouter, RouterProvider}     from 'react-router-dom'
 
 import AboutPageScreen from './features/landingPage/screen/AboutPageScreen.jsx'
+import BlogScreen from './features/landingPage/screen/BlogScreen.jsx'
+import PostOne from './features/blogPosts/postOne.jsx'
+import PostTwo from './features/blogPosts/PostTwo.jsx'
 
  const router = createBrowserRouter([
     {
@@ -16,6 +19,20 @@ import AboutPageScreen from './features/landingPage/screen/AboutPageScreen.jsx'
       element:<AboutPageScreen/>,
       
 
+    },
+    {
+      path:'/blog',
+      element:<BlogScreen/>,
+      children:[
+        {
+          path:"one",
+          element:<PostOne/>
+        },
+        {
+          path:"two",
+          element:<PostTwo/>
+        }
+      ]
     }
  ])
  

@@ -80,7 +80,7 @@ const NavBarComponent = (props) => {
 
             <p className='hover:underline' onClick={()=>{navigate('/')}}>Home</p>
             <p className='hover:underline' onClick={()=>{navigate('/about')}}>About</p>
-             <p className='hover:underline ' >Blog</p>
+             <p className='hover:underline ' onClick={()=>{navigate('/blog/one')}} >Blog</p>
              <p className='hover:underline ' >Copyrights</p>
              <p className='hover:underline ' >Terms & Conditions</p>
           </div>

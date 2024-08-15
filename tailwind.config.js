@@ -12,7 +12,9 @@ export default {
        'heroSmallScreen':"url('../src/assets/bgImage.svg')",
         'footerImage':"url('../src/assets/footerimage.svg')",
         'aboutBackgroundImage':"url('../src/assets/aboutbgimage.svg')",
-        'aboutCaptureUserImage':"url('../src/assets/aboutcaptureimage.svg')"
+        'aboutCaptureUserImage':"url('../src/assets/aboutcaptureimage.svg')",
+        'blogBackgroundImage':"url('../src/assets/blogbgimage.svg')"
+        
         
       },
       fontFamily:{
