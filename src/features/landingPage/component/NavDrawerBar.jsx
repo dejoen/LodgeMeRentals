@@ -23,8 +23,15 @@ const NavDrawerBar = () =>{
            <p className="hover:text-orange-400 hover:underline" onClick={()=>{
               navigate('/blog/one') 
            }}>Blog</p>
-           <p>Copyrights</p>
+
+
+           <p  className="hover:text-orange-400 hover:underline" onClick={()=>{
+              navigate('/copyrights') 
+           }}>Copyrights</p>
+           
            <p>Terms & Conditions</p>
+
+
            <div className="flex place-items-center bg-orange-500 rounded-md w-fit hover:bg-white hover:text-orange-500 p-2">
                <p className="w-full text-center"> Log in</p>
                 </div>

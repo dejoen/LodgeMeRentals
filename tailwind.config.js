@@ -13,7 +13,9 @@ export default {
         'footerImage':"url('../src/assets/footerimage.svg')",
         'aboutBackgroundImage':"url('../src/assets/aboutbgimage.svg')",
         'aboutCaptureUserImage':"url('../src/assets/aboutcaptureimage.svg')",
-        'blogBackgroundImage':"url('../src/assets/blogbgimage.svg')"
+        'blogBackgroundImage':"url('../src/assets/blogbgimage.svg')",
+        'copyRightBackgroundImage':"url('../src/assets/crbgimage.svg')"
+        
         
         
       },
