@@ -6,8 +6,9 @@ import LandingPageScreen from './features/landingPage/screen/LandingPageScreen.j
 
 import AboutPageScreen from './features/landingPage/screen/AboutPageScreen.jsx'
 import BlogScreen from './features/landingPage/screen/BlogScreen.jsx'
-import PostOne from './features/blogPosts/postOne.jsx'
-import PostTwo from './features/blogPosts/PostTwo.jsx'
+
+import PostTwo from './features/blogPost/PostTwo.jsx'
+import PostOne from './features/blogPost/PostOne.jsx'
 
  const router = createBrowserRouter([
     {
