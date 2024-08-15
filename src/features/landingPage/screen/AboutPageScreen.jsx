@@ -1,8 +1,12 @@
-  import AboutImageSliderContainer from "../component/AboutImageSliderContainer";
+  import AboutCaptureUser from "../component/AboutCaptureUser";
+import AboutContactUs from "../component/AboutContactUs";
+import AboutImageSliderContainer from "../component/AboutImageSliderContainer";
 import AboutInstructionCardContainer from "../component/AboutInstructionCardContainer";
+import AboutTeamContainer from "../component/AboutTeamContainer";
 import AboutTextContainer from "../component/AboutTextContainer";
 import  NavbarComponent from "../component/NavbarComponent"
 import NavDrawerBar from "../component/NavDrawerBar";
+import FooterScreen from "./FooterScreen";
 
 const AboutPageScreen = () =>{
 
@@ -12,6 +16,10 @@ const AboutPageScreen = () =>{
     <AboutTextContainer/>
     <AboutImageSliderContainer/>
      <AboutInstructionCardContainer/>
+     <AboutTeamContainer/>
+     <AboutContactUs/>
+     <AboutCaptureUser/>
+     <FooterScreen/>
     <NavDrawerBar/>
 </div>
     );

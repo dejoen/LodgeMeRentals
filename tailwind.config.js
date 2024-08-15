@@ -11,7 +11,8 @@ export default {
        'heroGradientImage':"url('../src/assets/Herogradient.svg')",
        'heroSmallScreen':"url('../src/assets/bgImage.svg')",
         'footerImage':"url('../src/assets/footerimage.svg')",
-        'aboutBackgroundImage':"url('../src/assets/aboutbgimage.svg')"
+        'aboutBackgroundImage':"url('../src/assets/aboutbgimage.svg')",
+        'aboutCaptureUserImage':"url('../src/assets/aboutcaptureimage.svg')"
         
       },
       fontFamily:{
