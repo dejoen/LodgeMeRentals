@@ -12,6 +12,7 @@ import PostOne from './features/blogPost/PostOne.jsx'
 import CopyRightScreen from './features/landingPage/screen/CopyRightScreen.jsx'
 import TermsAndConditionScreen from './features/landingPage/screen/TermsAndConditionScreen.jsx'
 import ResourcesScreen from './features/landingPage/screen/ResourcesScreen.jsx'
+import FAQScreen from './features/landingPage/screen/FAQScreen.jsx'
 
  const router = createBrowserRouter([
     {
@@ -49,6 +50,10 @@ import ResourcesScreen from './features/landingPage/screen/ResourcesScreen.jsx'
     {
       path:'/resources',
       element:<ResourcesScreen/>
+    },
+    {
+      path:'/faq',
+      element:<FAQScreen/>
     }
  ])
  
