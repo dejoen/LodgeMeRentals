@@ -1,4 +1,4 @@
-import Basics from "../../resources/basics";
+import Basics from "../../resources/Basics";
 import NavBarComponent from "../component/NavbarComponent";
 import ResourceHeader from "../component/ResourceHeader";
 
