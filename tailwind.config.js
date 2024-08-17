@@ -14,7 +14,9 @@ export default {
         'aboutBackgroundImage':"url('../src/assets/aboutbgimage.svg')",
         'aboutCaptureUserImage':"url('../src/assets/aboutcaptureimage.svg')",
         'blogBackgroundImage':"url('../src/assets/blogbgimage.svg')",
-        'copyRightBackgroundImage':"url('../src/assets/crbgimage.svg')"
+        'copyRightBackgroundImage':"url('../src/assets/crbgimage.svg')",
+        'termsBackgroundImage':"url('../src/assets/termsbgimage.svg')"
+        
         
         
         

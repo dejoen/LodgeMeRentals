@@ -29,7 +29,9 @@ const NavDrawerBar = () =>{
               navigate('/copyrights') 
            }}>Copyrights</p>
            
-           <p>Terms & Conditions</p>
+           <p  className="hover:text-orange-400 hover:underline" onClick={()=>{
+              navigate('/terms') 
+           }}>Terms & Conditions</p>
 
 
            <div className="flex place-items-center bg-orange-500 rounded-md w-fit hover:bg-white hover:text-orange-500 p-2">

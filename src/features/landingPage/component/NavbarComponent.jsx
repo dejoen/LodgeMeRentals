@@ -78,11 +78,13 @@ const NavBarComponent = (props) => {
           <div className=" w-fit h-5 
            size-4  flex  gap-x-0 md:gap-x-5  md:w-full md:place-content-evenly ">
 
-            <p className='hover:underline' onClick={()=>{navigate('/')}}>Home</p>
+            <p className='hover:underline' onClick={()=>{navigate('/')
+             
+            }}>Home</p>
             <p className='hover:underline' onClick={()=>{navigate('/about')}}>About</p>
              <p className='hover:underline ' onClick={()=>{navigate('/blog/one')}} >Blog</p>
              <p className='hover:underline '  onClick={()=>{navigate('/copyrights')}}>Copyrights</p>
-             <p className='hover:underline ' >Terms & Conditions</p>
+             <p className='hover:underline '  onClick={()=>{navigate('/terms')}}>Terms & Conditions</p>
           </div>
 
           <div className=" w-fit  h-10 gap-16

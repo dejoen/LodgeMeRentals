@@ -10,6 +10,8 @@ import BlogScreen from './features/landingPage/screen/BlogScreen.jsx'
 import PostTwo from './features/blogPost/PostTwo.jsx'
 import PostOne from './features/blogPost/PostOne.jsx'
 import CopyRightScreen from './features/landingPage/screen/CopyRightScreen.jsx'
+import TermsAndConditionScreen from './features/landingPage/screen/TermsAndConditionScreen.jsx'
+import ResourcesScreen from './features/landingPage/screen/ResourcesScreen.jsx'
 
  const router = createBrowserRouter([
     {
@@ -39,6 +41,14 @@ import CopyRightScreen from './features/landingPage/screen/CopyRightScreen.jsx'
     {
       path:'/copyrights',
       element:<CopyRightScreen/>
+    },
+    {
+      path:'/terms',
+      element:<TermsAndConditionScreen/>
+    },
+    {
+      path:'/resources',
+      element:<ResourcesScreen/>
     }
  ])
  
