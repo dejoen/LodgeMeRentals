@@ -17,7 +17,9 @@ export default {
         'copyRightBackgroundImage':"url('../src/assets/crbgimage.svg')",
         'termsBackgroundImage':"url('../src/assets/termsbgimage.svg')",
         'resourceBackgroundImage':"url('../src/assets/rsbgimage.svg')",
-        'faqBackgroundImage':"url('../src/assets/faqbgimage.svg')"
+        'faqBackgroundImage':"url('../src/assets/faqbgimage.svg')",
+        'agentSignUpBackgroundImage':"url('../src/assets/agentsbgimage.svg')",
+        
         
         
         

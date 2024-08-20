@@ -7,6 +7,7 @@ import AboutTextContainer from "../component/AboutTextContainer";
 import  NavbarComponent from "../component/NavbarComponent"
 import NavDrawerBar from "../component/NavDrawerBar";
 import FooterScreen from "./FooterScreen";
+import GetStartedScreen from "./GetStartedScreen";
 
 const AboutPageScreen = () =>{
 
@@ -21,6 +22,7 @@ const AboutPageScreen = () =>{
      <AboutCaptureUser/>
      <FooterScreen/>
     <NavDrawerBar/>
+    <GetStartedScreen/>
 </div>
     );
 }

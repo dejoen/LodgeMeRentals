@@ -2,6 +2,7 @@ import NavBarComponent from "../component/NavbarComponent";
 import NavDrawerBar from "../component/NavDrawerBar";
 import TermsAndConditionTextBody from "../component/TermsAndConditionTextBody";
 import FooterScreen from "./FooterScreen";
+import GetStartedScreen from "./GetStartedScreen";
 
 const TermsAndConditionScreen = () =>{
 
@@ -11,6 +12,7 @@ const TermsAndConditionScreen = () =>{
      <TermsAndConditionTextBody/>
      <FooterScreen/>
       <NavDrawerBar/>
+      <GetStartedScreen/>
       
    </div>
     );

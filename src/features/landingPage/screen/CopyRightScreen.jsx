@@ -2,6 +2,7 @@ import CopyRightTextBody from "../component/CopyRigtTextBody"
 import NavBarComponent from "../component/NavbarComponent"
 import NavDrawerBar from "../component/NavDrawerBar"
 import FooterScreen from "./FooterScreen"
+import GetStartedScreen from "./GetStartedScreen"
 
 const CopyRightScreen = ()=>{
 
@@ -11,6 +12,7 @@ const CopyRightScreen = ()=>{
         <CopyRightTextBody/>
         <FooterScreen/>
 <NavDrawerBar/>
+<GetStartedScreen/>
         </div>
     )
 }

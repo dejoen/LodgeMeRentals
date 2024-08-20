@@ -7,6 +7,7 @@ import FaqHeader from "../component/FaqHeader";
 import NavBarComponent from "../component/NavbarComponent";
 import NavDrawerBar from "../component/NavDrawerBar";
 import FooterScreen from "./FooterScreen";
+import GetStartedScreen from "./GetStartedScreen";
 
  const FAQScreen = () => {
      return (
@@ -23,6 +24,7 @@ import FooterScreen from "./FooterScreen";
          </div>
          <FooterScreen/>
          <NavDrawerBar/>
+         <GetStartedScreen/>
         </div>
      );
  }

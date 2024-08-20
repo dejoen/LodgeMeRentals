@@ -5,6 +5,7 @@ import   searchIcon  from '../../../assets/searchIcon.svg'
 import   menuIcon from '../../../assets/menuIcon.svg'
 import { openDrawer } from './NavDrawerBar'
 import { useNavigate } from 'react-router-dom'
+import { openGetStartedPageScreen } from '../screen/GetStartedScreen'
 
 
 const NavBarComponent = (props) => {
@@ -48,11 +49,19 @@ const NavBarComponent = (props) => {
            Carefully selected, best homes thats meet with your rental needs   
            </div>
 
-           <div className="bg-yellow-600 rounded-2xl  mt-8 place-self-center p-4 text-white z-10 hover:bg-white hover:text-yellow-600">
+           <div className="bg-yellow-600 rounded-2xl  mt-8 place-self-center p-4 text-white z-10 hover:bg-white hover:text-yellow-600"  onClick={()=>{
+              if(props.buttonOneText === "Get Started"){
+                 openGetStartedPageScreen()
+                
+              }
+           }}>
              <p>{props.buttonOneText}</p>
            </div>
 
-            <div className={`${props.makeVisible} bg-white rounded-2xl  mt-5 place-self-center p-4 text-black z-10 hover:bg-white hover:text-yellow-600`}>
+            <div className={`${props.makeVisible} bg-white rounded-2xl  mt-5 place-self-center p-4 text-black z-10 hover:bg-white hover:text-yellow-600`}  onClick={()=>{
+
+openGetStartedPageScreen()
+}}>
             <p>Register</p>
           </div>
            
@@ -130,11 +139,20 @@ const NavBarComponent = (props) => {
            Carefully selected, best homes thats meet with your rental needs   
            </div>
 
-           <div className="bg-yellow-600 rounded-2xl  mt-12 place-self-center p-4 text-white z-10 hover:bg-white hover:text-yellow-600">
+           <div className="bg-yellow-600 rounded-2xl  mt-12 place-self-center p-4 text-white z-10 hover:bg-white hover:text-yellow-600" onClick={()=>{
+           
+              if(props.buttonOneText === "Get Started"){
+                 openGetStartedPageScreen()
+             
+              }
+           }}>
            <p>{props.buttonOneText}</p>
            </div>
 
-           <div className={`${props.makeVisible} bg-white rounded-2xl  mt-5 place-self-center p-4 text-black z-10 hover:bg-white hover:text-yellow-600 `}>
+           <div className={`${props.makeVisible} bg-white rounded-2xl  mt-5 place-self-center p-4 text-black z-10 hover:bg-white hover:text-yellow-600 `}  onClick={()=>{
+
+openGetStartedPageScreen()
+}}>
             <p>Register</p>
           </div>
 

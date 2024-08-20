@@ -1,4 +1,4 @@
- import HeroSectionScreen from "./HeroSectionScreen";
+import HeroSectionScreen from "./HeroSectionScreen";
 
 const LandingPageScreen = () =>{
 

@@ -2,6 +2,7 @@ import BlogPostView from "../component/BlogPostView";
 import NavBarComponent from "../component/NavbarComponent";
 import NavDrawerBar from "../component/NavDrawerBar";
 import FooterScreen from "./FooterScreen";
+import GetStartedScreen from "./GetStartedScreen";
 
 
 const BlogScreen = () => {
@@ -12,6 +13,7 @@ const BlogScreen = () => {
       <BlogPostView/>
       <FooterScreen/>
       <NavDrawerBar/>
+      <GetStartedScreen/>
       </div>
     );
 }

@@ -5,6 +5,7 @@ import NavBarComponent from "../component/NavbarComponent";
 import NavDrawerBar from "../component/NavDrawerBar";
 import ResourceHeader from "../component/ResourceHeader";
 import FooterScreen from "./FooterScreen";
+import GetStartedScreen from "./GetStartedScreen";
 
 const ResourcesScreen = () =>{
 
@@ -17,7 +18,7 @@ const ResourcesScreen = () =>{
       <ManageRental/>
        <FooterScreen/>
      <NavDrawerBar/>
-     
+     <GetStartedScreen/>
         </div>
     );
 }

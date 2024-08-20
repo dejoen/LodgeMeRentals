@@ -3,6 +3,7 @@ import NavBarComponent from "../component/NavbarComponent";
 import NavDrawerBar from "../component/NavDrawerBar";
 import FooterScreen from "./FooterScreen";
 import HeroBodyContainerOne from "../component/HeroBodyContainerOne";
+import GetStartedScreen from "./GetStartedScreen";
 
 const HeroSectionScreen = () => {
     useEffect(()=>{
@@ -14,7 +15,7 @@ const HeroSectionScreen = () => {
     return ()=>{
         window.removeEventListener('resize',()=>{})
     } 
-    },[])
+    },)
 
     return (
       
@@ -23,6 +24,7 @@ const HeroSectionScreen = () => {
  <NavBarComponent image={"bg-heroSectionBackgroundImage"} text={`Premium rental homes, available on demand"`} buttonOneText={"Get Started"} makeVisible={"hidden"} />  
 <HeroBodyContainerOne/>
 <FooterScreen/>
+<GetStartedScreen/>
 <NavDrawerBar/>
 
  </div>
