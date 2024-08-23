@@ -2,7 +2,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import backArrowIcon from "../assets/backarrowIcon.svg"
 
-import errorIcon from '../assets/errorpopupIcon.svg'
+import errorIcon from '../assets/errorPopupIcon.svg'
 const ErrorPopUpScreen = (props) =>{
     return (
         <div className={` hidden errorScreen absolute w-full  bg-black bg-opacity-35 top-0 bottom-0  place-items-center justify-center`}>
