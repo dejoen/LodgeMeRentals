@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-refresh/only-export-components */
-import backArrowIcon from "../assets/backArrowIcon.svg"
+import backArrowIcon from "../assets/backarrowIcon.svg"
 
 import errorIcon from '../assets/errorpopupIcon.svg'
 const ErrorPopUpScreen = (props) =>{

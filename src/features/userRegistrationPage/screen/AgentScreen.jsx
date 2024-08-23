@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import backArrowIcon from "../../../assets/backArrowIcon.svg"
+import backArrowIcon from "../../../assets/backarrowIcon.svg"
 import nameIcome from  "../../../assets/nameIcon.svg"
 import emailIcon from '../../../assets/emailIcon.svg'
 import numberIcon from '../../../assets/numberIcon.svg'
