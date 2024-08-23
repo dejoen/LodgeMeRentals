@@ -1,6 +1,14 @@
 import { useState } from 'react'
+import backArrowIcon from "../../../assets/backArrowIcon.svg"
+import nameIcome from  "../../../assets/nameIcon.svg"
+import emailIcon from '../../../assets/emailIcon.svg'
+import numberIcon from '../../../assets/numberIcon.svg'
+import passwordIcon from '../../../assets/passwordIcon.svg'
+import { useNavigate } from 'react-router-dom'
+import ErrorPopUpScreen, { openErrorScreen } from '../../../utils/ErrorPopUpScreen'
 
 const AgentScreen = () => {
+     const navigate = useNavigate()
      const [togglePassword,setTogglePassword]= useState({
         password:{
             isToggle:false,
@@ -19,7 +27,11 @@ const AgentScreen = () => {
         <div className='font-nunito w-full flex  md:justify-center '>
             
             <div className='w-full md:w-[50%]  md:p-12 flex flex-col   place-items-center justify-center overflow-auto' >
-              <p className='w-full ms-10 font-bold'>{"<-"}</p>
+             <div className='w-full'>
+             <img className='w-[40px]  hover:w-[60px] font-bold ms-5 mt-5'  src={backArrowIcon}  onClick={()=>{
+                 navigate('/')
+             }} />
+             </div>
               <p className='font-bold text-2xl mt-2 mb-2 '>Get Started</p>
               <p className='font-bold'>Already have an account? <span className='text-blue-600'>Sign In</span></p>
 
@@ -28,7 +40,9 @@ const AgentScreen = () => {
                     <p>Name</p>
                     <div className='w-fit border border-black rounded-md  flex p-3'>
                         <input className='outline-none' type='text' placeholder='Enter your name'/>
-                        <p>{"@"}</p>
+                        <img className='w-[15px] font-bold'  src={nameIcome}  onClick={()=>{
+                 navigate('/')
+             }}/>
                     </div>
                 </div>
 
@@ -36,7 +50,9 @@ const AgentScreen = () => {
                     <p>Email</p>
                     <div className='w-fit border border-black rounded-md  flex p-3'>
                         <input className='outline-none' type='email' placeholder='Enter your email'/>
-                        <p>{"@"}</p>
+                        <img className='w-[15px] font-bold'  src={emailIcon}  onClick={()=>{
+                 navigate('/')
+             }}/>
                     </div>
                 </div>
 
@@ -45,7 +61,7 @@ const AgentScreen = () => {
                     <p>Number</p>
                     <div className='w-fit border border-black rounded-md  flex p-3'>
                         <input className='outline-none' type='tel' placeholder='+234'/>
-                        <p>{"@"}</p>
+                        <img className='w-[15px] font-bold'  src={numberIcon}/>
                     </div>
                 </div>
 
@@ -63,7 +79,7 @@ const AgentScreen = () => {
                                 }
                             })
                         }}/>
-                        <p onClick={()=>{
+                         <img className='w-[15px] font-bold'  src={passwordIcon} onClick={()=>{
                           setTogglePassword((prev)=>{
                                 return {
                                     ...prev,
@@ -72,7 +88,8 @@ const AgentScreen = () => {
                                     }
                                 }
                             })
-                        }}>{"@"}</p>
+                        }}/>
+                    
                     </div>
                 </div>
 
@@ -91,7 +108,7 @@ const AgentScreen = () => {
                         }}
                         
                         />
-                        <p  onClick={()=>{
+                       <img className='w-[15px] font-bold'  src={passwordIcon}  onClick={()=>{
                           setTogglePassword((prev)=>{
                                 return {
                                     ...prev,
@@ -100,7 +117,7 @@ const AgentScreen = () => {
                                     }
                                 }
                             })
-                        }}  >{"@"}</p>
+                        }}  />
                     </div>
                 </div>
 
@@ -111,8 +128,10 @@ const AgentScreen = () => {
 
 
                 <div>
-                    <div className='w-[200px] border bg-orange-400 rounded-md  flex place-items-center justify-center  p-3 mb-5'>
-                   <p>Sign Up</p>
+                    <div className='w-[200px] border bg-orange-400 rounded-md  flex place-items-center justify-center  p-3 mb-5' onClick={()=>{
+                    openErrorScreen()
+                   }}>
+                   <p >Sign Up</p>
                     </div>
                 </div>
               </div>
@@ -141,7 +160,8 @@ const AgentScreen = () => {
           }
          </div>
          */
-}
+}    
+  <ErrorPopUpScreen title={"Registration Message"} body={"please provide all information need to continue this process."}/>
         </div>
     )
 }

@@ -29,7 +29,36 @@ export default {
       },
       fontFamily:{
         nunito:["Nunito"]
+      },
+      keyframes:{
+        popUp :{
+           "0%":{
+            transform:"scale(1)"
+           },
+           "50%":{
+            transform:"scale(1.4)"
+           },
+           "60%":{
+            transform:"scale(1.1)"
+           },
+           "70%":{
+            transform:"scale(1.2)"
+           },
+           "80%":{
+            transform:"scale(1)"
+           },
+           "90%":{
+            transform:"scale(1.1)"
+           },
+           "100%":{
+            transform:"scale(1)"
+           }
+        }
+      },
+      animation:{
+        popUpAnimation:"popUp 1s linear 1"
       }
+    
     },
    
   },

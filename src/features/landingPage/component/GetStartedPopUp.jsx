@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 const GetStartedPopUp = (props) =>{
     const navigate = useNavigate()
     return (
-        <div className=" font-nunito  w-full  h-fit pb-5  bg-white rounded-3xl">
+        <div className="animate-popUpAnimation font-nunito  w-full  h-fit pb-5  bg-white rounded-3xl">
     <p className='mt-8 ms-5 font-bold text-2xl'  onClick={()=>{
        props.closeScreen() 
     }}>{'<'}</p>
