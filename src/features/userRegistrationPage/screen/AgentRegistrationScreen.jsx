@@ -7,7 +7,7 @@ import passwordIcon from '../../../assets/passwordIcon.svg'
 import { useNavigate } from 'react-router-dom'
 import ErrorPopUpScreen, { openErrorScreen } from '../../../utils/ErrorPopUpScreen'
 
-const AgentScreen = () => {
+const AgentRegistrationScreen = () => {
      const navigate = useNavigate()
      const [togglePassword,setTogglePassword]= useState({
         password:{
@@ -168,4 +168,4 @@ const AgentScreen = () => {
     )
 }
 
-export default AgentScreen
+export default AgentRegistrationScreen

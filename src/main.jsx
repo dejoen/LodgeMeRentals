@@ -13,7 +13,9 @@ import CopyRightScreen from './features/landingPage/screen/CopyRightScreen.jsx'
 import TermsAndConditionScreen from './features/landingPage/screen/TermsAndConditionScreen.jsx'
 import ResourcesScreen from './features/landingPage/screen/ResourcesScreen.jsx'
 import FAQScreen from './features/landingPage/screen/FAQScreen.jsx'
-import AgentScreen from './features/userRegistrationPage/screen/AgentScreen.jsx'
+import AgentRegistrationScreen from './features/userRegistrationPage/screen/AgentRegistrationScreen.jsx'
+import AgentDashBoardScreen from './features/userRegistrationPage/screen/AgentDashBoardScreen.jsx'
+import DashboardView from './features/userRegistrationPage/screen/DashBoardView.jsx'
 
  const router = createBrowserRouter([
     {
@@ -58,7 +60,17 @@ import AgentScreen from './features/userRegistrationPage/screen/AgentScreen.jsx'
     },
     {
       path:'/register-as-agent',
-      element:<AgentScreen/>
+      element:<AgentRegistrationScreen/>
+    },
+    {
+      path:"/agent",
+      element:<AgentDashBoardScreen/>,
+      children:[
+        {
+          path:'dashboard',
+          element:<DashboardView/>
+        }
+      ]
     }
  ])
  

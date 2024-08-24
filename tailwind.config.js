@@ -19,6 +19,8 @@ export default {
         'resourceBackgroundImage':"url('../src/assets/rsbgimage.svg')",
         'faqBackgroundImage':"url('../src/assets/faqbgimage.svg')",
         'agentSignUpBackgroundImage':"url('../src/assets/agentsbgimage.svg')",
+        'agentNavbarBgImage':"url('../src/assets/agentnavbarbgimage.svg')"
+
         
         
         
