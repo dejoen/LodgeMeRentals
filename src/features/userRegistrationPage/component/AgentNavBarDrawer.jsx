@@ -1,15 +1,17 @@
- import  LodgeMeIcon from '../../../assets/lodgeMeIcon.svg'
+/* eslint-disable react-refresh/only-export-components */
+import  LodgeMeIcon from '../../../assets/lodgeMeIcon.svg'
 
- import  dashBoardMenu from '../../../assets/dmenuicon.svg'
- import  dashBoardMessageIcon from '../../../assets/dmessageicon.svg'
- import  dashBoardAppointment from '../../../assets/dappointmenticon.svg'
- import  dashBoardNotification from '../../../assets/dnotificationicon.svg'
- import  dashBoardSettings from '../../../assets/dsettingsicon.svg'
+import  dashBoardMenu from '../../../assets/dmenuicon.svg'
+import  dashBoardMessageIcon from '../../../assets/dmessageicon.svg'
+import  dashBoardAppointment from '../../../assets/dappointmenticon.svg'
+import  dashBoardNotification from '../../../assets/dnotificationicon.svg'
+import  dashBoardSettings from '../../../assets/dsettingsicon.svg'
 import {  useState } from 'react'
 import { useNavigate ,useLocation} from 'react-router-dom'
 
-const DashBoardNavBar = () =>{
-  const location =useLocation()
+const AgentNavBarDrawer = () =>{
+  
+        const location =useLocation()
    const [activeContainer,setActiveContainter] = useState(()=>{
     switch(location.pathname.split('/')[2]){
       case 'dashboard': {
@@ -60,10 +62,13 @@ const DashBoardNavBar = () =>{
    
     return (
       
-     <div className="hidden md:block bg-agentNavbarBgImage w-[250px] h-dvh">
+     <div className="AgentDrawer absolute hidden top-0 right-0 z-50 md:hidden bg-agentNavbarBgImage w-[250px] h-dvh ">
       
-    
+      <p className='text-white font-bold text-3xl m-3 hover:text-orange-600' onClick={()=>{
+        closeAgentDrawer()
+      }}>{"x"}</p>
      <div className='flex flex-col gap-3 place-items-center'>
+    
         <img className='w-[100px] mt-8' src={LodgeMeIcon}/>
         <p className='w-full h-[1px] bg-white'></p>
 
@@ -93,12 +98,13 @@ const DashBoardNavBar = () =>{
              }
           })
 
-          navigate("agent/dashboard")
+          navigate("/agent/dashboard")
 
         }}>
           <img src={dashBoardMenu}/>
           <p>Dashboard</p>
         </div>
+
 
         <div className={`flex h-[50px] hover:bg-[#BB7655] ${ (activeContainer.messageNav.isActive) ?"bg-[#BB7655] ":""}  rounded-md place-items-center  ps-4 gap-2`} onClick={()=>{
           setActiveContainter((prevState)=>{
@@ -121,7 +127,7 @@ const DashBoardNavBar = () =>{
               },
              }
           })
-          navigate('agent/message')
+          navigate('/agent/message')
         }}>
           <img src={dashBoardMessageIcon}/>
           <p>Messages</p>
@@ -207,9 +213,53 @@ const DashBoardNavBar = () =>{
         </div>
      </div>
      </div>
+    );
 
-    )
+}
+
+export const openAgentDrawer = () =>{
+
+   
+    
+    const drawer =   document.querySelector('.AgentDrawer')
+    drawer.style.display= "block"
+    drawer.animate([
+        {
+            transform:"translateX(100%)"
+        },
+        {
+            transform:"translateX(0%)"
+        }
+    ],{
+        duration:500
+    })
+ 
+     return drawer
+    
+}
+
+export const closeAgentDrawer = () =>{
+  
+  const drawer =document.querySelector('.AgentDrawer')
+  drawer.animate([
+    {
+        transform:"translateX(0%)"
+    },
+    {
+        transform:"translateX(100%)"
+    }
+],{
+    duration:500
+}).onfinish=()=>{
+    drawer.style.display= "none" 
 }
 
 
-export default DashBoardNavBar
+  
+ 
+
+    
+   return drawer 
+}
+
+export default AgentNavBarDrawer

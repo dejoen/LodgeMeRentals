@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import  LodgeMeIcon from '../../../assets/lodgeMeIcon.svg'
 import  searchIcon from '../../../assets/searchIcon.svg'
+import  menuIcon from '../../../assets/menuIcon.svg'
+import { openAgentDrawer } from './AgentNavBarDrawer'
 
 let AgentHeader = (props) =>{
     return (
@@ -9,17 +11,28 @@ let AgentHeader = (props) =>{
             
             <div className='w-[50%]'>
             <p className="text-2xl">{props.header}</p>
-            <p>{props.body}</p>
+            <p className='hidden md:block'>{props.body}</p>
             </div>
-
-            <div className='w-[50%] flex place-items-end justify-end me-5 gap-10'>
-            <img className='w-[40px] 
+         
+         <div className='  w-[50%]  md:w-[33%]  flex place-items-center justify-end me-5  gap-10'>
+            
+            <img className='w-[20px]  md:w-[40px] 
              ' src={searchIcon} />
-            <div className=' border border-orange-400 rounded-full p-2 '>
+
+
+            <div className='hidden md:block border border-orange-400 rounded-full p-2 '>
             <img className='w-[40px] 
              ' src={LodgeMeIcon} />
+          
             </div>
-            
+
+            <div className=' p-2  md:hidden' onClick={()=>{
+                openAgentDrawer()
+            }}>
+            <img className='w-[40px] h-[30px]
+             ' src={menuIcon} />
+          
+            </div>
             </div>
 
 

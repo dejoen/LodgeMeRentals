@@ -16,6 +16,7 @@ import FAQScreen from './features/landingPage/screen/FAQScreen.jsx'
 import AgentRegistrationScreen from './features/userRegistrationPage/screen/AgentRegistrationScreen.jsx'
 import AgentDashBoardScreen from './features/userRegistrationPage/screen/AgentDashBoardScreen.jsx'
 import DashboardView from './features/userRegistrationPage/screen/DashBoardView.jsx'
+import MessageView from './features/userRegistrationPage/screen/MessageView.jsx'
 
  const router = createBrowserRouter([
     {
@@ -63,12 +64,16 @@ import DashboardView from './features/userRegistrationPage/screen/DashBoardView.
       element:<AgentRegistrationScreen/>
     },
     {
-      path:"/agent",
+      path:"/",
       element:<AgentDashBoardScreen/>,
       children:[
         {
-          path:'dashboard',
+          path:'agent/dashboard',
           element:<DashboardView/>
+        },
+        {
+          path:'agent/message',
+          element:<MessageView/>
         }
       ]
     }

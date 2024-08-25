@@ -5,7 +5,7 @@ import emailIcon from '../../../assets/emailIcon.svg'
 import numberIcon from '../../../assets/numberIcon.svg'
 import passwordIcon from '../../../assets/passwordIcon.svg'
 import { useNavigate } from 'react-router-dom'
-import ErrorPopUpScreen, { openErrorScreen } from '../../../utils/ErrorPopUpScreen'
+import ErrorPopUpScreen from '../../../utils/ErrorPopUpScreen'
 
 const AgentRegistrationScreen = () => {
      const navigate = useNavigate()
@@ -131,7 +131,8 @@ const AgentRegistrationScreen = () => {
 
                 <div>
                     <div className='w-[200px] border bg-orange-400 rounded-md  flex place-items-center justify-center  p-3 mb-5' onClick={()=>{
-                    openErrorScreen()
+                    //openErrorScreen()
+                    navigate('/agent/dashboard')
                    }}>
                    <p >Sign Up</p>
                     </div>

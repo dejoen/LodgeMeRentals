@@ -6,7 +6,7 @@ import DashBoardNavBar from "../component/DashBoardNavBar"
 const AgentDashBoardScreen = () =>{
     return (
 
-        <div className="flex h-[100vh] overflow-y-hidden">
+        <div className="flex h-[100vh] ">
      <DashBoardNavBar/>
       <Outlet />
         </div>
