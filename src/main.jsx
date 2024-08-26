@@ -17,6 +17,7 @@ import AgentRegistrationScreen from './features/userRegistrationPage/screen/Agen
 import AgentDashBoardScreen from './features/userRegistrationPage/screen/AgentDashBoardScreen.jsx'
 import DashboardView from './features/userRegistrationPage/screen/DashBoardView.jsx'
 import MessageView from './features/userRegistrationPage/screen/MessageView.jsx'
+import LoginScreen from './features/login/screen/LoginScreen.jsx'
 
  const router = createBrowserRouter([
     {
@@ -76,6 +77,10 @@ import MessageView from './features/userRegistrationPage/screen/MessageView.jsx'
           element:<MessageView/>
         }
       ]
+    },
+    {
+      path:'/login',
+      element:<LoginScreen/>
     }
  ])
  

@@ -6,6 +6,7 @@ import numberIcon from '../../../assets/numberIcon.svg'
 import passwordIcon from '../../../assets/passwordIcon.svg'
 import { useNavigate } from 'react-router-dom'
 import ErrorPopUpScreen from '../../../utils/ErrorPopUpScreen'
+import LoadingPopUpScreen, { showLoadingPopUp } from '../../../utils/LoadingPopUpScreen'
 
 const AgentRegistrationScreen = () => {
      const navigate = useNavigate()
@@ -132,7 +133,9 @@ const AgentRegistrationScreen = () => {
                 <div>
                     <div className='w-[200px] border bg-orange-400 rounded-md  flex place-items-center justify-center  p-3 mb-5' onClick={()=>{
                     //openErrorScreen()
-                    navigate('/agent/dashboard')
+                   // navigate('/agent/dashboard')
+                window.scrollTo({top:0,behavior:'smooth'})
+                   showLoadingPopUp()
                    }}>
                    <p >Sign Up</p>
                     </div>
@@ -165,6 +168,7 @@ const AgentRegistrationScreen = () => {
          */
 }    
   <ErrorPopUpScreen title={"Registration Message"} body={"please provide all information need to continue this process."}/>
+  <LoadingPopUpScreen sequence={['hold on now .....','why we.....','set up.....','your account.....']}/>
         </div>
     )
 }
