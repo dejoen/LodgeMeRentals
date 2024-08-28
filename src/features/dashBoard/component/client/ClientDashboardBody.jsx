@@ -1,5 +1,6 @@
 import ClientDashBoardBodyHeader from "./ClientDashboardBodyHeader";
-import ClientHouseCard from "./ClientHouseCard";
+import Footer from '../../../landingPage/screen/FooterScreen'
+import ClientHouseCardContainer from "./ClientHouseCardContainer";
 
 
 const  ClientDashBoardBody = () =>{
@@ -8,7 +9,8 @@ const  ClientDashBoardBody = () =>{
         <div className="mt-2 ms-2">
 
              <ClientDashBoardBodyHeader/>
-             <ClientHouseCard/>
+             <ClientHouseCardContainer/>
+             <Footer/>
         </div>
 
     );
