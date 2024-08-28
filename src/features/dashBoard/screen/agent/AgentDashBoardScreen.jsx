@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom"
-import DashBoardNavBar from "../component/DashBoardNavBar"
+import DashBoardNavBar from "../../component/DashBoardNavBar"
 
 
 

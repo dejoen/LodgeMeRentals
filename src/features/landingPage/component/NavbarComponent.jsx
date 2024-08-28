@@ -53,6 +53,9 @@ const NavBarComponent = (props) => {
               if(props.buttonOneText === "Get Started"){
                  openGetStartedPageScreen()
                 
+              }else{
+              
+                navigate('/login')
               }
            }}>
              <p>{props.buttonOneText}</p>
@@ -144,6 +147,9 @@ openGetStartedPageScreen()
               if(props.buttonOneText === "Get Started"){
                  openGetStartedPageScreen()
              
+              }else{
+                
+                navigate('/login')
               }
            }}>
            <p>{props.buttonOneText}</p>

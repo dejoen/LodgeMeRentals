@@ -32,7 +32,7 @@ import LoadingPopUpScreen, { showLoadingPopUp } from '../../../utils/LoadingPopU
            <div className='w-full md:w-[50%]  md:p-12 flex flex-col   place-items-center justify-center overflow-auto' >
             <div className='w-full'>
             <img className='w-[40px]  hover:w-[60px] font-bold ms-5 mt-5'  src={backArrowIcon}  onClick={()=>{
-                navigate('/')
+                navigate(-1)
             }} />
             </div>
              <p className='font-bold text-2xl mt-10 mb-2 '>Welcome Back</p>
@@ -46,7 +46,7 @@ import LoadingPopUpScreen, { showLoadingPopUp } from '../../../utils/LoadingPopU
                    <div className='w-fit border border-black rounded-md  flex p-3'>
                        <input className='outline-none' type='email' placeholder='Enter your email'/>
                        <img className='w-[15px] font-bold'  src={emailIcon}  onClick={()=>{
-                navigate('/')
+                
             }}/>
                    </div>
                </div>

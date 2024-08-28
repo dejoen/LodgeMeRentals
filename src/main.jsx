@@ -14,10 +14,13 @@ import TermsAndConditionScreen from './features/landingPage/screen/TermsAndCondi
 import ResourcesScreen from './features/landingPage/screen/ResourcesScreen.jsx'
 import FAQScreen from './features/landingPage/screen/FAQScreen.jsx'
 import AgentRegistrationScreen from './features/userRegistrationPage/screen/AgentRegistrationScreen.jsx'
-import AgentDashBoardScreen from './features/userRegistrationPage/screen/AgentDashBoardScreen.jsx'
-import DashboardView from './features/userRegistrationPage/screen/DashBoardView.jsx'
-import MessageView from './features/userRegistrationPage/screen/MessageView.jsx'
+
 import LoginScreen from './features/login/screen/LoginScreen.jsx'
+import ClientRegistrationScreen from './features/userRegistrationPage/screen/ClientRegistrationScreen.jsx'
+import AgentDashBoardScreen from './features/dashBoard/screen/agent/AgentDashBoardScreen.jsx'
+import AgentDashboardView from './features/dashBoard/screen/agent/AgentDashBoardView.jsx'
+import AgentMessageView from './features/dashBoard/screen/agent/AgentMessageView.jsx'
+import ClientDashBoardScreen from './features/dashBoard/screen/client/ClientDashBoardScreen.jsx'
 
  const router = createBrowserRouter([
     {
@@ -65,22 +68,31 @@ import LoginScreen from './features/login/screen/LoginScreen.jsx'
       element:<AgentRegistrationScreen/>
     },
     {
+      path:'/register-as-client',
+      element:<ClientRegistrationScreen/>
+    },
+    {
       path:"/",
       element:<AgentDashBoardScreen/>,
       children:[
         {
           path:'agent/dashboard',
-          element:<DashboardView/>
+          element:<AgentDashboardView/>
         },
         {
           path:'agent/message',
-          element:<MessageView/>
+          element:<AgentMessageView/>
+          
         }
       ]
     },
     {
       path:'/login',
       element:<LoginScreen/>
+    },
+    {
+      path:'/client/dashboard',
+      element:<ClientDashBoardScreen/>
     }
  ])
  

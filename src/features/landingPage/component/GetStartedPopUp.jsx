@@ -19,7 +19,9 @@ const GetStartedPopUp = (props) =>{
      <p className='font-bold mt-8'>Sign up as</p>
      <div className='w-full p-5 flex flex-wrap place-items-center justify-evenly'>
 
-        <div className='mt-5 border-black border w-fit p-2 border-opacity-30 rounded-md hover:shadow-lg'>
+        <div className='mt-5 border-black border w-fit p-2 border-opacity-30 rounded-md hover:shadow-lg' onClick={()=>{
+          navigate('/register-as-client')
+        }}>
         <div className='flex place-items-center gap-2 m-2 justify-center'>
            <img className='w-[40px]' src={clientIcon} />
            <p className='font-bold'>Client</p>

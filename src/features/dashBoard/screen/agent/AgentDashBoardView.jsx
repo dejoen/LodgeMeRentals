@@ -1,8 +1,8 @@
-import AgentBody from "../component/AgentBody"
-import AgentContainer from "../component/AgentContainer"
-import AgentNavBarDrawer from "../component/AgentNavBarDrawer"
+import AgentBody from "../../component/AgentBody"
+import AgentContainer from "../../component/AgentContainer"
+import AgentNavBarDrawer from "../../component/AgentNavBarDrawer"
 
-const DashboardView = () =>{
+const AgentDashboardView = () =>{
     return (
         <div className="w-full  h-screen overflow-hidden ">
           <AgentContainer header={"Welcome User!"} body={"What would you like to see today?"}/>
@@ -12,4 +12,4 @@ const DashboardView = () =>{
     )
 }
 
-export default DashboardView
+export default AgentDashboardView
