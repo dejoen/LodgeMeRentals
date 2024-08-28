@@ -2,7 +2,7 @@
 import AppointmentCard from "./menuCards/AppointmentCard";
 import InboxCard from "./menuCards/InboxCard";
 import NotificationCard from "./menuCards/NotificationCard";
-import ProfileCard from "./menuCards/profileCard";
+import ProfileCard from "./menuCards/ProfileCard";
 
 
 const ClientPopUpMenu = (props) =>{
