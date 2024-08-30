@@ -21,6 +21,7 @@ import AgentDashBoardScreen from './features/dashBoard/screen/agent/AgentDashBoa
 import AgentDashboardView from './features/dashBoard/screen/agent/AgentDashBoardView.jsx'
 import AgentMessageView from './features/dashBoard/screen/agent/AgentMessageView.jsx'
 import ClientDashBoardScreen from './features/dashBoard/screen/client/ClientDashBoardScreen.jsx'
+import ClientHouseCardContainerView from './features/dashBoard/screen/client/ClientHouseCardContainerView.jsx'
 
  const router = createBrowserRouter([
     {
@@ -92,7 +93,13 @@ import ClientDashBoardScreen from './features/dashBoard/screen/client/ClientDash
     },
     {
       path:'/client/dashboard',
-      element:<ClientDashBoardScreen/>
+      element:<ClientDashBoardScreen/>,
+      children:[
+        {
+          path:'page/:currentPage',
+           element:<ClientHouseCardContainerView/>
+        }
+      ]
     }
  ])
  

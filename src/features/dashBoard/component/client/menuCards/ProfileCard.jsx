@@ -2,8 +2,8 @@
 
 const ProfileCard = (props) =>{
     return (
-        <div className={`font-nunito ${props.display}  w-[360px] h-full bg-white shadow-lg rounded-sm flex flex-col`}>
-         <div className="w-full mt-3 flex justify-center">
+        <div className={`font-nunito ${props.display} flex-col  w-[300px] md:w-[360px] h-full bg-white shadow-lg rounded-sm  `}>
+         <div className="hidden w-full mt-3 md:flex justify-center">
             <img src="/" />
             <div className="ms-4">
                 <p>User Own Name</p>

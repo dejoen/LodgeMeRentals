@@ -6,10 +6,10 @@ import ClientMessageBody from "../ClientMessageBody";
 const InboxCard = (props) => {
     
 return (
-            <div className={`pt-2 font-nunito ${props.display}  w-[360px] h-full bg-white shadow-lg rounded-sm flex flex-col`}>
+            <div className={`pt-2 font-nunito ${props.display} flex-col  w-[360px] h-full bg-white shadow-lg rounded-sm  `}>
             
             <div className=" w-full flex  ">
-             <p className=" font-bold ms-3">inbox<span>{'v'}</span></p>
+             <p className="hidden md:block font-bold ms-3">inbox<span>{'v'}</span></p>
                 <p className="absolute right-5 ">{'*'}<span>Filter</span></p>
             </div>
 

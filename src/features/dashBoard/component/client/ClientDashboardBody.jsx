@@ -1,19 +1,25 @@
 import ClientDashBoardBodyHeader from "./ClientDashboardBodyHeader";
 import Footer from '../../../landingPage/screen/FooterScreen'
-import ClientHouseCardContainer from "./ClientHouseCardContainer";
+import ClientPagination from "./clientPagination";
+import { Outlet } from "react-router-dom";
+import PaginationContextProvider from "../../../../context/client/PaginationContext";
 
 
 const  ClientDashBoardBody = () =>{
-    return (
      
-        <div className="mt-2 ms-2">
+    return (
+        <PaginationContextProvider >
+        <div className="mt-2 ">
 
              <ClientDashBoardBodyHeader/>
-             <ClientHouseCardContainer/>
+             <Outlet/>
+             <ClientPagination/>
              <Footer/>
         </div>
-
+        </PaginationContextProvider>
     );
 }
+
+
 
 export default ClientDashBoardBody

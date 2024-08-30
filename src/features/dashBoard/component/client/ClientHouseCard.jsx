@@ -1,10 +1,18 @@
-
+import Carousel from "react-multi-carousel"
+import "react-multi-carousel/lib/styles.css";
+import { responsive } from "../../../../utils/CouroselDisplayHome";
+import promoImage from '../../../../assets/promoimageone.svg'
 const ClientHouseCard = () => {
 
     return (
-        <div className="shadow shadow-black w-[350px] h-[290px] md:h-[320px] bg-[#FFC8391A] rounded-2xl flex flex-col justify-center">
+        <div className="shadow shadow-black w-[350px] h-[390px]  bg-[#FFC8391A] rounded-2xl flex flex-col justify-center">
             <div className="bg-[#D9D9D9] w-[290px] h-[180px] m-4 rounded-3xl">
-             <p className=" text-end me-4">love</p>
+             
+             <Carousel className="w-fill h-full rounded-md " responsive={responsive} >
+               <img className="" src={promoImage} />
+               <img className="" src={promoImage} />
+               <img className="" src={promoImage} />
+             </Carousel>
             </div>
             <div className="ms-3">
              <p className="font-bold">House A</p>

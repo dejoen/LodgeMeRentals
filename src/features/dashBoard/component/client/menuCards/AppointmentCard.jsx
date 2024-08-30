@@ -4,9 +4,9 @@ const AppointmentCard = (props) =>{
 
     
         return (
-            <div className={` font-nunito ${props.display}  w-[360px] h-full bg-white shadow-lg rounded-sm flex flex-col `}>
+            <div className={` font-nunito ${props.display} flex-col  w-[360px] h-full bg-white shadow-lg rounded-sm `}>
              <div className="mt-5 ms-2 font-bold">
-                <p>Appointment</p>
+                <p className="hidden md:block">Appointment</p>
                 <p className="text-sm">See all appointments here.</p>
              </div>
             <div className="mt-2  flex flex-col gap-5">

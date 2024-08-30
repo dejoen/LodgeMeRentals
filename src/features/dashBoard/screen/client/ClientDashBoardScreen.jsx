@@ -4,6 +4,7 @@ import ClientPopUpMenu from "../../component/client/ClientPopUpMenu";
 import { CardType } from "../../../../utils/CardType";
 import ClientAdvertBanner from "../../component/client/banner/ClientAdvertBanner";
 import ClientDashBoardBody from "../../component/client/ClientDashboardBody";
+import ClientNavDrawer from "../../component/client/ClientNavDrawer";
 
 
 const ClientDashBoardScreen = () =>{
@@ -156,6 +157,7 @@ const ClientDashBoardScreen = () =>{
     <ClientPopUpMenu isMenuClosed={closeMenu} iconHovered={iconHovered}/>
     <ClientAdvertBanner/>
    <ClientDashBoardBody/>
+   <ClientNavDrawer/>
    </div>
 
     );

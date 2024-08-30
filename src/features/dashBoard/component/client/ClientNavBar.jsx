@@ -5,8 +5,8 @@ import  appointmentIcon  from '../../../../assets/clientappointmenticon.svg'
 import  notificationIcon  from '../../../../assets/clientnotificationicon.svg'
 
 import  menuIcon from '../../../../assets/menuIcon.svg'
-import { openAgentDrawer } from '../AgentNavBarDrawer'
 import { CardType } from '../../../../utils/CardType'
+import { openClientDrawer } from './ClientNavDrawer'
 
 const ClientNavBar = (props) => {
 
@@ -18,7 +18,25 @@ const ClientNavBar = (props) => {
             <p className=" font-bold text-2xl">{"Welcome User!"}</p>
             <p className='font-bold hidden md:block'>{"what will you like to see today ?"}</p>
             </div>
+
+            <div className='  flex  md:hidden w-[50%] md:w-svw md:me-5  place-items-center justify-end   gap-10'>
+            <img className='w-[20px]  md:w-[40px]  h-[40px]
+             ' src={searchIcon} onPointerOver={()=>{
+
+                props.setIconOver(CardType.SEARCH)
+               
+             }}
+             /> 
+
+             <img className='w-[20px] me-4 h-[40px]'
+             src={menuIcon} onClick={()=>{
+               openClientDrawer()
+             }}
+             /> 
+             </div>
          
+
+
          <div className='  hidden  md:flex  w-[50%] md:w-svw md:me-5  place-items-center justify-end   gap-10'>
              
             <div className='justify-center'>
@@ -69,13 +87,7 @@ const ClientNavBar = (props) => {
             </div>
             
 
-            <div className=' p-2  md:hidden' onClick={()=>{
-                openAgentDrawer()
-            }}>
-            <img className='w-[40px] h-[30px]
-             ' src={menuIcon} />
-          
-            </div>
+           
             </div>
 
 
