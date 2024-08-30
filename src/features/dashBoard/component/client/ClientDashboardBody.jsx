@@ -1,6 +1,6 @@
 import ClientDashBoardBodyHeader from "./ClientDashboardBodyHeader";
 import Footer from '../../../landingPage/screen/FooterScreen'
-import ClientPagination from "./clientPagination";
+import ClientPagination from "../client/ClientPagination";
 import { Outlet } from "react-router-dom";
 import PaginationContextProvider from "../../../../context/client/PaginationContext";
 
