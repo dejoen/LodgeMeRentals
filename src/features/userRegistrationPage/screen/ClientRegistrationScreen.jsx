@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import backArrowIcon from "../../../assets/backarrowIcon.svg"
 import nameIcome from  "../../../assets/nameIcon.svg"
 import emailIcon from '../../../assets/emailIcon.svg'
 import numberIcon from '../../../assets/numberIcon.svg'
 import passwordIcon from '../../../assets/passwordIcon.svg'
 import { useNavigate } from 'react-router-dom'
-import ErrorPopUpScreen from '../../../utils/ErrorPopUpScreen'
-import LoadingPopUpScreen, { showLoadingPopUp } from '../../../utils/LoadingPopUpScreen'
+import ErrorPopUpScreen, { openErrorScreen } from '../../../utils/ErrorPopUpScreen'
+import LoadingPopUpScreen, { closeLoadingPopUp, showLoadingPopUp } from '../../../utils/LoadingPopUpScreen'
+import registerUser from './service/registrationService'
+import { CombineContext } from '../../../context/CombineContextProvider'
 
 
   const ClientRegistrationScreen = () =>{
@@ -23,6 +25,22 @@ import LoadingPopUpScreen, { showLoadingPopUp } from '../../../utils/LoadingPopU
 
      })
 
+     const  [registrationData,setRegistrationData]  = useState({
+        accountType:'client',
+        userName:'',
+        userEmail:'',
+        userPassword:'',
+        userPhoneNumber:'',
+        userAgreeToTerms:false
+
+     })
+
+     const  [errorMessage,setErrorMessage] = useState('')
+
+     const {clientReducerState} = useContext(CombineContext)
+
+       const [openErrorScreenState,setErrorScreenState] = useState(true)
+
     
 
 
@@ -37,26 +55,42 @@ import LoadingPopUpScreen, { showLoadingPopUp } from '../../../utils/LoadingPopU
              }} />
              </div>
               <p className='font-bold text-2xl mt-2 mb-2 '>Get Started</p>
-              <p className='font-bold'>Already have an account? <span className='text-blue-600'>Sign In</span></p>
+              <p className='font-bold'>Already have an account? <span className='text-blue-600' onClick={()=>{
+                  navigate('/login')
+              }}>Sign In</span></p>
 
               <div className='w-full mt-5 flex flex-col place-items-center gap-5'>
                 <div>
                     <p>Name</p>
                     <div className='w-fit border border-black rounded-md  flex p-3'>
-                        <input className='outline-none' type='text' placeholder='Enter your name'/>
-                        <img className='w-[15px] font-bold'  src={nameIcome}  onClick={()=>{
-                 navigate('/')
-             }}/>
+                        <input className='outline-none' type='text' placeholder='Enter your name' value={registrationData.userName}  onChange={(e)=>{
+                                setRegistrationData(prevState=>{
+                                    return {
+                                        ...prevState,
+                                        userName:e.target.value
+                                    }
+                                })
+                        }}/>
+                        <img className='w-[15px] font-bold'  src={nameIcome}  />
                     </div>
                 </div>
+
 
                 <div>
                     <p>Email</p>
                     <div className='w-fit border border-black rounded-md  flex p-3'>
-                        <input className='outline-none' type='email' placeholder='Enter your email'/>
-                        <img className='w-[15px] font-bold'  src={emailIcon}  onClick={()=>{
-                 navigate('/')
-             }}/>
+                        <input className='outline-none' type='email' placeholder='Enter your email' value={registrationData.userEmail}   onChange={(e)=>{
+
+             setRegistrationData((prevState)=>{
+         return {
+  ...prevState,
+userEmail:e.target.value
+}
+})
+
+}}/>
+
+    <img className='w-[15px] font-bold'  src={emailIcon} />
                     </div>
                 </div>
 
@@ -64,7 +98,14 @@ import LoadingPopUpScreen, { showLoadingPopUp } from '../../../utils/LoadingPopU
                 <div>
                     <p>Number</p>
                     <div className='w-fit border border-black rounded-md  flex p-3'>
-                        <input className='outline-none' type='tel' placeholder='+234'/>
+                        <input className='outline-none' type='tel' placeholder='+234' value={registrationData.userPhoneNumber} onChange={(e)=>{
+                              setRegistrationData(prevState=>{
+                                return {
+                                    ...prevState,
+                                    userPhoneNumber:e.target.value
+                                }
+                              })
+                        }}/>
                         <img className='w-[15px] font-bold'  src={numberIcon}/>
                     </div>
                 </div>
@@ -80,6 +121,13 @@ import LoadingPopUpScreen, { showLoadingPopUp } from '../../../utils/LoadingPopU
                                     password:{
                                     password:e.target.value
                                     }
+                                }
+                            })
+
+                            setRegistrationData(prevState=>{
+                                return {
+                                    ...prevState,
+                                    userPassword:e.target.value
                                 }
                             })
                         }}/>
@@ -126,7 +174,14 @@ import LoadingPopUpScreen, { showLoadingPopUp } from '../../../utils/LoadingPopU
                 </div>
 
                 <div className='flex  w-[300px] ms-4'>
-                    <input className='w-[40px] h-[40px]' type='checkbox' />
+                    <input className='w-[40px] h-[40px]' type='checkbox'  onClick={()=>{
+                         setRegistrationData(prevState=>{
+                            return {
+                                ...prevState,
+                                userAgreeToTerms:!registrationData.userAgreeToTerms
+                            }
+                         })
+                    }} />
                     <p className='text-center mt-2'>By clicking you confirm that you have read, understood, and agree to be bound our <span className='underline'>Terms</span> and <span className='underline'>Conditions</span></p>
                 </div>
 
@@ -136,7 +191,52 @@ import LoadingPopUpScreen, { showLoadingPopUp } from '../../../utils/LoadingPopU
                     //openErrorScreen()
                    // navigate('/agent/dashboard')
                 window.scrollTo({top:0,behavior:'smooth'})
-                   showLoadingPopUp()
+                if(!registrationData.userName || !registrationData.userEmail || !registrationData.userPhoneNumber || !registrationData.userPassword || !togglePassword.confirmPassword.password){
+                    setErrorMessage('you need to provide your name, email, phonenumber and password to continue.')
+                    openErrorScreen()
+                    return
+                }
+                 if(!(/\S+@\S+\.\S+/.test(registrationData.userEmail))){
+                    setErrorMessage('Invalid email pattern. Please provide a valid email.')
+                    openErrorScreen()
+                    return 
+                  }
+                 if(!(registrationData.userPassword===togglePassword.confirmPassword.password)){
+                    setErrorMessage('password and confirm password provided does not match. Please check and try again.')
+                    openErrorScreen()
+                    return 
+                 }
+                if(!registrationData.userAgreeToTerms){
+                    setErrorMessage('please click the check box to confirm that you agreed to LodgeMe terms and conditions.')
+                    openErrorScreen()
+                    
+                    return
+                }
+
+                 showLoadingPopUp()
+ 
+               registerUser(registrationData).then(res=>{
+                 return  res.json()
+               }).then(result=>{
+                closeLoadingPopUp()
+                if(result.status===403){
+                setErrorMessage(result.message)
+                openErrorScreen()
+                return
+                }
+                if(result.status === 500){
+                    setErrorMessage(`${result.message}: \n ${result.error}`)
+                    openErrorScreen()
+                    return  
+                }
+                if(result.status===200){
+                    navigate('/client/dashboard')
+                }
+               }).catch(err=>{
+                closeLoadingPopUp()
+                setErrorMessage(err.message)
+                openErrorScreen()
+               })
                    }}>
                    <p >Sign Up</p>
                     </div>
@@ -150,26 +250,20 @@ import LoadingPopUpScreen, { showLoadingPopUp } from '../../../utils/LoadingPopU
            <p className='bg-black text-white bg-opacity-25 font-bold text-2xl p-2'>Provide High Quality Homes for your clients.</p>
             </div>
          
-         {
-            /*<div className='w-[50%] bg-green-700 h-[100vh] overflow-auto'>
-            hhhhh
-         </div>
-         <div>
-            <img src={image}  className='  w-[50%]   sticky top-52'/>
-         </div>
-         <div className='w-[50%] bg-green-700 h-[100vh] overflow-auto sticky top-10'>
-          {
-            [1,2,4,8,9,0].map((d,i)=>(
-                <div key={i} className='h-[300px] bg-cyan-50'>
-                bghj
-               </div>
-            ))
-          }
-         </div>
-         */
-}    
-  <ErrorPopUpScreen title={"Registration Message"} body={"please provide all information need to continue this process."}/>
+       
+  
+  <ErrorPopUpScreen title={"Registration Message"} body={errorMessage}/>
   <LoadingPopUpScreen sequence={['hold on now .....','why we.....','set up.....','your account.....']}/>
+
+  {
+            (!clientReducerState.isLoggedIn &&  clientReducerState.showPopUp) ? 
+            <ErrorPopUpScreen title={"Registration Message"} body={(errorMessage) ? errorMessage:'you  can not access dashboard without registering'} display={(openErrorScreenState)?'flex':'hidden'} openScreen={()=>{
+                 setErrorScreenState(!openErrorScreenState)
+            }}/> 
+ 
+            :'' 
+          
+}
         </div>
     )
   }

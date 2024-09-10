@@ -14,7 +14,14 @@ const PaginationContextProvider = ({children}) => {
          ],
          [
             2,4,6,
+         ],
+         [
+            2,4,6,5,9
+         ],
+         [
+            2,4,6,5,9,9,3,5,4
          ]
+        
         
     ])
      const [items,setItems] = useState([])

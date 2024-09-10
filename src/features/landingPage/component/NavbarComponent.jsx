@@ -115,10 +115,14 @@ openGetStartedPageScreen()
              </div>
              
              <div className="flex place-items-center bg-orange-500 rounded-md w-20 hover:bg-white hover:text-orange-500">
-               <p className="w-full text-center"> Log in</p>
+               <p className="w-full text-center" onClick={()=>{
+                  navigate('/login')
+               }}> Log in</p>
                 </div>
-                <div className="flex place-items-center bg-white rounded-md w-20 text-black">
-               <p className="w-full text-center"> Register</p>
+                <div className="flex place-items-center bg-white rounded-md w-20 text-black hover:bg-orange-500  hover:text-white">
+               <p className="w-full text-center" onClick={()=>{
+                openGetStartedPageScreen()
+               }}> Register</p>
                 </div>
           </div>
 

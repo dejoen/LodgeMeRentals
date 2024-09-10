@@ -1,28 +1,76 @@
-import { useState } from 'react'
+import {  useContext, useEffect, useRef, useState } from 'react'
 import backArrowIcon from "../../../assets/backarrowIcon.svg"
 import emailIcon from '../../../assets/emailIcon.svg'
 import passwordIcon from '../../../assets/passwordIcon.svg'
 import { useNavigate } from 'react-router-dom'
-import ErrorPopUpScreen from '../../../utils/ErrorPopUpScreen'
-import LoadingPopUpScreen, { showLoadingPopUp } from '../../../utils/LoadingPopUpScreen'
+import ErrorPopUpScreen, { openErrorScreen } from '../../../utils/ErrorPopUpScreen'
+import LoadingPopUpScreen, { closeLoadingPopUp, showLoadingPopUp } from '../../../utils/LoadingPopUpScreen'
+import loginUser from '../service/LoginService'
+import { CombineContext } from '../../../context/CombineContextProvider'
+import { io } from 'socket.io-client'
+
+
 
 
  const LoginScreen = () =>{
-
+     const {clientReducerState,clientReducerDispatcher,agentReducerState,agentReducerDispatcher,connectSocket,socketConnectedReducerState} = useContext(CombineContext)
     const navigate = useNavigate()
+
     const [togglePassword,setTogglePassword]= useState({
        password:{
-           isToggle:false,
-           password:''
-       },
-        confirmPassword:{
            isToggle:false,
            password:''
        }
 
     })
 
-   
+    const [loginData,setLoginData] = useState({
+        userEmail:'',
+        userPassword:''
+    })
+
+     const [user,setUser] = useState({})
+     let socket = useRef(io())
+      useEffect(()=>{
+         socket.current = socketConnectedReducerState.socket
+          socket.current.on('socketConnected',()=>{
+               if(user){
+                switch(user.accountType){
+                    case "agent":{
+
+                        agentReducerDispatcher({TYPE:"Authentication",payload:{
+                            ...agentReducerState,
+                            isLoggedIn:true,
+                            data:user
+                         }})
+                        
+                    navigate('/agent/dashboard')
+                    return
+                    }
+                    case 'client':{
+
+                        clientReducerDispatcher({TYPE:"Authentication",payload:{
+                            ...clientReducerState,
+                            isLoggedIn:true,
+                            data:user
+                         }})
+                       
+                      
+                        navigate('/client/dashboard')
+                        return
+                    }
+                    default : {
+                        setErrorMessage('An error occured try again')
+                        openErrorScreen()
+                    }
+                 }
+               }
+          })
+      },[socketConnectedReducerState,clientReducerState,clientReducerDispatcher,agentReducerState,agentReducerDispatcher,navigate,user])
+
+       const [errorMessage,setErrorMessage] = useState('')
+
+     
 
 
    return (
@@ -44,15 +92,26 @@ import LoadingPopUpScreen, { showLoadingPopUp } from '../../../utils/LoadingPopU
                <div>
                    <p>Email</p>
                    <div className='w-fit border border-black rounded-md  flex p-3'>
-                       <input className='outline-none' type='email' placeholder='Enter your email'/>
-                       <img className='w-[15px] font-bold'  src={emailIcon}  onClick={()=>{
-                
-            }}/>
+                       <input className='outline-none' type='email' placeholder='Enter your email' value={loginData.userEmail} onChange={ (e)=>{
+
+                          setLoginData(prevState =>{
+                             return {
+                                ...prevState,
+                                userEmail:e.target.value
+                             }
+                          })
+                       }
+                  
+                       }/>
+
+                       <img className='w-[15px] font-bold'  src={emailIcon} />
                    </div>
                </div>
            <div>
+
                    <p>Password</p>
                    <div className='w-fit border border-black rounded-md  flex p-3'>
+
                        <input className='outline-none' type={(togglePassword.password.isToggle) ? 'text':'password'} value={togglePassword.password.password} placeholder='password' onChange={(e)=>{
                            setTogglePassword((prev)=>{
                                return {
@@ -62,7 +121,14 @@ import LoadingPopUpScreen, { showLoadingPopUp } from '../../../utils/LoadingPopU
                                    }
                                }
                            })
-                       }}/>
+
+                        setLoginData(prevState=>{
+                            return {
+                                ...prevState,
+                                userPassword:e.target.value
+                            }
+                        })
+                       }}  />
                         <img className='w-[15px] font-bold'  src={passwordIcon} onClick={()=>{
                          setTogglePassword((prev)=>{
                                return {
@@ -80,10 +146,56 @@ import LoadingPopUpScreen, { showLoadingPopUp } from '../../../utils/LoadingPopU
 
 
                <div>
-                   <div className='text-white w-[200px] border bg-[#BB7655] rounded-md  flex place-items-center justify-center  p-3 mb-5 hover:bg-opacity-90 cursor-pointer' onClick={()=>{
+                   <div className='text-white w-[200px] border bg-[#BB7655] rounded-md  flex place-items-center justify-center  p-3 mb-5 hover:bg-opacity-90 cursor-pointer' onClick={ async ()=>{
                    //openErrorScreen()
                    //navigate('/agent/dashboard')
-                   showLoadingPopUp()
+
+                   if(!loginData.userEmail || !loginData.userPassword){
+                     setErrorMessage('Email and password is required to continue.')
+                     openErrorScreen()
+                     return
+                  }
+                  if(!(/\S+@\S+\.\S+/.test(loginData.userEmail))){
+                    setErrorMessage('Invalid email pattern. Please provide a valid email.')
+                    openErrorScreen()
+                    return 
+                  }
+
+
+                 showLoadingPopUp()
+              
+                
+                    loginUser(loginData).then(res=> {
+                    return res.json()
+                  }).then(async result=>{
+                    closeLoadingPopUp()
+                    if(result.status=== 403){
+                        alert("here m")
+                        setErrorMessage(result.message)
+                        openErrorScreen()
+                        return
+                    }
+                    if(result.status === 500){
+                        alert("here me")
+                        setErrorMessage(result.error)
+                        openErrorScreen()
+                        return 
+                    }
+                       setUser(result.user)
+
+                    await connectSocket(result.user.token)
+                 
+
+                    
+               
+                   
+                   
+                    
+                  }).catch(err=>{
+                    closeLoadingPopUp()
+                    setErrorMessage(err.message)
+                    openErrorScreen()
+                  }) 
                   }}>
                   <p >Sign In</p>
                    </div>
@@ -99,7 +211,7 @@ import LoadingPopUpScreen, { showLoadingPopUp } from '../../../utils/LoadingPopU
           <p className='bg-black text-white bg-opacity-25 font-bold text-2xl p-2'>Become A House Owner Today.</p>
            </div>
       
- <ErrorPopUpScreen title={"Registration Message"} body={"please provide all information need to continue this process."}/>
+ <ErrorPopUpScreen title={"Login Message"} body={errorMessage}/>
  <LoadingPopUpScreen sequence={['loging....','you .....','in....','please wait....']}/>
        </div>
    )

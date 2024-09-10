@@ -1,13 +1,24 @@
-import {  useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import {  useContext, useEffect, useState } from "react";
 import ClientNavBar from "../../component/client/ClientNavBar";
 import ClientPopUpMenu from "../../component/client/ClientPopUpMenu";
 import { CardType } from "../../../../utils/CardType";
 import ClientAdvertBanner from "../../component/client/banner/ClientAdvertBanner";
 import ClientDashBoardBody from "../../component/client/ClientDashboardBody";
 import ClientNavDrawer from "../../component/client/ClientNavDrawer";
+import { Navigate } from "react-router-dom";
+import { CombineContext } from "../../../../context/CombineContextProvider.jsx";
 
 
 const ClientDashBoardScreen = () =>{
+    const {clientReducerState,clientReducerDispatcher,socketConnectedReducerState,connectSocket} = useContext(CombineContext)
+
+    useEffect(()=>{
+        if(!socketConnectedReducerState.isSocketConnect && clientReducerState.isLoggedIn){
+          connectSocket(clientReducerState.data.token)  
+        }
+      },[])
+
   const [iconHovered,setIconHover] = useState({
        profileCard:{
         isHover:false,
@@ -34,6 +45,8 @@ const ClientDashBoardScreen = () =>{
   const [closeMenu,setCloseMenu] = useState(false)
    
   useEffect(()=>{
+
+   
      window.addEventListener('resize',()=>{
         setCloseMenu(true)
      })
@@ -42,125 +55,160 @@ const ClientDashBoardScreen = () =>{
         window.removeEventListener('resize',()=>{})
      }
   })
+
+  useEffect(()=>{
+    socketConnectedReducerState.socket.on('active',()=>{
+        alert('ahhahh active')
+    })
+                 
+   },[socketConnectedReducerState,clientReducerState,clientReducerDispatcher,])
+
+   {
+    alert(JSON.stringify(localStorage.getItem('user')))
+   }
+  
+       
    
     return(
-   <div className="overflow-x-hidden">
+        <>
+     {
+         
+       (clientReducerState.isLoggedIn) ? <div className="overflow-x-hidden">
     
-    <ClientNavBar setIconOver={(cardType)=>{
-         setCloseMenu(false)
-        switch(cardType){
-            case CardType.SEARCH :{
-               
-             setIconHover( (prev)=>{
-                return {
-                    ...prev,
-                    searchCard:{
-                        isHover:!iconHovered.searchCard.isHover
-                    },
-                    appointmentCard:{
-                        isHover:false
-                    },
-                    notificationCard:{
-                        isHover:false
-                    },
-                    profileCard:{
-                        isHover:false
-                    },
-                    inboxCard:{
-                        isHover:false
-                    }
-                    
-                }
-             })
-
-                return
-            }
-
-            case  CardType.APPOINTMENT :{
+       <ClientNavBar setIconOver={(cardType)=>{
+            setCloseMenu(false)
+           switch(cardType){
+               case CardType.SEARCH :{
+                  
                 setIconHover( (prev)=>{
-                    return {
-                        ...prev,
-                        searchCard:{
-                            isHover:false
-                        },
-                        appointmentCard:{
-                            isHover:!iconHovered.appointmentCard.isHover
-                        },
-                        notificationCard:{
-                            isHover:false
-                        },
-                        profileCard:{
-                            isHover:false
-                        },
-                        inboxCard:{
-                            isHover:false
-                        }
-                        
-                    }
-                 })
-                return
-            }
+                   return {
+                       ...prev,
+                       searchCard:{
+                           isHover:!iconHovered.searchCard.isHover
+                       },
+                       appointmentCard:{
+                           isHover:false
+                       },
+                       notificationCard:{
+                           isHover:false
+                       },
+                       profileCard:{
+                           isHover:false
+                       },
+                       inboxCard:{
+                           isHover:false
+                       }
+                       
+                   }
+                })
+   
+                   return
+               }
+   
+               case  CardType.APPOINTMENT :{
+                   setIconHover( (prev)=>{
+                       return {
+                           ...prev,
+                           searchCard:{
+                               isHover:false
+                           },
+                           appointmentCard:{
+                               isHover:!iconHovered.appointmentCard.isHover
+                           },
+                           notificationCard:{
+                               isHover:false
+                           },
+                           profileCard:{
+                               isHover:false
+                           },
+                           inboxCard:{
+                               isHover:false
+                           }
+                           
+                       }
+                    })
+                   return
+               }
+   
+               case  CardType.NOTIFICATION :{
+                   setIconHover( (prev)=>{
+                       return {
+                           ...prev,
+                           searchCard:{
+                               isHover:false
+                           },
+                           appointmentCard:{
+                               isHover:false
+                           },
+                           notificationCard:{
+                               isHover:!iconHovered.notificationCard.isHover
+                           },
+                           profileCard:{
+                               isHover:false
+                           },
+                           inboxCard:{
+                               isHover:false
+                           }
+                           
+                       }
+                    })
+                   return
+               }
+   
+               case  CardType.INBOX :{
+                   setIconHover( (prev)=>{
+                       return {
+                           ...prev,
+                           searchCard:{
+                               isHover:false
+                           },
+                           appointmentCard:{
+                               isHover:false
+                           },
+                           notificationCard:{
+                               isHover:false
+                             },
+                           profileCard:{
+                               isHover:false
+                           },
+                           inboxCard:{
+                               isHover:!iconHovered.inboxCard.isHover
+                         
+                           }
+                           
+                       }
+                    })
+                   return
+               }
+           }
+                }}/>
+   
+       <ClientPopUpMenu isMenuClosed={closeMenu} iconHovered={iconHovered}/>
+       <ClientAdvertBanner/>
+      <ClientDashBoardBody/>
+      <ClientNavDrawer/>
+        
+      </div>:
+      
+      <div>
+         {
+            clientReducerDispatcher({TYPE:"Authentication",payload:{
+                showPopUp:!clientReducerState.showPopUp
+             }})
 
-            case  CardType.NOTIFICATION :{
-                setIconHover( (prev)=>{
-                    return {
-                        ...prev,
-                        searchCard:{
-                            isHover:false
-                        },
-                        appointmentCard:{
-                            isHover:false
-                        },
-                        notificationCard:{
-                            isHover:!iconHovered.notificationCard.isHover
-                        },
-                        profileCard:{
-                            isHover:false
-                        },
-                        inboxCard:{
-                            isHover:false
-                        }
-                        
-                    }
-                 })
-                return
-            }
+         }
+       <Navigate to={'/register-as-client'}/> 
+      </div>
+        
+    
 
-            case  CardType.INBOX :{
-                setIconHover( (prev)=>{
-                    return {
-                        ...prev,
-                        searchCard:{
-                            isHover:false
-                        },
-                        appointmentCard:{
-                            isHover:false
-                        },
-                        notificationCard:{
-                            isHover:false
-                          },
-                        profileCard:{
-                            isHover:false
-                        },
-                        inboxCard:{
-                            isHover:!iconHovered.inboxCard.isHover
-                      
-                        }
-                        
-                    }
-                 })
-                return
-            }
-        }
-             }}/>
 
-    <ClientPopUpMenu isMenuClosed={closeMenu} iconHovered={iconHovered}/>
-    <ClientAdvertBanner/>
-   <ClientDashBoardBody/>
-   <ClientNavDrawer/>
-   </div>
 
-    );
+      }
+
+    
+      </>
+  );
 }
   
 export default ClientDashBoardScreen

@@ -21,7 +21,13 @@ import AgentDashBoardScreen from './features/dashBoard/screen/agent/AgentDashBoa
 import AgentDashboardView from './features/dashBoard/screen/agent/AgentDashBoardView.jsx'
 import AgentMessageView from './features/dashBoard/screen/agent/AgentMessageView.jsx'
 import ClientDashBoardScreen from './features/dashBoard/screen/client/ClientDashBoardScreen.jsx'
-import ClientHouseCardContainerView from './features/dashBoard/screen/client/ClientHouseCardContainerView.jsx'
+import AgentLoginContextProvider from './context/agent/AgentLoginContext.jsx'
+import SocketContextProvider from './context/SocketContextProvider.jsx'
+import ClientLoginContextProvider from './context/client/ClientLoginContext.jsx'
+import Compose from './utils/HandleMultipleContext.jsx'
+import CombineContextProvider from './context/CombineContextProvider.jsx'
+
+export const AppProvider = Compose([AgentLoginContextProvider,SocketContextProvider,ClientLoginContextProvider])
 
  const router = createBrowserRouter([
     {
@@ -66,22 +72,34 @@ import ClientHouseCardContainerView from './features/dashBoard/screen/client/Cli
     },
     {
       path:'/register-as-agent',
-      element:<AgentRegistrationScreen/>
-    },
+      element: <CombineContextProvider>
+        <AgentRegistrationScreen/>
+      </CombineContextProvider>
+       
+      
+     },
     {
       path:'/register-as-client',
-      element:<ClientRegistrationScreen/>
+    
+      element:<CombineContextProvider>
+        <ClientRegistrationScreen/>
+      </CombineContextProvider>
+       
+    
+    
     },
     {
-      path:"/",
-      element:<AgentDashBoardScreen/>,
+      path:"/agent/",
+      element:<CombineContextProvider>
+        <AgentDashBoardScreen/>
+      </CombineContextProvider>,
       children:[
         {
-          path:'agent/dashboard',
+          path:'dashboard',
           element:<AgentDashboardView/>
         },
         {
-          path:'agent/message',
+          path:'message',
           element:<AgentMessageView/>
           
         }
@@ -89,17 +107,22 @@ import ClientHouseCardContainerView from './features/dashBoard/screen/client/Cli
     },
     {
       path:'/login',
-      element:<LoginScreen/>
-    },
+      
+      element:<CombineContextProvider>
+        <LoginScreen/>
+      </CombineContextProvider>
+        
+   
+       
+      
+       },
     {
       path:'/client/dashboard',
-      element:<ClientDashBoardScreen/>,
-      children:[
-        {
-          path:'page/:currentPage',
-           element:<ClientHouseCardContainerView/>
-        }
-      ]
+      element:<CombineContextProvider>
+        <ClientDashBoardScreen/>
+      </CombineContextProvider>
+        
+     
     }
  ])
  

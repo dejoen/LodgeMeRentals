@@ -60,7 +60,7 @@ const DashBoardNavBar = () =>{
    
     return (
       
-     <div className="hidden md:block bg-agentNavbarBgImage w-[250px] h-dvh">
+     <div className="hidden md:block bg-agentNavbarBgImage w-[20%] h-dvh overflow-x-hidden ">
       
     
      <div className='flex flex-col gap-3 place-items-center'>
@@ -93,7 +93,7 @@ const DashBoardNavBar = () =>{
              }
           })
 
-          navigate("agent/dashboard")
+          navigate("dashboard")
 
         }}>
           <img src={dashBoardMenu}/>
@@ -121,7 +121,7 @@ const DashBoardNavBar = () =>{
               },
              }
           })
-          navigate('agent/message')
+          navigate('message')
         }}>
           <img src={dashBoardMessageIcon}/>
           <p>Messages</p>

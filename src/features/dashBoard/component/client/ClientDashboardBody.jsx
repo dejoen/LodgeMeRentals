@@ -1,8 +1,8 @@
 import ClientDashBoardBodyHeader from "./ClientDashboardBodyHeader";
 import Footer from '../../../landingPage/screen/FooterScreen'
 import ClientPagination from "../client/ClientPagination";
-import { Outlet } from "react-router-dom";
 import PaginationContextProvider from "../../../../context/client/PaginationContext";
+import ClientHouseCardContainerView from "../../screen/client/ClientHouseCardContainerView";
 
 
 const  ClientDashBoardBody = () =>{
@@ -12,7 +12,7 @@ const  ClientDashBoardBody = () =>{
         <div className="mt-2 ">
 
              <ClientDashBoardBodyHeader/>
-             <Outlet/>
+             <ClientHouseCardContainerView/>
              <ClientPagination/>
              <Footer/>
         </div>
