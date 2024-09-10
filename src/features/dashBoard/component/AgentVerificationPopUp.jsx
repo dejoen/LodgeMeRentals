@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { FilePicker } from "react-file-picker";
 import proccessedIcon  from '../../../assets/processingDoc.svg'
-import  LodgeMeIcon  from '../../../assets/LodgeMeIcon.svg'
+import  LodgeMeIcon  from '../../../assets/lodgeMeIcon.svg'
 import { useState } from "react";
 
 import CustomCamera from "../../../utils/Camera/CustomCamera";
