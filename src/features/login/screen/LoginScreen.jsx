@@ -170,13 +170,13 @@ import { io } from 'socket.io-client'
                   }).then(async result=>{
                     closeLoadingPopUp()
                     if(result.status=== 403){
-                        alert("here m")
+                      
                         setErrorMessage(result.message)
                         openErrorScreen()
                         return
                     }
                     if(result.status === 500){
-                        alert("here me")
+                      
                         setErrorMessage(result.error)
                         openErrorScreen()
                         return 

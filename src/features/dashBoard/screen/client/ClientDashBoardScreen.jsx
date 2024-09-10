@@ -56,16 +56,9 @@ const ClientDashBoardScreen = () =>{
      }
   })
 
-  useEffect(()=>{
-    socketConnectedReducerState.socket.on('active',()=>{
-        alert('ahhahh active')
-    })
-                 
-   },[socketConnectedReducerState,clientReducerState,clientReducerDispatcher,])
+ 
 
-   {
-    alert(JSON.stringify(localStorage.getItem('user')))
-   }
+ 
   
        
    

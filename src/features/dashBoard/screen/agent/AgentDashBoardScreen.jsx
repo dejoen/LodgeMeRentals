@@ -18,7 +18,11 @@ const AgentDashBoardScreen = () =>{
   
     useEffect(()=>{
       if(!socketConnectedReducerState.isSocketConnect && agentReducerState.isLoggedIn){
-        connectSocket(agentReducerState.data.token)  
+         const con = async () => {
+          await connectSocket(agentReducerState.data.token)  
+         }
+         
+         con()
       }
     },[])
 
