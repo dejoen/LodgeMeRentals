@@ -242,7 +242,7 @@ const AgentRegistrationScreen = () => {
 
                        
                        
-                        navigate('/agent/dashboard')
+                        navigate('/login')
                 }
                    }).catch(err=>{
                     closeLoadingPopUp()
@@ -265,6 +265,7 @@ const AgentRegistrationScreen = () => {
          
        
             <ErrorPopUpScreen title={"Registration Message"} body={(errorMessage) ? errorMessage:'you  can not access dashboard without registering'}/>
+
   <LoadingPopUpScreen sequence={['hold on now .....','why we.....','set up.....','your account.....']}/>
    
             {

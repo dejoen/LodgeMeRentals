@@ -34,7 +34,7 @@ const AgentDashBoardScreen = () =>{
      <Outlet />
       
        {
-        (!agentReducerState.data.isAgentVerified) && <AgentVerificationPopUp showScreen={true}/>
+        (!agentReducerState.data.isAgentVerified) && <AgentVerificationPopUp showScreen={true} token={agentReducerState.data.token}/>
        }
 
        </div>

@@ -7,7 +7,7 @@ const CustomCamera  = ({onCapture}) => {
 const videoRef = useRef()
 const canvasRef = useRef()
  const stream =  GetUserMedia({  audio: false,
-    video: { facingMode: "environment" }})
+    video: { facingMode: "user" }})
    if(stream && videoRef.current){
        videoRef.current.srcObject = stream
        videoRef.current.play()
@@ -16,7 +16,7 @@ const canvasRef = useRef()
    const  takePicture = () => {
      const context = canvasRef.current.getContext('2d')
       
-     context.drawImage(videoRef.current,0,0,canvasRef.current.width,canvasRef.current.height
+     context.drawImage(videoRef.current,0,0,canvasRef.current.width-videoRef.current.width,canvasRef.current.height-videoRef.current.height
      )
      
      canvasRef.current.toBlob(blob=>onCapture(blob),'image/jpeg',1)

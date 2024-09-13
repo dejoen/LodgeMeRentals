@@ -5,12 +5,13 @@ import  LodgeMeIcon  from '../../../assets/lodgeMeIcon.svg'
 import { useState } from "react";
 
 import CustomCamera from "../../../utils/Camera/CustomCamera";
+import { uploadData } from "../service";
 
 
  
 
    
-const AgentVerificationPopUp = ({showScreen}) =>{
+const AgentVerificationPopUp = ({showScreen,token}) =>{
    const [openCamera,setOpenCamera] = useState(false)
     const [selfieImage,setSelfieImage] =useState(null)
    const [documentIDFile,setDocummentIdFile] = useState({
@@ -145,20 +146,42 @@ const AgentVerificationPopUp = ({showScreen}) =>{
 
  <div className="w-full  mt-8 flex flex-col  place-items-center justify-center">
    <p className={`${(showErrorText)? 'block':'hidden'} text-red-600`}>DocumentId and Selfie is needed to continue</p>
-   <p className="bg-[#FFC839] p-2 w-[150px] rounded-md text-center hover:shadow-black shadow-md" onClick={()=>{
-    if(!documentIDFile.filePath && !userSelfie){
+   <p className="bg-[#FFC839] p-2 w-[150px] rounded-md text-center hover:shadow-black shadow-md" onClick={async ()=>{
+    if(!documentIDFile.filePath || !userSelfie){
     
      setShowErrorText(true)
      return
     }
     setShowErrorText(false)
-    setOpenScreen((prevState)=>{
+  uploadData([
+   {
+       name:documentIDFile.fileName,
+       base64:documentIDFile.filePath.split(',')[1]
+   },{
+      name:'selfie.jpg',
+       base64:userSelfie.split(',')[1]
+   }
+  ],token).then(res=>{
+   return res.json()
+  }).then(result=>{
+      if(result.status===200){
+         setOpenScreen((prevState)=>{
+            return {
+              ...prevState,
+               proccessingScreen:true,
+               uploadDocumentScreen:false
+            }
+         })
+      }
+  }).catch(err=>alert(err))
+
+   /* setOpenScreen((prevState)=>{
       return {
         ...prevState,
          proccessingScreen:true,
          uploadDocumentScreen:false
       }
-   })
+   })*/
    }}>Submit</p>
  </div>
          </div>
