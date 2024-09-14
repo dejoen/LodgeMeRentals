@@ -34,7 +34,7 @@ const AgentDashBoardScreen = () =>{
      <Outlet />
       
        {
-        (!agentReducerState.data.isAgentVerified) && <AgentVerificationPopUp showScreen={true} token={agentReducerState.data.token}/>
+        (!agentReducerState.data.isAgentFileAlreadyUploaded) && <AgentVerificationPopUp showScreen={true} token={agentReducerState.data.token}/>
        }
 
        </div>
@@ -42,14 +42,8 @@ const AgentDashBoardScreen = () =>{
            } else{
 
            return   <div>
-                {
-                  agentReducerDispatcher({TYPE:"Authentication",payload:{
-                    ...agentReducerState,
-                    showPopUp:!agentReducerState.showPopUp
-                 }})
-
-                }
-              <Navigate to={'/register-as-agent'} />
+              
+              <Navigate to={'/login'} />
               </div>
            
            } 

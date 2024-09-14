@@ -37,7 +37,7 @@ const AgentRegistrationScreen = () => {
 
      const  [errorMessage,setErrorMessage] = useState('')
 
-     const {agentReducerState,agentReducerDispatcher} = useContext(CombineContext)
+     const {agentReducerState} = useContext(CombineContext)
 
        const [openErrorScreenState,setErrorScreenState] = useState(true)
 

@@ -21,13 +21,10 @@ import AgentDashBoardScreen from './features/dashBoard/screen/agent/AgentDashBoa
 import AgentDashboardView from './features/dashBoard/screen/agent/AgentDashBoardView.jsx'
 import AgentMessageView from './features/dashBoard/screen/agent/AgentMessageView.jsx'
 import ClientDashBoardScreen from './features/dashBoard/screen/client/ClientDashBoardScreen.jsx'
-import AgentLoginContextProvider from './context/agent/AgentLoginContext.jsx'
-import SocketContextProvider from './context/SocketContextProvider.jsx'
-import ClientLoginContextProvider from './context/client/ClientLoginContext.jsx'
-import Compose from './utils/HandleMultipleContext.jsx'
+
+
 import CombineContextProvider from './context/CombineContextProvider.jsx'
 
-export const AppProvider = Compose([AgentLoginContextProvider,SocketContextProvider,ClientLoginContextProvider])
 
  const router = createBrowserRouter([
     {

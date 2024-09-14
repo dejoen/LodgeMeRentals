@@ -6,6 +6,7 @@ import { useState } from "react";
 
 import CustomCamera from "../../../utils/Camera/CustomCamera";
 import { uploadData } from "../service";
+import { CircularProgress } from "@chakra-ui/progress";
 
 
  
@@ -30,6 +31,9 @@ const AgentVerificationPopUp = ({showScreen,token}) =>{
 
   const [showErrorText,setShowErrorText
   ] = useState(false)
+
+  const [serverErrorMessage,setServerErrorMessage] = useState(null)
+  const [displayLoadingBar,setDisplayLoadingBar] = useState(false)
 
      const  decodeFile = async (file) => {
     const fileReader = new FileReader()
@@ -60,7 +64,7 @@ const AgentVerificationPopUp = ({showScreen,token}) =>{
      }
   
      return (
-     <div className={` ${( openScreen.wholeScreen)?'flex':'hidden'} font-nunito absolute w-full h-dvh bg-black bg-opacity-10 z-50 tex-black justify-center items-center p-5 `}>
+     <div className={`agentPopUp ${( openScreen.wholeScreen)?'flex':'hidden'} font-nunito absolute w-full h-dvh bg-black bg-opacity-10 z-50 tex-black justify-center items-center p-5 `}>
         <div className={`${(openScreen.uploadDocumentScreen)? 'block':'hidden'} animate-popUpAnimation  w-[600px] bg-white h-[600px] overflow-auto rounded-md`}>
       
          <div className='flex gap-6'>
@@ -127,7 +131,9 @@ const AgentVerificationPopUp = ({showScreen,token}) =>{
         </FilePicker>
      </div>
      <div className='w-[200px] h-[250px] border-2 border-dashed rounded-lg flex flex-col justify-center place-items-center'>
-        <img src={selfieImage}/>
+        {
+         (selfieImage) &&  <img className="w-[180px] h-[180px]" src={selfieImage}/>
+        }
          {
             (openCamera) && <CustomCamera onCapture={(image)=>{
                setOpenCamera((prevState)=> !prevState)
@@ -146,13 +152,22 @@ const AgentVerificationPopUp = ({showScreen,token}) =>{
 
  <div className="w-full  mt-8 flex flex-col  place-items-center justify-center">
    <p className={`${(showErrorText)? 'block':'hidden'} text-red-600`}>DocumentId and Selfie is needed to continue</p>
+   <div className="mt-5 mb-3">
+       {
+         (!serverErrorMessage && displayLoadingBar ) &&  <CircularProgress  color="#FFC839" animation={true} isIndeterminate={true} />
+       }
+        <p className="text-red-600 text-sm">{serverErrorMessage}</p>
+   </div>
    <p className="bg-[#FFC839] p-2 w-[150px] rounded-md text-center hover:shadow-black shadow-md" onClick={async ()=>{
+      window.scrollTo({top:100,behavior:"smooth"})
     if(!documentIDFile.filePath || !userSelfie){
     
      setShowErrorText(true)
      return
     }
+    setDisplayLoadingBar(true)
     setShowErrorText(false)
+    setServerErrorMessage('')
   uploadData([
    {
        name:documentIDFile.fileName,
@@ -172,8 +187,12 @@ const AgentVerificationPopUp = ({showScreen,token}) =>{
                uploadDocumentScreen:false
             }
          })
+         return
       }
-  }).catch(err=>alert(err))
+      setServerErrorMessage(result.error)
+  }).catch(err=>{
+    setDisplayLoadingBar(false)
+   setServerErrorMessage(err.message)})
 
    /* setOpenScreen((prevState)=>{
       return {

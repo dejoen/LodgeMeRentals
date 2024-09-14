@@ -14,7 +14,7 @@ const GetUserMedia =  (requestMedia) => {
         setMediaStream(stream)
         
     } catch (error) {
-           alert(error)
+           throw new Error(error)
     }
 
         }

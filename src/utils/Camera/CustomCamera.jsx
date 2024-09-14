@@ -9,8 +9,15 @@ const canvasRef = useRef()
  const stream =  GetUserMedia({  audio: false,
     video: { facingMode: "user" }})
    if(stream && videoRef.current){
+    
        videoRef.current.srcObject = stream
-       videoRef.current.play()
+       videoRef.current.play().then( ()=>{
+           
+           console.log('called')
+       }).catch(err=>{
+        
+        console.log('error....'+err)
+       })
    }
 
    const  takePicture = () => {
@@ -24,7 +31,7 @@ const canvasRef = useRef()
    
     return (
     <div className="relative">
-       <video className="w-full h-[200px]" ref={videoRef} />
+       <video className="w-full h-[200px]" ref={videoRef}  />
        <div className=" absolute top-[2px] w-full h-[150px] bg-opacity-15">
         <canvas ref={canvasRef} className="w-full h-[150px]" />
         <div className="w-full flex items-center justify-center">
