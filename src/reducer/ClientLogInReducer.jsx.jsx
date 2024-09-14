@@ -3,7 +3,7 @@ import BaseURL from "../utils/BaseURL"
 /* eslint-disable react-refresh/only-export-components */
 
 let fetchData = async () =>{
-    return fetch(`${BaseURL.LOCAL_URL}/verify-token`,{
+    return fetch(`${BaseURL.STAGING_URL}/verify-token`,{
       method:"GET",
       headers:{
           'Authorization':`Bearer ${JSON.parse(localStorage.getItem('user')).data.token}`,

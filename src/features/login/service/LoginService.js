@@ -2,7 +2,7 @@ import BaseURL from "../../../utils/BaseURL"
 
 let  loginUser =  async (data) =>{
 
-    return  fetch(`${BaseURL.LOCAL_URL}/loginUser`,{
+    return  fetch(`${BaseURL.STAGING_URL}/loginUser`,{
            method:"POST",
            headers:{
               "Content-Type":'application/json'
