@@ -37,7 +37,7 @@ import { CombineContext } from '../../../context/CombineContextProvider'
 
      const  [errorMessage,setErrorMessage] = useState('')
 
-     const {clientReducerState} = useContext(CombineContext)
+     const {clientReducerState,clientReducerDispatcher} = useContext(CombineContext)
 
        const [openErrorScreenState,setErrorScreenState] = useState(true)
 
@@ -191,16 +191,22 @@ userEmail:e.target.value
                     //openErrorScreen()
                    // navigate('/agent/dashboard')
                 window.scrollTo({top:0,behavior:'smooth'})
-                if(!registrationData.userName || !registrationData.userEmail || !registrationData.userPhoneNumber || !registrationData.userPassword || !togglePassword.confirmPassword.password){
+                if(!registrationData.userName || !registrationData.userEmail || !registrationData.userPhoneNumber || !registrationData.userPassword ){
                     setErrorMessage('you need to provide your name, email, phonenumber and password to continue.')
                     openErrorScreen()
                     return
                 }
+               
                  if(!(/\S+@\S+\.\S+/.test(registrationData.userEmail))){
                     setErrorMessage('Invalid email pattern. Please provide a valid email.')
                     openErrorScreen()
                     return 
                   }
+                  if(!togglePassword.confirmPassword.password){
+                    setErrorMessage('you need to enter confirm password data to continue.')
+                    openErrorScreen()
+                    return 
+                }
                  if(!(registrationData.userPassword===togglePassword.confirmPassword.password)){
                     setErrorMessage('password and confirm password provided does not match. Please check and try again.')
                     openErrorScreen()
@@ -230,7 +236,12 @@ userEmail:e.target.value
                     return  
                 }
                 if(result.status===200){
-                    navigate('/agent/dashboard')
+                    clientReducerDispatcher({TYPE:"Authentication",payload:{
+                        ...clientReducerState,
+                        isLoggedIn:true,
+                        data:result.user
+                     }})
+                    navigate('/client/dashboard')
                 }
                }).catch(err=>{
                 closeLoadingPopUp()

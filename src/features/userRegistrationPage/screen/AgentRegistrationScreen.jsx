@@ -37,7 +37,7 @@ const AgentRegistrationScreen = () => {
 
      const  [errorMessage,setErrorMessage] = useState('')
 
-     const {agentReducerState} = useContext(CombineContext)
+     const {agentReducerState,agentReducerDispatcher} = useContext(CombineContext)
 
        const [openErrorScreenState,setErrorScreenState] = useState(true)
 
@@ -211,6 +211,11 @@ const AgentRegistrationScreen = () => {
                         openErrorScreen()
                         return 
                       }
+                      if(!togglePassword.confirmPassword.password){
+                        setErrorMessage('you need to enter confirm password data to continue.')
+                        openErrorScreen()
+                        return 
+                    }
                      if(!(registrationData.userPassword===togglePassword.confirmPassword.password)){
                         setErrorMessage('password and confirm password provided does not match. Please check and try again.')
                         openErrorScreen()
@@ -240,7 +245,12 @@ const AgentRegistrationScreen = () => {
                     }
                     if(result.status===200){
 
-                       
+                        agentReducerDispatcher({TYPE:"Authentication",payload:{
+                            ...agentReducerState,
+                            isLoggedIn:true,
+                            data:result.user
+                         }})
+                        
                        
                         navigate('/agent/dashboard')
                 }
