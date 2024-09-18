@@ -242,7 +242,7 @@ const AgentRegistrationScreen = () => {
 
                        
                        
-                        navigate('/login')
+                        navigate('/agent/dashboard')
                 }
                    }).catch(err=>{
                     closeLoadingPopUp()

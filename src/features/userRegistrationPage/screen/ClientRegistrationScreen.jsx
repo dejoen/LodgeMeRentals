@@ -230,7 +230,7 @@ userEmail:e.target.value
                     return  
                 }
                 if(result.status===200){
-                    navigate('/login')
+                    navigate('/agent/dashboard')
                 }
                }).catch(err=>{
                 closeLoadingPopUp()

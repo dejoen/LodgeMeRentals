@@ -50,6 +50,15 @@ const  AgentReducer = (state,action)=> {
             }
            return state
         }
+
+        case 'VerifyAgent' :{
+            state = action.payload
+            if(action.payload.data){
+                  localStorage.setItem('user',JSON.stringify(state))
+                 
+            }
+           return state
+        }
         default: return state
     }
    
