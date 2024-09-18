@@ -10,7 +10,7 @@ let AgentHeader = (props) =>{
             
             
             <div className='w-[50%]'>
-            <p className="text-sm  md:text-2xl">{props.header}</p>
+            <p className="text-sm font-bold md:font-normal  md:text-2xl">{props.header}</p>
             <p className='hidden md:block'>{props.body}</p>
             </div>
          

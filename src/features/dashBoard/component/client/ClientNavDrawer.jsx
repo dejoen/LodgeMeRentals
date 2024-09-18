@@ -1,14 +1,18 @@
 /* eslint-disable react-refresh/only-export-components */
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import  notificationIcon  from '../../../../assets/clientnotificationicon.svg'
 import AppointmentCard from './menuCards/AppointmentCard';
 import InboxCard from './menuCards/InboxCard';
 import NotificationCard from './menuCards/NotificationCard';
 import ProfileCard from './menuCards/ProfileCard';
+import { CombineContext } from '../../../../context/CombineContextProvider';
 
 const ClientNavDrawer = () => {
 
+  
+    const {clientReducerState,clientReducerDispatcher,socketConnectedReducerState} = useContext(CombineContext)
+    
     const [activeCard,setActiveCard] = useState({
          accountCard:{
             isActive:false
@@ -36,8 +40,8 @@ const ClientNavDrawer = () => {
 
         <img  src={notificationIcon}/>
         </div>
-        <p>Devjoe</p>
-        <p className='text-sm'>benagu@gmail.com</p>
+        <p>{clientReducerState.data.userName}</p>
+        <p className="text-sm">{clientReducerState.data.userEmail}</p>
       </div>
 
 

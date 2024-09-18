@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+
 import ClientHouseCard from "../../component/client/ClientHouseCard";
 import { PaginationContext } from "../../../../context/client/PaginationContext";
 import { useContext } from "react";
