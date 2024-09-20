@@ -18,13 +18,40 @@ const AgentDashBoardScreen = () =>{
   
     useEffect(()=>{
       if(!socketConnectedReducerState.isSocketConnect && agentReducerState.isLoggedIn){
-         const con = async () => {
+        
+        const con = async () => {
           await connectSocket(agentReducerState.data.token)  
          }
-         
-         con()
+          try {
+               con()
+          } catch (error) {
+             alert(error.message)
+          }
+      
+        
       }
     },[])
+
+    useEffect (()=>{
+
+ socketConnectedReducerState.socket.on('socketConnected',user=>{
+  agentReducerDispatcher({TYPE:"Authentication",payload:{
+    ...agentReducerState,
+    isLoggedIn:true,
+    data:{
+      ...user,
+      token:agentReducerState.data.token
+    }
+ }})
+
+         })
+    },[socketConnectedReducerState])
+
+  useEffect (()=>{
+    socketConnectedReducerState.socket.on('connect_error',()=>{
+      //alert(JSON.stringify(error))
+    })
+        },[socketConnectedReducerState])
 
 
            if  (agentReducerState.isLoggedIn) {

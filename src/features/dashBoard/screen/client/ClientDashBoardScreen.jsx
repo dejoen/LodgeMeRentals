@@ -18,6 +18,18 @@ const ClientDashBoardScreen = () =>{
           connectSocket(clientReducerState.data.token)  
         }
       },[])
+      
+
+      socketConnectedReducerState.socket.on('socketConnected',user=>{
+        clientReducerDispatcher({TYPE:"Authentication",payload:{
+          ...clientReducerState,
+          isLoggedIn:true,
+          data:{
+            ...user,
+            token:clientReducerState.data.token
+          }
+       }})
+    })
 
   const [iconHovered,setIconHover] = useState({
        profileCard:{

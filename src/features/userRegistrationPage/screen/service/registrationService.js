@@ -3,7 +3,7 @@ import BaseURL from "../../../../utils/BaseURL"
 
 let  registerUser =  async (data) =>{
 
-  return  fetch(`${BaseURL.STAGING_URL}/register`,{
+  return  fetch(`${BaseURL.URL}/register`,{
          method:"POST",
          headers:{
             "Content-Type":'application/json'

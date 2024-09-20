@@ -22,7 +22,7 @@ import SocketReducer, { SocketInitialState } from "../reducer/SocketReducer.jsx"
             throw new Error('token needed to continue')
             
           }
-           const socket = io(BaseURL.STAGING_URL_SOCKET,{auth:{
+           const socket = io(BaseURL.SOCKET_URL,{auth:{
                token
              }})
 

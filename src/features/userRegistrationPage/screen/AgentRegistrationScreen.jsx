@@ -233,10 +233,11 @@ const AgentRegistrationScreen = () => {
                      return  res.json()
                    }).then( async result=>{
                     closeLoadingPopUp()
-                    if(result.status===403){
-                    setErrorMessage(result.message)
-                    openErrorScreen()
-                    return
+                    
+                    if(result.status === 400){
+                        setErrorMessage(`${result.message}`)
+                        openErrorScreen()
+                        return
                     }
                     if(result.status === 500){
                         setErrorMessage(`${result.message}: \n ${result.error}`)
@@ -251,7 +252,7 @@ const AgentRegistrationScreen = () => {
                             data:result.user
                          }})
                         
-                       
+                      
                         navigate('/agent/dashboard')
                 }
                    }).catch(err=>{

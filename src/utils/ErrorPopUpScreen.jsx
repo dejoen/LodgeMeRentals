@@ -9,7 +9,7 @@ const ErrorPopUpScreen = (props) =>{
          <div className="animate-popUpAnimation w-full m-5 md:w-[500px] h-[500px] bg-white rounded-md  ">
             <img className='m-5 w-8' src={backArrowIcon} onClick={()=>{
                 closeErrorScreen()
-                props.openScreen()
+                
             }}/>
            <div className='flex flex-col place-items-center justify-center mt-20 '>
             <img className='w-[200px]' src={errorIcon}/>

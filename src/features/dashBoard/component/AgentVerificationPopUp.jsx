@@ -2,20 +2,19 @@
 import { FilePicker } from "react-file-picker";
 import proccessedIcon  from '../../../assets/processingDoc.svg'
 import  LodgeMeIcon  from '../../../assets/lodgeMeIcon.svg'
-import { useContext, useState } from "react";
+import {  useState } from "react";
 
 import CustomCamera from "../../../utils/Camera/CustomCamera";
 import { uploadData } from "../service";
 import { CircularProgress } from "@chakra-ui/progress";
-import { CombineContext } from "../../../context/CombineContextProvider";
-import { data } from "autoprefixer";
+
+
 
 
  
 
    
 const AgentVerificationPopUp = ({showScreen,token}) =>{
-   const {agentReducerState,agentReducerDispatcher} = useContext(CombineContext)
    const [openCamera,setOpenCamera] = useState(false)
     const [selfieImage,setSelfieImage] =useState(null)
    const [documentIDFile,setDocummentIdFile] = useState({
@@ -183,14 +182,6 @@ const AgentVerificationPopUp = ({showScreen,token}) =>{
    return res.json()
   }).then(result=>{
       if(result.status===200){
-         agentReducerDispatcher({TYPE:"VerifyAgent",payload:{
-            ...agentReducerState,
-           data:{
-            ...data,
-            isAgentFileAlreadyUploaded:true
-           }
-
-         }})
          setOpenScreen((prevState)=>{
             return {
               ...prevState,
@@ -198,6 +189,22 @@ const AgentVerificationPopUp = ({showScreen,token}) =>{
                uploadDocumentScreen:false
             }
          })
+         
+        if( localStorage.getItem('user')){
+
+         localStorage.setItem('user',JSON.stringify(
+            {
+             showPopUp:false,
+             data:{
+                ...JSON.parse(localStorage.getItem('user')).data,
+                isAgentFileAlreadyUploaded:true
+             },
+             isLoggedIn:true
+         
+            } 
+         ))
+        }
+         
          return
       }
       setServerErrorMessage(result.error)

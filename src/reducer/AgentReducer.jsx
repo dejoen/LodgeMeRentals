@@ -4,7 +4,7 @@ import BaseURL from "../utils/BaseURL"
 
 
     let fetchData = async () =>{
-      return fetch(`${BaseURL.STAGING_URL}/verify-token`,{
+      return fetch(`${BaseURL.URL}/verify-token`,{
         method:"GET",
         headers:{
             'Authorization':`Bearer ${JSON.parse(localStorage.getItem('user')).data.token}`,
@@ -14,24 +14,34 @@ import BaseURL from "../utils/BaseURL"
   
     }
     
-    fetchData().then(r=>{
-        return r.json()
-    }).then(res=>{
-        console.log(res)
-        localStorage.setItem('user',JSON.stringify(
-           {
-            showPopUp:false,
-            data:{
-                ...res.user,
-                token:JSON.parse(localStorage.getItem('user')).data.token
-            },
-            isLoggedIn:true
-        
-           } 
-        ))
-    }).catch(err=>{
-        throw new Error(err)
-    })
+
+     if(JSON.parse(localStorage.getItem('user')) && JSON.parse(localStorage.getItem('user')).data.accountType==="agent" ){
+        fetchData().then(r=>{
+            return r.json()
+        }).then(res=>{
+            console.log(res)
+           if(res.user){
+            localStorage.setItem('user',JSON.stringify(
+                {
+                 showPopUp:false,
+                 data:{
+                     ...res.user,
+                     token:JSON.parse(localStorage.getItem('user')).data.token
+                 },
+                 isLoggedIn:true
+             
+                } 
+             ))
+             return
+           }
+           localStorage.removeItem('user')
+        }).catch(err=>{
+            localStorage.removeItem('user')
+            throw new Error(err)
+        })
+     }
+
+    
 
 
 export const agentInitialState =  {
@@ -59,6 +69,9 @@ const  AgentReducer = (state,action)=> {
             }
            return state
         }
+
+       
+
         default: return state
     }
    

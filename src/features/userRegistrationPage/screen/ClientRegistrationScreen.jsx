@@ -225,7 +225,7 @@ userEmail:e.target.value
                  return  res.json()
                }).then(result=>{
                 closeLoadingPopUp()
-                if(result.status===403){
+                if(result.status===400){
                 setErrorMessage(result.message)
                 openErrorScreen()
                 return
