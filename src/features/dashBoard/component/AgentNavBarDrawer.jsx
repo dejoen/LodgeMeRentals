@@ -62,7 +62,7 @@ const AgentNavBarDrawer = () =>{
    
     return (
       
-     <div className="AgentDrawer absolute hidden top-0 right-0 z-50 md:hidden bg-agentNavbarBgImage w-[250px] h-dvh ">
+     <div className="AgentDrawer absolute hidden top-0 right-0 z-[80] md:hidden bg-agentNavbarBgImage w-[250px] h-dvh ">
       
       <p className='text-white font-bold text-3xl m-3 hover:text-orange-600' onClick={()=>{
         closeAgentDrawer()

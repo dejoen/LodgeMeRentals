@@ -24,6 +24,10 @@ import ClientDashBoardScreen from './features/dashBoard/screen/client/ClientDash
 
 
 import CombineContextProvider from './context/CombineContextProvider.jsx'
+import PublishHouseScreen from './features/dashBoard/screen/agent/publishHouse/PublishHouseScreen.jsx'
+import HouseOverViewScreen from './features/dashBoard/screen/agent/publishHouse/HouseOverviewScreen.jsx'
+import AboutHouse from './features/dashBoard/screen/agent/publishHouse/AboutHouse.jsx'
+import HouseFeatures from './features/dashBoard/screen/agent/publishHouse/HouseFeatures.jsx'
 
 
  const router = createBrowserRouter([
@@ -94,6 +98,27 @@ import CombineContextProvider from './context/CombineContextProvider.jsx'
         {
           path:'dashboard',
           element:<AgentDashboardView/>
+        },
+        {
+          path:'dashboard/publish-home',
+          element:<PublishHouseScreen/>,
+          children:[
+            {
+              path:'houseOverview',
+              element:<HouseOverViewScreen/>,
+              
+            },
+            {
+              path:'aboutHouse',
+              element:<AboutHouse/>,
+              
+            },
+            {
+              path:'houseFeatures',
+              element:<HouseFeatures/>,
+              
+            }
+          ]
         },
         {
           path:'message',

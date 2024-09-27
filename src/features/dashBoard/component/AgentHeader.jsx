@@ -6,7 +6,7 @@ import { openAgentDrawer } from './AgentNavBarDrawer'
 
 let AgentHeader = (props) =>{
     return (
-        <div className=" font-nunito bg-white flex place-items-center ps-5 w-full h-20 shadow-xl rounded-br-[30px] rounded-bl-[30px] overflow-x-hidden">
+        <div className=" ms-8 md:ms-12 font-nunito bg-white flex place-items-center ps-5 w-[96.5%] h-20 shadow-xl rounded-br-[10px] rounded-bl-[15px] overflow-x-hidden">
             
             
             <div className='w-[50%]'>
@@ -14,7 +14,7 @@ let AgentHeader = (props) =>{
             <p className='hidden md:block'>{props.body}</p>
             </div>
          
-         <div className='  w-[50%]  flex place-items-center justify-end me-5  gap-10'>
+         <div className='  w-[50%]  flex place-items-center justify-end me-20  gap-10'>
             
             <img className='w-[20px]  md:w-[40px] 
              ' src={searchIcon} />
