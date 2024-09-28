@@ -6,7 +6,7 @@ import { openAgentDrawer } from './AgentNavBarDrawer'
 
 let AgentHeader = (props) =>{
     return (
-        <div className=" ms-8 md:ms-12 font-nunito bg-white flex place-items-center ps-5 w-[96.5%] h-20 shadow-xl rounded-br-[10px] rounded-bl-[15px] overflow-x-hidden">
+        <div className=" ms-7 md:ms-12 font-nunito bg-white flex place-items-center ps-5 w-[96.5%] h-20 shadow-xl rounded-br-[10px] rounded-bl-[15px] overflow-x-hidden">
             
             
             <div className='w-[50%]'>
