@@ -5,7 +5,7 @@ const AboutHouse = () => {
     const navigate = useNavigate()
 
     return (
-        <div className=" w-full  h-dvh  md:min-h-[85%]  ps-14  mt-20  bg-white z-20 rounded-md shadow-md overflow-y-auto overflow-x-hidden pb-10">
+        <div className=" w-full  h-dvh  md:min-h-[85%] p-2 md:ps-14  mt-20  bg-white z-20 rounded-md shadow-md overflow-y-auto overflow-x-hidden pb-10">
 
         <p className="font-bold mt-8">About this house</p>
         <p className="text-justify p-2 text-sm">Provide a brief description of your house, including key features like the number of bedrooms, bathrooms, special amenities, and any unique selling points. This helps potential renters understand what makes your property stand out. Tips: Highlight features like a spacious yard, modern kitchen, nearby amenities, or recent renovations to attract more interest.</p>

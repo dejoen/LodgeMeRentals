@@ -4,7 +4,7 @@ const HouseFeatures = () => {
  const navigate = useNavigate()
     return (
      
-        <div className=" font-nunito w-full  h-fit  md:min-h-[85%]   ps-14  mt-20  bg-white z-20 rounded-md shadow-md overflow-y-auto overflow-x-hidden pb-10">
+        <div className=" font-nunito w-full  h-fit  md:min-h-[85%]  p-2 md:ps-14  mt-20  bg-white z-20 rounded-md shadow-md overflow-y-auto overflow-x-hidden pb-14">
 
         <p className="font-bold mt-8">House Features</p>
         <p className="text-justify p-2 text-sm">Highlight the key features of your property, such as the number of bedrooms, bathrooms, parking spaces, or amenities like a pool, garden, or balcony. This helps renters understand what your house offers at a glance.</p>
@@ -143,7 +143,7 @@ const HouseFeatures = () => {
 
 
       
-  <div className=" absolute md:relative w-full flex justify-center md:justify-end place-items-center h-[25%] gap-5 pe-4 ">
+  <div className=" absolute md:relative w-full flex justify-center md:justify-end place-items-center h-[20%] gap-5 pe-4 mt-10 ">
      <p className="bg-[#BB7655] hover:shadow-black hover:shadow-md  p-3 w-[100px] text-white text-center rounded-lg">Save</p>
      <p className="bg-[#F1E9E9] hover:shadow-black hover:shadow-md p-3 w-[100px] text-black text-center rounded-lg" onClick={()=>{
             navigate('/agent/dashboard/publish-home/houseFeatures')

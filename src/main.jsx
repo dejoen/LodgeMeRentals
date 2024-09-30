@@ -28,6 +28,7 @@ import PublishHouseScreen from './features/dashBoard/screen/agent/publishHouse/P
 import HouseOverViewScreen from './features/dashBoard/screen/agent/publishHouse/HouseOverviewScreen.jsx'
 import AboutHouse from './features/dashBoard/screen/agent/publishHouse/AboutHouse.jsx'
 import HouseFeatures from './features/dashBoard/screen/agent/publishHouse/HouseFeatures.jsx'
+import MediaUpload from './features/dashBoard/screen/agent/publishHouse/MediaUpload.jsx'
 
 
  const router = createBrowserRouter([
@@ -116,6 +117,11 @@ import HouseFeatures from './features/dashBoard/screen/agent/publishHouse/HouseF
             {
               path:'houseFeatures',
               element:<HouseFeatures/>,
+              
+            },
+            {
+              path:'mediaUpload',
+              element:<MediaUpload/>,
               
             }
           ]
