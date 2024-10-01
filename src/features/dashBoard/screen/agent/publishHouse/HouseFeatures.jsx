@@ -146,7 +146,8 @@ const HouseFeatures = () => {
   <div className=" absolute md:relative w-full flex justify-center md:justify-end place-items-center h-[20%] gap-5 pe-4 mt-10 ">
      <p className="bg-[#BB7655] hover:shadow-black hover:shadow-md  p-3 w-[100px] text-white text-center rounded-lg">Save</p>
      <p className="bg-[#F1E9E9] hover:shadow-black hover:shadow-md p-3 w-[100px] text-black text-center rounded-lg" onClick={()=>{
-            navigate('/agent/dashboard/publish-home/houseFeatures')
+            
+            navigate('/agent/dashboard/publish-home/mediaUpload')
          }} >Next</p>
 </div>
      
