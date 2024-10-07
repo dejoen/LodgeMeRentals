@@ -3,6 +3,7 @@ import AgentContainer from "../../../component/AgentContainer";
 import AgentNavBarDrawer from "../../../component/AgentNavBarDrawer";
 
 
+
 const PublishHouseScreen = () => {
 
     return (
@@ -10,6 +11,7 @@ const PublishHouseScreen = () => {
         <AgentNavBarDrawer/>    
      <AgentContainer header={'Publish your house'} body={"Post your house for listing on the marketplace"}/>
         <Outlet/>
+    
         </div>
     );
 }

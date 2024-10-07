@@ -149,6 +149,8 @@ import { io } from 'socket.io-client'
                    <div className='text-white w-[200px] border bg-[#BB7655] rounded-md  flex place-items-center justify-center  p-3 mb-5 hover:bg-opacity-90 cursor-pointer' onClick={ async ()=>{
                    //openErrorScreen()
                    //navigate('/agent/dashboard')
+                    
+                   localStorage.removeItem('user')
 
                    if(!loginData.userEmail || !loginData.userPassword){
                      setErrorMessage('Email and password is required to continue.')

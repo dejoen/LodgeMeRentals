@@ -5,6 +5,7 @@ import AgentReducer, { agentInitialState } from "../reducer/AgentReducer.jsx"
 import { io, } from "socket.io-client"
 import BaseURL from "../utils/BaseURL.jsx"
 import SocketReducer, { SocketInitialState } from "../reducer/SocketReducer.jsx"
+import AllDataToPublishReducer, { allDataToPublishReducerInitialState } from "../reducer/PublishHouseDataReducer.jsx"
 
 
    
@@ -16,6 +17,8 @@ import SocketReducer, { SocketInitialState } from "../reducer/SocketReducer.jsx"
 
       const [socketConnectedReducerState,socketConnectedReducerDispatcher] = useReducer(SocketReducer,SocketInitialState
       )
+
+      const [allDataToPublishReducerState,allDataToPublishReducerDispatcher] = useReducer(AllDataToPublishReducer,allDataToPublishReducerInitialState)
  
        const  connectSocket = async (token) =>{
           if(!token){
@@ -46,7 +49,7 @@ import SocketReducer, { SocketInitialState } from "../reducer/SocketReducer.jsx"
 
 
       return (
-       <CombineContext.Provider value={{clientReducerState,clientReducerDispatcher,agentReducerState,agentReducerDispatcher,connectSocket,socketConnectedReducerDispatcher,socketConnectedReducerState}}>
+       <CombineContext.Provider value={{clientReducerState,clientReducerDispatcher,agentReducerState,agentReducerDispatcher,connectSocket,socketConnectedReducerDispatcher,socketConnectedReducerState,allDataToPublishReducerState,allDataToPublishReducerDispatcher}}>
          {children}
        </CombineContext.Provider>
       );

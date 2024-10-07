@@ -29,6 +29,7 @@ import HouseOverViewScreen from './features/dashBoard/screen/agent/publishHouse/
 import AboutHouse from './features/dashBoard/screen/agent/publishHouse/AboutHouse.jsx'
 import HouseFeatures from './features/dashBoard/screen/agent/publishHouse/HouseFeatures.jsx'
 import MediaUpload from './features/dashBoard/screen/agent/publishHouse/MediaUpload.jsx'
+import RentalPrice from './features/dashBoard/screen/agent/publishHouse/RentalPrice.jsx'
 
 
  const router = createBrowserRouter([
@@ -122,6 +123,11 @@ import MediaUpload from './features/dashBoard/screen/agent/publishHouse/MediaUpl
             {
               path:'mediaUpload',
               element:<MediaUpload/>,
+              
+            },
+            {
+              path:'rentalPrice',
+              element:<RentalPrice/>,
               
             }
           ]

@@ -1,16 +1,25 @@
   import videoUploadIcon  from '../../../../../assets/videoUploadIcon.svg'
 
   import photoUploadIcon  from '../../../../../assets/cameraUploadIcon.svg'
-import { useNavigate } from 'react-router-dom';
-import { useRef, useState } from 'react';
+import { Navigate,useNavigate } from 'react-router-dom';
+import { useRef, useState,useContext} from 'react';
+import { CombineContext } from "../../../../../context/CombineContextProvider";
 import useMediaUploadData from '../../../hooks/useMediaUploadData';
 
 const  MediaUpload = () => {
   const  {getVideoFiles} = useMediaUploadData()
 
+  
+  const [saveIndicator,setSaveindicator]  = useState('')
+
+  const {allDataToPublishReducerState,allDataToPublishReducerDispatcher}  = useContext(CombineContext)
+
+
     const navigate = useNavigate()
     let  getVideoFilesRef = useRef()
     let  getPictureFilesRef = useRef()
+
+    const [errorText, setErrorText] = useState('')
     
     const [uploadData,setUpdateData] = useState({
         video:{
@@ -32,6 +41,15 @@ const  MediaUpload = () => {
     
 
     return (
+        <>
+        
+        
+  
+  {
+   (!allDataToPublishReducerState. HouseOverview.houseName) && <Navigate to={'/agent/dashboard/publish-home/houseOverview'} replace={true}/> 
+ }
+        
+
         <div className="font-nunito w-full  h-dvh  md:min-h-[85%]   mt-20  bg-white z-20 rounded-md shadow-md overflow-y-auto  pb-10">
 
         <p className="font-bold ms-5 mt-8 text-2xl">Media Upload</p>
@@ -55,9 +73,9 @@ const  MediaUpload = () => {
               <input type='file'  className='w-1/2 mt-2 hidden '  ref={getVideoFilesRef} multiple
                accept="video/*" onChange={async (e)=>{
                   const files=  e.target.files
-               
+               setErrorText('')
                 getVideoFiles(files).then(result=>{
-                  alert(JSON.stringify(result))
+                  
                   setUpdateData((prevState)=>{
                      return{
                         ...prevState,
@@ -67,12 +85,12 @@ const  MediaUpload = () => {
                         }
                      }
                   })
-            }).catch(err=>alert(err))
+            }).catch(err=>setErrorText(err))
 
                }} />
        
         {
-         ( uploadData.video.videoTitle && uploadData.video.videoTitle.length>0) && <p className='w-[10px] text-ellipsis text-wrap  '>{uploadData.video.videoTitle[0].fileName+"....."}</p>
+         ( uploadData.video.videoTitle && uploadData.video.videoTitle.length>0) && <p className={`w-[10px] text-ellipsis text-wrap  ${(errorText) && 'text-red-600'} `}>{(errorText) ? errorText :uploadData.video.videoTitle[0].fileName+"....."}</p>
         }
              
             </div>
@@ -157,11 +175,11 @@ const  MediaUpload = () => {
             }}> 
               <img src={photoUploadIcon}/>
               <input type='file'  className='w-1/2 mt-2  hidden '   multiple
-               accept="images/*"  ref={getPictureFilesRef }   onChange={async (e)=>{
+               accept="image/png, image/gif, image/jpeg, svg"  ref={getPictureFilesRef }   onChange={async (e)=>{
                   const files=  e.target.files
-               
+                setErrorText('')
                 getVideoFiles(files).then(result=>{
-                  alert(JSON.stringify(result.length))
+               
                   setUpdateData((prevState)=>{
                      return{
                         ...prevState,
@@ -175,7 +193,7 @@ const  MediaUpload = () => {
 
                }} />
                  {
-         ( uploadData.pictures.pictureTitle && uploadData.pictures.pictureTitle.length>0) && <p className='w-[10px] text-ellipsis text-wrap  '>{uploadData.pictures.pictureTitle[0].fileName+"....."}</p>
+         ( uploadData.pictures.pictureTitle && uploadData.pictures.pictureTitle.length>0) && <p className={`w-[10px] text-ellipsis text-wrap  ${(errorText) && 'text-red-600'} `}>{(errorText)? errorText:uploadData.pictures.pictureTitle[0].fileName+"....."}</p>
         }
           
             </div>
@@ -231,14 +249,48 @@ const  MediaUpload = () => {
         </div>
 
 <div className="w-full flex justify-end place-items-center pe-4 h-[25%] gap-5">
-     <p className="bg-[#BB7655] hover:shadow-black hover:shadow-md  p-3 w-[100px] text-white text-center rounded-lg" >Save</p>
+<p className={`${(saveIndicator) ? 'block':'hidden'} ${!(saveIndicator.includes('saved')) ? `${(saveIndicator.includes('saving') ) ? 'text-black':'text-red-600' }` : 'text-green-600'}   `}>{saveIndicator}</p>
+   
+     <p className="bg-[#BB7655] hover:shadow-black hover:shadow-md  p-3 w-[100px] text-white text-center rounded-lg" onClick={()=>{
+
+        if(uploadData.pictures.pictureBase64.length ===0 || uploadData.video.videoBase64.length === 0){
+            setSaveindicator('Please enter all fields to continue')
+           return 
+         }
+
+          setSaveindicator('saving... ')
+  setTimeout(()=>{
+
+   allDataToPublishReducerDispatcher({
+      TYPE:'Save',
+      payload:{
+         ...allDataToPublishReducerState,
+         MediaUpload:{
+            ...allDataToPublishReducerState.MediaUpload,
+            houseImagesBase64:uploadData.pictures.pictureBase64,
+            houseVideosbase64:uploadData.video.videoBase64
+         }
+      }
+   })
+     setSaveindicator('saved')
+  },3000)
+     }} >Save</p>
      <p className="bg-[#F1E9E9] hover:shadow-black hover:shadow-md p-3 w-[100px] text-black text-center rounded-lg"  onClick={()=>{
-         navigate('/agent/dashboard/publish-home/mediaUpload')
+
+       if(!saveIndicator.includes('saved')){
+         setSaveindicator('You need to save data before clicking next')
+         return
+       }
+      
+      navigate('/agent/dashboard/publish-home/rentalPrice')
+       
      }}>Next</p>
 </div>
        
      
       </div>
+        
+        </>
     );
 }
 
