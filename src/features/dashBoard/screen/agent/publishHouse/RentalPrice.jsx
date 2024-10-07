@@ -246,7 +246,7 @@ publishHouse(allDataToPublishReducerState,userData.token).then(result=>{
 
 </div>
 
-<div className={`${(error.isError || fetchData || successPage) ? 'block':'hidden'} absolute   w-full top-0 bottom-0  bg-black bg-opacity-35 flex  mt-20  ps-[16%] place-items-center mx-auto`}>
+<div className={`${(error.isError || fetchData || successPage) ? 'block':'hidden'} absolute   w-full top-0 bottom-0  bg-black bg-opacity-35 flex  mt-20  md:ps-[16%] place-items-center mx-auto`}>
 
 <div className={` ${(error.isError) ? 'block':'hidden'} animate-popUpAnimation w-full m-5 md:w-[500px] h-[500px] bg-white rounded-md  `}>
             <img className='m-5 w-8' src={backArrowIcon} onClick={()=>{
@@ -283,7 +283,7 @@ publishHouse(allDataToPublishReducerState,userData.token).then(result=>{
            
          </div>
 
-         <div className={` ${(successPage) ? 'block':'hidden'} font-nunito animate-popUpAnimation  bg-white w-[300px] md:w-1/2 h-fit  p-5 m-5 rounded-2xl flex flex-col items-center `}>
+         <div className={` ${(successPage) ? 'block':'hidden'} font-nunito animate-popUpAnimation  bg-white w-full  md:w-1/2 h-fit mt-6  p-5 m-5 rounded-2xl flex flex-col items-center `}>
             
           <p className='font-bold text-2xl mt-5'> Congratulations! Your Property is Live</p>
 
