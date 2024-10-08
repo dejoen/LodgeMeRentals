@@ -248,9 +248,9 @@ publishHouse(allDataToPublishReducerState,userData.token).then(result=>{
 
 </div>
 
-<div className={`${(error.isError || fetchData || successPage) ? 'block':'hidden'} absolute   w-full top-0 bottom-0  bg-black bg-opacity-35 flex  mt-20  md:ps-[16%] place-items-center mx-auto overflow-y-hidden`}>
+<div className={`${(error.isError || fetchData || successPage) ? 'block':'hidden'} absolute   w-full top-0 bottom-0  bg-black bg-opacity-35 flex  mt-20  md:ps-[16%]  justify-center md:justify-normal  place-items-center mx-auto overflow-y-hidden`}>
 
-<div className={` ${(error.isError) ? 'block':'hidden'} animate-popUpAnimation w-[400px] m-5 md:w-[500px] h-[500px] bg-white rounded-md  `}>
+<div className={` ${(error.isError) ? 'block':'hidden'} animate-popUpAnimation w-[400px] m-5 md:w-[500px] h-[600px] bg-white rounded-md  `}>
             <img className='m-5 w-8' src={backArrowIcon} onClick={()=>{
                    setError(false)
                 
