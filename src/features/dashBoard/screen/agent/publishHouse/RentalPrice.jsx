@@ -250,7 +250,7 @@ publishHouse(allDataToPublishReducerState,userData.token).then(result=>{
 
 <div className={`${(error.isError || fetchData || successPage) ? 'block':'hidden'} absolute   w-full top-0 bottom-0  bg-black bg-opacity-35 flex  mt-20  md:ps-[16%] place-items-center mx-auto overflow-y-hidden`}>
 
-<div className={` ${(error.isError) ? 'block':'hidden'} animate-popUpAnimation w-[300px] m-5 md:w-[500px] h-[500px] bg-white rounded-md  `}>
+<div className={` ${(error.isError) ? 'block':'hidden'} animate-popUpAnimation w-[400px] m-5 md:w-[500px] h-[500px] bg-white rounded-md  `}>
             <img className='m-5 w-8' src={backArrowIcon} onClick={()=>{
                    setError(false)
                 
@@ -258,7 +258,7 @@ publishHouse(allDataToPublishReducerState,userData.token).then(result=>{
            <div className='  flex flex-col place-items-center justify-center mt-20 '>
             <img className='w-[200px]' src={errorIcon}/>
              <p className='pt-5 font-bold text-2xl'>{error.title}</p>
-             <p className='pt-5  w-full text-wrap  text-center '>{error.errorMessage}</p>
+             <p className='pt-5 ps-2 pe-2   w-[300px]   text-center '>{error.errorMessage}</p>
              </div>
              </div>
 
