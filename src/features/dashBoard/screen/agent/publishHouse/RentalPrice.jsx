@@ -258,7 +258,7 @@ publishHouse(allDataToPublishReducerState,userData.token).then(result=>{
            <div className='  flex flex-col place-items-center justify-center mt-20 '>
             <img className='w-[200px]' src={errorIcon}/>
              <p className='pt-5 font-bold text-2xl'>{error.title}</p>
-             <p className='pt-5 ps-2 pe-2   w-[300px]   text-center '>{error.errorMessage}</p>
+             <p className='pt-5 ps-2 pe-2   w-full text-wrap  text-center overflow-auto '>{error.errorMessage}</p>
              </div>
              </div>
 
