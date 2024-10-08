@@ -33,7 +33,7 @@ const RentalPrice = () => {
 <div className="font-nunito w-full  h-dvh  md:min-h-[85%] p-2 md:ps-14  mt-20  bg-white z-20 rounded-md shadow-md overflow-y-auto overflow-x-hidden pb-10">
 
 <p className="font-bold mt-8">Rental Price</p>
-<p className="text-justify p-2 text-sm">Provide a brief description of your house, including key features like the number of bedrooms, bathrooms, special amenities, and any unique selling points. This helps potential renters understand what makes your property stand out. Tips: Highlight features like a spacious yard, modern kitchen, nearby amenities, or recent renovations to attract more interest.</p>
+<p className="text-justify p-2 text-sm">Please enter the rental price for your property. This price should reflect the monthly rent amount in your local currency. It’s important to set a competitive and accurate price to attract potential renters.</p>
 
 <div className="w-full    rounded-md mt-2 me-20 " > 
 
@@ -248,11 +248,11 @@ publishHouse(allDataToPublishReducerState,userData.token).then(result=>{
 
 </div>
 
-<div className={`${(error.isError || fetchData || successPage) ? 'block':'hidden'} absolute   w-full top-0 bottom-0  bg-black bg-opacity-35 flex  mt-20  md:ps-[16%] place-items-center mx-auto`}>
+<div className={`${(error.isError || fetchData || successPage) ? 'block':'hidden'} absolute   w-full top-0 bottom-0  bg-black bg-opacity-35 flex  mt-20  md:ps-[16%] place-items-center mx-auto overflow-y-hidden`}>
 
-<div className={` ${(error.isError) ? 'block':'hidden'} animate-popUpAnimation w-full m-5 md:w-[500px] h-[500px] bg-white rounded-md  `}>
+<div className={` ${(error.isError) ? 'block':'hidden'} animate-popUpAnimation w-[300px] m-5 md:w-[500px] h-[500px] bg-white rounded-md  `}>
             <img className='m-5 w-8' src={backArrowIcon} onClick={()=>{
-                 
+                   setError(false)
                 
             }}/>
            <div className='  flex flex-col place-items-center justify-center mt-20 '>
