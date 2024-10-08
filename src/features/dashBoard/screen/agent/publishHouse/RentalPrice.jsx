@@ -230,15 +230,17 @@ publishHouse(allDataToPublishReducerState,userData.token).then(result=>{
  }).then(res=>{
     if(res.status === 200){
       setFetchData(false)
-      setTimeout(()=>{
-        setSuccessPage(true)
-      },1000)
+      setSuccessPage(true)
+     
     
     }else{
+      setFetchData(false)
       setError({isError:true,errorMessage:res.message,title:res.title})
     }
   
- }).catch(err=> setError({isError:true,errorMessage:err,title:"Error Occured."}))
+ }).catch(err=> {
+    setFetchData(false)
+  setError({isError:true,errorMessage:err,title:"Error Occured."})})
 
  }} >Publish</p>
 </div>
@@ -250,7 +252,7 @@ publishHouse(allDataToPublishReducerState,userData.token).then(result=>{
 
 <div className={` ${(error.isError) ? 'block':'hidden'} animate-popUpAnimation w-full m-5 md:w-[500px] h-[500px] bg-white rounded-md  `}>
             <img className='m-5 w-8' src={backArrowIcon} onClick={()=>{
-                
+                 
                 
             }}/>
            <div className='  flex flex-col place-items-center justify-center mt-20 '>
