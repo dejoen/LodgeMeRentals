@@ -221,6 +221,10 @@ setSaveindicator('saved')
 <p className="bg-[#F1E9E9] hover:shadow-black hover:shadow-md p-3 w-[100px] text-black text-center rounded-lg" onClick={ async ()=>{
  //   navigate('/agent/dashboard/publish-home/houseFeatures')
 // alert(JSON.stringify(allDataToPublishReducerState))
+ if(!saveIndicator.includes('saved')){
+  setSaveindicator('you need to save data before publish.')
+  return
+ }
 const userData = agentReducerState.data
 
 setFetchData(true)
