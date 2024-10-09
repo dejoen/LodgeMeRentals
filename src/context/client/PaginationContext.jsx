@@ -1,39 +1,39 @@
 /* eslint-disable react/prop-types */
-import { createContext, useEffect, useState } from "react"
-
+import { createContext, useContext, useEffect, useState } from "react"
+import { getAllHousespublished } from "../../features/dashBoard/service"
+import  {CombineContext} from '../../context/CombineContextProvider'
 
 export   const PaginationContext  = createContext()
 
 const PaginationContextProvider = ({children}) => {
    
+    const {clientReducerState}  = useContext(CombineContext)
    
     
-    const [homeItems,setHomeItems] = useState([
-         [
-            1,2,
-         ],
-         [
-            2,4,6,
-         ],
-         [
-            2,4,6,5,9
-         ],
-         [
-            2,4,6,5,9,9,3,5,4
-         ]
-        
-        
-    ])
+    const [homeItems,setHomeItems] = useState([])
      const [items,setItems] = useState([])
+
      const [loading,setLoading] = useState(false)
+
      useEffect(()=>{
         setLoading(true)
-        fetchData().then(res=>{
+
+
+         const userData = clientReducerState.data
+
+         const token = userData.token
+
+        fetchData(token).then(result=>{
+         return result.json()
+        }).then(res=>{
             setLoading(false)
-            setItems(homeItems[0])
+            setItems(res.housesPublished)
+          
            
         })
-       },[])
+       },[clientReducerState])
+
+
 
    const setItem = (items) =>{
       setHomeItems(prev=>{
@@ -43,6 +43,7 @@ const PaginationContextProvider = ({children}) => {
         ]
       })
    }
+
    const getItem = (page) => {
     setLoading(true)  
         fetchData().then(res=>{
@@ -58,17 +59,10 @@ const PaginationContextProvider = ({children}) => {
     )
 }
 
-const fetchData = async () =>{
-  
-    return new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-           
-           resolve("just me")
-        },5000)
-    })
-    
+const fetchData = async (token) =>{
 
-   
+return getAllHousespublished(token)
+  
 }
 
 export default PaginationContextProvider

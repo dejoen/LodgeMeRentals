@@ -31,4 +31,17 @@ import BaseURL from "../../utils/BaseURL"
     })
  }
 
+ export const  getAllHousespublished = async (token) =>{
+
+    return  fetch(`${BaseURL.URL}/all-houses`,{
+        method:"GET",
+        headers:{
+            'Authorization':`Bearer ${token}`,
+           "Content-Type":'application/json'
+        },
+       
+    })
+      
+ }
+
 
