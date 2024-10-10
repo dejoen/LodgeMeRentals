@@ -196,13 +196,8 @@ const ClientDashBoardScreen = () =>{
       </div>:
       
       <div>
-         {
-            clientReducerDispatcher({TYPE:"Authentication",payload:{
-                showPopUp:!clientReducerState.showPopUp
-             }})
-
-         }
-       <Navigate to={'/register-as-client'}/> 
+        
+       <Navigate to={'/login'}/> 
       </div>
         
     
