@@ -1,8 +1,9 @@
+import NeighborHoodInsights from "../NeigborhoodInsightsBody";
 import MarketInsightsOverviewCard from "./MarketInsightsOverviewCard";
 
 const MarketInsightBody = () => {
   return (
-    <div className="mt-20 p-5  font-nunito">
+    <div className="mt-20 p-5  font-nunito ">
       <div>
         <p className="font-bold text-2xl">Market Insights</p>
         <p>
@@ -11,15 +12,25 @@ const MarketInsightBody = () => {
           page offer a detailed analysis of the rental market, demand patterns,
           and area-specific insights.
         </p>
-
-
+      
+   
       </div>
-      <div>
+      <div className="">
         <p className="font-bold m-5">Overview of the rental market.</p>
-        <MarketInsightsOverviewCard header="Families" bodyOne="100" bodyTwo="since last month" percentage="16.0"/>
-      </div>
-    </div>
-  );
+           
+           <div className="flex flex-wrap justify-evenly gap-5"> 
+            {
+                  [1,2,6].map((items,index)=>(
+                  
+                  <MarketInsightsOverviewCard header="kkk" bodyOne="gsgg" bodyTwo="hhhs" percentage="19.10%" key={index}/>                 ))
+            }
+           </div>
+           </div> 
+           <NeighborHoodInsights/>
+
+
+           </div> 
+            );
 };
 
 export default MarketInsightBody;
