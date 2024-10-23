@@ -7,7 +7,7 @@ import MarketInsightBody from "../../../component/agent/marketInsight/MarketInsi
 const MarketInsight = () => {
   const { agentReducerState } = useContext(CombineContext);
   return (
-    <div className="w-full  h-screen ">
+    <div className="w-full  h-screen overflow-y-auto">
       <AgentContainer
         header={"Welcome \n" + agentReducerState.data.userName + "!"}
         body={"What would you like to see today?"}

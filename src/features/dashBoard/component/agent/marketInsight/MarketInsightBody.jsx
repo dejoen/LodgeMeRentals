@@ -15,7 +15,7 @@ const MarketInsightBody = () => {
       
    
       </div>
-      <div className="">
+      <div className="w-full ">
         <p className="font-bold m-5">Overview of the rental market.</p>
            
            <div className="flex flex-wrap justify-evenly gap-5"> 
