@@ -3,7 +3,7 @@ import { PieChart } from "@mui/x-charts";
 const NeighborHoodInsights = () => {
   return (
     <div className="ms-10 mt-10 w-full">
-      <div className="flex flex-wrap gap-5 ">
+      <div className="w-full  gap-5 ">
         <div className="relative max-w-fit border border-black rounded-lg  p-5">
           <p>Residence Database</p>
           <div className="absolute w-[300px] h-[200px] flex place-items-center justify-center ">
@@ -24,8 +24,9 @@ const NeighborHoodInsights = () => {
             height={200}
           />
         </div>
-        <div>
-            ggg
+
+        <div className="">
+          <div className=" w-[300px] border border-black rounded-lg">ggg</div>
         </div>
       </div>
     </div>
