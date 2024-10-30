@@ -29,7 +29,8 @@ import AboutHouse from "./features/dashBoard/screen/agent/publishHouse/AboutHous
 import HouseFeatures from "./features/dashBoard/screen/agent/publishHouse/HouseFeatures.jsx";
 import MediaUpload from "./features/dashBoard/screen/agent/publishHouse/MediaUpload.jsx";
 import RentalPrice from "./features/dashBoard/screen/agent/publishHouse/RentalPrice.jsx";
-import MarketInsight from "./features/dashBoard/screen/agent/marketInsight/MarketInsight.jsx";
+import MarketInsightScreen from "./features/dashBoard/screen/agent/marketInsight/MarketInsightScreen.jsx";
+import AgentListedHouseScreen from "./features/dashBoard/screen/agent/ListedHouses/AgentListedHouseScreen.jsx";
 
 const router = createBrowserRouter([
   {
@@ -128,7 +129,11 @@ const router = createBrowserRouter([
 
       {
         path: "dashboard/market-insights",
-        element: <MarketInsight />
+        element: <MarketInsightScreen />
+      },
+      {
+        path: "dashboard/listed-houses",
+        element: <AgentListedHouseScreen />
       },
 
       {

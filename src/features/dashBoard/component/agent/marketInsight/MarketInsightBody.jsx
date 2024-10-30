@@ -3,7 +3,7 @@ import MarketInsightsOverviewCard from "./MarketInsightsOverviewCard";
 
 const MarketInsightBody = () => {
   return (
-    <div className="mt-20 p-5  font-nunito ">
+    <div className="  relative mt-20 p-5  font-nunito ">
       <div>
         <p className="font-bold text-2xl">Market Insights</p>
         <p>
@@ -27,6 +27,9 @@ const MarketInsightBody = () => {
            </div>
            </div> 
            <NeighborHoodInsights/>
+
+           <div className=" absolute w-full flex justify-end  underline bottom-0 right-5
+         cursor-default  ">See More</div>
 
 
            </div> 

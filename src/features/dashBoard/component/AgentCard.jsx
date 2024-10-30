@@ -18,6 +18,10 @@ const AgentCard = props => {
             navigate("/agent/dashboard/market-insights");
             return;
           }
+          case "Access Your Listed Houses": {
+            navigate("/agent/dashboard/listed-houses");
+            return;
+          }
           default:
             null;
         }
