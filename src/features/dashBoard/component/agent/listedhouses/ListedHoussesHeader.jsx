@@ -14,7 +14,7 @@ const ListedHousesHeader = () => {
     <div className="w-full font-nunito overflow-x-auto flex gap-1 md:gap-5 md:justify-end p-5 ">
       <div
         className={`${headerState.active &&
-          "bg-[#BB7655] text-white"}  rounded-md flex justify-center place-items-center  md:p-1 min-w-[20%] md:min-w-[6%] `}
+          "bg-[#BB7655] text-white"}   rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%] `}
         onClick={() => {
           setHeaderState({
             ...headerState,
@@ -32,7 +32,7 @@ const ListedHousesHeader = () => {
 
       <div
         className={`${headerState.denied &&
-          "bg-[#BB7655] text-white"}  rounded-md flex justify-center place-items-center  md:p-1 min-w-[20%] md:min-w-[6%]`}
+          "bg-[#BB7655] text-white"}  rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%]`}
         onClick={() => {
           setHeaderState({
             ...headerState,
@@ -49,7 +49,7 @@ const ListedHousesHeader = () => {
       </div>
       <div
         className={`${headerState.pending &&
-          "bg-[#BB7655] text-white"}  rounded-md flex justify-center place-items-center  md:p-1 min-w-[20%] md:min-w-[6%]`}
+          "bg-[#BB7655] text-white"}   rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%]`}
         onClick={() => {
             setHeaderState({
                 ...headerState,
@@ -66,7 +66,7 @@ const ListedHousesHeader = () => {
       </div>
       <div
         className={`${headerState.paused &&
-          "bg-[#BB7655] text-white"}  rounded-md flex justify-center place-items-center  md:p-1 min-w-[20%] md:min-w-[6%] `}
+          "bg-[#BB7655] text-white"}   rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%] `}
         onClick={() => {
             setHeaderState({
                 ...headerState,
@@ -83,7 +83,7 @@ const ListedHousesHeader = () => {
       </div>
       <div
         className={`${headerState.draft &&
-          "bg-[#BB7655] text-white"}  rounded-md flex justify-center place-items-center  md:p-1 min-w-[20%] md:min-w-[6%] `}
+          "bg-[#BB7655] text-white"}   rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%]`}
         onClick={() => {
             setHeaderState({
                 ...headerState,
@@ -100,7 +100,7 @@ const ListedHousesHeader = () => {
       </div>
       <div
         className={`${headerState.requiresModification &&
-          "bg-[#BB7655] text-white"}  rounded-md flex justify-center place-items-center  md:p-1 min-w-[20%] md:min-w-[6%] `}
+          "bg-[#BB7655] text-white"}  rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%] `}
         onClick={() => {
             setHeaderState({
                 ...headerState,
