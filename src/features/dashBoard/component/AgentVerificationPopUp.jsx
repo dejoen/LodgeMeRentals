@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import {useFilePicker} from 'use-file-picker'
+import { useFilePicker } from "use-file-picker";
 import proccessedIcon from "../../../assets/processingDoc.svg";
 import LodgeMeIcon from "../../../assets/lodgeMeIcon.svg";
 import { useState } from "react";
@@ -10,8 +10,6 @@ import { uploadData } from "../service";
 import { CircularProgress } from "@chakra-ui/progress";
 
 const AgentVerificationPopUp = ({ showScreen, token }) => {
-
-  
   const [openCamera, setOpenCamera] = useState(false);
   const [selfieImage, setSelfieImage] = useState(null);
   const [documentIDFile, setDocummentIdFile] = useState({
@@ -34,13 +32,20 @@ const AgentVerificationPopUp = ({ showScreen, token }) => {
   const [serverErrorMessage, setServerErrorMessage] = useState(null);
   const [displayLoadingBar, setDisplayLoadingBar] = useState(false);
 
-  const {openFilePicker} = useFilePicker({
-    accept:'*',
+  const { openFilePicker } = useFilePicker({
+    accept: "*",
+    readAs: "DataURL",
     // eslint-disable-next-line no-unused-vars
-    onFilesSuccessfullySelected :({plainFiles,filesContent}) =>{
-      decodeFile(filesContent[0])
+    onFilesSuccessfullySelected: ({ plainFiles, filesContent }) => {
+      setDocummentIdFile(prevState => {
+        return {
+          ...prevState,
+          filePath: filesContent[0].content,
+          fileName: filesContent[0].name
+        };
+      });
     }
-  })
+  });
 
   const decodeFile = async file => {
     const fileReader = new FileReader();
@@ -157,13 +162,15 @@ const AgentVerificationPopUp = ({ showScreen, token }) => {
               <p>
                 {documentIDFile.fileName}
               </p>
-             
-                <p className="bg-[#FFC839] p-2 w-fit rounded-md text-center hover:shadow-black shadow-md mt-2" onClick={()=>{
-                  openFilePicker()
-                }}>
-                  Upload ID Document
-                </p>
-            
+
+              <p
+                className="bg-[#FFC839] p-2 w-fit rounded-md text-center hover:shadow-black shadow-md mt-2"
+                onClick={() => {
+                  openFilePicker();
+                }}
+              >
+                Upload ID Document
+              </p>
             </div>
             <div className="w-[200px] h-[250px] border-2 border-dashed rounded-lg flex flex-col justify-center place-items-center">
               {selfieImage &&

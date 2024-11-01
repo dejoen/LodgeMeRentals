@@ -31,6 +31,7 @@ import MediaUpload from "./features/dashBoard/screen/agent/publishHouse/MediaUpl
 import RentalPrice from "./features/dashBoard/screen/agent/publishHouse/RentalPrice.jsx";
 import MarketInsightScreen from "./features/dashBoard/screen/agent/marketInsight/MarketInsightScreen.jsx";
 import AgentListedHouseScreen from "./features/dashBoard/screen/agent/ListedHouses/AgentListedHouseScreen.jsx";
+import AgentManagementScreen from "./features/dashBoard/screen/agent/AgentManagement/AgentManagementScreen.jsx";
 
 const router = createBrowserRouter([
   {
@@ -134,6 +135,10 @@ const router = createBrowserRouter([
       {
         path: "dashboard/listed-houses",
         element: <AgentListedHouseScreen />
+      },
+      {
+        path: "dashboard/management",
+        element: <AgentManagementScreen/>
       },
 
       {
