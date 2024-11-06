@@ -1,11 +1,25 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import AgentContainer from "../../../component/AgentContainer";
 import AgentNavBarDrawer from "../../../component/AgentNavBarDrawer";
 import { CombineContext } from "../../../../../context/CombineContextProvider";
 import AgentListedHouseContainer from "../../../component/agent/listedhouses/AgentListedHousesContainer";
+import { getAllHousesPublishedAgent } from "../../../service";
 
 const AgentListedHouseScreen = () => {
-  const { agentReducerState } = useContext(CombineContext);
+  const { agentReducerState,
+    housesPublishedByAgentReducerDispatcher } = useContext(CombineContext);
+
+  useEffect(()=>{
+    const user = agentReducerState.data
+     getAllHousesPublishedAgent(user.token,user._id).then(res=> {
+      return res.json()
+     }).then(result=>{
+     
+       housesPublishedByAgentReducerDispatcher({TYPE:"Save_Data",payload:result})
+       
+     }).catch(err=>alert(err))
+
+  },[agentReducerState,housesPublishedByAgentReducerDispatcher])
 
   return (
     <div className="w-full font-nunito overflow-hidden">

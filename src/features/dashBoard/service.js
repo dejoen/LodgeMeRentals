@@ -44,4 +44,19 @@ import BaseURL from "../../utils/BaseURL"
       
  }
 
+ export const  getAllHousesPublishedAgent= async (token,publisherId) =>{
+
+    return  fetch(`${BaseURL.URL}/my-houses-publised`,{
+        method:"POST",
+        headers:{
+            'Authorization':`Bearer ${token}`,
+           "Content-Type":'application/json'
+        },
+         body:JSON.stringify({publisherId})
+        
+       
+    })
+      
+ }
+
 

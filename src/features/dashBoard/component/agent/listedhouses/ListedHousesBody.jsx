@@ -1,9 +1,13 @@
 
+import { useContext } from "react";
 import ListedHousesCard from "./ListedHousesCard";
+import { CombineContext } from "../../../../../context/CombineContextProvider";
 
 
 const ListedHousesBody = () => {
-
+   
+    const {
+        housesPublishedByAgentReducerState } = useContext(CombineContext);
     return (
     
 <div className="md:w-[96%] min-h-[58vh]   w-full md:m-5 text-black ">
@@ -18,17 +22,19 @@ const ListedHousesBody = () => {
         <p className=" text-center min-w-[120px]">applications</p>
        </div>
        <div className="w-[810px] md:w-full h-[1px] bg-black "></div>
+     
+
+       {
+         
+        (housesPublishedByAgentReducerState && housesPublishedByAgentReducerState.housesPublished) && housesPublishedByAgentReducerState.housesPublished.map((house)=>(
+
+         
+
+            <ListedHousesCard key={house._id} houseName={house.houseOverview.houseName} shortDescription={house.aboutHouse.description} houseImage={(house.mediaUpload )? house.mediaUpload.find(e=>{return e.type === 'image'}).url:''}/>  
+        ))      }
        
-       <ListedHousesCard />
-       <ListedHousesCard/>
-       <ListedHousesCard />
-       <ListedHousesCard />
-       <ListedHousesCard />
-     <ListedHousesCard />
-       <ListedHousesCard/>
-       <ListedHousesCard />
-       <ListedHousesCard />
-       <ListedHousesCard />
+     
+      
 
 
       
