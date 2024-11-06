@@ -13,12 +13,16 @@ const RentalPrice = () => {
     allDataToPublishReducerDispatcher,
     agentReducerState
   } = useContext(CombineContext);
+
+
   const [saveIndicator, setSaveindicator] = useState("");
   const [error, setError] = useState({
     isError: false,
     title: "",
     errorMessage: ""
   });
+
+
   const [fetchData, setFetchData] = useState(false);
   const [successPage, setSuccessPage] = useState(false);
   const navigate = useNavigate();
@@ -315,6 +319,7 @@ const RentalPrice = () => {
                   if (res.status === 200) {
                     setFetchData(false);
                     setSuccessPage(true);
+                    
                   } else {
                     setFetchData(false);
                     setError({
