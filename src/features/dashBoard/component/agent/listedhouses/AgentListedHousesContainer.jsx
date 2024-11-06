@@ -1,6 +1,6 @@
 import ListedHousesBody from "./ListedHousesBody";
 import ListedHousesHeader from "./ListedHoussesHeader";
-import publishhouseIcon from '../../../../../assets/publishhouseIcon.svg'
+import publishhouseIcon from '../../../../../assets/publishHouseIcon.svg'
 import { useNavigate } from "react-router-dom";
 
 
