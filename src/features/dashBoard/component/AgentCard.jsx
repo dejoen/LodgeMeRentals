@@ -26,6 +26,11 @@ const AgentCard = props => {
             navigate("/agent/dashboard/management");
             return;
           }
+
+          case "Help & Support": {
+            navigate("/agent/dashboard/helpandsupport/accessibility");
+            return;
+          }
           default:
             null;
         }

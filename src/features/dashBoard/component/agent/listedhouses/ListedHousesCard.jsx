@@ -4,7 +4,7 @@ import  moreButton from '../../../../../assets/tableMore.svg'
 const ListedHousesCard = ({houseName,shortDescription,houseImage}) => {
   return (
     <div className=" p-1 flex gap-4 justify-evenly md:justify-end pe-[2%] text-black border-b border-black min-h-[10vh] w-[810px] md:w-full place-items-center">
-      <div className="hidden md:block  h-[10vh]  text-center min-w-[120px] max-w-[120px] ">
+      <div className="hidden md:block  h-[10vh]  ps-5 min-w-[120px] max-w-[120px] ">
      
           <img className="rounded-md  w-full h-full    " src={(houseImage)?houseImage:image} />
         </div>

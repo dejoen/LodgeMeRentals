@@ -32,6 +32,10 @@ import RentalPrice from "./features/dashBoard/screen/agent/publishHouse/RentalPr
 import MarketInsightScreen from "./features/dashBoard/screen/agent/marketInsight/MarketInsightScreen.jsx";
 import AgentListedHouseScreen from "./features/dashBoard/screen/agent/ListedHouses/AgentListedHouseScreen.jsx";
 import AgentManagementScreen from "./features/dashBoard/screen/agent/AgentManagement/AgentManagementScreen.jsx";
+import HelpAndSupportScreen from "./features/dashBoard/screen/agent/HelpAndSupport/HelpAndSupportScreen.jsx";
+import HelpAndSupportAcessibilityScreen from "./features/dashBoard/screen/agent/HelpAndSupport/HelpAndSupportAcessibilityScreen.jsx";
+import HelpAndSupportTroubleShootingScreen from "./features/dashBoard/screen/agent/HelpAndSupport/HelpAndsupportTroubleShootingscreen.jsx";
+import HelpAndSupportPoliciesScreen from "./features/dashBoard/screen/agent/HelpAndSupport/HelpandSupportPoliciesScreen.jsx";
 
 const router = createBrowserRouter([
   {
@@ -139,6 +143,25 @@ const router = createBrowserRouter([
       {
         path: "dashboard/management",
         element: <AgentManagementScreen/>
+      },
+      {
+        path: "dashboard/helpandsupport",
+        element: <HelpAndSupportScreen/>,
+        children:[
+          {
+            path:'accessibility',
+            element:<HelpAndSupportAcessibilityScreen/>
+            
+          },
+          {
+            path:'troubleShooting',
+            element:<HelpAndSupportTroubleShootingScreen/>
+          },
+          {
+            path:'policies',
+            element:<HelpAndSupportPoliciesScreen/>
+          }
+        ]
       },
 
       {
