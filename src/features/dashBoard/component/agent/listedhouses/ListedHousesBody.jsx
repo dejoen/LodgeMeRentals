@@ -30,7 +30,7 @@ const ListedHousesBody = () => {
 
          
 
-            <ListedHousesCard key={house._id} houseName={house.houseOverview.houseName} shortDescription={house.aboutHouse.description} houseImage={(house.mediaUpload )? house.mediaUpload.find(e=>{return e.type === 'image'}).url:''}/>  
+            <ListedHousesCard key={house._id} listId={house._id} houseName={house.houseOverview.houseName} shortDescription={house.aboutHouse.description} houseImage={(house.mediaUpload )? house.mediaUpload.find(e=>{return e.type === 'image'}).url:''}/>  
         ))      }
        
      
