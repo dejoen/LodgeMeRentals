@@ -36,6 +36,8 @@ import HelpAndSupportScreen from "./features/dashBoard/screen/agent/HelpAndSuppo
 import HelpAndSupportAcessibilityScreen from "./features/dashBoard/screen/agent/HelpAndSupport/HelpAndSupportAcessibilityScreen.jsx";
 import HelpAndSupportTroubleShootingScreen from "./features/dashBoard/screen/agent/HelpAndSupport/HelpAndsupportTroubleShootingscreen.jsx";
 import HelpAndSupportPoliciesScreen from "./features/dashBoard/screen/agent/HelpAndSupport/HelpandSupportPoliciesScreen.jsx";
+import UserProfileMainScreen from "./features/dashBoard/screen/agent/userprofile/userProfileMainScreen.jsx";
+import UserProfileOverviewScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileOverviewScreen.jsx";
 
 const router = createBrowserRouter([
   {
@@ -142,31 +144,58 @@ const router = createBrowserRouter([
       },
       {
         path: "dashboard/management",
-        element: <AgentManagementScreen/>
+        element: <AgentManagementScreen />
       },
       {
         path: "dashboard/helpandsupport",
-        element: <HelpAndSupportScreen/>,
-        children:[
+        element: <HelpAndSupportScreen />,
+        children: [
           {
-            path:'accessibility',
-            element:<HelpAndSupportAcessibilityScreen/>
-            
+            path: "accessibility",
+            element: <HelpAndSupportAcessibilityScreen />
           },
           {
-            path:'troubleShooting',
-            element:<HelpAndSupportTroubleShootingScreen/>
+            path: "troubleShooting",
+            element: <HelpAndSupportTroubleShootingScreen />
           },
           {
-            path:'policies',
-            element:<HelpAndSupportPoliciesScreen/>
+            path: "policies",
+            element: <HelpAndSupportPoliciesScreen />
           }
         ]
       },
+     
 
       {
         path: "message",
         element: <AgentMessageView />
+      }
+    ]
+  },
+
+  {
+    path: "/agent/userprofile",
+    element: <UserProfileMainScreen />,
+    children: [
+      {
+        path: "overview",
+        element: <UserProfileOverviewScreen/>
+      },
+      {
+        path: "rental-history",
+        element: <div>hello ggsg</div>
+      },
+      {
+        path: "documents",
+        element: <div>hello ggsg</div>
+      },
+      {
+        path: "applications",
+        element: <div>hello ggsg</div>
+      },
+      {
+        path: "payments",
+        element: <div>hello ggsg</div>
       }
     ]
   },

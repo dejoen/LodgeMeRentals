@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
-import  LodgeMeIcon from '../../../assets/lodgeMeIcon.svg'
+import  profileIcon from '../../../assets/userprofileIcon.svg'
 import  searchIcon from '../../../assets/searchIcon.svg'
 import  menuIcon from '../../../assets/menuIcon.svg'
 import { openAgentDrawer } from './AgentNavBarDrawer'
+import { useNavigate } from 'react-router-dom'
 
 let AgentHeader = (props) =>{
+     const  navigate = useNavigate()
     return (
         <div className="   w-full font-nunito bg-white flex place-items-center    ps-5   h-20 shadow-xl rounded-br-[10px] rounded-bl-[15px] overflow-x-hidden">
             
@@ -16,13 +18,15 @@ let AgentHeader = (props) =>{
          
          <div className=' w-full md:w-[50%] me-5  flex  md:place-items-center justify-end md:me-20  gap-10'>
             
-            <img className='w-[20px]  md:w-[40px] 
+            <img className='w-[20px]  md:w-[20px] 
              ' src={searchIcon} />
 
 
-            <div className='hidden md:block border border-orange-400 rounded-full p-2 '>
+            <div className='hidden md:block  ' onClick={()=>{
+                navigate('/agent/userprofile/overview')
+            }}>
             <img className='w-[40px] 
-             ' src={LodgeMeIcon} />
+             ' src={profileIcon}  />
           
             </div>
 
