@@ -36,8 +36,10 @@ import HelpAndSupportScreen from "./features/dashBoard/screen/agent/HelpAndSuppo
 import HelpAndSupportAcessibilityScreen from "./features/dashBoard/screen/agent/HelpAndSupport/HelpAndSupportAcessibilityScreen.jsx";
 import HelpAndSupportTroubleShootingScreen from "./features/dashBoard/screen/agent/HelpAndSupport/HelpAndsupportTroubleShootingscreen.jsx";
 import HelpAndSupportPoliciesScreen from "./features/dashBoard/screen/agent/HelpAndSupport/HelpandSupportPoliciesScreen.jsx";
-import UserProfileMainScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileOverviewScreen.jsx";
+
 import UserProfileOverviewScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileOverviewScreen.jsx";
+import UserProfileMainScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileMainScreen.jsx";
+
 
 const router = createBrowserRouter([
   {
