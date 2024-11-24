@@ -19,6 +19,9 @@ const AgentNavBarDrawer = () =>{
           dashboardNav:{
             isActive:true,
           },
+          profileNav :{
+            isActive:false,
+          },
           messageNav :{
             isActive:false,
           },
@@ -33,9 +36,35 @@ const AgentNavBarDrawer = () =>{
           },
         }  
       }
+      case  'profile':{
+        return {
+          dashboardNav:{
+            isActive:false,
+          },
+          profileNav :{
+            isActive:true,
+          },
+          messageNav :{
+            isActive:false,
+          },
+          appointmentNav :{
+            isActive:false,
+          },
+         notificationNav :{
+            isActive:false,
+          },
+          SettingsNav :{
+            isActive:false,
+          },
+        }  
+          }
+
        case 'message' : {
         return {
           dashboardNav:{
+            isActive:false,
+          },
+          profileNav :{
             isActive:false,
           },
           messageNav :{
@@ -83,6 +112,9 @@ const AgentNavBarDrawer = () =>{
               "dashboardNav":{
                 isActive:true
               },
+              profileNav :{
+                isActive:false,
+              },
               'messageNav':{
                 isActive:false
               },
@@ -105,6 +137,38 @@ const AgentNavBarDrawer = () =>{
           <p>Dashboard</p>
         </div>
 
+        <div className={`flex h-[50px] hover:bg-[#BB7655] ${ (activeContainer.profileNav.isActive) ?"bg-[#BB7655] ":""} rounded-md place-items-center  ps-4 gap-2`} onClick={()=>{
+          setActiveContainter((prevState)=>{
+             return {
+              ...prevState,
+              "dashboardNav":{
+                isActive:false
+              },
+              profileNav :{
+                isActive:true,
+              },
+              'messageNav':{
+                isActive:false
+              },
+              'appointmentNav':{
+                isActive:false
+              },
+              'notificationNav':{
+                isActive:false
+              },
+              'SettingsNav':{
+                isActive:false
+              },
+             }
+          })
+
+          navigate("/agent/userprofile/overview")
+
+        }}>
+          <img src={dashBoardMenu}/>
+          <p>Profile</p>
+        </div>
+
 
         <div className={`flex h-[50px] hover:bg-[#BB7655] ${ (activeContainer.messageNav.isActive) ?"bg-[#BB7655] ":""}  rounded-md place-items-center  ps-4 gap-2`} onClick={()=>{
           setActiveContainter((prevState)=>{
@@ -112,6 +176,9 @@ const AgentNavBarDrawer = () =>{
               ...prevState,
               "dashboardNav":{
                 isActive:false
+              },
+              profileNav :{
+                isActive:false,
               },
               'messageNav':{
                 isActive:true
@@ -140,6 +207,9 @@ const AgentNavBarDrawer = () =>{
               "dashboardNav":{
                 isActive:false
               },
+              profileNav :{
+                isActive:false,
+              },
               'messageNav':{
                 isActive:false
               },
@@ -167,6 +237,9 @@ const AgentNavBarDrawer = () =>{
               "dashboardNav":{
                 isActive:false
               },
+              profileNav :{
+                isActive:false,
+              },
               'messageNav':{
                 isActive:false
               },
@@ -192,6 +265,9 @@ const AgentNavBarDrawer = () =>{
               ...prevState,
               "dashboardNav":{
                 isActive:false
+              },
+              profileNav :{
+                isActive:false,
               },
               'messageNav':{
                 isActive:false

@@ -177,7 +177,9 @@ const router = createBrowserRouter([
 
   {
     path: "/agent/userprofile",
-    element: <UserProfileMainScreen />,
+    element: <CombineContextProvider>
+      <UserProfileMainScreen />
+      </CombineContextProvider>,
     children: [
       {
         path: "overview",
