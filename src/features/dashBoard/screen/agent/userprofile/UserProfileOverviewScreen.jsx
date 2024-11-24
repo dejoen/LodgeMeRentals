@@ -1,4 +1,4 @@
-import image from "../../../../../assets/bodyimage3.svg";
+import image from "../../../../../assets/bodyImage3.svg";
 import UserProfileBodyContainer from "../../../component/agent/userProfile/UserProfileBodyConatainer";
 
 const UserProfileOverviewScreen = () => {
