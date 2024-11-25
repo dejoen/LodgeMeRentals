@@ -6,6 +6,7 @@ import  dashBoardMessageIcon from '../../../assets/dmessageicon.svg'
 import  dashBoardAppointment from '../../../assets/dappointmenticon.svg'
 import  dashBoardNotification from '../../../assets/dnotificationicon.svg'
 import  dashBoardSettings from '../../../assets/dsettingsicon.svg'
+import  profileIcon from '../../../assets/agentprofile/profileIconWhite.svg'
 import {  useState } from 'react'
 import { useNavigate ,useLocation} from 'react-router-dom'
 
@@ -165,7 +166,7 @@ const AgentNavBarDrawer = () =>{
           navigate("/agent/userprofile/overview")
 
         }}>
-          <img src={dashBoardMenu}/>
+          <img src={profileIcon}/>
           <p>Profile</p>
         </div>
 

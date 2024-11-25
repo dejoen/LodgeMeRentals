@@ -4,12 +4,12 @@ const UserProfileBodyContainer = () =>{
     return (
       <div className="w-full cursor-default ">
         <div className="min-h-[400px] border shadow-black shadow-lg rounded-lg ">
-          <div className="flex md:justify-evenly m-4 overflow-x-auto">
-            <p className="bg-[#BB7655] text-white ps-3 pe-3 rounded-md">About</p>
-            <p className="hover:bg-[#BB7655] hover:text-white ps-3 pe-3 rounded-md">Stats</p>
-            <p className="hover:bg-[#BB7655] hover:text-white ps-3 pe-3 rounded-md">Posts</p>
-            <p className="hover:bg-[#BB7655] hover:text-white ps-3 pe-3 rounded-md">Ratings</p>
-            <p className="hover:bg-[#BB7655] hover:text-white ps-3 pe-3 rounded-md">Legitimacy</p>
+          <div className="flex  justify-evenly md:justify-evenly m-6 overflow-x-auto">
+            <p className="bg-[#BB7655] text-white p-2 rounded-md">About</p>
+            <p className="hover:bg-[#BB7655] hover:text-white p-2 rounded-md">Stats</p>
+            <p className="hover:bg-[#BB7655] hover:text-white p-2 rounded-md">Posts</p>
+            <p className="hover:bg-[#BB7655] hover:text-white p-2 rounded-md">Ratings</p>
+            <p className="hover:bg-[#BB7655] hover:text-white p-2 rounded-md">Legitimacy</p>
           </div>
           <div className="w-full pe-10 ">
         <div className="w-full   ">

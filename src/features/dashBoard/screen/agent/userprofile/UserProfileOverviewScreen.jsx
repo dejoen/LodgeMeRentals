@@ -2,8 +2,10 @@ import image from "../../../../../assets/bodyImage3.svg";
 import UserProfileBodyContainer from "../../../component/agent/userProfile/UserProfileBodyConatainer";
 import menuIcon from "../../../../../assets/menuIcon.svg";
 import { openAgentProfileDrawer } from "../../../component/agent/userProfile/UserProfileDrawer";
+import { useNavigate } from "react-router-dom";
 
 const UserProfileOverviewScreen = () => {
+  const navigate = useNavigate()
   return (
     <div className=" font-nunito relative w-full overflow-x-hidden">
       <div className="md:hidden md:aria-hidden:hidden w-full flex justify-end">
@@ -14,21 +16,27 @@ const UserProfileOverviewScreen = () => {
             openAgentProfileDrawer();
           }}
         />
+        <p className="left-0 absolute font-bold text-2xl mt-2 ms-3 hover:text-orange-400" onClick={()=>{
+          navigate(-1)
+        }}>{"<"}</p>
       </div>
 
-      <div className="absolute ms-5 md:ms-8 top-[32%]   md:top-[28%] z-50 left-2  bg-white  w-[100px] h-[100px]  md:w-[120px] md:h-[120px] rounded-full flex place-items-center shadow-2xl">
-        {" "}gggxg
-      </div>
+     
 
       <div className="relative">
         <div className="m-8  ">
+       
           <div className="bg-[#D9D9D9] w-full h-[200px] rounded-t-2xl flex">
             <img
               className="w-full h-full  object-cover rounded-t-2xl "
               src={image}
             />
+
+<div className="absolute ms-4 md:ms-8 top-[33%]   md:top-[45%]   z-50 left-6  bg-white  w-[100px] h-[100px]  md:w-[120px] md:h-[120px] rounded-full flex place-items-center shadow-2xl">
+        {" "}gggxg
+      </div>
           </div>
-          <div className="  ms-[40px] md:ms-[150px] mt-2  flex flex-wrap  justify-center  md:justify-between gap-5 md:gap-0">
+          <div className="  ms-[80px] md:ms-[150px] mt-2  flex flex-wrap  justify-center  md:justify-between gap-5 md:gap-0">
             <div className="">
               <div>
                 <p>
