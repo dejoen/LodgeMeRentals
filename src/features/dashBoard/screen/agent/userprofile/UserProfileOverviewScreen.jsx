@@ -36,7 +36,7 @@ const UserProfileOverviewScreen = () => {
         {" "}gggxg
       </div>
           </div>
-          <div className="  ms-[80px] md:ms-[150px] mt-2  flex flex-wrap  justify-center  md:justify-between gap-5 md:gap-0">
+          <div className="  ms-[100px] md:ms-[150px] mt-2  flex flex-wrap  justify-center  md:justify-between gap-5 md:gap-0">
             <div className="">
               <div>
                 <p>
