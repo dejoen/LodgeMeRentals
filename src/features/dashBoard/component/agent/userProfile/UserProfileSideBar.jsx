@@ -94,7 +94,7 @@ const UserProfileSideBar = () => {
               };
             });
 
-            navigate("overview");
+            navigate("overview/about");
           }}
         >
          

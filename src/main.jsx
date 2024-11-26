@@ -39,7 +39,7 @@ import HelpAndSupportPoliciesScreen from "./features/dashBoard/screen/agent/Help
 
 import UserProfileOverviewScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileOverviewScreen.jsx";
 import UserProfileMainScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileMainScreen.jsx";
-
+import UserProfileAboutScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileAboutScreen.jsx";
 
 const router = createBrowserRouter([
   {
@@ -166,7 +166,6 @@ const router = createBrowserRouter([
           }
         ]
       },
-     
 
       {
         path: "message",
@@ -175,15 +174,31 @@ const router = createBrowserRouter([
     ]
   },
 
+
+
+
   {
     path: "/agent/userprofile",
-    element: <CombineContextProvider>
-      <UserProfileMainScreen />
-      </CombineContextProvider>,
+    element: (
+      <CombineContextProvider>
+        <UserProfileMainScreen />
+      </CombineContextProvider>
+    ),
+
     children: [
       {
-        path: "overview",
-        element: <UserProfileOverviewScreen/>
+        path: "overview/",
+        element: <UserProfileOverviewScreen />,
+        children: [
+          {
+            path: "about",
+            element: <UserProfileAboutScreen />
+          },
+          {
+            path: "stats",
+            element: <div>hello ggsg</div>
+          }
+        ]
       },
       {
         path: "rental-history",
@@ -203,6 +218,10 @@ const router = createBrowserRouter([
       }
     ]
   },
+
+
+
+
   {
     path: "/login",
 
@@ -212,6 +231,9 @@ const router = createBrowserRouter([
       </CombineContextProvider>
     )
   },
+
+
+  
   {
     path: "/client/dashboard",
     element: (

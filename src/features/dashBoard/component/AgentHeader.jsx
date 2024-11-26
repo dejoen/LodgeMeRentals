@@ -23,7 +23,7 @@ let AgentHeader = (props) =>{
 
 
             <div className='hidden md:block  ' onClick={()=>{
-                navigate('/agent/userprofile/overview')
+                navigate('/agent/userprofile/overview/about')
             }}>
             <img className='w-[40px] 
              ' src={profileIcon}  />
