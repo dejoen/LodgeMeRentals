@@ -100,7 +100,7 @@ const UserProfileBodyDrawer = () =>{
               };
             });
 
-            navigate("/userprofile/overview/about");
+            navigate("overview/about");
             closeAgentProfileDrawer()
           }}
         >

@@ -163,7 +163,7 @@ const AgentNavBarDrawer = () =>{
              }
           })
 
-          navigate("/agent/userprofile/overview")
+          navigate("/agent/userprofile/overview/about")
 
         }}>
           <img src={profileIcon}/>
