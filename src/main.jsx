@@ -40,6 +40,7 @@ import HelpAndSupportPoliciesScreen from "./features/dashBoard/screen/agent/Help
 import UserProfileOverviewScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileOverviewScreen.jsx";
 import UserProfileMainScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileMainScreen.jsx";
 import UserProfileAboutScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileAboutScreen.jsx";
+import UserProfileStatisticsScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileStatisticsScreen.jsx";
 
 const router = createBrowserRouter([
   {
@@ -196,7 +197,7 @@ const router = createBrowserRouter([
           },
           {
             path: "stats",
-            element: <div>hello ggsg</div>
+            element: <UserProfileStatisticsScreen/>
           }
         ]
       },
