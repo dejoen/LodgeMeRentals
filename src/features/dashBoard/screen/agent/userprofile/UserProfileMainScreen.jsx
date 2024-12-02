@@ -6,12 +6,12 @@ import { CombineContext } from "../../../../../context/CombineContextProvider";
 
 const UserProfileMainScreen = () => {
     const { agentReducerState } = useContext(CombineContext)
-
-   const user = agentReducerState.data
+    
+   
   return (
     <React.Fragment>
       { 
-      (agentReducerState.data && user)
+      (agentReducerState.data.userName)
         ? <div className="flex h-[100vh] w-full overflow-x-hidden">
             <UserProfileSideBar />
             <Outlet />
