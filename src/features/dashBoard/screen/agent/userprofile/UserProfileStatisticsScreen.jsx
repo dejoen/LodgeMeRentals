@@ -41,11 +41,16 @@ const UserProfileStatisticsScreen = () => {
             </div>
         </div>
       </div>
+      
+
+      <div className="flex flex-wrap w-full">
       <div className="relative   md:max-w-[650px] ">
-        <p className="absolute  left-0 text-sm top-[50%] rotate-[-90deg]">Profile Views and Impressions</p>
-        <div className="ms-[90px] flex">
+      <p className="md:hidden text-center text-sm mt-5 ">Profile Views and Impressions</p>
+        <p className="hidden absolute  left-0 text-sm top-[50%] rotate-[-90deg]">Profile Views and Impressions</p>
+        <div className="md:ms-[90px]  w-[350px] md:w-[500px]">
         <BarChart
           height={300}
+          
           xAxis={[
             {
               scaleType: "band",
@@ -57,9 +62,36 @@ const UserProfileStatisticsScreen = () => {
           series={[{ data: [38, 20, 15, 25], color: "#FCAD6D" }]}
          
         />
-        <p className="absolute right-0 bottom-0">this month</p>
+        <p className="absolute right-0 bottom-[-10px] border border-black border-opacity-40 p-1 rounded-md">this month<span className="p-1">{"v"}</span></p>
         </div>
        
+      </div>
+
+
+      <div className="flex flex-col mx-auto justify-center gap-2 mt-10 md:mt-1">
+
+        <div className="font-bold text-sm text-center">
+            <p>Average Monthly Earning</p>
+            <p>Amount  Earned</p>
+            <p className="mx-auto ms-5  text-2xl">N<span>250</span></p>
+            <p className="place-self-center  ms-5 text-center w-[50px] rounded bg-[#D8F0D4] text-[#34A853]">69%</p>
+        </div>
+
+        <div className="font-bold text-sm text-center">
+            <p>Reffered Bonuses</p>
+            <p>Amount  Earned</p>
+            <p className="mx-auto ms-5  text-2xl">N<span>250</span></p>
+            
+        </div>
+
+        <div className="font-bold text-sm text-center">
+            <p>Average Monthly spending</p>
+            <p>Amount  Spent</p>
+            <p className="mx-auto ms-5  text-2xl">N<span>250</span></p>
+            
+        </div>
+      </div>
+
       </div>
     </div>
   );
