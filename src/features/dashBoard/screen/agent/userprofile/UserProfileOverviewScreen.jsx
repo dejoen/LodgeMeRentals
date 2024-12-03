@@ -50,7 +50,7 @@ const UserProfileOverviewScreen = () => {
               {" "}gggxg
             </div>
           </div>
-          <div className="  ms-[100px] md:ms-[150px] mt-2  flex flex-wrap  justify-center  md:justify-between gap-5 md:gap-3">
+          <div className="  ms-[124px] md:ms-[150px] mt-2  flex flex-wrap  justify-center  md:justify-between gap-5 md:gap-3">
             <div className="">
               <div className="flex gap-5 font-bold text-xl">
                 <p>

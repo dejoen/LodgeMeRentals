@@ -41,6 +41,7 @@ import UserProfileOverviewScreen from "./features/dashBoard/screen/agent/userpro
 import UserProfileMainScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileMainScreen.jsx";
 import UserProfileAboutScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileAboutScreen.jsx";
 import UserProfileStatisticsScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileStatisticsScreen.jsx";
+import UserProfilePostsScreen from "./features/dashBoard/screen/agent/userprofile/UserProfilePostsScreen.jsx";
 
 const router = createBrowserRouter([
   {
@@ -198,6 +199,10 @@ const router = createBrowserRouter([
           {
             path: "stats",
             element: <UserProfileStatisticsScreen/>
+          },
+          {
+            path: "posts",
+            element: <UserProfilePostsScreen/>
           }
         ]
       },

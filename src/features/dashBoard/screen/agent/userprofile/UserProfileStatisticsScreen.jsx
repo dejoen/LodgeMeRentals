@@ -5,13 +5,14 @@ import { CombineContext } from "../../../../../context/CombineContextProvider";
 
 const UserProfileStatisticsScreen = () => {
   const { agentReducerState } = useContext(CombineContext)
-  
+   const user = agentReducerState.data
+   
   return (
     <div className=" font-nunito w-full p-5">
       <div className="flex flex-wrap justify-center place-items-center md:place-content-start gap-5 ">
         <p className="p-2">Account Status</p>
         <div className="flex justify-center place-content-center gap-1 border  rounded-lg p-2 text-sm">
-          <p className=" ">{ (agentReducerState.data && agentReducerState.data.isOnline) ? 'Online':'Offline'}</p>
+          <p className=" ">{  (user.isOnline === true) ? 'Online':'Offline'}</p>
           <span className={` ${(agentReducerState.data && agentReducerState.data.isOnline) && 'text-green-600'}  font-bold `}>.</span>
         </div>
 
@@ -52,7 +53,7 @@ const UserProfileStatisticsScreen = () => {
           <p className="hidden absolute  left-0 text-sm top-[50%] rotate-[-90deg]">
             Profile Views and Impressions
           </p>
-          <div className="md:ms-[90px]  w-[350px] md:w-[500px]">
+          <div className="relative md:ms-[90px]  w-[350px] md:w-[500px]">
             <BarChart
               height={300}
               xAxis={[
@@ -65,7 +66,7 @@ const UserProfileStatisticsScreen = () => {
               ]}
               series={[{ data: [38, 20, 15, 25], color: "#FCAD6D" }]}
             />
-            <p className="absolute right-4 bottom-[-10px] border border-black border-opacity-40 p-1 rounded-md">
+            <p className="absolute right-10 md:right-4 bottom-[-10px] border border-black border-opacity-40 p-1 rounded-md">
               this month<span className="p-1">{"v"}</span>
             </p>
           </div>

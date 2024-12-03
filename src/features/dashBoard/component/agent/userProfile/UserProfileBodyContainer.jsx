@@ -144,6 +144,8 @@ const UserProfileBodyContainer = () => {
                   }
                 };
               });
+              setMakeViewVisible(false);
+              navigate("/agent/userprofile/overview/posts");
             }}
           >
             Posts
