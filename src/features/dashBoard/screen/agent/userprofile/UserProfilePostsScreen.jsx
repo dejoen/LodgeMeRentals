@@ -9,6 +9,7 @@ const UserProfilePostsScreen = () => {
         agentReducerState,
         
         housesPublishedByAgentReducerDispatcher,
+        housesPublishedByAgentReducerState
        
       } = useContext(CombineContext);
 
@@ -21,6 +22,7 @@ const UserProfilePostsScreen = () => {
       useEffect(()=>{
     
         const user = agentReducerState.data
+        if(!housesPublishedByAgentReducerDispatcher){
          getAllHousesPublishedAgent(user.token,user._id).then(res=> {
           return res.json()
          }).then(result=>{
@@ -29,8 +31,13 @@ const UserProfilePostsScreen = () => {
            housesPublishedByAgentReducerDispatcher({TYPE:"Save_Data",payload:result.housesPublished})
            
          }).catch(err=>alert(err))
-    
-      },[agentReducerState,housesPublishedByAgentReducerDispatcher])
+        }else{
+           
+            setPublishedHouses(housesPublishedByAgentReducerState)
+        }
+      },[agentReducerState,housesPublishedByAgentReducerDispatcher,housesPublishedByAgentReducerState])
+
+      
       
     return(
         <div className="w-full font-nunito">

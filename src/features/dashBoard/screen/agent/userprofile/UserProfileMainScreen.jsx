@@ -27,7 +27,7 @@ const UserProfileMainScreen = () => {
         alert(error.message);
       }
     }
-  }, []);
+  }, [agentReducerState,connectSocket,socketConnectedReducerState]);
 
   useEffect(
     () => {
@@ -44,12 +44,12 @@ const UserProfileMainScreen = () => {
           }
         });
      
-        socketConnectedReducerState.socket.emit('fetch-published-house',"fetching houses.......")
+      
           
        
       });
     },
-    [socketConnectedReducerState]
+    [agentReducerState,connectSocket,socketConnectedReducerState,agentReducerDispatcher]
   );
    
     
