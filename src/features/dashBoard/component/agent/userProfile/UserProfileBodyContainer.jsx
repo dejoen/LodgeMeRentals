@@ -50,6 +50,26 @@ const UserProfileBodyContainer = () => {
           }
         };
 
+        case "posts":
+          setMakeViewVisible(false);
+          return {
+            about: {
+              isActive: false
+            },
+            stats: {
+              isActive: false
+            },
+            posts: {
+              isActive: true
+            },
+            ratings: {
+              isActive: false
+            },
+            legitimacy: {
+              isActive: false
+            }
+          };
+
       default:
         "";
     }

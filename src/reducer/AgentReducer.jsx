@@ -21,6 +21,7 @@ import BaseURL from "../utils/BaseURL"
         }).then(res=>{
             console.log(res)
            if(res.user){
+               
             localStorage.setItem('user',JSON.stringify(
                 {
                  showPopUp:false,

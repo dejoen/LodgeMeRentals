@@ -20,6 +20,7 @@ const AgentDashBoardScreen = () => {
     ) {
       const con = async () => {
         await connectSocket(agentReducerState.data.token);
+        
       };
       try {
         con();
@@ -27,7 +28,7 @@ const AgentDashBoardScreen = () => {
         alert(error.message);
       }
     }
-  }, []);
+  }, [socketConnectedReducerState]);
 
   useEffect(
     () => {

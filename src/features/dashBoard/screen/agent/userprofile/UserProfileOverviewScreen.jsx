@@ -15,8 +15,9 @@ import { CombineContext } from "../../../../../context/CombineContextProvider";
 
 const UserProfileOverviewScreen = () => {
 
-  const { agentReducerState } = useContext(CombineContext)
+  const { agentReducerState,  socketConnectedReducerState } = useContext(CombineContext)
 
+ 
   const navigate = useNavigate();
   return (
     <div className=" font-nunito relative w-full overflow-x-hidden">
@@ -82,7 +83,9 @@ const UserProfileOverviewScreen = () => {
             <div className="flex gap-5  flex-wrap justify-center  place-items-center md:place-items-start   ">
               <div className="bg-[#1C2E7A] flex text-white place-items-center gap-2 p-2 h-[35px] rounded-md min-w-[150px]">
                 <img src={previewIcon} alt="" />
-                <p>Preview Profile</p>
+                <p onClick={()=>{
+                    socketConnectedReducerState.socket.emit('hello','i am calling uo oh.....')
+                }}>Preview Profile</p>
               </div>
               <div className="bg-[#1C2E7A] flex text-white place-items-center gap-2 p-2 rounded-md h-[35px] min-w-[150px] ">
                 <img src={shareIcon} alt="" />

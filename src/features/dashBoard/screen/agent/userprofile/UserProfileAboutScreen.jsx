@@ -1,6 +1,8 @@
 
+
 const UserProfileAboutScreen = () => {
 
+  
     return (
         <div className="w-full pe-10 ">
         <div className="w-full   ">
