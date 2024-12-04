@@ -13,6 +13,8 @@ const UserProfileMainScreen = () => {
   } = useContext(CombineContext);
 
   useEffect(() => {
+
+    
     if (
       !socketConnectedReducerState.isSocketConnect &&
       agentReducerState.isLoggedIn
@@ -26,12 +28,32 @@ const UserProfileMainScreen = () => {
       } catch (error) {
         alert(error.message);
       }
+    }else{
+      socketConnectedReducerState.socket.emit('user')
+      
     }
   }, [agentReducerState,connectSocket,socketConnectedReducerState]);
 
   useEffect(
     () => {
       socketConnectedReducerState.socket.on("socketConnected", user => {
+        agentReducerDispatcher({
+          TYPE: "Authentication",
+          payload: {
+            ...agentReducerState,
+            isLoggedIn: true,
+            data: {
+              ...user,
+              token: agentReducerState.data.token
+            }
+          }
+        });
+     
+      
+          
+       
+      });
+      socketConnectedReducerState.socket.on("userData", user => {
         agentReducerDispatcher({
           TYPE: "Authentication",
           payload: {
