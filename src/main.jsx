@@ -43,6 +43,7 @@ import UserProfileAboutScreen from "./features/dashBoard/screen/agent/userprofil
 import UserProfileStatisticsScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileStatisticsScreen.jsx";
 import UserProfilePostsScreen from "./features/dashBoard/screen/agent/userprofile/UserProfilePostsScreen.jsx";
 import UserProfileRatingScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileRatingScreen.jsx";
+import UserProfileLegitimacyScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileLegitimacyScreen.jsx";
 
 const router = createBrowserRouter([
   {
@@ -208,7 +209,12 @@ const router = createBrowserRouter([
           {
             path: "rating",
             element: <UserProfileRatingScreen/>
+          },
+          {
+            path: "legitimacy",
+            element: <UserProfileLegitimacyScreen/>
           }
+
         ]
       },
       {

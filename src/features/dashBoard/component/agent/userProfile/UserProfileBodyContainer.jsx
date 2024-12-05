@@ -90,6 +90,26 @@ const UserProfileBodyContainer = () => {
               }
             };
 
+            case "legitimacy":
+              setMakeViewVisible(false);
+              return {
+                about: {
+                  isActive: false
+                },
+                stats: {
+                  isActive: false
+                },
+                posts: {
+                  isActive: false
+                },
+                ratings: {
+                  isActive: false
+                },
+                legitimacy: {
+                  isActive: true
+                }
+              };
+  
       default:
         "";
     }
@@ -247,6 +267,9 @@ const UserProfileBodyContainer = () => {
                   }
                 };
               });
+
+              setMakeViewVisible(false);
+              navigate("/agent/userprofile/overview/legitimacy");
             }}
           >
             Legitimacy
