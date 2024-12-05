@@ -70,6 +70,26 @@ const UserProfileBodyContainer = () => {
             }
           };
 
+          case "rating":
+            setMakeViewVisible(false);
+            return {
+              about: {
+                isActive: false
+              },
+              stats: {
+                isActive: false
+              },
+              posts: {
+                isActive: false
+              },
+              ratings: {
+                isActive: true
+              },
+              legitimacy: {
+                isActive: false
+              }
+            };
+
       default:
         "";
     }
@@ -194,7 +214,11 @@ const UserProfileBodyContainer = () => {
                     isActive: false
                   }
                 };
+
               });
+
+              setMakeViewVisible(false);
+              navigate("/agent/userprofile/overview/rating");
             }}
           >
             Ratings
