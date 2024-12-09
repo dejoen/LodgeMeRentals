@@ -9,17 +9,20 @@ import shareIcon from "../../../../../assets/agentprofile/profileShareIcon.svg";
 import editIcon from "../../../../../assets/agentprofile/profileEditIcon.svg";
 import heartIcon from "../../../../../assets/agentprofile/profileHeart.svg";
 import starIcon from "../../../../../assets/agentprofile/profileStar.svg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CombineContext } from "../../../../../context/CombineContextProvider";
-
+import UserEditProfileScreen from "./UserEditProfileScreen";
 
 const UserProfileOverviewScreen = () => {
+  const { agentReducerState, socketConnectedReducerState } = useContext(
+    CombineContext
+  );
 
-  const { agentReducerState,  socketConnectedReducerState } = useContext(CombineContext)
-
- 
+  const [toggleEditProfileScreen,setToggleEditProfileScreen]  = useState(false)
   const navigate = useNavigate();
   return (
+
+    
     <div className=" font-nunito relative w-full overflow-x-hidden">
       <div className="md:hidden md:aria-hidden:hidden w-full flex justify-end">
         <img
@@ -55,7 +58,9 @@ const UserProfileOverviewScreen = () => {
             <div className="">
               <div className="flex gap-5 font-bold text-xl">
                 <p>
-                  {(agentReducerState.data)? agentReducerState.data.userName : 'No name yet'}
+                  {agentReducerState.data
+                    ? agentReducerState.data.userName
+                    : "No name yet"}
                 </p>
                 <img src={agentNameIcon} alt="" />
               </div>
@@ -74,7 +79,7 @@ const UserProfileOverviewScreen = () => {
                 </div>
 
                 <div className="flex place-items-center gap-2">
-                  <img src={starIcon} alt=""/>
+                  <img src={starIcon} alt="" />
                   <p>(0-1m+)</p>
                 </div>
               </div>
@@ -83,15 +88,21 @@ const UserProfileOverviewScreen = () => {
             <div className="flex gap-5  flex-wrap justify-center  place-items-center md:place-items-start   ">
               <div className="bg-[#1C2E7A] flex text-white place-items-center gap-2 p-2 h-[35px] rounded-md min-w-[150px]">
                 <img src={previewIcon} alt="" />
-                <p onClick={()=>{
-                    socketConnectedReducerState.socket.emit('hello','i am calling uo oh.....')
-                }}>Preview Profile</p>
+                <p
+                  onClick={() => {
+                    // socketConnectedReducerState.socket.emit('hello','i am calling uo oh.....')
+                  }}
+                >
+                  Preview Profile
+                </p>
               </div>
               <div className="bg-[#1C2E7A] flex text-white place-items-center gap-2 p-2 rounded-md h-[35px] min-w-[150px] ">
                 <img src={shareIcon} alt="" />
                 <p>Share Profile</p>
               </div>
-              <div className="bg-[#1C2E7A] flex text-white place-items-center gap-2 p-2 rounded-md h-[35px] min-w-[150px] ">
+              <div className="bg-[#1C2E7A] flex text-white place-items-center gap-2 p-2 rounded-md h-[35px] min-w-[150px] cursor-default" onClick={()=>{
+                    setToggleEditProfileScreen(!toggleEditProfileScreen)
+              }}>
                 <img src={editIcon} alt=" " />
                 <p>Edit Profile</p>
               </div>
@@ -102,6 +113,12 @@ const UserProfileOverviewScreen = () => {
 
       <div className=" w-full p-2 md:p-8">
         <UserProfileBodyContainer />
+      </div>
+
+      <div className={`${(toggleEditProfileScreen)? 'flex':'hidden'} absolute bg-transparent justify-center place-items-center  w-full h-[100vh] top-5 z-50`}>
+        <UserEditProfileScreen updateUI= {()=>{
+            setToggleEditProfileScreen(!toggleEditProfileScreen)
+        }} />
       </div>
     </div>
   );
