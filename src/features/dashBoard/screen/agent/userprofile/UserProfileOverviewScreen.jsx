@@ -9,14 +9,16 @@ import shareIcon from "../../../../../assets/agentprofile/profileShareIcon.svg";
 import editIcon from "../../../../../assets/agentprofile/profileEditIcon.svg";
 import heartIcon from "../../../../../assets/agentprofile/profileHeart.svg";
 import starIcon from "../../../../../assets/agentprofile/profileStar.svg";
-import { useContext, useState } from "react";
-import { CombineContext } from "../../../../../context/CombineContextProvider";
+import {   useState } from "react";
 import UserEditProfileScreen from "./UserEditProfileScreen";
+import useGetUpdatedState from "../../../hooks/useGetUpdatedState";
+import useManageAgentState from "../../../hooks/useManageAgentState";
+
 
 const UserProfileOverviewScreen = () => {
-  const { agentReducerState, socketConnectedReducerState } = useContext(
-    CombineContext
-  );
+  const { agentReducerState } = useManageAgentState()
+ const {agentState} = useGetUpdatedState()
+  
 
   const [toggleEditProfileScreen,setToggleEditProfileScreen]  = useState(false)
   const navigate = useNavigate();
@@ -47,11 +49,15 @@ const UserProfileOverviewScreen = () => {
           <div className="bg-[#D9D9D9] w-full h-[200px] rounded-t-2xl flex">
             <img
               className="w-full h-full  object-cover rounded-t-2xl "
-              src={image}
+              src={(agentState.data.userProfile.coverImage)?agentState.data.userProfile.coverImage:image}
             />
 
             <div className="absolute ms-4 md:ms-8 top-[33%]   md:top-[45%]   z-50 left-6  bg-white  w-[100px] h-[100px]  md:w-[120px] md:h-[120px] rounded-full flex place-items-center shadow-2xl">
-              {" "}gggxg
+              
+            <img
+              className="w-full h-full  object-cover rounded-full "
+              src={(agentState.data.userProfile.profileImage)?agentState.data.userProfile.profileImage:image}
+            />
             </div>
           </div>
           <div className="  ms-[124px] md:ms-[150px] mt-2  flex flex-wrap  justify-center  md:justify-between gap-5 md:gap-3">
@@ -59,8 +65,8 @@ const UserProfileOverviewScreen = () => {
               <div className="flex gap-5 font-bold text-xl">
                 <p>
                   {agentReducerState.data
-                    ? agentReducerState.data.userName
-                    : "No name yet"}
+                    ? agentState.data.userName
+                    : "No name yet" }
                 </p>
                 <img src={agentNameIcon} alt="" />
               </div>
@@ -69,7 +75,7 @@ const UserProfileOverviewScreen = () => {
               </p>
               <div>
                 <p>
-                  Location:<span>{"Agent's Location"}</span>
+                  Location:<span>{`Agent's Location${agentState.data.userProfile.firstName}`}</span>
                 </p>
               </div>
               <div className="flex gap-5 mt-2">
@@ -112,7 +118,7 @@ const UserProfileOverviewScreen = () => {
       </div>
 
       <div className=" w-full p-2 md:p-8">
-        <UserProfileBodyContainer />
+      <UserProfileBodyContainer />
       </div>
 
       <div className={`${(toggleEditProfileScreen)? 'flex':'hidden'} absolute bg-transparent justify-center place-items-center  w-full h-[100vh] top-5 z-50`}>

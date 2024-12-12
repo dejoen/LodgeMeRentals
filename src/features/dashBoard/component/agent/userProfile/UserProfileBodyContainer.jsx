@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import useGetUpdatedState from "../../../hooks/useGetUpdatedState";
 
 const UserProfileBodyContainer = () => {
   const path = useLocation();
 
   const navigate = useNavigate();
+
+  const {agentState} = useGetUpdatedState()
 
   const [makeViewVisible, setMakeViewVisible] = useState(true);
 
@@ -286,21 +289,23 @@ const UserProfileBodyContainer = () => {
           <div className="flex gap-1">
             <p className="font-bold ">Member Since:</p>
             <p>
-              {"{Sign up date}"}
+              {(agentState.data.timeCreated)?new Date(agentState.data.timeCreated).toLocaleString("EN",{dateStyle:'medium'}):"{Sign up date}"}
             </p>
           </div>
           <div className="flex gap-1">
             <p className="font-bold ">Language:</p>
             <p>
-              {"{Sign up date}"}
+            {(agentState.data.userProfile.languauge)?agentState.data.userProfile.languauge:"No Language"}
             </p>
           </div>
 
           <div className="flex gap-1">
             <p className="font-bold ">Gender:</p>
             <p>
-              {"Male or Female"}
-            </p>
+              {
+(agentState.data.userProfile.gender)?agentState.data.userProfile.gender:"Nill"}
+              
+             </p>
           </div>
         </div>
       </div>
@@ -312,9 +317,7 @@ const UserProfileBodyContainer = () => {
       >
         <div className="relative w-full flex">
           <p className="font-bold">Address</p>
-          <p className="absolute right-5  bg-[#1C2E7A]  text-white p-1 rounded-md text-sm">
-            Edit
-          </p>
+          
         </div>
 
         <div className="flex gap-20 mt-3">
@@ -322,14 +325,16 @@ const UserProfileBodyContainer = () => {
             <div>
               <p className="font-bold">Country</p>
               <p>
-                {"Agent's Country"}
+              {
+                (agentState.data.userProfile.country)?agentState.data.userProfile.country:"Nill"}
               </p>
             </div>
 
             <div>
               <p className="font-bold">Local Government</p>
               <p>
-                {"Agent's Local Govt"}
+              {
+               (agentState.data.userProfile.localGovt)?agentState.data.userProfile.localGovt:"Nill"}
               </p>
             </div>
           </div>
@@ -338,14 +343,16 @@ const UserProfileBodyContainer = () => {
             <div>
               <p className="font-bold">State</p>
               <p>
-                {"Agent's State"}
+              {
+                 (agentState.data.userProfile.state)?agentState.data.userProfile.state:"Nill"}
               </p>
             </div>
 
             <div className="">
               <p className="font-bold">Postal Code</p>
               <p>
-                {"Agent's Postal Code"}
+              {
+(agentState.data.userProfile.postalCode)?agentState.data.userProfile.postalCode:"Nill"}
               </p>
             </div>
           </div>

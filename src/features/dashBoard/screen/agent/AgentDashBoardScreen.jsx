@@ -45,9 +45,26 @@ const AgentDashBoardScreen = () => {
           }
         });
       });
+
+      socketConnectedReducerState.socket.on("disconnect", user => {
+        agentReducerDispatcher({
+          TYPE: "Authentication",
+          payload: {
+            ...agentReducerState,
+            isLoggedIn: true,
+            data: {
+              ...user,
+              isOnline:false
+            }
+          }
+        });
+      });
     },
     [socketConnectedReducerState]
   );
+
+
+
 
   useEffect(
     () => {

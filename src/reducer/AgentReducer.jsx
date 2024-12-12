@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 
 import BaseURL from "../utils/BaseURL"
-
+import { io } from "socket.io-client";
 
     let fetchData = async () =>{
       return fetch(`${BaseURL.URL}/verify-token`,{
@@ -20,19 +20,28 @@ import BaseURL from "../utils/BaseURL"
             return r.json()
         }).then(res=>{
             console.log(res)
-           if(res.user){
+         if(res.status === 200){
                
-            localStorage.setItem('user',JSON.stringify(
-                {
-                 showPopUp:false,
-                 data:{
-                     ...res.user,
-                     token:JSON.parse(localStorage.getItem('user')).data.token
-                 },
-                 isLoggedIn:true
-             
-                } 
-             ))
+            const   socket =  io(`${BaseURL.LOCAL_URL_SOCKET}`,{
+                auth:{
+                    token:JSON.parse(localStorage.getItem('user')).data.token
+                }
+               })
+
+               socket.on('socketConnected',connectedUser=>{
+                localStorage.setItem('user',JSON.stringify(
+                    {
+                     showPopUp:false,
+                     data:{
+                         ...connectedUser,
+                         token:JSON.parse(localStorage.getItem('user')).data.token
+                     },
+                     isLoggedIn:true
+                 
+                    } 
+                 ))
+               })
+            
              return
            }
            localStorage.removeItem('user')
@@ -56,6 +65,7 @@ const  AgentReducer = (state,action)=> {
         case 'Authentication' :{
             state = action.payload
             if(action.payload.data){
+                 
                   localStorage.setItem('user',JSON.stringify(state))
                  
             }

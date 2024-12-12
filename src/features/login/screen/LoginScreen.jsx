@@ -29,16 +29,18 @@ import { io } from 'socket.io-client'
         userPassword:''
     })
 
+
      const [user,setUser] = useState({})
      let socket = useRef(io())
       useEffect(()=>{
          socket.current = socketConnectedReducerState.socket
-          socket.current.on('socketConnected',()=>{
-               if(user){
-                switch(user.accountType){
+         
+          socket.current.on('socketConnected',(connectedUser)=>{
+               if(connectedUser){
+                switch(connectedUser.accountType){
                     case "agent":{
 
-                        agentReducerDispatcher({TYPE:"Authentication",payload:{
+                       agentReducerDispatcher({TYPE:"Authentication",payload:{
                             ...agentReducerState,
                             isLoggedIn:true,
                             data:user
