@@ -36,6 +36,7 @@ export default  function useUpdateAgentProfile() {
                       isLoggedIn: true,
                       data: {
                         ...result.user,
+                        token
                         
                       }
                     }

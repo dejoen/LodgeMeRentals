@@ -303,7 +303,7 @@ const UserProfileBodyContainer = () => {
             <p className="font-bold ">Gender:</p>
             <p>
               {
-(agentState.data.userProfile.gender)?agentState.data.userProfile.gender:"Nill"}
+(agentState.data.userProfile.gender)?agentState.data.userProfile.gender:"Nil"}
               
              </p>
           </div>
@@ -334,7 +334,7 @@ const UserProfileBodyContainer = () => {
               <p className="font-bold">Local Government</p>
               <p>
               {
-               (agentState.data.userProfile.localGovt)?agentState.data.userProfile.localGovt:"Nill"}
+               (agentState.data.userProfile.localGovt)?agentState.data.userProfile.localGovt:"Nil"}
               </p>
             </div>
           </div>
@@ -344,7 +344,7 @@ const UserProfileBodyContainer = () => {
               <p className="font-bold">State</p>
               <p>
               {
-                 (agentState.data.userProfile.state)?agentState.data.userProfile.state:"Nill"}
+                 (agentState.data.userProfile.state)?agentState.data.userProfile.state:"Nil"}
               </p>
             </div>
 
@@ -352,7 +352,7 @@ const UserProfileBodyContainer = () => {
               <p className="font-bold">Postal Code</p>
               <p>
               {
-(agentState.data.userProfile.postalCode)?agentState.data.userProfile.postalCode:"Nill"}
+(agentState.data.userProfile.postalCode)?agentState.data.userProfile.postalCode:"Nil"}
               </p>
             </div>
           </div>

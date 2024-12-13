@@ -12,11 +12,11 @@ import starIcon from "../../../../../assets/agentprofile/profileStar.svg";
 import {   useState } from "react";
 import UserEditProfileScreen from "./UserEditProfileScreen";
 import useGetUpdatedState from "../../../hooks/useGetUpdatedState";
-import useManageAgentState from "../../../hooks/useManageAgentState";
+
 
 
 const UserProfileOverviewScreen = () => {
-  const { agentReducerState } = useManageAgentState()
+  
  const {agentState} = useGetUpdatedState()
   
 
@@ -62,21 +62,35 @@ const UserProfileOverviewScreen = () => {
           </div>
           <div className="  ms-[124px] md:ms-[150px] mt-2  flex flex-wrap  justify-center  md:justify-between gap-5 md:gap-3">
             <div className="">
+
               <div className="flex gap-5 font-bold text-xl">
                 <p>
-                  {agentReducerState.data
+                  {agentState.data
                     ? agentState.data.userName
                     : "No name yet" }
                 </p>
                 <img src={agentNameIcon} alt="" />
               </div>
-              <p>
-                Title:<span>House owner/Agent</span>
+              <div className="flex">
+              <p className="font-bold">
+                Title:
+              
               </p>
+              <span>House owner/Agent</span>
+              </div>
+              <div className="flex">
+                <p className="font-bold">PublishingAs:</p>
+                <p>{agentState.data.userProfile.publishingAs}</p>
+              </div>
               <div>
+                
+                <div className="flex place-items-center justify-center">
                 <p>
-                  Location:<span>{`Agent's Location${agentState.data.userProfile.firstName}`}</span>
+                  Location:
                 </p>
+                <span className="text-sm">{`${ (!agentState.data.userProfile.localGovt && !agentState.data.userProfile.localGovt) && 'Nil'     ||   (agentState.data.userProfile.localGovt) &&agentState.data.userProfile.localGovt},${(agentState.data.userProfile.state) &&agentState.data.userProfile.state} ` }</span>
+                </div>
+
               </div>
               <div className="flex gap-5 mt-2">
                 <div className="flex  place-items-center gap-2">

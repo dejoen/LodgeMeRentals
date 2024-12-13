@@ -3,8 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import useGetImage from "../../../hooks/useGetImage";
 import useGetAllStateData from "../../../hooks/useGetAllStateData";
 import useUpdateAgentProfile from "../../../hooks/useUpdateAgentProfile";
-import useManageAgentState from "../../../hooks/useManageAgentState";
+
 import { any } from "prop-types";
+import useGetUpdatedState from "../../../hooks/useGetUpdatedState";
 
 const UserEditProfileScreen = ({ updateUI }) => {
   const profilePicRef = useRef();
@@ -17,7 +18,8 @@ const UserEditProfileScreen = ({ updateUI }) => {
     getStateLocalGovtArea
   } = useGetAllStateData();
   const {updateProfileRequest,errorMessage,progressBar,setUpdatedProfileSuccessfully,updatedProfileSuccessfully}= useUpdateAgentProfile();
-  const { agentReducerState } = useManageAgentState();
+ 
+  const {agentState} = useGetUpdatedState()
   
 
   const [updateProfileFormData, setUpdateProfileFormData] = useState({
@@ -32,13 +34,15 @@ const UserEditProfileScreen = ({ updateUI }) => {
     country: "Nigeria",
     state: "",
     localGovt: "",
-    postalCode: ""
+    postalCode: "",
+    publishingAs:'Agent',
+    userName:""
   });
 
   useEffect(
     () => {
      
-      if (data.profileImageString) {
+      if (data.profileImageString !== '') {
         setUpdateProfileFormData({
           ...updateProfileFormData,
          profileImage:data.profileImageString.split(',')[1]
@@ -57,7 +61,7 @@ const UserEditProfileScreen = ({ updateUI }) => {
     },
     [
       
-      data
+      data,
     ]
   );
 
@@ -164,6 +168,23 @@ const UserEditProfileScreen = ({ updateUI }) => {
           />
         </div>
 
+        <div className="flex flex-col border w-full p-1 md:w-[50%] mt-5 rounded-md cursor-default">
+          <label htmlFor="lastName">User Name</label>
+          <input
+            className="outline-none cursor-default"
+            type="text"
+            id="userName"
+            placeholder="Enter your user name"
+            value={updateProfileFormData.userName}
+            onChange={e => {
+              setUpdateProfileFormData({
+                ...updateProfileFormData,
+                userName: e.target.value
+              });
+            }}
+          />
+        </div>
+
         <div className="flex flex-col w-full border p-1 md:w-[50%] mt-5 rounded-md cursor-default">
           <label htmlFor="email">Email</label>
           <input
@@ -212,6 +233,23 @@ const UserEditProfileScreen = ({ updateUI }) => {
             <option>Please choose gender.</option>
             <option>Male</option>
             <option>Female</option>
+          </select>
+        </div>
+
+        <div className="flex flex-col border p-1 w-full md:w-[50%] mt-5 rounded-md cursor-default">
+          <label htmlFor="agent">Publishing As</label>
+          <select
+            id="agent"
+            onChange={e => {
+              setUpdateProfileFormData({
+                ...updateProfileFormData,
+              publishingAs: e.target.value
+              });
+            }}
+          >
+           
+            <option>Agent</option>
+            <option>Landlord</option>
           </select>
         </div>
 
@@ -309,7 +347,7 @@ const UserEditProfileScreen = ({ updateUI }) => {
               className="text-center text-white bg-[#1C2E7A] p-2 rounded-lg  w-[60px]"
               onClick={() => {
                 alert(JSON.stringify(updateProfileFormData))
-                updateProfileRequest(agentReducerState.data.token, 
+                updateProfileRequest(agentState.data.token, 
                 updateProfileFormData
                 );
               }}

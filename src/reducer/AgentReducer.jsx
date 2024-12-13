@@ -20,6 +20,7 @@ import { io } from "socket.io-client";
             return r.json()
         }).then(res=>{
             console.log(res)
+
          if(res.status === 200){
                
             const   socket =  io(`${BaseURL.LOCAL_URL_SOCKET}`,{
@@ -41,10 +42,29 @@ import { io } from "socket.io-client";
                     } 
                  ))
                })
+
+               socket.on('connect_error',()=>{
+                localStorage.setItem('user',JSON.stringify(
+                    {
+                     showPopUp:false,
+                     data:{
+                         ...JSON.parse(localStorage.getItem('user')).data,
+                         isOnline:false
+                     },
+                     isLoggedIn:true
+                 
+                    } 
+                 ))
+               })
+           
+              
             
              return
+           }else{
+            localStorage.removeItem('user')
            }
-           localStorage.removeItem('user')
+           
+          
         }).catch(err=>{
             localStorage.removeItem('user')
             throw new Error(err)
