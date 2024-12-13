@@ -52,7 +52,7 @@ const UserProfileOverviewScreen = () => {
               src={(agentState.data.userProfile.coverImage)?agentState.data.userProfile.coverImage:image}
             />
 
-            <div className="absolute ms-4 md:ms-8 top-[33%]   md:top-[45%]   z-50 left-6  bg-white  w-[100px] h-[100px]  md:w-[120px] md:h-[120px] rounded-full flex place-items-center shadow-2xl">
+            <div className="absolute   md:ms-8 top-[30%]   md:top-[45%]   z-50 left-6  bg-white  w-[100px] h-[100px]  md:w-[120px] md:h-[120px] rounded-full flex place-items-center shadow-2xl">
               
             <img
               className="w-full h-full  object-cover rounded-full "
@@ -60,6 +60,7 @@ const UserProfileOverviewScreen = () => {
             />
             </div>
           </div>
+
           <div className="  ms-[124px] md:ms-[150px] mt-2  flex flex-wrap  justify-center  md:justify-between gap-5 md:gap-3">
             <div className="">
 
@@ -76,7 +77,7 @@ const UserProfileOverviewScreen = () => {
                 Title:
               
               </p>
-              <span>House owner/Agent</span>
+              <span className="text-ellipsis overflow-hidden whitespace-nowrap w-40">House owner/Agent</span>
               </div>
               <div className="flex">
                 <p className="font-bold">PublishingAs:</p>
@@ -85,10 +86,10 @@ const UserProfileOverviewScreen = () => {
               <div>
                 
                 <div className="flex place-items-center justify-center">
-                <p>
+                <p className="font-bold">
                   Location:
                 </p>
-                <span className="text-sm">{`${ (!agentState.data.userProfile.localGovt && !agentState.data.userProfile.localGovt) && 'Nil'     ||   (agentState.data.userProfile.localGovt) &&agentState.data.userProfile.localGovt},${(agentState.data.userProfile.state) &&agentState.data.userProfile.state} ` }</span>
+                <span className="text-ellipsis overflow-hidden whitespace-nowrap w-40">{`${ (!agentState.data.userProfile.localGovt && !agentState.data.userProfile.localGovt) && 'Nil'     ||   (agentState.data.userProfile.localGovt) &&agentState.data.userProfile.localGovt},${(agentState.data.userProfile.state) &&agentState.data.userProfile.state} ` }</span>
                 </div>
 
               </div>

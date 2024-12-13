@@ -7,7 +7,7 @@ const UserProfileBodyContainer = () => {
 
   const navigate = useNavigate();
 
-  const {agentState} = useGetUpdatedState()
+  const { agentState } = useGetUpdatedState();
 
   const [makeViewVisible, setMakeViewVisible] = useState(true);
 
@@ -53,66 +53,66 @@ const UserProfileBodyContainer = () => {
           }
         };
 
-        case "posts":
-          setMakeViewVisible(false);
-          return {
-            about: {
-              isActive: false
-            },
-            stats: {
-              isActive: false
-            },
-            posts: {
-              isActive: true
-            },
-            ratings: {
-              isActive: false
-            },
-            legitimacy: {
-              isActive: false
-            }
-          };
+      case "posts":
+        setMakeViewVisible(false);
+        return {
+          about: {
+            isActive: false
+          },
+          stats: {
+            isActive: false
+          },
+          posts: {
+            isActive: true
+          },
+          ratings: {
+            isActive: false
+          },
+          legitimacy: {
+            isActive: false
+          }
+        };
 
-          case "rating":
-            setMakeViewVisible(false);
-            return {
-              about: {
-                isActive: false
-              },
-              stats: {
-                isActive: false
-              },
-              posts: {
-                isActive: false
-              },
-              ratings: {
-                isActive: true
-              },
-              legitimacy: {
-                isActive: false
-              }
-            };
+      case "rating":
+        setMakeViewVisible(false);
+        return {
+          about: {
+            isActive: false
+          },
+          stats: {
+            isActive: false
+          },
+          posts: {
+            isActive: false
+          },
+          ratings: {
+            isActive: true
+          },
+          legitimacy: {
+            isActive: false
+          }
+        };
 
-            case "legitimacy":
-              setMakeViewVisible(false);
-              return {
-                about: {
-                  isActive: false
-                },
-                stats: {
-                  isActive: false
-                },
-                posts: {
-                  isActive: false
-                },
-                ratings: {
-                  isActive: false
-                },
-                legitimacy: {
-                  isActive: true
-                }
-              };
-  
+      case "legitimacy":
+        setMakeViewVisible(false);
+        return {
+          about: {
+            isActive: false
+          },
+          stats: {
+            isActive: false
+          },
+          posts: {
+            isActive: false
+          },
+          ratings: {
+            isActive: false
+          },
+          legitimacy: {
+            isActive: true
+          }
+        };
+
       default:
         "";
     }
@@ -237,7 +237,6 @@ const UserProfileBodyContainer = () => {
                     isActive: false
                   }
                 };
-
               });
 
               setMakeViewVisible(false);
@@ -289,23 +288,29 @@ const UserProfileBodyContainer = () => {
           <div className="flex gap-1">
             <p className="font-bold ">Member Since:</p>
             <p>
-              {(agentState.data.timeCreated)?new Date(agentState.data.timeCreated).toLocaleString("EN",{dateStyle:'medium'}):"{Sign up date}"}
+              {agentState.data.timeCreated
+                ? new Date(agentState.data.timeCreated).toLocaleString("EN", {
+                    dateStyle: "medium"
+                  })
+                : "{Sign up date}"}
             </p>
           </div>
           <div className="flex gap-1">
             <p className="font-bold ">Language:</p>
             <p>
-            {(agentState.data.userProfile.languauge)?agentState.data.userProfile.languauge:"No Language"}
+              {agentState.data.userProfile.language
+                ? agentState.data.userProfile.language
+                : "No Language"}
             </p>
           </div>
 
           <div className="flex gap-1">
             <p className="font-bold ">Gender:</p>
             <p>
-              {
-(agentState.data.userProfile.gender)?agentState.data.userProfile.gender:"Nil"}
-              
-             </p>
+              {agentState.data.userProfile.gender
+                ? agentState.data.userProfile.gender
+                : "Nil"}
+            </p>
           </div>
         </div>
       </div>
@@ -317,7 +322,6 @@ const UserProfileBodyContainer = () => {
       >
         <div className="relative w-full flex">
           <p className="font-bold">Address</p>
-          
         </div>
 
         <div className="flex gap-20 mt-3">
@@ -325,16 +329,18 @@ const UserProfileBodyContainer = () => {
             <div>
               <p className="font-bold">Country</p>
               <p>
-              {
-                (agentState.data.userProfile.country)?agentState.data.userProfile.country:"Nill"}
+                {agentState.data.userProfile.country
+                  ? agentState.data.userProfile.country
+                  : "Nill"}
               </p>
             </div>
 
             <div>
               <p className="font-bold">Local Government</p>
               <p>
-              {
-               (agentState.data.userProfile.localGovt)?agentState.data.userProfile.localGovt:"Nil"}
+                {agentState.data.userProfile.localGovt
+                  ? agentState.data.userProfile.localGovt
+                  : "Nil"}
               </p>
             </div>
           </div>
@@ -343,16 +349,18 @@ const UserProfileBodyContainer = () => {
             <div>
               <p className="font-bold">State</p>
               <p>
-              {
-                 (agentState.data.userProfile.state)?agentState.data.userProfile.state:"Nil"}
+                {agentState.data.userProfile.state
+                  ? agentState.data.userProfile.state
+                  : "Nil"}
               </p>
             </div>
 
             <div className="">
               <p className="font-bold">Postal Code</p>
               <p>
-              {
-(agentState.data.userProfile.postalCode)?agentState.data.userProfile.postalCode:"Nil"}
+                {agentState.data.userProfile.postalCode
+                  ? agentState.data.userProfile.postalCode
+                  : "Nil"}
               </p>
             </div>
           </div>
