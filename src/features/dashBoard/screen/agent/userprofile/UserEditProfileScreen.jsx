@@ -347,7 +347,7 @@ const UserEditProfileScreen = ({ updateUI }) => {
             <p
               className="text-center text-white bg-[#1C2E7A] p-2 rounded-lg  w-[60px]"
               onClick={() => {
-                alert(JSON.stringify(updateProfileFormData))
+               
                 updateProfileRequest(agentState.data.token, 
                 updateProfileFormData
                 );

@@ -80,7 +80,7 @@ const UserProfileOverviewScreen = () => {
               </div>
               <div className="flex">
                 <p className="font-bold">PublishingAs:</p>
-                <p>{agentState.data.userProfile.publishingAs}</p>
+                <p>{(agentState.data.userProfile.publishingAs)? agentState.data.userProfile.publishingAs :"Agent"}</p>
               </div>
               <div>
                 
