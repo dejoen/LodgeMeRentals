@@ -107,6 +107,7 @@ const UserEditProfileScreen = ({ updateUI }) => {
           >
             Click to upload Profile Picture
           </p>
+
           <input
             ref={profilePicRef}
             type="file"
@@ -130,7 +131,7 @@ const UserEditProfileScreen = ({ updateUI }) => {
           >
             Click to upload Cover Picture
           </p>
-          <input ref={coverImageRef} type="file" className="hidden" />
+          <input ref={coverImageRef} type="file" accept="image/*" className="hidden" />
         </div>
 
 
