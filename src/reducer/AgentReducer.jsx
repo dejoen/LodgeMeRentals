@@ -43,14 +43,12 @@ import { io } from "socket.io-client";
                  ))
                })
 
-               socket.on('connect_error',()=>{
+               socket.on('disconnected',(user)=>{
+                console.log('disconnected......')
                 localStorage.setItem('user',JSON.stringify(
                     {
                      showPopUp:false,
-                     data:{
-                         ...JSON.parse(localStorage.getItem('user')).data,
-                         isOnline:false
-                     },
+                     data:user,
                      isLoggedIn:true
                  
                     } 

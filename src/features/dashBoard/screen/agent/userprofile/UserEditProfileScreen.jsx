@@ -146,7 +146,7 @@ const UserEditProfileScreen = ({ updateUI }) => {
 
       <div className="md:m-5 p-2 md:p-0 w-full justify-center place-items-center ">
         <p className="font-bold pt-5 pb-5">Edit User Profile</p>
-
+<p className="w-full text-center mb-3"><span className="font-bold">Note:</span>You can choose what you want to specifically update as all fields are optional and atleast one field should be selected before clicking save button.</p>
         <div className="flex flex-col place-items-center mb-5">
           <img
             className=" bg-green-300   w-[100px] h-[100px] rounded-full"
