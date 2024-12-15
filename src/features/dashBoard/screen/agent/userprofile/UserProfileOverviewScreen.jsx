@@ -72,13 +72,7 @@ const UserProfileOverviewScreen = () => {
                 </p>
                 <img src={agentNameIcon} alt="" />
               </div>
-              <div className="flex">
-              <p className="font-bold">
-                Title:
               
-              </p>
-              <span className="text-ellipsis overflow-hidden whitespace-nowrap w-40">House owner/Agent</span>
-              </div>
               <div className="flex">
                 <p className="font-bold">PublishingAs:</p>
                 <p>{(agentState.data.userProfile.publishingAs)? agentState.data.userProfile.publishingAs :"Agent"}</p>
