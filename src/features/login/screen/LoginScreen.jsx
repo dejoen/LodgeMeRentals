@@ -43,7 +43,7 @@ import { io } from 'socket.io-client'
                        agentReducerDispatcher({TYPE:"Authentication",payload:{
                             ...agentReducerState,
                             isLoggedIn:true,
-                            data:user
+                            data:connectedUser
                          }})
                         
                     navigate('/agent/dashboard')
@@ -54,7 +54,7 @@ import { io } from 'socket.io-client'
                         clientReducerDispatcher({TYPE:"Authentication",payload:{
                             ...clientReducerState,
                             isLoggedIn:true,
-                            data:user
+                            data:connectedUser
                          }})
                        
                       
