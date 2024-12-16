@@ -1,5 +1,5 @@
 
-export const HousesPublishedByAgentInitialState = { }
+export const HousesPublishedByAgentInitialState = []
 
 
  const HousesPublishedByAgentReducer  = (state,action) =>{

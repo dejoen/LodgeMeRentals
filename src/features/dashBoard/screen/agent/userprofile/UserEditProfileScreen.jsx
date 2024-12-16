@@ -45,7 +45,7 @@ const UserEditProfileScreen = ({ updateUI }) => {
     state: "",
     localGovt: "",
     postalCode: "",
-    publishingAs: "Agent",
+    publishingAs: "",
     userName: ""
   });
 

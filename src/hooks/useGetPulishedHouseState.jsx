@@ -5,7 +5,7 @@ import { getAllHousesPublishedAgent } from "../features/dashBoard/service";
     export default   function useGetPublishedHouseState (user){
 
           const [publisedHouses,setPublishedHouses]    = useState()
-          
+          const [isLoading,setIsLoading] = useState(false)
 
 
           if(!publisedHouses){
