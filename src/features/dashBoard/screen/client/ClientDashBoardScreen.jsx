@@ -3,10 +3,8 @@ import {  useContext, useEffect, useState } from "react";
 import ClientNavBar from "../../component/client/ClientNavBar";
 import ClientPopUpMenu from "../../component/client/ClientPopUpMenu";
 import { CardType } from "../../../../utils/CardType";
-import ClientAdvertBanner from "../../component/client/banner/ClientAdvertBanner";
-import ClientDashBoardBody from "../../component/client/ClientDashboardBody";
 import ClientNavDrawer from "../../component/client/ClientNavDrawer";
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { CombineContext } from "../../../../context/CombineContextProvider.jsx";
 
 
@@ -189,8 +187,7 @@ const ClientDashBoardScreen = () =>{
                 }}/>
    
        <ClientPopUpMenu isMenuClosed={closeMenu} iconHovered={iconHovered}/>
-       <ClientAdvertBanner/>
-      <ClientDashBoardBody/>
+       <Outlet/>
       <ClientNavDrawer/>
         
       </div>:

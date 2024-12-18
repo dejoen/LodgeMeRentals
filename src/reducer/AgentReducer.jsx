@@ -43,15 +43,18 @@ import { io } from "socket.io-client";
                  ))
                })
 
-               socket.on('disconnected',(user)=>{
+               socket.on('disconnected',()=>{
                 console.log('disconnected......')
+
+                let updatePresence = JSON.parse(localStorage.getItem('user'))
+                 updatePresence = {...updatePresence,
+                    data:{
+                        ...updatePresence.data,
+                        isOnline:false
+                    }
+                 }
                 localStorage.setItem('user',JSON.stringify(
-                    {
-                     showPopUp:false,
-                     data:user,
-                     isLoggedIn:true
-                 
-                    } 
+                   updatePresence
                  ))
                })
            

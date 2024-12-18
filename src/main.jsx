@@ -44,6 +44,8 @@ import UserProfileStatisticsScreen from "./features/dashBoard/screen/agent/userp
 import UserProfilePostsScreen from "./features/dashBoard/screen/agent/userprofile/UserProfilePostsScreen.jsx";
 import UserProfileRatingScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileRatingScreen.jsx";
 import UserProfileLegitimacyScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileLegitimacyScreen.jsx";
+import ClientHomeScreen from "./features/dashBoard/screen/client/ClientHomeScreen.jsx";
+import HouseOverView from "./features/dashBoard/component/client/HouseOverView.jsx";
 
 const router = createBrowserRouter([
   {
@@ -252,12 +254,23 @@ const router = createBrowserRouter([
 
   
   {
-    path: "/client/dashboard",
+    path: "/client/",
     element: (
       <CombineContextProvider>
         <ClientDashBoardScreen />
       </CombineContextProvider>
-    )
+    ),
+    children:[
+      {
+        path:'dashboard',
+        element:<ClientHomeScreen/>,
+        
+      },
+      {
+        path:'dashboard/houseOverview',
+        element:<HouseOverView/>,
+      }
+    ]
   }
 ]);
 

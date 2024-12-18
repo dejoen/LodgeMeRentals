@@ -5,7 +5,10 @@ import "react-multi-carousel/lib/styles.css";
 import { responsive } from "../../../../utils/CouroselDisplayHome";
 
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 const ClientHouseCard = ({ item, parent }) => {
+
+    const navigate = useNavigate()
   const cardRef = useRef();
   const videoRef = useRef();
 
@@ -79,7 +82,10 @@ const ClientHouseCard = ({ item, parent }) => {
         </p>
       </div>
       <div className="w-[280px] bg-[#F9BA8F] p-2 text-center rounded-2xl m-1 mb-3 place-self-center hover:bg-opacity-55 cursor-pointer">
-        <p>Contact Agent</p>
+        <p onClick={()=>{
+       
+          navigate('/client/dashboard/houseOverview',{state:item})
+        }}>Contact Agent</p>
       </div>
     </div>
   );

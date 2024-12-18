@@ -3,7 +3,7 @@ import  searchIcon from '../../../../assets/searchIcon.svg'
 import  inboxIcon  from '../../../../assets/clientinboxicon.svg'
 import  appointmentIcon  from '../../../../assets/clientappointmenticon.svg'
 import  notificationIcon  from '../../../../assets/clientnotificationicon.svg'
-
+import  clientProfileIcon  from '../../../../assets/clientProfileIcon.svg'
 import  menuIcon from '../../../../assets/menuIcon.svg'
 import { CardType } from '../../../../utils/CardType'
 import { openClientDrawer } from './ClientNavDrawer'
@@ -20,15 +20,16 @@ const ClientNavBar = (props) => {
             </div>
 
             <div className='  flex  md:hidden w-[50%] md:w-svw md:me-5  place-items-center justify-end   gap-10'>
-            <img className='w-[20px]  md:w-[40px]  h-[40px]
+            <img className='w-[20px]  md:w-[40px]  h-[20px]
              ' src={searchIcon} onPointerOver={()=>{
 
                 props.setIconOver(CardType.SEARCH)
                
-             }}
+             }} 
+            
              /> 
 
-             <img className='w-[20px] me-4 h-[40px]'
+             <img className='w-[20px] me-4 h-[20px]'
              src={menuIcon} onClick={()=>{
                openClientDrawer()
              }}
@@ -40,7 +41,7 @@ const ClientNavBar = (props) => {
          <div className='  hidden  md:flex  w-[50%] md:w-svw md:me-5  place-items-center justify-end   gap-10'>
              
             <div className='justify-center'>
-            <img className='w-[20px]  md:w-[40px]  h-[40px]
+            <img className='w-[20px]  md:w-[40px]  h-[20px]
              ' src={searchIcon} onPointerOver={()=>{
 
                 props.setIconOver(CardType.SEARCH)
@@ -50,7 +51,7 @@ const ClientNavBar = (props) => {
             </div>
             
             <div className=''>
-            <img className='w-[20px]  md:w-[40px]  h-[40px]
+            <img className='w-[20px]  md:w-[40px]  h-[20px]
              ' src={appointmentIcon}  onPointerOver={()=>{
 
                 props.setIconOver(CardType.APPOINTMENT)
@@ -59,7 +60,7 @@ const ClientNavBar = (props) => {
             </div>
 
             <div className=''>
-            <img className='w-[20px]  md:w-[40px]  h-[40px]
+            <img className='w-[20px]  md:w-[40px]  h-[20px]
              ' src={notificationIcon}  
              onPointerOver={()=>{
 
@@ -70,7 +71,7 @@ const ClientNavBar = (props) => {
             </div>
 
             <div className=''>
-            <img className='w-[20px]  md:w-[40px]  h-[40px]
+            <img className='w-[20px]  md:w-[40px]  h-[20px]
              ' src={inboxIcon}
              onPointerOver={()=>{
 
@@ -82,8 +83,8 @@ const ClientNavBar = (props) => {
             </div>
             
             <div className=''>
-            <img className='w-[20px]  md:w-[40px]  h-[40px]
-             ' src={searchIcon} />
+            <img className='w-[20px]  md:w-[40px]  h-[28px]
+             ' src={clientProfileIcon} />
             </div>
             
 
