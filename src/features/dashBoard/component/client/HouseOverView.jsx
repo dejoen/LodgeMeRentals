@@ -13,8 +13,8 @@ const HouseOverView = () => {
   };
 
   return (
-    <div className="font-nunito  w-full m-5 ">
-      <p className="text-justify font-bold text-[] w-[90%] ">
+    <div className="font-nunito  w-full md:m-5 ">
+      <p className="ps-2 md:p-0 text-justify font-bold text-[] w-[90%] ">
         {" "}The house details page offers a clear overview of a property,
         including its price, location, photos, amenities, and availability.
         Users can explore features, view multimedia content, and contact the
@@ -25,6 +25,7 @@ const HouseOverView = () => {
         <img src="/" className="bg-orange-500 w-[80px] h-[80px] rounded-full" />
         <div>
           <p>djjdjdjdjj</p>
+          <p className="text-ellipsis space-x-0 w-[42px]">publishingAs:<span>Agent</span></p>
           <p>fff</p>
         </div>
       </div>
@@ -39,29 +40,30 @@ const HouseOverView = () => {
 
       <div className="w-[95%] flex  flex-wrap  ">
         <div className=" h-full w-full md:w-[70%]">
-          <div className="w-full p-5">
+          <div className="w-full  h-[400px]  p-2">
             <video
               src={getFirstVideo()}
-              className="bg-gray-400  rounded-md object-contain w-[100%] h-[100%]"
+              className="bg-gray-400  rounded-md object-cover object-center w-full h-full "
               controls
+            
             />
           </div>
 
-          <div className="w-full ms-5 p-2 flex gap-5 overflow-x-auto  max-h-[180px] overflow-y-hidden">
+          <div className="w-full md:ms-5 p-2 flex gap-5   overflow-x-auto  h-[180px] overflow-y-hidden">
             {state &&
               state.mediaUpload &&
               state.mediaUpload.map(media =>
-                <div key={state._id}>
+                <div key={(state._id += 1)}>
                   {media.type === "image"
-                    ? <div className=" rounded-md w-[170px] h-[170px]">
+                    ? <div className=" rounded-md w-[170px] h-full">
                         {" "}<img
-                          className="rounded-md h-full w-full"
+                          className="rounded-md h-full w-full object-contain object-center"
                           src={media.url}
                         />{" "}
                       </div>
-                    : <div className="rounded-md w-[300px] h-[300px]">
+                    : <div className="rounded-md w-[170px] h-full">
                         {" "}<video
-                          className="rounded-md"
+                          className="rounded-md h-full  object-cover object-center"
                           controls
                           src={media.url}
                         />{" "}
@@ -70,7 +72,7 @@ const HouseOverView = () => {
               )}
           </div>
 
-          <div className="ms-5 text-justify p-2">
+          <div className="md:ms-5 text-justify p-2">
             <p>
               {` Grace Haven offers a luxurious living experience in the heart of Lekki. This home combines contemporary architecture with functionality, perfect for families or professionals seeking comfort and style. Each room is thoughtfully designed, with large windows providing ample natural light. Enjoy entertaining guests in the open-plan living and dining area or relax in the serene backyard by the pool. Located in a secure and quiet neighborhood, Grace Haven is just minutes away from top schools, shopping malls, and recreational facilities.
 This house is more than a home; it’s a statement of elegance and convenience.`}
@@ -93,7 +95,7 @@ This house is more than a home; it’s a statement of elegance and convenience.`
         </div>
 
         <div className=" h-full w-full md:w-[30%] ">
-          <div className="w-full p-5">
+          <div className="w-full p-2">
             <div className="bg-[#BB7655] h-10  flex place-items-center ps-2 text-white">
               House Feature
             </div>
@@ -313,6 +315,10 @@ This house is more than a home; it’s a statement of elegance and convenience.`
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="w-full">
+            <p className="font-bold">Other properties posted by this Agent</p>
         </div>
       </div>
     </div>
