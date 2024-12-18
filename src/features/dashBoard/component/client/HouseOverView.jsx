@@ -1,5 +1,7 @@
 import { useLocation } from "react-router-dom";
 import getTimeAgo from "../../../../utils/getTimeAgo";
+import OtherPropertiesPostedCard from "./houseOverview/OtherPropertiesPostedCard";
+import ReviewsCard from "./houseOverview/ReviewsCard";
 
 const HouseOverView = () => {
   const { state } = useLocation();
@@ -317,8 +319,49 @@ This house is more than a home; it’s a statement of elegance and convenience.`
           </div>
         </div>
 
-        <div className="w-full">
+
+
+        <div className=" overflow-x-auto">
             <p className="font-bold">Other properties posted by this Agent</p>
+
+            <div className=" w-full 
+             overflow-x-auto  whitespace-nowrap space-x-5" style={{ scrollbarWidth:'none'}}>
+                {
+
+   [1,2,3,4,5,6,7,8].map((item,index)=>(
+
+    <OtherPropertiesPostedCard   key={index}/>
+   ))
+
+   }
+ </div>
+
+
+
+  <div className="w-full">
+       
+       <div className="flex mt-5">
+        <p className="font-bold">Reviews from past clients:</p>
+        <span>(203)Reviews</span>
+       </div>
+       
+       <div className="w-full max-h-[400px] overflow-y-auto"> 
+{
+       [1,2,3,4,5,6,7,8].map((item,index)=>(
+
+        <ReviewsCard   key={index}/>
+))
+      }  
+
+       </div>
+
+       </div>
+
+        </div>
+
+
+        <div className="w-full mt-5 ">
+           <p className="font-bold">Similar properties you may like</p>
         </div>
       </div>
     </div>
