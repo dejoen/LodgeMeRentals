@@ -2,6 +2,10 @@ import { useLocation } from "react-router-dom";
 import getTimeAgo from "../../../../utils/getTimeAgo";
 import OtherPropertiesPostedCard from "./houseOverview/OtherPropertiesPostedCard";
 import ReviewsCard from "./houseOverview/ReviewsCard";
+import SimilarPropertiesCard from "./houseOverview/SimilarPropertiesCard";
+import FooterScreen from "../../../landingPage/screen/FooterScreen";
+import smallHouseIcon from '../../../../assets/smallHouseIcon.svg'
+import React from "react";
 
 const HouseOverView = () => {
   const { state } = useLocation();
@@ -15,6 +19,7 @@ const HouseOverView = () => {
   };
 
   return (
+    <React.Fragment>
     <div className="font-nunito  w-full md:m-5 ">
       <p className="ps-2 md:p-0 text-justify font-bold text-[] w-[90%] ">
         {" "}The house details page offers a clear overview of a property,
@@ -24,20 +29,22 @@ const HouseOverView = () => {
       </p>
 
       <div className="w-full mt-6 flex gap-4 place-items-center">
-        <img src="/" className="bg-orange-500 w-[80px] h-[80px] rounded-full" />
+        <img src={state.publisher.userProfile.profileImage} className="bg-orange-500 w-[80px] h-[80px] rounded-full" />
         <div>
-          <p>djjdjdjdjj</p>
-          <p className="text-ellipsis space-x-0 w-[42px]">publishingAs:<span>Agent</span></p>
-          <p>fff</p>
+          <p>{(state.publisher.userName)? state.publisher.userName : state.houseOverview.houseName}</p>
+          <p className="text-ellipsis space-x-0 w-[42px]">publishingAs:<span>{state.publisher.userProfile.publishingAs}</span></p>
+          <p>*****</p>
         </div>
       </div>
-      <div className="ms-5 mt-5 flex ">
-        <img src="/" />
-        <p>.Unityhostel</p>
+      <div className="ms-5 mt-5 flex place-items-center">
+        <img className="h-[15px] w-[15px]" src={smallHouseIcon} />
+       <div className="flex mt-1">
+       <p>.Unityhostel</p>
         <p>.Unityhostel</p>
         <p className="ms-6">
           {getTimeAgo(state.datePublished)}
         </p>
+       </div>
       </div>
 
       <div className="w-[95%] flex  flex-wrap  ">
@@ -360,11 +367,31 @@ This house is more than a home; it’s a statement of elegance and convenience.`
         </div>
 
 
-        <div className="w-full mt-5 ">
+        <div className="w-full mt-10 ">
            <p className="font-bold">Similar properties you may like</p>
+
+           <div className=" mt-5 w-full 
+             overflow-x-auto  whitespace-nowrap space-x-5" style={{ scrollbarWidth:'none'}}>
+
+{
+
+[1,2,3,4,5,6,7,8].map((item,index)=>(
+
+ <SimilarPropertiesCard key={index}/>
+))
+
+}
+
+           </div>
         </div>
+
+
+   
       </div>
+     
     </div>
+    <FooterScreen/>
+    </React.Fragment>
   );
 };
 

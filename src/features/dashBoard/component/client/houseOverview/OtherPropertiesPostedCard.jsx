@@ -9,8 +9,8 @@ const OtherPropertiesPostedCard = () => {
           <div className="w-full flex justify-end ">
             <p>2 Bedroom Flat</p>
           </div>
-          <div  className="mt-2 max-h-[100] overflow-y-auto" >
-            <p>Peaceful Retreat, No. 15 Unity Street, Gwarinpa Estate,Lagos, Nigeria.</p>
+          <div  className="mt-2 h-[70px] w-full " >
+            <p className=" w-full overflow-hidden h-full">{'Peaceful Retreat, No. 15 Unity Street, Gwarinpa Estate,Lagos, Nigeria.'}</p>
           </div>
         </div>
     )
