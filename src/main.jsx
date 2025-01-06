@@ -46,6 +46,7 @@ import UserProfileRatingScreen from "./features/dashBoard/screen/agent/userprofi
 import UserProfileLegitimacyScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileLegitimacyScreen.jsx";
 import ClientHomeScreen from "./features/dashBoard/screen/client/ClientHomeScreen.jsx";
 import HouseOverView from "./features/dashBoard/component/client/HouseOverView.jsx";
+import ChatScreen from "./features/dashBoard/screen/client/ChatScreen.jsx";
 
 const router = createBrowserRouter([
   {
@@ -269,6 +270,10 @@ const router = createBrowserRouter([
       {
         path:'dashboard/houseOverview',
         element:<HouseOverView/>,
+      },
+      {
+        path:'dashboard/chat',
+        element:<ChatScreen/>
       }
     ]
   }
