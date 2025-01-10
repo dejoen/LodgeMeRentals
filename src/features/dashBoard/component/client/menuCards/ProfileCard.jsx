@@ -3,7 +3,7 @@ import useGetClientUpdatedState from "../../../hooks/client/useGetClientUpdatedS
 import favoriteIcon  from "../../../../../assets/client/menuIcons/favouriteicon.svg"
 import helpAndSupportIcon  from "../../../../../assets/client/menuIcons/helpandsupport.svg"
 import logoutIcon  from "../../../../../assets/client/menuIcons/logouticon.svg"
-import profileIcon  from "../../../../../assets/client/menuIcons/profileicon.svg"
+import profileIcon  from "../../../../../assets/client/menuIcons/clientprofileicon.svg"
 import { useNavigate} from "react-router-dom";
 
 
