@@ -1,22 +1,33 @@
 import PropTypes from "prop-types";
+import useGetClientUpdatedState from "../../../hooks/client/useGetClientUpdatedState";
 
-const Message = ({  messageData }) => {
+
+
+const Message = ({  message }) => {
+  const {clientUpdatedState} = useGetClientUpdatedState();
+
+  //alert(JSON.stringify(clientUpdatedState.data._id))
+ 
   return (
     <div
-      className={`w-full flex ${messageData.sender !== "Devjoe"
+      className={`w-full flex ${(clientUpdatedState.data._id !==  message.sender)
         ? "justify-start"
         : "justify-end "} p-1  mt-2 place-items-center gap-2`}
     >
+
        <img src="/" className="bg-orange-500 w-[40px] h-[40px] rounded-full"/>
    
-      <div className={`min-w-[30%]  rounded-md p-1 ${messageData.sender !== "Devjoe"
+      <div className={`min-w-[30%]  rounded-md p-1 ${(clientUpdatedState.data._id !==  message.sender)
         ? "bg-white border border-black border-opacity-20"
         : "bg-[#BB7655] text-white"} `}>
           
           <div>
-          {messageData.message}
+          {message.text}
           </div>
-          <div className="w-full text-sm  flex justify-end">6:13am
+          <div className="w-full text-[12px]  flex justify-end">{
+            
+            new Date(message.timeSent).toLocaleTimeString("en-US",{timeStyle:'short',timeZone:"UTC"})
+            }
           </div>
        
       </div>
@@ -26,7 +37,7 @@ const Message = ({  messageData }) => {
 
 Message.propTypes = {
   isSender: PropTypes.bool,
-  messageData: PropTypes.object
+  message: PropTypes.object
 };
 
 export default Message;

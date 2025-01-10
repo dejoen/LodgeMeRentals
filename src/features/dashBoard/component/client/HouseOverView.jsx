@@ -6,6 +6,7 @@ import SimilarPropertiesCard from "./houseOverview/SimilarPropertiesCard";
 import FooterScreen from "../../../landingPage/screen/FooterScreen";
 import smallHouseIcon from "../../../../assets/smallHouseIcon.svg";
 import React from "react";
+import starDarkIcon from "../../.../../../../assets/StarDark.svg"
 
 const HouseOverView = () => {
   const navigate = useNavigate()
@@ -45,7 +46,23 @@ const HouseOverView = () => {
                 {state.publisher.userProfile.publishingAs}
               </span>
             </p>
-            <p>*****</p>
+            <div className="flex gap-1 mt-2 justify-center place-items-center">
+              {
+              [1,2,4,5,6].map((item,index)=>(
+
+                <img className="h-[15px]" key={index} src={starDarkIcon}/>
+              ))
+
+}
+<div className="h-[20px] flex gap-1" >
+<p className="font-bold">5.0</p>
+<p>(203 reviews)</p>
+
+</div>
+
+            </div>
+
+          
           </div>
         </div>
         <div className="ms-5 mt-5 flex place-items-center">
@@ -53,7 +70,7 @@ const HouseOverView = () => {
           <div className="flex mt-1">
             <p>.Unityhostel</p>
             <p>.Unityhostel</p>
-            <p className="ms-6">
+            <p className="ms-6 text-gray-700">
               {getTimeAgo(state.datePublished)}
             </p>
           </div>

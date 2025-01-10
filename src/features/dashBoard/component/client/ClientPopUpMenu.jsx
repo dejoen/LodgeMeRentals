@@ -17,6 +17,11 @@ const ClientPopUpMenu = (props) =>{
      }
       {
         
+        (props.iconHovered.profileCard.isHover) ? <ProfileCard display={'flex'}/> : <ProfileCard display={'hidden'}/>
+        
+     }
+      {
+        
         (props.iconHovered.appointmentCard.isHover) ? <AppointmentCard display={'flex'}/> : <AppointmentCard display={'hidden'}/>
         
      }

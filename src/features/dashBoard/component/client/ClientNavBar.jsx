@@ -23,7 +23,7 @@ const ClientNavBar = (props) => {
             <img className='w-[20px]  md:w-[40px]  h-[20px]
              ' src={searchIcon} onPointerOver={()=>{
 
-                props.setIconOver(CardType.SEARCH)
+                props.setIconOver(CardType.PROFILE)
                
              }} 
             
@@ -44,7 +44,7 @@ const ClientNavBar = (props) => {
             <img className='w-[20px]  md:w-[40px]  h-[20px]
              ' src={searchIcon} onPointerOver={()=>{
 
-                props.setIconOver(CardType.SEARCH)
+                //props.setIconOver(CardType.SEARCH)
                
              }}
              />
@@ -84,7 +84,14 @@ const ClientNavBar = (props) => {
             
             <div className=''>
             <img className='w-[20px]  md:w-[40px]  h-[28px]
-             ' src={clientProfileIcon} />
+             ' src={clientProfileIcon} 
+                onPointerOver={()=>{
+
+               props.setIconOver(CardType.PROFILE)
+              
+            }} 
+             
+             />
             </div>
             
 

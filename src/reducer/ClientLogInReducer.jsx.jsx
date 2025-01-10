@@ -1,3 +1,4 @@
+import { io } from "socket.io-client"
 import BaseURL from "../utils/BaseURL"
 
 /* eslint-disable react-refresh/only-export-components */
@@ -18,7 +19,7 @@ let fetchData = async () =>{
         return r.json()
     }).then(res=>{
         console.log(res)
-        if(res.user){
+       /* if(res.user){
             localStorage.setItem('user',JSON.stringify(
                 {
                  showPopUp:false,
@@ -32,7 +33,53 @@ let fetchData = async () =>{
              ))
              return
            }
-           localStorage.removeItem('user')
+           localStorage.removeItem('user')*/
+           //kkk
+
+           if(res.status === 200){
+               
+            const   socket =  io(`${BaseURL.LOCAL_URL_SOCKET}`,{
+                auth:{
+                    token:JSON.parse(localStorage.getItem('user')).data.token
+                }
+               })
+
+               socket.on('socketConnected',connectedUser=>{
+                
+                localStorage.setItem('user',JSON.stringify(
+                    {
+                     showPopUp:false,
+                     data:{
+                         ...connectedUser,
+                         token:JSON.parse(localStorage.getItem('user')).data.token
+                     },
+                     isLoggedIn:true
+                 
+                    } 
+                 ))
+               })
+
+               socket.on('disconnected',()=>{
+                console.log('disconnected......')
+
+                let updatePresence = JSON.parse(localStorage.getItem('user'))
+                 updatePresence = {...updatePresence,
+                    data:{
+                        ...updatePresence.data,
+                        isOnline:false
+                    }
+                 }
+                localStorage.setItem('user',JSON.stringify(
+                   updatePresence
+                 ))
+               })
+           
+              
+            
+             return
+           }else{
+            localStorage.removeItem('user')
+           }
            
     }).catch(err=>{
         localStorage.removeItem('user')

@@ -60,3 +60,17 @@ import BaseURL from "../../utils/BaseURL"
  }
 
 
+ export  const getMessagesBetweenUsers = async (token,receiverId)=>{
+    return  fetch(`${BaseURL.URL}/message/messages`,{
+        method:"POST",
+        headers:{
+            'Authorization':`Bearer ${token}`,
+           "Content-Type":'application/json'
+        },
+         body:JSON.stringify({receiverId})
+        
+       
+    }) 
+ }
+
+

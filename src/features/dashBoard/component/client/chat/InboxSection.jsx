@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const InboxSection = ({ userName, message, numberOfMessages }) => {
   return (
     <div className="bg-[#EADCB7] h-[60px] flex place-items-center gap-3">
@@ -22,8 +24,8 @@ const InboxSection = ({ userName, message, numberOfMessages }) => {
 };
 
 InboxSection.propTypes = {
-  userName: String,
-  numberOfMessages: String,
-  message: String
+  userName:PropTypes.string,
+  numberOfMessages:PropTypes.number,
+  message:PropTypes.string
 };
 export default InboxSection;

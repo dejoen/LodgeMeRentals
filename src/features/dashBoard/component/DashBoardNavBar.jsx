@@ -5,16 +5,49 @@ import dashBoardMessageIcon from "../../../assets/dmessageicon.svg";
 import dashBoardAppointment from "../../../assets/dappointmenticon.svg";
 import dashBoardNotification from "../../../assets/dnotificationicon.svg";
 import dashBoardSettings from "../../../assets/dsettingsicon.svg";
-import { useState } from "react";
+import requestIcon from "../../../assets/requesticon.svg";
+import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const DashBoardNavBar = () => {
   const location = useLocation();
+
+ 
+ 
   const [activeContainer, setActiveContainter] = useState(() => {
+
     switch (location.pathname.split("/")[2]) {
+     
       case "dashboard": {
+      
         return {
           dashboardNav: {
+            isActive: true
+          },
+          requestNav: {
+            isActive: false
+          },
+          messageNav: {
+            isActive: false
+          },
+          appointmentNav: {
+            isActive: false
+          },
+          notificationNav: {
+            isActive: false
+          },
+          SettingsNav: {
+            isActive: false
+          }
+        };
+      }
+
+      case "requests": {
+        return {
+          dashboardNav: {
+            isActive: false
+          },
+          requestNav: {
             isActive: true
           },
           messageNav: {
@@ -31,11 +64,16 @@ const DashBoardNavBar = () => {
           }
         };
       }
+
+
       case "message": {
         return {
           dashboardNav: {
             isActive: false
           },
+          requestNav: {
+            isActive: false
+          },
           messageNav: {
             isActive: true
           },
@@ -50,14 +88,118 @@ const DashBoardNavBar = () => {
           }
         };
       }
+
+
       default:
         null;
     }
+
   });
+
+
+  useEffect(()=>{
+    switch (location.pathname.split("/")[2]) {
+     
+      case "dashboard": {
+
+        setActiveContainter(prevState=>{
+          return {
+            ...prevState,
+            dashboardNav: {
+              isActive: true
+            },
+            requestNav: {
+              isActive: false
+            },
+            messageNav: {
+              isActive: false
+            },
+            appointmentNav: {
+              isActive: false
+            },
+            notificationNav: {
+              isActive: false
+            },
+            SettingsNav: {
+              isActive: false
+            }
+          }
+        })
+      
+       return
+
+        
+      }
+
+      case "requests": {
+
+        setActiveContainter(prevstate=>{
+          return {
+            ...prevstate,
+            dashboardNav: {
+              isActive: false
+            },
+            requestNav: {
+              isActive: true
+            },
+            messageNav: {
+              isActive: false
+            },
+            appointmentNav: {
+              isActive: false
+            },
+            notificationNav: {
+              isActive: false
+            },
+            SettingsNav: {
+              isActive: false
+            }
+          }
+        })
+
+        return
+        
+      }
+
+
+      case "message": {
+
+        setActiveContainter(prevState=>{
+          return {
+            ...prevState,
+            dashboardNav: {
+              isActive: false
+            },
+            requestNav: {
+              isActive: false
+            },
+            messageNav: {
+              isActive: true
+            },
+            appointmentNav: {
+              isActive: false
+            },
+            notificationNav: {
+              isActive: false
+            },
+            SettingsNav: {
+              isActive: false
+            }
+          }
+        })
+       return
+      }
+
+
+      default:
+        null;
+    }
+
+     },[location.pathname])
   const navigate = useNavigate();
 
   return (
-    <div className="hidden md:block bg-agentNavbarBgImage w-[20%] h-dvh overflow-x-hidden ">
+    <div className="hidden md:block bg-agentNavbarBgImage w-[20%] h-dvh overflow-x-hidden cursor-default ">
       <div className="flex flex-col gap-3 place-items-center">
         <img className="w-[100px] mt-8" src={LodgeMeIcon} />
         <p className="w-full h-[1px] bg-white" />
@@ -74,6 +216,9 @@ const DashBoardNavBar = () => {
                 ...prevState,
                 dashboardNav: {
                   isActive: true
+                },
+                requestNav: {
+                  isActive: false
                 },
                 messageNav: {
                   isActive: false
@@ -99,6 +244,43 @@ const DashBoardNavBar = () => {
 
         <div
           className={`flex h-[50px] hover:bg-[#BB7655] ${activeContainer
+            .requestNav.isActive
+            ? "bg-[#BB7655] "
+            : ""} rounded-md place-items-center  ps-4 gap-2`}
+          onClick={() => {
+            setActiveContainter(prevState => {
+              return {
+                ...prevState,
+                dashboardNav: {
+                  isActive: false
+                },
+                requestNav: {
+                  isActive: true
+                },
+                messageNav: {
+                  isActive: false
+                },
+                appointmentNav: {
+                  isActive: false
+                },
+                notificationNav: {
+                  isActive: false
+                },
+                SettingsNav: {
+                  isActive: false
+                }
+              };
+            });
+
+            navigate("requests");
+          }}
+        >
+          <img src={requestIcon} />
+          <p>Requests</p>
+        </div>
+
+        <div
+          className={`flex h-[50px] hover:bg-[#BB7655] ${activeContainer
             .messageNav.isActive
             ? "bg-[#BB7655] "
             : ""}  rounded-md place-items-center  ps-4 gap-2`}
@@ -107,6 +289,9 @@ const DashBoardNavBar = () => {
               return {
                 ...prevState,
                 dashboardNav: {
+                  isActive: false
+                },
+                requestNav: {
                   isActive: false
                 },
                 messageNav: {
@@ -142,6 +327,9 @@ const DashBoardNavBar = () => {
                 dashboardNav: {
                   isActive: false
                 },
+                requestNav: {
+                  isActive: false
+                },
                 messageNav: {
                   isActive: false
                 },
@@ -174,6 +362,9 @@ const DashBoardNavBar = () => {
                 dashboardNav: {
                   isActive: false
                 },
+                requestNav: {
+                  isActive: false
+                },
                 messageNav: {
                   isActive: false
                 },
@@ -204,6 +395,9 @@ const DashBoardNavBar = () => {
               return {
                 ...prevState,
                 dashboardNav: {
+                  isActive: false
+                },
+                requestNav: {
                   isActive: false
                 },
                 messageNav: {
