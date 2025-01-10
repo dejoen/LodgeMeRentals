@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import useGetClientUpdatedState from "../../../hooks/client/useGetClientUpdatedState";
-import favoriteIcon  from "../../../../../assets/client/menuIcons/favoritesicon.svg"
+import favoriteIcon  from "../../../../../assets/client/menuIcons/favoriteicon.svg"
 import helpAndSupportIcon  from "../../../../../assets/client/menuIcons/helpandsupport.svg"
 import logoutIcon  from "../../../../../assets/client/menuIcons/logouticon.svg"
 import profileIcon  from "../../../../../assets/client/menuIcons/profileicon.svg"
