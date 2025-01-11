@@ -6,7 +6,7 @@ import  dashBoardMessageIcon from '../../../assets/dmessageicon.svg'
 import  dashBoardAppointment from '../../../assets/dappointmenticon.svg'
 import  dashBoardNotification from '../../../assets/dnotificationicon.svg'
 import  dashBoardSettings from '../../../assets/dsettingsicon.svg'
-import  requestIcon from '../../../assets/requesticon.svg'
+//import  requestIcon from '../../../assets/requesticon.svg'
 import  profileIcon from '../../../assets/agentprofile/profileIconWhite.svg'
 import {  useState } from 'react'
 import { useNavigate ,useLocation} from 'react-router-dom'
@@ -246,7 +246,10 @@ const AgentNavBarDrawer = () =>{
           <p>Messages</p>
         </div>
 
-        <div className={`flex h-[50px] hover:bg-[#BB7655] ${ (activeContainer.requestNav.isActive) ?"bg-[#BB7655] ":""}  rounded-md place-items-center  ps-4 gap-2`} onClick={()=>{
+{
+  /**
+   * not using this for now
+   *    <div className={`flex h-[50px] hover:bg-[#BB7655] ${ (activeContainer.requestNav.isActive) ?"bg-[#BB7655] ":""}  rounded-md place-items-center  ps-4 gap-2`} onClick={()=>{
           setActiveContainter((prevState)=>{
              return {
               ...prevState,
@@ -278,6 +281,9 @@ const AgentNavBarDrawer = () =>{
           <img src={requestIcon}/>
           <p>Requests</p>
         </div>
+   */
+}
+     
 
         <div className={`flex h-[50px] hover:bg-[#BB7655] ${ (activeContainer.appointmentNav.isActive) ?"bg-[#BB7655] ":""}  rounded-md place-items-center  ps-4 gap-2`}  onClick={()=>{
           setActiveContainter((prevState)=>{

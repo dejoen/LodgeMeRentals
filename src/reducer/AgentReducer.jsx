@@ -22,7 +22,7 @@ import { io } from "socket.io-client";
             console.log(res)
 
          if(res.status === 200){
-               
+               console.group("called......")
             const   socket =  io(`${BaseURL.LOCAL_URL_SOCKET}`,{
                 auth:{
                     token:JSON.parse(localStorage.getItem('user')).data.token
@@ -45,7 +45,7 @@ import { io } from "socket.io-client";
 
                socket.on('disconnected',()=>{
                 console.log('disconnected......')
-
+                 
                 let updatePresence = JSON.parse(localStorage.getItem('user'))
                  updatePresence = {...updatePresence,
                     data:{
@@ -77,7 +77,7 @@ import { io } from "socket.io-client";
 
 export const agentInitialState =  {
     showPopUp:false,
-    data:(localStorage.getItem('user'))?JSON.parse(localStorage.getItem('user')).data:{},
+    data:(localStorage.getItem('user') && JSON.parse(localStorage.getItem('user')).data)?JSON.parse(localStorage.getItem('user')).data:{},
     isLoggedIn:(localStorage.getItem('user') && JSON.parse(localStorage.getItem('user') ).isLoggedIn && JSON.parse(localStorage.getItem('user')).data.accountType==="agent" )?true:false,
 }
 

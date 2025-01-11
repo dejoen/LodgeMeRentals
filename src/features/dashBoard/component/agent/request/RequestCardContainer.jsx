@@ -9,7 +9,7 @@ const RequestCardContainer = () => {
   });
 
   return (
-    <div className="font-nunito relative bg-[#FFC83980] w-full rounded-lg min-h-fit p-8 flex  gap-5">
+    <div className="  font-nunito relative bg-[#FFC83980] w-full rounded-lg min-h-fit p-8 flex  gap-5">
       <img src="/" className="bg-orange-700 h-[50px] w-[50px] rounded-full" />
       <div className="relative w-full mt-2 md:flex flex-col">
         <p>Adedayo Ddedayo</p>
@@ -42,9 +42,9 @@ const RequestCardContainer = () => {
             </p>
           </div>
 
-          <div className="w-full flex md:justify-end  gap-5 m-3 cursor-default">
+          <div className="w-full  flex flex-wrap justify-end  gap-5 m-3 cursor-default">
             <p
-              className="p-1 hover:underline "
+              className="p-1 underline md:no-underline hover:underline "
               onClick={() => {
                 if (makeVisible.seemMore) {
                   setMakeVisible(prevState => {
@@ -69,7 +69,7 @@ const RequestCardContainer = () => {
               view more
             </p>
             <p
-              className="bg-[#6A3921] text-white rounded-md p-1"
+              className="bg-[#6A3921] text-white rounded-md p-1 "
               onClick={() => {
                 if (makeVisible.sendOffer) {
                   setMakeVisible(prevState => {
@@ -113,14 +113,15 @@ const RequestCardContainer = () => {
           </p>
         </div>
         <div
-          className={`h-[200px] mb-3 cursor-default ${makeVisible.sendOffer &&
+          className={`h-[200px]  mb-3 cursor-default ${makeVisible.sendOffer &&
           !makeVisible.seemMore
             ? "block"
             : "hidden"}
      `}
         >
           <textarea
-            className="h-full w-full outline-none resize-none placeholder:text-black p-2  rounded-xl "
+            name="SubmitOfferText"
+            className="  h-full w-full outline-none resize-none placeholder:text-black p-2  rounded-xl "
             placeholder="write a note"
           />
           <p className="w-full text-end">

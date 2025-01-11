@@ -1,92 +1,34 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+
 import { Navigate, Outlet } from "react-router-dom";
 import DashBoardNavBar from "../../component/DashBoardNavBar";
-import { useContext, useEffect } from "react";
-import { CombineContext } from "../../../../context/CombineContextProvider";
 import AgentVerificationPopUp from "../../component/AgentVerificationPopUp";
+import useGetUpdatedState from "../../hooks/useGetUpdatedState";
+
 
 const AgentDashBoardScreen = () => {
-  const {
-    agentReducerState,
-    agentReducerDispatcher,
-    connectSocket,
-    socketConnectedReducerState
-  } = useContext(CombineContext);
 
-  useEffect(() => {
-    if (
-      !socketConnectedReducerState.isSocketConnect &&
-      agentReducerState.isLoggedIn
-    ) {
-      const con = async () => {
-        await connectSocket(agentReducerState.data.token);
-        
-      };
-      try {
-        con();
-      } catch (error) {
-        alert(error.message);
-      }
-    }
-  }, [socketConnectedReducerState]);
+  const  {agentState}  = useGetUpdatedState()
 
-  useEffect(
-    () => {
-      socketConnectedReducerState.socket.on("socketConnected", user => {
-        agentReducerDispatcher({
-          TYPE: "Authentication",
-          payload: {
-            ...agentReducerState,
-            isLoggedIn: true,
-            data: {
-              ...user,
-              token: agentReducerState.data.token
-            }
-          }
-        });
-      });
-
-      socketConnectedReducerState.socket.on("disconnect", user => {
-        agentReducerDispatcher({
-          TYPE: "Authentication",
-          payload: {
-            ...agentReducerState,
-            isLoggedIn: true,
-            data: {
-              ...user,
-              isOnline:false
-            }
-          }
-        });
-      });
-    },
-    [socketConnectedReducerState]
-  );
+ 
+  
 
 
 
 
-  useEffect(
-    () => {
-      socketConnectedReducerState.socket.on("connect_error", () => {
-        //alert(JSON.stringify(error))
-      });
-    },
-    [socketConnectedReducerState]
-  );
+
 
   
 
-  if (agentReducerState.isLoggedIn) {
+  if (agentState.isLoggedIn) {
     return (
       <div className="flex h-[100vh] w-full overflow-x-hidden">
         <DashBoardNavBar />
         <Outlet />
 
-        {!agentReducerState.data.isAgentFileAlreadyUploaded &&
+        {!agentState.data.isAgentFileAlreadyUploaded &&
           <AgentVerificationPopUp
             showScreen={true}
-            token={agentReducerState.data.token}
+            token={agentState.data.token}
           />}
       </div>
     );

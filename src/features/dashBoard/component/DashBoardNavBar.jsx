@@ -5,7 +5,7 @@ import dashBoardMessageIcon from "../../../assets/dmessageicon.svg";
 import dashBoardAppointment from "../../../assets/dappointmenticon.svg";
 import dashBoardNotification from "../../../assets/dnotificationicon.svg";
 import dashBoardSettings from "../../../assets/dsettingsicon.svg";
-import requestIcon from "../../../assets/requesticon.svg";
+//import requestIcon from "../../../assets/requesticon.svg";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -241,8 +241,10 @@ const DashBoardNavBar = () => {
           <img src={dashBoardMenu} />
           <p>Dashboard</p>
         </div>
-
-        <div
+{
+  /**
+   * not using this flow for now 
+   *  <div
           className={`flex h-[50px] hover:bg-[#BB7655] ${activeContainer
             .requestNav.isActive
             ? "bg-[#BB7655] "
@@ -278,6 +280,9 @@ const DashBoardNavBar = () => {
           <img src={requestIcon} />
           <p>Requests</p>
         </div>
+   */
+}
+       
 
         <div
           className={`flex h-[50px] hover:bg-[#BB7655] ${activeContainer

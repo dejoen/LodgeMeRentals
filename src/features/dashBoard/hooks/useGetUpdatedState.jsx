@@ -5,7 +5,7 @@ import {CombineContext}  from '../../../context/CombineContextProvider'
 
 export default function useGetUpdatedState (){
 
-  
+ 
 
     const { agentReducerState}  = useContext(CombineContext)
 
@@ -16,8 +16,10 @@ export default function useGetUpdatedState (){
         useEffect(()=>{
             
          setAgentState(agentReducerState)
-         
+       
         },[agentReducerState])
+
+       
         
    return {agentState}
 }
