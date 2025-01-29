@@ -13,7 +13,7 @@ const AboutPageScreen = () =>{
 
     return(
 <div>
-    <NavbarComponent image={"bg-aboutBackgroundImage"} text={"More Than Just A House, We Provide Homes"} textSize={"text-4xl"} lineHeight={'leading-[60px]' } buttonOneText={"LogIn"} makeVisible={"block"} adjustHeight={"h-fit"}/>
+    <NavbarComponent image={"bg-aboutBackgroundImage"} text={"More Than Just A House, We Provide Homes"} textSize={"text-3xl"} lineHeight={'' } buttonOneText={"LogIn"} makeVisible={"block"} adjustHeight={"h-fit"} />
     <AboutTextContainer/>
     <AboutImageSliderContainer/>
      <AboutInstructionCardContainer/>

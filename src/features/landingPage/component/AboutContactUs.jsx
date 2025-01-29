@@ -9,9 +9,9 @@ import tictok  from '../../../assets/tictokIcon.svg'
 const AboutContactUs = () =>{
 
     return (
-   <div className="font-nunito mt-2 w-full flex flex-col place-items-center justify-center">
-     <p className="font-bold text-xl">Contact Us</p>
-     <p className="text-center font-bold leading-[32px]">Ready to find your next home? Get in touch with us today to start your property search journey. Whether you’re looking to rent or buy, we’re here to help you every step of the way.</p>
+   <div className="font-nunito mt-2 w-[70%] mx-auto flex flex-col place-items-center justify-center">
+     <p className="font-bold text-3xl">Contact Us</p>
+     <p className="text-center font-bold leading-[30px]">Ready to find your next home? Get in touch with us today to start your property search journey. Whether you’re looking to rent or buy, we’re here to help you every step of the way.</p>
      
      <div className="w-full flex place-content-center">
 
