@@ -49,7 +49,13 @@ import HouseOverView from "./features/dashBoard/component/client/HouseOverView.j
 import ChatScreen from "./features/dashBoard/screen/client/ChatScreen.jsx";
 import ClientProfileScreen from "./features/dashBoard/screen/client/ClientProfileScreen.jsx";
 import AgentRequestsView from "./features/dashBoard/screen/agent/AgentRequestsView.jsx";
-
+import AgentNotificationView from "./features/dashBoard/screen/agent/AgentNotificationView.jsx";
+import AgentAppointmentView from './features/dashBoard/screen/agent/AgentAppointmentsView.jsx'
+import AgentSettingView from "./features/dashBoard/screen/agent/AgentSettingsView.jsx";
+import RentalHistor from "./features/dashBoard/screen/agent/RentalHistory.jsx";
+import DownloadHistor from "./features/dashBoard/screen/agent/DownloadHistory.jsx";
+import PaymentHistor from "./features/dashBoard/screen/agent/PaymentHistory.jsx";
+import ApplicationHistor from "./features/dashBoard/screen/agent/ApplicationHistory.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -181,6 +187,21 @@ const router = createBrowserRouter([
         element: <AgentMessageView />
       },
       {
+        path: "notification",
+        element: <AgentNotificationView />
+      },
+
+      {
+        path: "appointment",
+        element: <AgentAppointmentView />
+      },
+
+      {
+        path: "setting",
+        element: <AgentSettingView />
+      },
+
+      {
         path:"requests",
         element:<AgentRequestsView/>
       }
@@ -228,19 +249,19 @@ const router = createBrowserRouter([
       },
       {
         path: "rental-history",
-        element: <div>hello ggsg</div>
+        element: <RentalHistor/>
       },
       {
-        path: "documents",
-        element: <div>hello ggsg</div>
+        path: "document",
+        element: <DownloadHistor />
       },
       {
-        path: "applications",
-        element: <div>hello ggsg</div>
+        path: "application",
+        element: < ApplicationHistor/>
       },
       {
-        path: "payments",
-        element: <div>hello ggsg</div>
+        path: "payment",
+        element: < PaymentHistor/>
       }
     ]
   },

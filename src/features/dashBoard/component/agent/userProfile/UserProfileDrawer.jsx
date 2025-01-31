@@ -51,7 +51,66 @@ const UserProfileBodyDrawer = () =>{
               }
             };
           }
+
+          case "document": {
+            return {
+              overviewNav: {
+                isActive: false
+              },
+              rentalHistoryNav: {
+                isActive: false
+              },
+              documentsNav: {
+                isActive: true
+              },
+             applicationNav: {
+                isActive: false
+              },
+              paymentNav: {
+                isActive: false
+              }
+            };
+          }
     
+          case "application": {
+            return {
+              overviewNav: {
+                isActive: false
+              },
+              rentalHistoryNav: {
+                isActive: false
+              },
+              documentsNav: {
+                isActive: false
+              },
+             applicationNav: {
+                isActive: true
+              },
+              paymentNav: {
+                isActive: false
+              }
+            };
+          }
+
+          case "payment": {
+            return {
+              overviewNav: {
+                isActive: false
+              },
+              rentalHistoryNav: {
+                isActive: false
+              },
+              documentsNav: {
+                isActive: false
+              },
+             applicationNav: {
+                isActive: false
+              },
+              paymentNav: {
+                isActive: true
+              }
+            };
+          }
           
           default:
             null;
@@ -168,6 +227,8 @@ const UserProfileBodyDrawer = () =>{
                 }
               };
             });
+            navigate("document");
+            closeAgentProfileDrawer()
           }}
         >
           
@@ -200,6 +261,8 @@ const UserProfileBodyDrawer = () =>{
                 }
               };
             });
+            navigate("application");
+            closeAgentProfileDrawer()
           }}
         >
          
@@ -232,6 +295,8 @@ const UserProfileBodyDrawer = () =>{
                 }
               };
             });
+            navigate("payment");
+            closeAgentProfileDrawer()
           }}
         >
           

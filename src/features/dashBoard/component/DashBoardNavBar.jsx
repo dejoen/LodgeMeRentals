@@ -89,6 +89,76 @@ const DashBoardNavBar = () => {
         };
       }
 
+      case "notification": {
+        return {
+          dashboardNav: {
+            isActive: false
+          },
+          requestNav: {
+            isActive: false
+          },
+          messageNav: {
+            isActive: false
+          },
+          appointmentNav: {
+            isActive: false
+          },
+          notificationNav: {
+            isActive: true
+          },
+          SettingsNav: {
+            isActive: false
+          }
+        };
+      }
+
+      case "appointment": {
+        return {
+          dashboardNav: {
+            isActive: false
+          },
+          requestNav: {
+            isActive: false
+          },
+          messageNav: {
+            isActive: false
+          },
+          appointmentNav: {
+            isActive: true
+          },
+          notificationNav: {
+            isActive: false
+          },
+          SettingsNav: {
+            isActive: false
+          }
+        };
+      }
+
+
+      case "setting": {
+        return {
+          dashboardNav: {
+            isActive: false
+          },
+          requestNav: {
+            isActive: false
+          },
+          messageNav: {
+            isActive: false
+          },
+          appointmentNav: {
+            isActive: false
+          },
+          notificationNav: {
+            isActive: false
+          },
+          SettingsNav: {
+            isActive: true
+          }
+        };
+      }
+
 
       default:
         null;
@@ -189,6 +259,92 @@ const DashBoardNavBar = () => {
         })
        return
       }
+
+
+      case "notification": {
+
+        setActiveContainter(prevState=>{
+          return {
+            ...prevState,
+            dashboardNav: {
+              isActive: false
+            },
+            requestNav: {
+              isActive: false
+            },
+            messageNav: {
+              isActive: false
+            },
+            appointmentNav: {
+              isActive: false
+            },
+            notificationNav: {
+              isActive: true
+            },
+            SettingsNav: {
+              isActive: false
+            }
+          }
+        })
+       return
+      }
+
+      case "appointment": {
+
+        setActiveContainter(prevState=>{
+          return {
+            ...prevState,
+            dashboardNav: {
+              isActive: false
+            },
+            requestNav: {
+              isActive: false
+            },
+            messageNav: {
+              isActive: false
+            },
+            appointmentNav: {
+              isActive: true
+            },
+            notificationNav: {
+              isActive: false
+            },
+            SettingsNav: {
+              isActive: false
+            }
+          }
+        })
+       return
+      }
+
+      case "setting": {
+
+        setActiveContainter(prevState=>{
+          return {
+            ...prevState,
+            dashboardNav: {
+              isActive: false
+            },
+            requestNav: {
+              isActive: false
+            },
+            messageNav: {
+              isActive: false
+            },
+            appointmentNav: {
+              isActive: false
+            },
+            notificationNav: {
+              isActive: false
+            },
+            SettingsNav: {
+              isActive:true
+            }
+          }
+        })
+       return
+      }
+
 
 
       default:
@@ -349,6 +505,7 @@ const DashBoardNavBar = () => {
                 }
               };
             });
+            navigate("appointment");
           }}
         >
           <img src={dashBoardAppointment} />
@@ -384,6 +541,7 @@ const DashBoardNavBar = () => {
                 }
               };
             });
+            navigate("notification");
           }}
         >
           <img src={dashBoardNotification} />
@@ -419,6 +577,7 @@ const DashBoardNavBar = () => {
                 }
               };
             });
+            navigate("setting");
           }}
         >
           <img src={dashBoardSettings} />

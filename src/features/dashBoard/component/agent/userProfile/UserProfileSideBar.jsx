@@ -49,7 +49,66 @@ const UserProfileSideBar = () => {
         };
       }
 
-      
+      case "document": {
+        return {
+          overviewNav: {
+            isActive: false
+          },
+          rentalHistoryNav: {
+            isActive: false
+          },
+          documentsNav: {
+            isActive: true
+          },
+         applicationNav: {
+            isActive: false
+          },
+          paymentNav: {
+            isActive: false
+          }
+        };
+      }
+
+      case "application": {
+        return {
+          overviewNav: {
+            isActive: false
+          },
+          rentalHistoryNav: {
+            isActive: false
+          },
+          documentsNav: {
+            isActive: false
+          },
+         applicationNav: {
+            isActive: true
+          },
+          paymentNav: {
+            isActive: false
+          }
+        };
+      }
+
+      case "payment": {
+        return {
+          overviewNav: {
+            isActive: false
+          },
+          rentalHistoryNav: {
+            isActive: false
+          },
+          documentsNav: {
+            isActive: false
+          },
+         applicationNav: {
+            isActive: false
+          },
+          paymentNav: {
+            isActive: true
+          }
+        };
+      }
+
       default:
         null;
     }
@@ -57,7 +116,7 @@ const UserProfileSideBar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="relative   hidden md:block bg-agentNavbarBgImage w-[20%] h-dvh overflow-x-hidden font-thin text-sm  cursor-default">
+    <div className="fixed   hidden md:block bg-agentNavbarBgImage w-[20%] h-dvh overflow-x-hidden font-thin text-sm  cursor-default">
       <div className="flex flex-col gap-3 place-items-start">
         <img className=" m-5 hover:shadow-black hover:shadow-md" alt=" " src={backIcon} onClick={()=>{
           navigate('/agent/dashboard')
@@ -160,6 +219,7 @@ const UserProfileSideBar = () => {
                 }
               };
             });
+            navigate("document");
           }}
         >
           
@@ -192,6 +252,7 @@ const UserProfileSideBar = () => {
                 }
               };
             });
+            navigate("application");
           }}
         >
          
@@ -224,6 +285,7 @@ const UserProfileSideBar = () => {
                 }
               };
             });
+            navigate("payment");
           }}
         >
           

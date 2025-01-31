@@ -118,6 +118,87 @@ const AgentNavBarDrawer = () =>{
           },
         }  
           }
+
+          case 'notification' : {
+            return {
+              dashboardNav:{
+                isActive:false,
+              },
+              requestNav:{
+                isActive:false,
+              },
+              profileNav :{
+                isActive:false,
+              },
+              messageNav :{
+                isActive:false,
+              },
+              appointmentNav :{
+                isActive:false,
+              },
+             notificationNav :{
+                isActive:true,
+              },
+              SettingsNav :{
+                isActive:false,
+              },
+            }  
+              }
+
+
+              case 'appointment' : {
+                return {
+                  dashboardNav:{
+                    isActive:false,
+                  },
+                  requestNav:{
+                    isActive:false,
+                  },
+                  profileNav :{
+                    isActive:false,
+                  },
+                  messageNav :{
+                    isActive:false,
+                  },
+                  appointmentNav :{
+                    isActive:true,
+                  },
+                 notificationNav :{
+                    isActive:false,
+                  },
+                  SettingsNav :{
+                    isActive:false,
+                  },
+                }  
+                  }
+
+                  case 'setting' : {
+                    return {
+                      dashboardNav:{
+                        isActive:false,
+                      },
+                      requestNav:{
+                        isActive:false,
+                      },
+                      profileNav :{
+                        isActive:false,
+                      },
+                      messageNav :{
+                        isActive:false,
+                      },
+                      appointmentNav :{
+                        isActive:false,
+                      },
+                     notificationNav :{
+                        isActive:false,
+                      },
+                      SettingsNav :{
+                        isActive:true,
+                      },
+                    }  
+                      }
+
+
        default: null
     }
 
@@ -312,7 +393,7 @@ const AgentNavBarDrawer = () =>{
               },
              }
           })
-         
+          navigate('/agent/appointment')
         }}>
           <img src={dashBoardAppointment}/>
           <p>Appointments</p>
@@ -345,6 +426,7 @@ const AgentNavBarDrawer = () =>{
               },
              }
           })
+          navigate('/agent/notification')
         }}>
           <img src={dashBoardNotification}/>
           <p>Notifications</p>
@@ -377,6 +459,7 @@ const AgentNavBarDrawer = () =>{
               },
              }
           })
+          navigate('/agent/setting')
         }}>
           <img src={dashBoardSettings}/>
           <p>Settings</p>

@@ -59,8 +59,15 @@ export default {
       },
       animation:{
         popUpAnimation:"popUp 1s linear 1"
-      }
-    
+      },
+    backgroundColor:{
+messageBg: 'rgba(187, 118, 85, 0.25)',
+senderBg: ' rgba(187, 118, 85, 1)',
+morningBg:' rgba(52, 168, 83, 0.5)',
+afternooBg:'rgba(255, 200, 57, 0.5)',
+otherBg:'rgba(255, 2, 9, 0.5)'
+    },
+
     },
    
   },
