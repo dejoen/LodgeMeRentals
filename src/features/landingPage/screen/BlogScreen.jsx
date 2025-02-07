@@ -9,7 +9,7 @@ const BlogScreen = () => {
     return (
       <div className="w-full overflow-x-hidden">
        
-        <NavBarComponent image={"bg-blogBackgroundImage"} text={"More Than Just Houses, We Create Homes"} textSize={"text-4xl"} lineHeight={'leading-[60px]' } buttonOneText={"LogIn"} makeVisible={"block"} adjustHeight={"h-fit"}/>
+        <NavBarComponent image={"bg-blogBackgroundImage"} text={"More Than Just Houses, We Create Homes"} textSize={"text-4xl"}   buttonOneText={"LogIn"} makeVisible={"block"} adjustHeight={"h-fit"}/>
       <BlogPostView/>
       <FooterScreen/>
       <NavDrawerBar/>
