@@ -16,7 +16,7 @@ export default {
        'heroSmallScreen':"url('../src/assets/bgImage.svg')",
         'footerImage':"url('../src/assets/footerimage.svg')",
         'aboutBackgroundImage':"linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)),url('../src/assets/aboutbgimage.svg')",
-        'aboutCaptureUserImage':"linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)),url('../src/assets/aboutcaptureimage.svg')",
+        'aboutCaptureUserImage':"linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)),url('../src/assets/aboutcaptureimage.svg')",
         'blogBackgroundImage':"linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)),url('../src/assets/blogbgimage.svg')",
         'copyRightBackgroundImage':"linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)),url('../src/assets/crbgimage.svg')",
         'termsBackgroundImage':"linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)),url('../src/assets/termsbgimage.svg')",
