@@ -50,7 +50,7 @@ const AgentRegistrationScreen = () => {
  
             <div className='w-full md:w-[50%]  md:p-12 flex flex-col   place-items-center justify-center overflow-auto' >
              <div className='w-full'>
-             <img className='w-[40px]  hover:w-[60px] font-bold ms-5 mt-5'  src={backArrowIcon}  onClick={()=>{
+             <img className='w-[20px]   font-bold ms-5 mt-5'  src={backArrowIcon}  onClick={()=>{
                  navigate(-1)
              }} />
 

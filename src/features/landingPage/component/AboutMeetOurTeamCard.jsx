@@ -3,7 +3,7 @@
  import meetImage  from  '../../../assets/meetimage.svg'
 const AboutMeetOurTeamCard = (props) =>{
     return(
-       <div className="w-[290px] font-nunito font-bold ">
+       <div className="md:w-[290px] font-nunito font-bold ">
          <img src={meetImage}/>
          <div>
             <p>Name:<span>{props.teamName}</span></p>

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import  searchIcon from '../../../../assets/searchIcon.svg'
 import  inboxIcon  from '../../../../assets/clientinboxicon.svg'
-import  appointmentIcon  from '../../../../assets/clientappointmenticon.svg'
+//import  appointmentIcon  from '../../../../assets/clientappointmenticon.svg'
 import  notificationIcon  from '../../../../assets/clientnotificationicon.svg'
 import  clientProfileIcon  from '../../../../assets/clientProfileIcon.svg'
 import  menuIcon from '../../../../assets/menuIcon.svg'
@@ -50,14 +50,14 @@ const ClientNavBar = (props) => {
              />
             </div>
             
-            <div className=''>
+          { /*  <div className=''>
             <img className='w-[20px]  md:w-[40px]  h-[20px]
              ' src={appointmentIcon}  onPointerOver={()=>{
 
                 props.setIconOver(CardType.APPOINTMENT)
                
              }} />
-            </div>
+            </div>*/}
 
             <div className=''>
             <img className='w-[20px]  md:w-[40px]  h-[20px]

@@ -3,7 +3,7 @@ import { House,RefreshCcw ,UsersRound,  Handshake,History,ShieldQuestion } from 
 
 export default function RentalHistor(){
 return(
-    <div className="mx-auto p-3 md:p-8  w-[95%] md:w-[75%] h-screen  rounded-2xl m-5 md:shadow-2xl  shadow-black">
+    <div className="mx-auto p-3 md:p-8 md:ml-[22%]  w-[95%] md:w-[75%] h-screen  rounded-2xl m-5 md:shadow-2xl  shadow-black">
 <h3 className="font-bold text-xl">Rental History</h3>
 <p className="text-sm pt-4 md:w-[70%]">Your Rental History is a key component of managing your rental experience and building trust with future landlords. It provides a detailed record of your past rental properties, payment history, and references from previous landlords.</p>
    <div className='text-sm text-white grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 md:w-[90%] mt-4'>

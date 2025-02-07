@@ -87,9 +87,9 @@ import { io } from 'socket.io-client'
 
        <div className='font-nunito w-full flex  md:justify-center '>
            
-           <div className='w-full md:w-[50%]  md:p-12 flex flex-col   place-items-center justify-center overflow-auto' >
+           <div className='w-full md:w-[50%]  md:px-12 flex flex-col   place-items-center justify-center overflow-auto' >
             <div className='w-full'>
-            <img className='w-[40px]  hover:w-[60px] font-bold ms-5 mt-5'  src={backArrowIcon}  onClick={()=>{
+            <img className='w-[20px]   font-bold ms-5 mt-10'  src={backArrowIcon}  onClick={()=>{
                 navigate(-1)
             }} />
             </div>
@@ -156,7 +156,7 @@ import { io } from 'socket.io-client'
 
 
                <div>
-                   <div className='text-white w-[200px] border bg-[#BB7655] rounded-md  flex place-items-center justify-center  p-3 mb-5 hover:bg-opacity-90 cursor-pointer' onClick={ async ()=>{
+                   <div className='text-white w-[200px] border bg-[#BB7655] rounded-md  flex place-items-center justify-center  p-3  hover:bg-opacity-90 cursor-pointer' onClick={ async ()=>{
                    //openErrorScreen()
                    //navigate('/agent/dashboard')
                     

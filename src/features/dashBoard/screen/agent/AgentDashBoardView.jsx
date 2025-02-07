@@ -12,7 +12,7 @@ const AgentDashboardView = () =>{
 
          
         
-        <div className="w-full  h-screen  ">
+        <div className="w-full  h-fit md:mb-4   overflow-y-auto">
             <AgentContainer header={"Welcome \n"+agentReducerState.data.userName+"!"} body={"What would you like to see today?"}/>
            <AgentBody/>
            <AgentNavBarDrawer/>

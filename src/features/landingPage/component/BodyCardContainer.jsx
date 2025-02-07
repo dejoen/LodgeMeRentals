@@ -9,7 +9,7 @@ import  ImageV from "../../../../src/assets/bodyImage5.svg"
 
 const BodyCardContainer = () =>{
     return(
-        <div className="mx-auto flex flex-wrap place-items-center justify-center  gap-[85px] w-full">
+        <div className="mx-auto flex flex-wrap place-items-center justify-center  gap-[100px] w-full md:-space-x-16">
 
   <BodyCard imageUrl={ImageI} text={ "Same great quality. New lower prices."}/>
   <BodyCard imageUrl={ImageII} text={ "Everyday Essentials, High quality affordable "}/>

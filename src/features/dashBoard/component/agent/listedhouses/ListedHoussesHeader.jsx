@@ -11,7 +11,7 @@ const ListedHousesHeader = () => {
   });
 
   return (
-    <div className="w-full font-nunito overflow-x-auto flex gap-1 md:gap-5 md:justify-end p-5 ">
+    <div className="w-full font-nunito overflow-x-auto flex gap-1 md:gap-5 md:justify-start p-5 ">
       <div
         className={`${headerState.active &&
           "bg-[#BB7655] text-white"}   rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%] `}

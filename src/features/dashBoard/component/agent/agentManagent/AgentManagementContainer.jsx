@@ -4,7 +4,7 @@ import AgentManagementTable from "./AgentManagementTable";
 const AgentManagementContainer = () => {
 
     return (
-        <div className="w-[98.6%] md:w-[99.5%] mt-[5.4rem] bg-white z-30 shadow-black shadow-md h-[87.6vh] cursor-default  rounded-lg ms-1 me-20">
+        <div className="w-[98.6%] md:w-[80%] md:ml-[20%] mx-auto mt-[5.4rem] bg-white z-30 shadow-black shadow-md h-[87.6vh] cursor-default  rounded-lg ms-1 me-20">
             <div className="w-full h-fit pt-4  ps-5">
                 <p className="font-bold">Client Management</p>
                 <p>This page allows landlords, or agents to manage interactions with potential and current tenants. With tools for tracking client activity, communication, and managing rental agreements.</p>

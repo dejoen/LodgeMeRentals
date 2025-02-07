@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import useGetImage from "../../../hooks/useGetImage";
 import useGetAllStateData from "../../../hooks/useGetAllStateData";
 import useUpdateAgentProfile from "../../../hooks/useUpdateAgentProfile";
-
+import { X } from 'lucide-react';
 import { any } from "prop-types";
 import useGetUpdatedState from "../../../hooks/useGetUpdatedState";
 
@@ -111,7 +111,8 @@ const UserEditProfileScreen = ({ updateUI }) => {
   );
 
   return (
-    <div className=" font-nunito relative bg-white   shadow-black shadow-md  rounded-lg  w-full m-10 max-h-[600px] overflow-y-auto ">
+    <div className="flex justify-center items-center h-screen"> 
+    <div className=" font-nunito relative bg-white   shadow-black shadow-md  rounded-lg  w-[70%] md:m-10 mx-4  max-h-[600px] overflow-y-auto overflow-x-hidden ">
       <p
         className="absolute right-0 m-4 font-bold text-2xl cursor-default"
         onClick={() => {
@@ -141,12 +142,12 @@ const UserEditProfileScreen = ({ updateUI }) => {
           updateUI();
         }}
       >
-        X
+         <X />
       </p>
 
-      <div className="md:m-5 p-2 md:p-0 w-full justify-center place-items-center ">
-        <p className="font-bold pt-5 pb-5">Edit User Profile</p>
-<p className="w-full text-center mb-3"><span className="font-bold">Note:</span>You can choose what you want to specifically update as all fields are optional and atleast one field should be selected before clicking save button.</p>
+      <div className="md:m-5 p-2 md:p-0  mx-auto   justify-center place-items-center ">
+        <p className="font-bold pt-5 pb-5 text-3xl">Edit User Profile</p>
+<p className="w-[90%] mx-auto text-center mb-3"><span className="font-bold">Note:</span>You can choose what you want to specifically update as all fields are optional and atleast one field should be selected before clicking save button.</p>
         <div className="flex flex-col place-items-center mb-5">
           <img
             className=" bg-green-300   w-[100px] h-[100px] rounded-full"
@@ -427,6 +428,7 @@ const UserEditProfileScreen = ({ updateUI }) => {
           </p>
         </div>
       </div>
+    </div>
     </div>
   );
 };

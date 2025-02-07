@@ -1,11 +1,11 @@
 /* eslint-disable react-refresh/only-export-components */
 import  LodgeMeIcon from '../../../assets/lodgeMeIcon.svg'
-
+import { X } from 'lucide-react';
 import  dashBoardMenu from '../../../assets/dmenuicon.svg'
 import  dashBoardMessageIcon from '../../../assets/dmessageicon.svg'
-import  dashBoardAppointment from '../../../assets/dappointmenticon.svg'
+//import  dashBoardAppointment from '../../../assets/dappointmenticon.svg'
 import  dashBoardNotification from '../../../assets/dnotificationicon.svg'
-import  dashBoardSettings from '../../../assets/dsettingsicon.svg'
+//import  dashBoardSettings from '../../../assets/dsettingsicon.svg'
 //import  requestIcon from '../../../assets/requesticon.svg'
 import  profileIcon from '../../../assets/agentprofile/profileIconWhite.svg'
 import {  useState } from 'react'
@@ -213,7 +213,7 @@ const AgentNavBarDrawer = () =>{
       
       <p className='text-white font-bold text-3xl m-3 hover:text-orange-600' onClick={()=>{
         closeAgentDrawer()
-      }}>{"x"}</p>
+      }}>  <X /></p>
      <div className='flex flex-col gap-3 place-items-center'>
     
         <img className='w-[100px] mt-8' src={LodgeMeIcon}/>
@@ -362,8 +362,7 @@ const AgentNavBarDrawer = () =>{
           <img src={requestIcon}/>
           <p>Requests</p>
         </div>
-   */
-}
+
      
 
         <div className={`flex h-[50px] hover:bg-[#BB7655] ${ (activeContainer.appointmentNav.isActive) ?"bg-[#BB7655] ":""}  rounded-md place-items-center  ps-4 gap-2`}  onClick={()=>{
@@ -397,7 +396,42 @@ const AgentNavBarDrawer = () =>{
         }}>
           <img src={dashBoardAppointment}/>
           <p>Appointments</p>
+        </div>   
+        
+                <div className={`flex h-[50px] hover:bg-[#BB7655] ${ (activeContainer.SettingsNav.isActive) ?"bg-[#BB7655] ":""} rounded-md place-items-center  ps-4 gap-2`} onClick={()=>{
+          setActiveContainter((prevState)=>{
+             return {
+              ...prevState,
+              "dashboardNav":{
+                isActive:false
+              },
+              requestNav:{
+                isActive:false,
+              },
+              profileNav :{
+                isActive:false,
+              },
+              'messageNav':{
+                isActive:false
+              },
+              'appointmentNav':{
+                isActive:false
+              },
+              'notificationNav':{
+                isActive:false
+              },
+              'SettingsNav':{
+                isActive:true
+              },
+             }
+          })
+          navigate('/agent/setting')
+        }}>
+          <img src={dashBoardSettings}/>
+          <p>Settings</p>
         </div>
+        
+        */}
 
         <div className={`flex h-[50px]  hover:bg-[#BB7655] ${ (activeContainer.notificationNav.isActive) ?"bg-[#BB7655] ":""}rounded-md place-items-center  ps-4 gap-2`}  onClick={()=>{
           setActiveContainter((prevState)=>{
@@ -432,38 +466,7 @@ const AgentNavBarDrawer = () =>{
           <p>Notifications</p>
         </div>
 
-        <div className={`flex h-[50px] hover:bg-[#BB7655] ${ (activeContainer.SettingsNav.isActive) ?"bg-[#BB7655] ":""} rounded-md place-items-center  ps-4 gap-2`} onClick={()=>{
-          setActiveContainter((prevState)=>{
-             return {
-              ...prevState,
-              "dashboardNav":{
-                isActive:false
-              },
-              requestNav:{
-                isActive:false,
-              },
-              profileNav :{
-                isActive:false,
-              },
-              'messageNav':{
-                isActive:false
-              },
-              'appointmentNav':{
-                isActive:false
-              },
-              'notificationNav':{
-                isActive:false
-              },
-              'SettingsNav':{
-                isActive:true
-              },
-             }
-          })
-          navigate('/agent/setting')
-        }}>
-          <img src={dashBoardSettings}/>
-          <p>Settings</p>
-        </div>
+
      </div>
      </div>
     );

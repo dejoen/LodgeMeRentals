@@ -4,7 +4,7 @@ const ClientProfileScreen = () => {
   const { state } = useLocation();
 
   return (
-    <div className="w-full  md:flex flex-wrap h-screen font-nunito relative">
+    <div className="w-full  md:flex flex-wrap justify-center h-screen font-nunito relative">
       <div className="md:w-[40%]  flex flex-col place-items-center p-10 relative ">
         <div className="bg-[#D9D9D9] h-[200px]  rounded-md w-[200px]">
           <img
@@ -16,15 +16,15 @@ const ClientProfileScreen = () => {
             className=""
           />
         </div>
-        <p className="mt-4  w-[200px]">{ state.data.userName}</p>
+        <p className="mt-4  w-[200px] text-center">{ state.data.userName}</p>
 
 
 <div className="md:w-[200px] flex md:place-items-center  ">
-<p className="mt-4 font-bold  ">{"Client's Details"}<span>%</span></p>
+<p className="mt-4 font-bold text-center ">{"Client's Details"}<span>%</span></p>
 
 </div>
 
-<div className="md:w-[200px] mt-3">
+<div className="md:w-[250px] text-center mt-3">
 <p>Email:<span>{(state.data && state.data.userEmail)? state.data.userEmail : "Nil"}</span></p>
 <p>Phone Number:<span>{(state.data && state.data.userPhoneNumber)? state.data.userPhoneNumber : "Nil"}</span></p>
 <p>Date Of Birth:<span>{(state.data && state.data.userProfile.dob)? state.data.userProfile.dob : "Nil"}</span></p>
@@ -42,7 +42,7 @@ const ClientProfileScreen = () => {
 
       </div>
 
-      <div className="md:w-[60%]  p-10 ">
+   {/*   <div className="md:w-[60%]  p-10 ">
 
 
         <div className="w-full flex justify-evenly cursor-default">
@@ -62,7 +62,7 @@ const ClientProfileScreen = () => {
 
 
 
-      </div>
+      </div> */}
     </div>
   );
 };

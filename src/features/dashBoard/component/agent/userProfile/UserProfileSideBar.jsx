@@ -116,7 +116,7 @@ const UserProfileSideBar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="fixed   hidden md:block bg-agentNavbarBgImage w-[20%] h-dvh overflow-x-hidden font-thin text-sm  cursor-default">
+    <div className="fixed    hidden md:block bg-agentNavbarBgImage w-[20%] h-dvh overflow-x-hidden font-thin text-sm  cursor-default">
       <div className="flex flex-col gap-3 place-items-start">
         <img className=" m-5 hover:shadow-black hover:shadow-md" alt=" " src={backIcon} onClick={()=>{
           navigate('/agent/dashboard')
@@ -160,7 +160,7 @@ const UserProfileSideBar = () => {
           <p>Overview</p>
         </div>
 
-        <div
+     {/*  <div
           className={`flex h-[50px]  hover:font-bold ${activeContainer
             .rentalHistoryNav.isActive
             ? "font-bold text-xl "
@@ -290,14 +290,14 @@ const UserProfileSideBar = () => {
         >
           
           <p>Payment Information</p>
-        </div>
-      </div>
+        </div> */}
+      </div> 
       <div className="absolute  bottom-0 w-full flex  ">
       <img className=" hover:shadow-black hover:shadow-md mb-5  mx-auto" alt=" " src={lodgeMeIcon} onClick={()=>{
         navigate('/')
       }} />
       
-        </div>
+        </div> 
     </div>
   );
 }  

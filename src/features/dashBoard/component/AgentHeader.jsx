@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import  profileIcon from '../../../assets/userprofileIcon.svg'
-import  searchIcon from '../../../assets/searchIcon.svg'
+//import  searchIcon from '../../../assets/searchIcon.svg'
 import  menuIcon from '../../../assets/menuIcon.svg'
 import { openAgentDrawer } from './AgentNavBarDrawer'
 import { useNavigate } from 'react-router-dom'
@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 let AgentHeader = (props) =>{
      const  navigate = useNavigate()
     return (
-        <div className="   w-full font-nunito bg-white flex place-items-center    ps-5   h-20 shadow-xl rounded-br-[10px] rounded-bl-[15px] overflow-x-hidden">
+        <div className="   md:w-[90%] md:ml-[25%] font-nunito bg-white flex place-items-center    ps-5   h-20 shadow-xl rounded-br-[10px] rounded-bl-[15px] overflow-x-hidden">
             
             
             <div className='w-[90%]'>
@@ -18,10 +18,10 @@ let AgentHeader = (props) =>{
          
          <div className=' w-full md:w-[50%] me-5  flex  md:place-items-center justify-end md:me-20  gap-10'>
             
-            <img className='w-[20px]  md:w-[20px] 
+          {/*  <img className='w-[20px]  md:w-[20px] 
              ' src={searchIcon} />
 
-
+*/}
             <div className='hidden md:block  ' onClick={()=>{
                 navigate('/agent/userprofile/overview/about')
             }}>

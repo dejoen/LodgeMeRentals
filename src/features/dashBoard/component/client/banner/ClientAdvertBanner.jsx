@@ -6,7 +6,7 @@ import  ClientAdvertBannerCard from '../../../component/client/banner/ClientAdve
 const ClientAdvertBanner = () =>{
 
     return (
-<div className=" mx-auto h-fit  w-[800px]   md:w-[800px] flex  ">
+<div className=" mx-auto h-fit ml-5 md:ml-0 w-[800px]   md:w-[800px] flex  ">
     <div className="mx-auto w-full  mt-5">
     <Carousel responsive={responsive} autoPlay={true}   rewindWithAnimation={true} infinite={true} partialVisbile={true} transitionDuration={1000} arrows={false} className=" " ssr={true}>
   <ClientAdvertBannerCard     onClick={()=>{

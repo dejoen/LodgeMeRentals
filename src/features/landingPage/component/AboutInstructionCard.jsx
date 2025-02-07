@@ -7,7 +7,7 @@ const AboutInstructionCard = (props) =>{
        <div className="mb-2 mt-8 w-fit flex  place-items-center
        justify-center">
 
-        <div className="w-[320px] h-[200px]  bg-white z-40 shadow-md shadow-gray-950 flex flex-col place-items-center text-center gap-6 pt-10 rounded-2xl">
+        <div className="md:w-[320px] w-[85%] h-[200px]  bg-white z-40 shadow-md shadow-gray-950 flex flex-col place-items-center text-center gap-6 pt-10 rounded-2xl">
           <p className="font-bold text-xl">{props.header}</p>
           <p className="leading-[24px]">{props.body}</p>
         </div>

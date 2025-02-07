@@ -2,9 +2,9 @@
 
 const UserProfileRatingScreen = () => {
     return (
-        <div className="font-nunito relative w-full m-5 flex gap-5 justify-evenly flex-wrap ">
+        <div className="font-nunito relative w-full md:m-5 flex gap-5 justify-evenly flex-wrap ">
             <div className="">
-                <p className="font-bold text-xl">Reviews and Ratings</p>
+                <p className="font-bold text-xl pb-3">Reviews and Ratings</p>
                 <div className="flex gap-4">
                     <p className="font-bold text-5xl">5.0</p>
                     <div>
@@ -17,7 +17,7 @@ const UserProfileRatingScreen = () => {
                 <div className="mt-4 ">
                     <p>Reliability</p>
                     <div className='mt-1 flex justify-center place-items-center gap-1'>
-                        <div className="h-[8px] w-[220px] bg-green-500 rounded-md"></div>
+                        <div className="h-[8px] md:w-[220px] w-[280px] bg-green-500 rounded-md"></div>
                         <p>Good</p>
                     </div>
                 </div>
@@ -27,7 +27,7 @@ const UserProfileRatingScreen = () => {
                 <div className=" ">
                     <p>Recommended</p>
                     <div className=' flex justify-center place-items-center gap-1'>
-                        <div className="h-[8px] w-[220px] bg-green-500 rounded-md"></div>
+                        <div className="h-[8px] md:w-[220px] w-[280px] bg-green-500 rounded-md"></div>
                         <p>Good</p>
                     </div>
                 </div>
@@ -35,7 +35,7 @@ const UserProfileRatingScreen = () => {
                 <div className="">
                     <p>Positive Solution</p>
                     <div className=' flex justify-center place-items-center gap-1 '>
-                        <div className="h-[8px] w-[220px] bg-green-500 rounded-md"></div>
+                        <div className="h-[8px] md:w-[220px] w-[280px] bg-green-500 rounded-md"></div>
                         <p>Good</p>
                     </div>
                 </div>
@@ -43,7 +43,7 @@ const UserProfileRatingScreen = () => {
                 <div className=" ">
                     <p>Trusted</p>
                     <div className='mt-1 flex justify-center place-items-center gap-1'>
-                        <div className="h-[8px] w-[220px] bg-green-500 rounded-md"></div>
+                        <div className="h-[8px] md:w-[220px] w-[280px] bg-green-500 rounded-md"></div>
                         <p>Good</p>
                     </div>
                 </div>
@@ -51,17 +51,17 @@ const UserProfileRatingScreen = () => {
                 <div className="">
                     <p>Communication</p>
                     <div className=' flex justify-center place-items-center gap-1'>
-                        <div className="h-[8px] w-[220px] bg-green-500 rounded-md"></div>
+                        <div className="h-[8px] md:w-[220px] w-[280px] bg-green-500 rounded-md"></div>
                         <p>Good</p>
                     </div>
                 </div>
 
                 </div> 
             </div>
-            <div className="">
+            <div className="pb-8">
                 <p className="font-bold text-xl mb-5"> Reviews</p>
                 <div className="relative max-h-[400px] overflow-y-auto">
-                    <div className="min-w-[300px] max-w-[300px] mb-2">
+                    <div className="min-w-[300px] md:max-w-[300px] max-w-[350px] mb-2 ">
                     <p>{"Client's Name"}</p>
                     <div className="flex">
                         <p>start</p>

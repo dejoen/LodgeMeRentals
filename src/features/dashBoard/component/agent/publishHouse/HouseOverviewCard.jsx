@@ -21,7 +21,7 @@ const HouseOverViewCard = ({
   const inputRef = useRef();
 
   return (
-    <div className="font-nunito w-[300px] border-black border border-opacity-20 rounded-md p-3 m-2  md:m-5 h-[250px] flex flex-col gap-3 place-items-center justify-center ">
+    <div className="font-nunito  w-[300px] border-black border border-opacity-20 rounded-md p-3 m-2  md:m-5 h-[250px] flex flex-col gap-3 place-items-center justify-center ">
       <p className="font-bold" ref={headerRef}>
         {headerText}
       </p>

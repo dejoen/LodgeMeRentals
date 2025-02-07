@@ -4,7 +4,7 @@ const SimilarPropertiesCard = ()  =>{
     return(
 
         
-        <div className="font-nunito  inline-block w-[100%] md:w-[350px] h-[40
+        <div className="font-nunito m:ml-0 ml-2 inline-block w-[100%] md:w-[350px] h-[40
         50px] bg-[#34A853] rounded-md p-3 text-white  ">
         <img src="/" className="bg-orange-400 h-[200px] rounded-md object-contain object-center" /> 
         <p className="text-white font-bold mt-2">Eko Serenity Villa</p>

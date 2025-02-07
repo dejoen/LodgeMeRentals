@@ -9,7 +9,7 @@ const RequestCardContainer = () => {
   });
 
   return (
-    <div className="  font-nunito relative bg-[#FFC83980] w-full rounded-lg min-h-fit p-8 flex  gap-5">
+    <div className="  font-nunito relative bg-[#FFC83980] w-full  rounded-lg min-h-fit p-8 flex  gap-5">
       <img src="/" className="bg-orange-700 h-[50px] w-[50px] rounded-full" />
       <div className="relative w-full mt-2 md:flex flex-col">
         <p>Adedayo Ddedayo</p>

@@ -4,7 +4,7 @@
 import lodgeMeIcon from "../../../../../assets/agentprofile/lodgemeIconDarkImage.svg";
 
 import {  useState } from 'react'
-
+import { X } from 'lucide-react';
 import { useNavigate ,useLocation} from 'react-router-dom'
 const UserProfileBodyDrawer = () =>{
 
@@ -125,7 +125,7 @@ const UserProfileBodyDrawer = () =>{
        
        <p className='text-white font-bold text-3xl m-3 hover:text-orange-600' onClick={()=>{
          closeAgentProfileDrawer()
-       }}>{"x"}</p>
+       }}> <X /></p>
       <div className='flex flex-col gap-3 place-items-center'>
       
      
@@ -166,7 +166,7 @@ const UserProfileBodyDrawer = () =>{
          
           <p>Overview</p>
         </div>
-
+{ /*
         <div
           className={`flex h-[50px]  hover:font-bold ${activeContainer
             .rentalHistoryNav.isActive
@@ -269,7 +269,7 @@ const UserProfileBodyDrawer = () =>{
           <p>Application Status</p>
         </div>
 
-        <div
+       <div
           className={`flex h-[50px]  hover:font-bold ${activeContainer
             .paymentNav.isActive
             ? "font-bold text-xl "
@@ -301,7 +301,8 @@ const UserProfileBodyDrawer = () =>{
         >
           
           <p>Payment Information</p>
-        </div>
+        </div> 
+        */}
       </div>
       <div className="absolute  bottom-0 w-full flex  ">
       <img className=" hover:shadow-black hover:shadow-md mb-5  mx-auto" alt=" " src={lodgeMeIcon} onClick={()=>{

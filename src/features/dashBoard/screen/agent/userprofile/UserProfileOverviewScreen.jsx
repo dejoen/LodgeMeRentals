@@ -12,7 +12,7 @@ import starIcon from "../../../../../assets/agentprofile/profileStar.svg";
 import {   useState } from "react";
 import UserEditProfileScreen from "./UserEditProfileScreen";
 import useGetUpdatedState from "../../../hooks/useGetUpdatedState";
-
+import { X } from 'lucide-react';
 
 
 const UserProfileOverviewScreen = () => {
@@ -25,7 +25,7 @@ const UserProfileOverviewScreen = () => {
   return (
 
     
-    <div className=" font-nunito relative w-full overflow-x-hidden">
+    <div className=" font-nunito md:ml-[20%] w-full overflow-x-hidden relative">
       <div className="md:hidden md:aria-hidden:hidden w-full flex justify-end">
         <img
           className="w-[30px] h-[30px] mt-2 me-5 place-self-end"
@@ -40,7 +40,7 @@ const UserProfileOverviewScreen = () => {
             navigate("/agent/dashboard");
           }}
         >
-          {"<"}
+           <X />
         </p>
       </div>
 
@@ -61,7 +61,7 @@ const UserProfileOverviewScreen = () => {
             </div>
           </div>
 
-          <div className="  ms-[124px] md:ms-[150px] mt-2  flex flex-wrap  justify-center  md:justify-between gap-5 md:gap-3">
+          <div className="  mt-[70px] md:ms-[150px] md:mt-2  flex flex-wrap  justify-start  md:justify-between gap-5 md:gap-3">
             <div className="">
 
               <div className="flex gap-5 font-bold text-xl">
@@ -74,7 +74,7 @@ const UserProfileOverviewScreen = () => {
               </div>
               
               <div className="flex">
-                <p className="font-bold">PublishingAs:</p>
+                <p className="font-bold">Publishing As : </p>
                 <p>{(agentState.data.userProfile.publishingAs)? agentState.data.userProfile.publishingAs :"Agent"}</p>
               </div>
               <div>
@@ -87,7 +87,7 @@ const UserProfileOverviewScreen = () => {
                 </div>
 
               </div>
-              <div className="flex gap-5 mt-2">
+              <div className="flex gap-5 mt-2 ">
                 <div className="flex  place-items-center gap-2">
                   <img src={heartIcon} alt=" " />
                   <p>(0-1m+)</p>
@@ -100,7 +100,7 @@ const UserProfileOverviewScreen = () => {
               </div>
             </div>
 
-            <div className="flex gap-5  flex-wrap justify-center  place-items-center md:place-items-start   ">
+            <div className="flex gap-5  flex-wrap md:justify-center  place-items-center md:place-items-start   ">
               <div className="bg-[#1C2E7A] flex text-white place-items-center gap-2 p-2 h-[35px] rounded-md min-w-[150px]">
                 <img src={previewIcon} alt="" />
                 <p

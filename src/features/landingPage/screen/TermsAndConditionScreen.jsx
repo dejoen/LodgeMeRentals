@@ -8,7 +8,7 @@ const TermsAndConditionScreen = () =>{
 
     return (
    <div>
-    <NavBarComponent image={"bg-termsBackgroundImage"} text={"Exclusive Rental Homes, Available Anytime"} textSize={"text-4xl"} lineHeight={'leading-[60px]' } buttonOneText={"LogIn"} makeVisible={"block"} adjustHeight={"h-fit"}/>
+    <NavBarComponent image={"bg-termsBackgroundImage"} text={"Exclusive Rental Homes, Available Anytime"} textSize={"text-4xl"}  buttonOneText={"LogIn"} makeVisible={"block"} adjustHeight={"h-fit"}/>
      <TermsAndConditionTextBody/>
      <FooterScreen/>
       <NavDrawerBar/>

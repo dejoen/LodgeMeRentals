@@ -44,10 +44,10 @@ const HouseOverViewScreen = () => {
 
   return (
     <React.Fragment>
-      <div className=" w-full  h-dvh  md:min-h-[85%]   mt-20  bg-white z-20 rounded-md shadow-md overflow-y-auto  pb-10" style={{scrollbarWidth:"none"}}>
-        <p className="font-bold ms-20 mt-8">House Overview</p>
+      <div className=" w-full md:w-[90%] mx-auto  h-dvh  md:min-h-[85%] md:ml-[16%]  mt-20  bg-white z-20 rounded-md shadow-md overflow-y-scroll  pb-10" style={{scrollbarWidth:"none"}}>
+        <p className="font-bold ms-20 pt-8 pb-4">House Overview</p>
 
-        <div className=" h-[75%]  flex flex-wrap justify-center overflow-y-auto">
+        <div className=" h-[75%]  flex flex-wrap justify-center overflow-y-scroll ">
           {[
             {
               headeText: "House Name/Apartment Name",
@@ -128,7 +128,7 @@ const HouseOverViewScreen = () => {
           )}
         </div>
 
-        <div className="w-full flex justify-end place-items-center pe-4 h-[25%] gap-5">
+        <div className="w-full md:w-[90%] flex justify-end place-items-center pe-4 h-[20%] items-center pt-6 pb-12 gap-5">
           <p
             className={`${saveIndicator
               ? "block"

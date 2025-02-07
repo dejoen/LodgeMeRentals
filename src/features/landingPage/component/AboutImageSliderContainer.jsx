@@ -3,19 +3,19 @@
 const AboutImageSliderContainer = () =>{
 
     return(
-<div className="mx-auto w-full p-4 flex place-items-center justify-center  flex-col md:flex-row gap-4">
-<div className="w-[329px]">
+<div className="flex justify-center md:flex-row flex-col md:w-full w-[90%] mx-auto gap-6 ">
+<div >
 
-  <img src={slideImage}/>
+  <img src={slideImage} className="md:w-[329px] "/>
 </div>
-<div className="w-[329px]">
+<div >
 
-  <img src={slideImage}/>
+  <img src={slideImage} className="md:w-[329px]"/>
 </div>
 
-<div className="w-[329px]">
+<div >
 
-  <img src={slideImage}/>
+  <img src={slideImage} className="md:w-[329px]"/>
 </div>
 
   

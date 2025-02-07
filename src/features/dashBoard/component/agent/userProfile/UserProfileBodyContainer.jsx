@@ -119,9 +119,9 @@ const UserProfileBodyContainer = () => {
   });
 
   return (
-    <div className=" font-nunito w-full cursor-default flex flex-col gap-5 ">
-      <div className="min-h-[400px] border shadow-black shadow-lg rounded-lg">
-        <div className="flex  justify-evenly md:justify-evenly m-6 overflow-x-auto">
+    <div className=" font-nunito w-full  shadow-lg rounded-lg cursor-default flex flex-col gap-5 ">
+      <div className="min-h-[400px]  ">
+        <div className="flex  justify-evenly md:justify-start md:gap-12 m-6 overflow-x-auto">
           <p
             className={` ${buttonState.about.isActive &&
               "bg-[#BB7655] text-white "}  p-2 rounded-md`}
@@ -153,7 +153,7 @@ const UserProfileBodyContainer = () => {
             About
           </p>
 
-          <p
+       { /*  <p
             className={` ${buttonState.stats.isActive &&
               "bg-[#BB7655] text-white "}  p-2 rounded-md`}
             onClick={() => {
@@ -212,7 +212,7 @@ const UserProfileBodyContainer = () => {
             }}
           >
             Posts
-          </p>
+          </p> */}
 
           <p
             className={` ${buttonState.ratings.isActive &&
@@ -282,7 +282,7 @@ const UserProfileBodyContainer = () => {
       <div
         className={`${makeViewVisible
           ? "block"
-          : "hidden"}  min-h-[150px] border shadow-black shadow-lg  rounded-lg `}
+          : "hidden"}  min-h-[150px]   `}
       >
         <div className="m-3 my-8 flex flex-col justify-center ">
           <div className="flex gap-1">
@@ -318,7 +318,7 @@ const UserProfileBodyContainer = () => {
       <div
         className={` ${makeViewVisible
           ? "block"
-          : "hidden"} min-h-[200px] border shadow-black shadow-lg  rounded-lg  p-3`}
+          : "hidden"} min-h-[200px]   p-3`}
       >
         <div className="relative w-full flex">
           <p className="font-bold">Address</p>

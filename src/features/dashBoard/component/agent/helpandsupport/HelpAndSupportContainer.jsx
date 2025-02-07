@@ -13,8 +13,8 @@ const HelpAndSupportContainer = () => {
 
   const navigate = useNavigate();
   return (
-    <div className="  w-[98.6%] md:w-[99.5%] mt-[5.4rem] bg-white z-30 shadow-black shadow-md h-[87.6vh] cursor-default  rounded-lg ms-1 me-20 overflow-y-auto">
-      <div className="font-bold text-3xl p-10">
+    <div className="  w-[98.6%] md:w-[80%] md:ml-[20%] mx-auto mt-[5.4rem] bg-white z-30 shadow-black shadow-md h-[87.6vh] cursor-default  rounded-lg ms-1 me-20 overflow-y-auto">
+      <div className="font-bold text-3xl px-10 pt-10">
         <p>Welcome to LodgeMe Support</p>
       </div>
 

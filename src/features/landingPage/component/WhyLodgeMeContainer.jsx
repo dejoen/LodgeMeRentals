@@ -8,13 +8,13 @@ import  wlIImage from "../../../../src/assets/whyLodgeMeImage.svg"
 const WhyLodgeMeContainer = () =>{
 
     return (
-    <div className="mt-28 w-full p-10">
-   <div className="w-full leading-10 font-bold size-[36px] mb-6 lg:text-center text-xl">
+    <div className="mt-28 w-full md:p-10 py-10">
+   <div className="w-full leading-10 font-bold size-[36px] mb-6 text-center text-3xl md:text-4xl">
    Why LodgeMe Rental Service ?
    </div>
- <div className="mx-auto w-full flex flex-wrap justify-center gap-16 pt-8">
- <div className="flex flex-col gap-3 mt-4">
-     <div className="flex">
+ <div className="mx-auto w-full flex flex-wrap justify-center gap-8 md:gap-16 pt-8">
+ <div className="flex flex-col gap-3 md:gap-10 mt-4">
+     <div className="flex gap-4">
         <img className=" w-[60px] h-[60px]"  src={wlIcon1}/>
         <div className="p-1">
         <p className="text-lg">Close Interaction between Landlord and Tenants</p>
@@ -22,7 +22,7 @@ const WhyLodgeMeContainer = () =>{
         </div>
      </div>
 
-     <div className="flex">
+     <div className="flex gap-4">
         <img className=" w-[60px] h-[60px]"  src={wlIchatcon1}/>
         <div className="p-1">
         <p className="text-lg">Breaking Long Range Location Barriers</p>
@@ -30,7 +30,7 @@ const WhyLodgeMeContainer = () =>{
         </div>
      </div>
 
-     <div className="flex">
+     <div className="flex gap-4">
         <img className=" w-[60px] h-[60px]"  src={wlIchatcon2}/>
         <div className="p-1">
         <p className="text-lg">Market Insights</p>
@@ -40,7 +40,7 @@ const WhyLodgeMeContainer = () =>{
 
    </div>
    <div className="justify-end">
-    <img src={wlIImage}/>
+    <img src={wlIImage} className="md:w-[80%] rounded-lg"/>
    </div>
 
    </div>

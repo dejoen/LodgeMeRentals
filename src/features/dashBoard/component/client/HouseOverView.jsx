@@ -23,14 +23,14 @@ const HouseOverView = () => {
   return (
     <React.Fragment>
       <div className="font-nunito  w-full md:m-5 ">
-        <p className="ps-2 md:p-0 text-justify font-bold text-[] w-[90%] ">
+        <p className="ps-2 md:p-0 pt-8 mx-auto text-justify font-bold text-[] w-[90%] ">
           {" "}The house details page offers a clear overview of a property,
           including its price, location, photos, amenities, and availability.
           Users can explore features, view multimedia content, and contact the
           owner or agent directly for inquiries or bookings.
         </p>
 
-        <div className="w-full mt-6 flex gap-4 place-items-center">
+        <div className="md:w-full w-[90%] mx-auto mt-6 flex gap-4 place-items-center">
           <img
             src={state.publisher.userProfile.profileImage}
             className="bg-orange-500 w-[80px] h-[80px] rounded-full"
@@ -67,7 +67,7 @@ const HouseOverView = () => {
         </div>
         <div className="ms-5 mt-5 flex place-items-center">
           <img className="h-[15px] w-[15px]" src={smallHouseIcon} />
-          <div className="flex mt-1">
+          <div className="flex mt-1 gap-3 w-[90%] mx-auto">
             <p>.Unityhostel</p>
             <p>.Unityhostel</p>
             <p className="ms-6 text-gray-700">
@@ -76,9 +76,9 @@ const HouseOverView = () => {
           </div>
         </div>
 
-        <div className="w-[95%] flex  flex-wrap  ">
-          <div className=" h-full w-full md:w-[70%]">
-            <div className="w-full  h-[400px]  p-2">
+        <div className="w-[95%] mx-auto flex  flex-wrap  ">
+          <div className=" h-full w-full md:w-[70%] ">
+            <div className="w-[100%] mx-auto h-[400px]  p-2">
               <video
                 src={getFirstVideo()}
                 className="bg-gray-400  rounded-md object-cover object-center w-full h-full "
@@ -133,10 +133,10 @@ This house is more than a home; it’s a statement of elegance and convenience.`
 
           <div className=" h-full w-full md:w-[30%] ">
             <div className="w-full p-2">
-              <div className="bg-[#BB7655] h-10  flex place-items-center ps-2 text-white">
+              <div className="bg-[#BB7655] h-10   flex place-items-center p-2 text-white">
                 House Feature
               </div>
-              <div className="bg-[#F0D38F80] max-h-ful relative ">
+              <div className="bg-[#F0D38F80] px-4 max-h-ful relative ">
                 <div className="w-full flex place-items-center p-1">
                   <p>Fenced</p>
                   <input
@@ -357,7 +357,7 @@ This house is more than a home; it’s a statement of elegance and convenience.`
           </div>
 
           <div className=" overflow-x-auto">
-            <p className="font-bold">Other properties posted by this Agent</p>
+            <p className="font-bold text-center text-2xl pb-3">Other properties posted by this Agent</p>
 
             <div
               className=" w-full 
@@ -370,8 +370,8 @@ This house is more than a home; it’s a statement of elegance and convenience.`
             </div>
 
             <div className="w-full">
-              <div className="flex mt-5">
-                <p className="font-bold">Reviews from past clients:</p>
+              <div className="flex mt-5 md:flex-row flex-col">
+                <p className="font-bold  text-2xl">Reviews from past clients:</p>
                 <span>(203)Reviews</span>
               </div>
 
@@ -384,7 +384,7 @@ This house is more than a home; it’s a statement of elegance and convenience.`
           </div>
 
           <div className="w-full mt-10 ">
-            <p className="font-bold">Similar properties you may like</p>
+            <p className="font-bold text-center text-2xl">Similar properties you may like</p>
 
             <div
               className=" mt-5 w-full 

@@ -1,6 +1,6 @@
 export default function ApplicationHistor(){
     return(
-        <div className="mx-auto p-3 md:p-8  w-[95%] md:w-[75%] h-fit  rounded-2xl m-5 md:shadow-2xl  shadow-black">
+        <div className="mx-auto p-3 md:ml-[22%] md:p-8  w-[95%] md:w-[75%] h-fit  rounded-2xl m-5 md:shadow-2xl  shadow-black">
     <h3 className="font-bold text-xl">Application</h3>
     <p className="text-sm pt-4 md:w-[70%]">Welcome to Your Next Big Step in Homeownership or Renting! We are excited to help you find your dream home or ideal rental space. This application page is your gateway to accessing tailored property options, connecting with trusted landlords, and starting a seamless rental journey. Let us make your house hunt effortless and enjoyable!</p>
       <div className=" flex justify-center mt-8 items-center">

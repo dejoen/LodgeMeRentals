@@ -2,9 +2,9 @@ import LodgeMeIcon from "../../../assets/lodgeMeIcon.svg";
 
 import dashBoardMenu from "../../../assets/dmenuicon.svg";
 import dashBoardMessageIcon from "../../../assets/dmessageicon.svg";
-import dashBoardAppointment from "../../../assets/dappointmenticon.svg";
+//import dashBoardAppointment from "../../../assets/dappointmenticon.svg";
 import dashBoardNotification from "../../../assets/dnotificationicon.svg";
-import dashBoardSettings from "../../../assets/dsettingsicon.svg";
+//import dashBoardSettings from "../../../assets/dsettingsicon.svg";
 //import requestIcon from "../../../assets/requesticon.svg";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -355,7 +355,7 @@ const DashBoardNavBar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="hidden md:block bg-agentNavbarBgImage w-[20%] h-dvh overflow-x-hidden cursor-default ">
+    <div className="hidden fixed  md:block bg-agentNavbarBgImage w-[20%] h-dvh overflow-x-hidden cursor-default ">
       <div className="flex flex-col gap-3 place-items-center">
         <img className="w-[100px] mt-8" src={LodgeMeIcon} />
         <p className="w-full h-[1px] bg-white" />
@@ -476,12 +476,12 @@ const DashBoardNavBar = () => {
           <p>Messages</p>
         </div>
 
-        <div
+    {/*    <div
           className={`flex h-[50px] hover:bg-[#BB7655] ${activeContainer
             .appointmentNav.isActive
             ? "bg-[#BB7655] "
             : ""}  rounded-md place-items-center  ps-4 gap-2`}
-          onClick={() => {
+          onClick={() => { 
             setActiveContainter(prevState => {
               return {
                 ...prevState,
@@ -511,7 +511,7 @@ const DashBoardNavBar = () => {
           <img src={dashBoardAppointment} />
           <p>Appointments</p>
         </div>
-
+*/}
         <div
           className={`flex h-[50px]  hover:bg-[#BB7655] ${activeContainer
             .notificationNav.isActive
@@ -548,7 +548,7 @@ const DashBoardNavBar = () => {
           <p>Notifications</p>
         </div>
 
-        <div
+    { /*   <div
           className={`flex h-[50px] hover:bg-[#BB7655] ${activeContainer
             .SettingsNav.isActive
             ? "bg-[#BB7655] "
@@ -582,7 +582,7 @@ const DashBoardNavBar = () => {
         >
           <img src={dashBoardSettings} />
           <p>Settings</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

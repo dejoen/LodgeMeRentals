@@ -2,10 +2,10 @@
 
 const TermsAndConditionTextBody =  () =>{
     return (
-     <div className="flex flex-col place-items-center gap-10 mt-5 font-nunito text-center font-bold ">
-       <p className="text-2xl">Terms Of Service</p>
+     <div className="flex flex-col place-items-center md:gap-10 gap-4 mt-8 font-nunito text-center font-bold  ">
+       <p className="text-3xl md:text-4xl">Terms Of Service</p>
 
-       <p className="leading-[42px]">LODGEME REAL ESTATE SERVICE PROVIDER.
+       <p className="md:leading-[42px] leading-[32px] md:w-[90%] w-[90%]">LODGEME REAL ESTATE SERVICE PROVIDER.
 TERMS AND CONDITIONS & USER POLICY
 Version No.: (../../2024)
 LODGEME GROUP: Is a real estate rental and sales service provider. Our platform is solely committed to bridging the gap between homeowners/agents and those looking for rental and for sale properties regardless of their location.
