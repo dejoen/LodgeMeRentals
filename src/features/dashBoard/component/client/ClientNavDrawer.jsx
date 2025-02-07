@@ -32,7 +32,7 @@ const ClientNavDrawer = (props) => {
     })
  
     return (
-    <div className="ClientNavBar hidden  md:hidden w-[300px] rounded-l-2xl absolute bg-white  shadow-md shadow-black top-0 bottom-0 right-0 z-[1000] overflow-y-auto overflow-x-hidden ">
+    <div className="ClientNavBar  md:hidden w-[300px] rounded-l-2xl absolute bg-white  shadow-md shadow-black top-0 bottom-0 right-0 z-[1000] overflow-y-auto overflow-x-hidden ">
       <p className="m-3 font-bold text-2xl" onClick={()=>{
          closeClientDrawer()
       }} > <X /></p>

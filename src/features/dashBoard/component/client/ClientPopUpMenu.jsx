@@ -8,7 +8,7 @@ import ProfileCard from "./menuCards/ProfileCard";
 const ClientPopUpMenu = (props) =>{
     return (
    
-   <div className="hidden">
+   <div className="hidden md:block">
       <div className={`${(props.isMenuClosed)? 'hidden':'block'}  h-[400px] absolute right-5 z-50 flex  justify-end gap-5`}>
    
 

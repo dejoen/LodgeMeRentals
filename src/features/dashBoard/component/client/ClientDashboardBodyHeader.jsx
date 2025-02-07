@@ -5,7 +5,7 @@ const ClientDashBoardBodyHeader = () => {
   const { items } = useContext(PaginationContext);
 
   return (
-    <div className="mt-5 ms-2 font-nunito">
+    <div className="mt-5 ms-2 font-nunito md:ml-20 md:mb-5">
       <div className=" font-bold  flex ">
         <p>Available properties for you</p>
       {/*  <p className="ms-10 ">Filter Selection</p>*/}

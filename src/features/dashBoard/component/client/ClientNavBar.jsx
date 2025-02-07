@@ -50,14 +50,14 @@ const ClientNavBar = (props) => {
              />
             </div>
             
-          { /*  <div className=''>
+          { /*}  <div className=''>
             <img className='w-[20px]  md:w-[40px]  h-[20px]
              ' src={appointmentIcon}  onPointerOver={()=>{
 
                 props.setIconOver(CardType.APPOINTMENT)
                
              }} />
-            </div>*/}
+            </div> */}
 
             <div className=''>
             <img className='w-[20px]  md:w-[40px]  h-[20px]
@@ -104,4 +104,15 @@ const ClientNavBar = (props) => {
     )
 }
 
+
+
+   
+  
+
+
+
+
+
 export default ClientNavBar
+
+
