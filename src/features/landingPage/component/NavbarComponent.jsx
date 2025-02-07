@@ -158,7 +158,7 @@ const NavBarComponent = props => {
                     {" "}Log in
                   </p>
                 </div>
-                <div className="flex place-items-center mr-3 bg-white rounded-md w-20 text-black hover:bg-orange-500  hover:text-white">
+                <div className="flex place-items-center mr-3 bg-white rounded-md  w-20 text-black hover:bg-orange-500  hover:text-white">
                   <p
                     className="w-full text-center"
                     onClick={() => {
