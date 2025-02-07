@@ -8,7 +8,7 @@ const NavDrawerBar = () =>{
    const navigate = useNavigate()
     return (
      
-        <div className="drawer hidden absolute md:hidden top-0 right-0  w-[80%] bg-slate-500 bg-opacity-90 h-screen z-50">
+        <div className="drawer hidden fixed md:hidden top-0 right-0  w-[80%] bg-slate-500 bg-opacity-90 h-screen z-50">
           <p className="text-white p-3 font-bold text-3xl hover:text-orange-500" onClick={closeDrawer}> <X /></p>
           <div className="w-full flex flex-col gap-5 px-6 place-items-start   justify-start mt-5 text-white font-bold  text-xl">
 

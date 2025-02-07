@@ -13,7 +13,7 @@ const NavBarComponent = props => {
   return (
     <div className="nav-container">
       <div className="nav-container-small-screen md:hidden">
-        <div className="w-full h-[80px] pt-[1%] px-[10px] gap-[10px]    bg-white">
+        <div className="w-full h-[80px] pt-[1%] px-[10px] gap-[10px] fixed z-50   bg-white">
           <div className=" flex  w-full ">
             <img className="w-[70px] h-[70px]" src={LodgeMeIcon} />
             <div className="flex w-full justify-end">
@@ -31,7 +31,8 @@ const NavBarComponent = props => {
           </div>
         </div>
 
-        <div
+       <div className="pt-20 z-50">
+       <div
           className={`hero-text-bg ${props.image}   bg-no-repeat bg-cover bg-center   w-full h-[461px] flex place-items-center bg-slate-500 `}
         >
           <div
@@ -78,13 +79,14 @@ const NavBarComponent = props => {
             </div>
           </div>
         </div>
+       </div>
       </div>
 
       <div
         className={`nav-container-large-screen  hidden md:block ${props.image}  bg-no-repeat bg-cover bg-center h-[600px]`}
       >
         <div
-          className={`bg-heroGradientImage  md:gap-1  w-full mx-auto h-24 pt-4 p-2 gap-2 text-white `}
+          className={`bg-heroGradientImage fixed md:gap-1  w-full mx-auto h-24 pt-4 p-2 gap-2 text-white `}
         >
           <div className="nav-container-body gap-10 flex  z-50 ">
             <img src={LodgeMeIcon} className="" />
@@ -172,7 +174,7 @@ const NavBarComponent = props => {
             </div>
           </div>
         </div>
-        <div className="mx-auto w-full h-[600px]  mt-20  pl-5 pr-10">
+        <div className="mx-auto w-full h-[600px]  pt-44 pl-5 pr-10">
           <div className=" xl:flex  font-nunito ">
             <div
               className={`hero-text-container xl-w-[90%] h-[355px] ${props.adjustHeight}   top-[140px]  `}
