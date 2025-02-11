@@ -3,7 +3,7 @@ import previewIcon from "../../../../assets/agentprofile/previewIcon.svg";
 import shareIcon from "../../../../assets/agentprofile/profileShareIcon.svg";
 import editIcon from "../../../../assets/agentprofile/profileEditIcon.svg";
 import { useState } from "react";
-
+import UserEditProfileScreen from "../agent/userprofile/UserEditProfileScreen";
 const ClientProfileScreen = () => {
   const { state } = useLocation();
   const [toggleEditProfileScreen, setToggleEditProfileScreen] = useState(false);
@@ -75,10 +75,17 @@ const ClientProfileScreen = () => {
             Address: <span>{state.data && state.data.userProfile.phoneNumber ? state.data.userProfile.phoneNumber : "Nil"}</span>
           </p>
         </div>
-
+        <div className={`${(toggleEditProfileScreen)? 'flex':'hidden'} absolute bg-transparent justify-center place-items-center  w-full h-[100vh] top-5 z-50`}>
+              <UserEditProfileScreen updateUI= {()=>{
+                  setToggleEditProfileScreen(!toggleEditProfileScreen)
+              }} />
+    </div>
         
       </div>
-    </div>
+
+       
+      </div>
+    
   );
 };
 
