@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
-import UserProfileSideBar from "../../../component/agent/userProfile/UserProfileSideBar";
-import UserProfileBodyDrawer from "../../../component/agent/userProfile/UserProfileDrawer";
+//import UserProfileSideBar from "../../../component/agent/userProfile/UserProfileSideBar";
+//import UserProfileBodyDrawer from "../../../component/agent/userProfile/UserProfileDrawer";
 import React, { useContext} from "react";
 import { CombineContext } from "../../../../../context/CombineContextProvider";
 
@@ -20,9 +20,9 @@ const UserProfileMainScreen = () => {
       { 
       (agentReducerState.data.userName)
         ? <div className="flex h-[100vh] w-full overflow-x-hidden">
-            <UserProfileSideBar />
+           {/* <UserProfileSideBar /> */}
             <Outlet />
-            <UserProfileBodyDrawer />
+          {/*}  <UserProfileBodyDrawer /> */}
           </div>
         : <Navigate to={"/login"} />}
     </React.Fragment>

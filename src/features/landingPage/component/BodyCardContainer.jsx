@@ -1,7 +1,7 @@
 import BodyCard from "./BodyCard"
 import  ImageI from "../../../../src/assets/bodyImage1.svg"
 import  ImageII from "../../../../src/assets/bodyImage2.svg"
-import  ImageIII from "../../../../src/assets/bodyImage3.svg"
+import  ImageIII from "../../../../src/assets/bodyImage3.png"
 import  ImageIV from "../../../../src/assets/bodyImage4.svg"
 import  ImageV from "../../../../src/assets/bodyImage5.svg"
 
@@ -9,7 +9,7 @@ import  ImageV from "../../../../src/assets/bodyImage5.svg"
 
 const BodyCardContainer = () =>{
     return(
-        <div className="mx-auto flex flex-wrap place-items-center justify-center  gap-[100px] w-full md:-space-x-16">
+        <div className="mx-auto flex flex-wrap place-items-center justify-center  gap-[130px] w-full md:-space-x-20">
 
   <BodyCard imageUrl={ImageI} text={ "Same great quality. New lower prices."}/>
   <BodyCard imageUrl={ImageII} text={ "Everyday Essentials, High quality affordable "}/>

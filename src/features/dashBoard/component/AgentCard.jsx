@@ -31,6 +31,10 @@ const AgentCard = props => {
             navigate("/agent/dashboard/helpandsupport/accessibility");
             return;
           }
+          case "Log Out": {
+            navigate("/login");
+            return;
+          }
           default:
             null;
         }

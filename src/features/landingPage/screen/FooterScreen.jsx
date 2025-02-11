@@ -36,21 +36,24 @@ const FooterScreen = () =>{
 
     <div className="place-self-center  w-full md:w-[300px] md:ms-10 bg-gray-900 bg-opacity-35 font-bold text-white h-[256px] md:h-[400px] flex flex-col  justify-center place-items-center ">
 
-    <p className="m-3 hover:underline" onClick={()=>{
-          window.scrollTo({top:0,behavior:"smooth"})
-         navigate('/about')
-           }}>About</p> 
-    <p className="m-3 hover:underline" onClick={()=>{
-          window.scrollTo({top:0,behavior:"smooth"})
-         navigate('/blog/one')
-         
-    }} >Blog</p> 
+   
     <p className="m-3 hover:underline" onClick={()=>{
            window.scrollTo({top:0,behavior:"smooth"})
   
          navigate('/copyrights')
           }}>copyrights</p> 
-    <p className="m-3"  >License</p> 
+    {/*<p className="m-3"  >License</p>
+    <p className="m-3 hover:underline" onClick={()=>{
+          window.scrollTo({top:0,behavior:"smooth"})
+         navigate('/blog/one')
+         
+    }} >Blog</p>  
+      <p className="m-3 hover:underline" onClick={()=>{
+          window.scrollTo({top:0,behavior:"smooth"})
+         navigate('/about')
+           }}>About</p> 
+    
+     */} 
     <p className="m-3 hover:underline" onClick={()=>{
          window.scrollTo({top:0,behavior:"smooth"})
  
@@ -60,7 +63,7 @@ const FooterScreen = () =>{
 
 
     <div className="place-self-center  w-full md:w-[300px] md:ms-10 bg-gray-900 bg-opacity-40 font-bold text-white h-fit md:h-[400px] flex flex-col  justify-center place-items-center ">
-
+{ /*}
 <p  className="m-3 hover:underline" onClick={()=>{
           window.scrollTo({top:0,behavior:"smooth"})
 
@@ -68,17 +71,19 @@ const FooterScreen = () =>{
          
          }}>Resources</p> 
 
-<p className="m-3" >Support</p> 
+ 
 
 <p className="m-3 hover:underline" onClick={()=>{
           window.scrollTo({top:0,behavior:"smooth"})
 
          navigate('/faq')
          
-         }} >FAQS</p> 
+         }} >FAQS</p>
+           <p className="m-3" >Support</p> */}
+        
 
-<p className="m-3 w-[100px] text-center bg-orange-400 p-4 rounded-2xl"  >Login</p> 
-<p className="cursor-grab m-3 w-[100px] text-black bg-white p-4 rounded-2xl"  >Register</p> 
+<p className="m-3 w-[150px] text-center bg-orange-400 p-4 rounded-2xl"  >Login</p> 
+<p className="cursor-grab text-center m-3 w-[150px] text-black bg-white p-4 rounded-2xl"  >Register</p> 
 </div>
 
 

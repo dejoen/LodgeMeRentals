@@ -63,7 +63,9 @@ const ProfileCard = ({ display }) => {
         <div className="flex gap-2">
         <img src={logoutIcon} alt="logout"  className="w-[20px] h-[20px]" />
       
-          <p>Logout</p>
+          <p  onClick={()=>{
+            navigate("/login",{state:clientUpdatedState})
+          }}>Logout</p>
         </div>
       </div>
     </div>
