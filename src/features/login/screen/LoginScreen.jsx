@@ -90,7 +90,7 @@ import { io } from 'socket.io-client'
            <div className='w-full md:w-[50%]  md:px-12 flex flex-col   place-items-center justify-center overflow-auto' >
             <div className='w-full'>
             <img className='w-[20px]   font-bold ms-5 mt-10'  src={backArrowIcon}  onClick={()=>{
-                navigate(-1)
+                navigate('/')
             }} />
             </div>
              <p className='font-bold text-2xl mt-10 mb-2 '>Welcome Back</p>

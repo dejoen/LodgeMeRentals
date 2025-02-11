@@ -3,7 +3,7 @@
  import  clientIcon  from '../../../assets/clienticon.svg'
  import agentIcon from '../../../assets/agenticon.svg'
 import { useNavigate } from 'react-router-dom'
-
+import { X } from 'lucide-react';
 
 const GetStartedPopUp = (props) =>{
     const navigate = useNavigate()
@@ -11,7 +11,7 @@ const GetStartedPopUp = (props) =>{
         <div className="animate-popUpAnimation font-nunito  w-full  h-fit pb-5  bg-white rounded-3xl">
     <p className='mt-8 ms-5 font-bold text-2xl'  onClick={()=>{
        props.closeScreen() 
-    }}>{'<'}</p>
+    }}> <X /></p>
      <div className="flex flex-col place-items-center justify-center h-full">
       <img src={lodgeMeIcon} />
      <p className='font-bold mt-5'>Get Started</p>
@@ -19,25 +19,25 @@ const GetStartedPopUp = (props) =>{
      <p className='font-bold mt-8'>Sign up as</p>
      <div className='w-full p-5 flex flex-wrap place-items-center justify-evenly'>
 
-        <div className='mt-5 border-black border w-fit p-2 border-opacity-30 rounded-md hover:shadow-lg' onClick={()=>{
+        <div className='mt-5 border-black border text-center px-4 py-10 w-fit p-2 border-opacity-30 rounded-md hover:shadow-lg' onClick={()=>{
           navigate('/register-as-client')
         }}>
-        <div className='flex place-items-center gap-2 m-2 justify-center'>
+        <div className='flex place-items-center  gap-2 m-2 justify-center'>
            <img className='w-[40px]' src={clientIcon} />
            <p className='font-bold'>Client</p>
         </div>
-        <p className='font-bold ms-3'>Individual seeking comfortable living space.</p>
+        <p className='font-bold '>Individual seeking comfortable living space.</p>
         </div>
 
 
-        <div className='   mt-10 border-black border w-fit p-2 border-opacity-30 rounded-md  hover:shadow-lg' onClick={()=>{
+        <div className='   mt-10 border-black border px-4 py-10 w-fit p-2 border-opacity-30 rounded-md  hover:shadow-lg' onClick={()=>{
           navigate('/register-as-agent')
         }}>
         <div className='flex place-items-center gap-2 m-2 justify-center'>
            <img className='w-[40px]' src={agentIcon} />
            <p className='font-bold'>Agent</p>
         </div>
-        <p className='font-bold ms-3'>Individual dedicated to providing your dream home.</p>
+        <p className='font-bold '>Individual dedicated to providing your dream home.</p>
         </div>
      </div>
      </div>
