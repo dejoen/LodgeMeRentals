@@ -21,12 +21,13 @@ const ListedHousesCard = ({
   return (
     <div
       ref={containerRef}
-      className={`flex  flex-col text-black border-b border-black min-h-[10vh] w-[810px]  md:w-full place-items-center justify-center `}
+      className={`flex  flex-col text-black border-b border-black min-h-[10vh]  md:w-full md:place-items-center justify-center `}
     >
+
       <div
-        className={`max-h-[56vh] md:max-h-[53vh]  w-full place-items-center flex gap-4 justify-end md:justify-end pe-[2%]  `}
+        className={`max-h-[56vh] md:max-h-[53vh]  w-full place-items-center flex  justify-evenly p-3  `}
       >
-        <div className="hidden md:block  h-[10vh]   min-w-[120px] max-w-[120px] md:me-12 ">
+        <div className="hidden md:block  h-[15vh]   min-w-[120px] max-w-[120px] md:me-12 ">
           <img
             className="rounded-md  w-full h-full    "
             src={houseImage ? houseImage : image}
@@ -41,12 +42,12 @@ const ListedHousesCard = ({
           </p>
         </div>
 
-        <p className=" text-center min-w-[120px] max-w-[120px] overflow-x-auto">
+      {/* <p className=" text-center min-w-[120px] max-w-[120px] overflow-x-auto">
           1
         </p>
         <p className=" text-center min-w-[120px]">0</p>
-        <p className=" text-center min-w-[120px]">0</p>
-        <p className=" text-center min-w-[120px]">4</p>
+        <p className=" text-center min-w-[120px]">0</p>*/}
+        <p className=" text-center md:text-start md:ps-6 min-w-[120px]">4</p>
         <div className=" text-center min-w-[120px] ps-4 flex justify-center gap-3">
           <p>4</p>
           <img

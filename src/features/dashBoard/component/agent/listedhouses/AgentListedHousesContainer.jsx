@@ -6,7 +6,7 @@ import ListedHousesHeader from "./ListedHoussesHeader";
 const AgentListedHouseContainer = () => {
  // const navigate = useNavigate();
   return (
-    <div className="w-[98.6%] md:w-[80%] md:ml-[20%] mx-auto mt-[5.4rem] bg-white z-30 shadow-black shadow-md h-[87.6vh] cursor-default  rounded-lg ms-1 me-20">
+    <div className="w-[98.6%]  md:w-[80%] md:ml-[20%] mx-auto mt-[8.4rem] bg-white z-30 shadow-black shadow-md h-[87.6vh] cursor-default  rounded-lg ms-1 me-20">
      {/* <div
         className="w-full h-fit pt-8 md:pt-20 flex justify-end pe-5 md:pe-20 gap-3"
         onClick={() => {
@@ -22,7 +22,7 @@ const AgentListedHouseContainer = () => {
           }}
         />
       </div>*/}
-      <ListedHousesHeader />
+      
       <ListedHousesBody />
     </div>
   );

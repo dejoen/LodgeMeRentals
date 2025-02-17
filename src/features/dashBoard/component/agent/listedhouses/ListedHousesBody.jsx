@@ -13,14 +13,16 @@ const ListedHousesBody = () => {
 <div className="md:w-[96%] min-h-[58vh]   w-full md:m-5 text-black ">
 
     <div className="w-full border max-h-[56vh] md:max-h-[53vh] border-black border-opacity-100 rounded-t-md overflow-x-auto  ">
-       <div className=" w-[810px]  md:w-full p-1 flex gap-4 justify-end md:justify-start pe-[2%] sticky top-0 z-50">
-        <p className="md:hidden  text-center min-w-[120px]"> Address</p>
+       <div className=" w-full p-1 flex gap-4 justify-evenly  sticky top-0 z-50 bg-[#BB7655] text-white ">
+       <p className=" hidden md:block text-center min-w-[120px]">Image</p>
+        <p className="  text-center min-w-[120px]"> Address</p>
         <p className="text-center min-w-[120px]">Clicks</p>
      {/*   <p className=" text-center min-w-[120px]">Impressions</p>*/}
         <p className=" text-center min-w-[120px]">Messages</p>
        {/* <p className="text-center min-w-[120px]">Inquires</p> 
         <p className=" text-center min-w-[120px]">applications</p>*/}
        </div>
+       
        <div className="w-[810px] md:w-full h-[1px] bg-black "></div>
      
 
