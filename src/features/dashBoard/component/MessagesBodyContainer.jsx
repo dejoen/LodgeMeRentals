@@ -33,7 +33,7 @@ const  MessagesBodyContainer = () => {
 
 <div className='flex items-center md:gap-4 gap-4'>
 <div className='flex items-center flex-col'>
-    <h3 className='md:text-xl font-bold '>{messagesFromServer[0].senderId.userName}</h3>
+    <h3 className='md:text-xl font-bold '>{messagesFromServer && messagesFromServer[0].senderId.userName}</h3>
     <p className='text-green-600 '>Online</p>
 </div>
 { /*  <button className='flex items-center gap-1 md:gap-3 border rounded-lg px-3 py-2 border-black text-sm '> Set Appointment  <CirclePlus className='size-4'/></button>  
