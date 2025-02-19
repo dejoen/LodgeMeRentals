@@ -1,4 +1,4 @@
-import {   useRef, useState } from "react";
+import {   useEffect, useRef, useState } from "react";
 import ChatBody from "../../component/client/chat/ChatBody";
 import pickFileIcon from "../../../../assets/selectFile.svg";
 import InboxSection from "../../component/client/chat/InboxSection";
@@ -6,18 +6,66 @@ import { useLocation } from "react-router-dom";
 import useGetClientSocket from "../../hooks/client/useGetClientSocket";
 import  MessageType from "../../../../utils/MessageType.json"
 import useGetClientUpdatedState from "../../hooks/client/useGetClientUpdatedState";
+import useGetMessagesBetweenUsers from "../../hooks/client/useGetMessagesBetweenUsers";
 
 const ChatScreen = () => {
   const chatLayoutRef = useRef();
   const { state } = useLocation();
 
+  
  const [ typedMessage,setTypedMessage ] = useState()
+
+ const [chatInfo,setChatinfo] = useState({})
  const userSocket = useGetClientSocket()
 
 const {clientUpdatedState} = useGetClientUpdatedState()
 
+const [messages, setMessages] = useState([]);
 
 
+const { messagesFromServer } = useGetMessagesBetweenUsers(
+  clientUpdatedState.data.token,
+  state.publisher._id
+);
+
+ const [activeChatId,setActiveChatId]  = useState(state.publisher._id)
+
+useEffect(
+    () => {
+   
+      if (userSocket)
+       userSocket.on("message-sent", data => {
+
+      
+      setChatinfo(JSON.parse(data))
+         // setMessages(JSON.parse(data.messages));
+       })
+    },
+    [userSocket]
+  );
+
+
+
+
+
+
+
+  useEffect(
+    () => {
+
+      if (messagesFromServer && messagesFromServer.length > 0) {
+        setMessages(messagesFromServer);
+        const defaultChat =  messagesFromServer.find((data)=>{
+          return data.receiverId._id ===   state.publisher._id
+        })
+      
+        setChatinfo(defaultChat)
+      }
+
+
+    },
+    [messagesFromServer]
+  );
 
 
 
@@ -39,33 +87,20 @@ const {clientUpdatedState} = useGetClientUpdatedState()
         </div>
 
         <div className=" w-full flex flex-col gap-1 overflow-y-auto"  style={{ scrollbarWidth: "none" }}>
-          {[
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            1,
-            23,
-            3,
-            3,
-            4,
-            5,
-            6,
-            7,
-            53,
-            5,
-            67
-          ].map((item, index) =>
+          {messages.map((item, index) =>
             <InboxSection
               key={index}
-              userName={"Devjoe"}
-              message={"this is my message now on this topic"}
-              numberOfMessages={1}
+              onClick={(chatInfo)=>{
+               setChatinfo(chatInfo
+               )
+               setActiveChatId(chatInfo.receiverId._id)
+            
+              }}
+              messages={item}
+              userName={item.receiverId.userName}
+              message={(item.senderId._id !== clientUpdatedState.data._id) && item.messages[item.messages.length-1].text}
+              numberOfMessages={(item.senderId._id !== clientUpdatedState.data._id) && 2}
+              userProfile={item.receiverId.userProfile.profileImage}
             />
           )}
         </div>
@@ -79,31 +114,32 @@ const {clientUpdatedState} = useGetClientUpdatedState()
         <div className="m-8 flex  place-items-center gap-3 ">
           <img
             src={
-              state.publisher.userProfile.profileImage
-                ? state.publisher.userProfile.profileImage
-                : "/"
+               chatInfo && chatInfo.receiverId ? chatInfo.receiverId.userProfile.profileImage ?? "/":
+                 state.publisher.userProfile.profileImage ?? '/'
             }
             className="bg-orange-600 w-[80px] h-[80px] rounded-full"
           />
           <div className="mt-5">
             <p>
-              {state.publisher.userName
-                ? state.publisher.userName
-                : state.publisher.userProfile.firstName}
+              {  chatInfo && chatInfo.receiverId ? chatInfo.receiverId.userName
+                ?? chatInfo.receiverId.userProfile.firstName : state.publisher.userProfile.userName ?? state.publisher.userProfile.firstName }
             </p>
             <p
-              className={`${state.publisher.isOnline
+              className={`${  chatInfo && chatInfo.receiverId ?   chatInfo.receiverId.isOnline 
                 ? "text-[#129034] text-sm"
+                : "text-red-600 text-sm":state.publisher.isOnline ? "text-[#129034] text-sm"
                 : "text-red-600 text-sm"}`}
             >
-              {state.publisher.isOnline ? "Online" : "Offline"}
+              {  chatInfo && chatInfo.receiverId ?  chatInfo.receiverId.isOnline  ? "Online" : "Offline": state.publisher.isOnline ? "Online" : "Offline"}
             </p>
             <p className="text-sm italic">Typing.......</p>
           </div>
         </div>
 
         <div ref={chatLayoutRef} className="relative h-[65%] overflow-hidden " style={{ scrollbarWidth: "none" }}>
-        <ChatBody receiverId={state.publisher._id} />
+        {
+         !(Object.entries(chatInfo).every((it)=>{ return it === null || it === undefined})) && <ChatBody chatInfo={chatInfo} />
+        }
         
         </div>
           
@@ -134,7 +170,7 @@ const {clientUpdatedState} = useGetClientUpdatedState()
 
               userSocket.emit("send-message",JSON.stringify({
                     sender:clientUpdatedState.data._id,
-                    receiver:state.publisher._id,
+                    receiver:activeChatId,
                     time:Date.now(),
                     type:MessageType.TEXT,
                     data:typedMessage
@@ -158,38 +194,37 @@ const {clientUpdatedState} = useGetClientUpdatedState()
 
       <div className="w-[450px] hidden md:flex  flex-col h-screen border  shadow-md shadow-black rounded-lg m-3">
         <p className="w-full text-center mt-5">General Information</p>
-
         <div className="w-full  ">
           <div className="rounded-md shadow shadow-black h-[250px] m-3 p-4">
             <div className="w-full flex place-items-center gap-2">
               <img
                 src={
-                  state.publisher.userProfile.profileImage
-                    ? state.publisher.userProfile.profileImage
-                    : "/"
+                  chatInfo && chatInfo.receiverId ? chatInfo.receiverId.userProfile.profileImage ?? "/":
+                 state.publisher.userProfile.profileImage ?? '/'
                 }
                 className="bg-orange-500 w-[50px] h-[50px] rounded-full"
               />
               <p>
-                {state.publisher.userName
-                  ? state.publisher.userName
-                  : state.publisher.userProfile.firstName}
+                { chatInfo && chatInfo.receiverId ? chatInfo.receiverId.userName
+                ?? chatInfo.receiverId.userProfile.firstName : state.publisher.userProfile.userName ?? state.publisher.userProfile.firstName }
+            
               </p>
             </div>
 
             <div className="mt-4 flex">
               <p>member since:</p>
               <p className="">
-                {new Date(state.publisher.timeCreated).toLocaleDateString()}
+                {new Date(chatInfo && chatInfo.receiverId ?chatInfo.receiverId.timeCreated:state.publisher.timeCreated).toLocaleDateString()}
               </p>
             </div>
 
             <div className=" flex">
               <p>From:</p>
-              <p className="">{`${state.publisher.userProfile.localGovt},${state.publisher.userProfile.state}`}</p>
+              <p className="">{`${chatInfo && chatInfo.receiverId ? chatInfo.receiverId.userProfile.localGovt:state.publisher.userProfile.localGovt},${chatInfo && chatInfo.receiverId ?  chatInfo.receiverId.userProfile.state:state.publisher.userProfile.state}`}</p>
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   );

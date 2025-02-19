@@ -4,6 +4,7 @@ import { getMessagesBetweenUsers } from "../../service"
 const useGetMessagesBetweenUsers = (token,receiverId) =>{
    
      const  [messagesFromServer,setMessages] = useState()
+     const  [id,setId] = useState({senderId:'',receiverId:''})
 
      useEffect(()=>{
             getMessagesBetweenUsers(token,receiverId).then(async res=>{
@@ -12,16 +13,19 @@ const useGetMessagesBetweenUsers = (token,receiverId) =>{
             }).then(result=>{
 
               if(result.status === 200){
-
-                    setMessages(result.messages)
+                
+    
+                    setMessages(result.data)
+                    return
                 }
+                alert(JSON.stringify(result))
      }).catch(err=>{
-        alert(err)
+      //  alert(err)
      })
      },[receiverId,token])
 
 
-    return {messagesFromServer}
+    return {messagesFromServer,id}
 }
 
 
