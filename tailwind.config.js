@@ -69,10 +69,16 @@ senderBg: ' rgba(187, 118, 85, 1)',
 morningBg:' rgba(52, 168, 83, 0.5)',
 afternooBg:'rgba(255, 200, 57, 0.5)',
 otherBg:'rgba(255, 2, 9, 0.5)',
- button:'rgba(52, 168, 83, 1)'
+ button:'rgba(52, 168, 83, 1)',
+  refer:'rgba(28, 46, 122, 1)',
+  referAgentBg:'rgba(0, 112, 255, 0.25)',
+  referClientBg:' rgba(187, 118, 85, 0.15)'
+
     },
 
-   
+   color:{
+   refer:'linear-gradient(180deg, #037847 14.89%, #101828 51%, #BB7655 98.5%)'
+   }
 
     },
    

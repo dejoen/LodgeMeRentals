@@ -22,8 +22,8 @@ const AgentCard = props => {
             navigate("/agent/dashboard/listed-houses");
             return;
           }
-          case "Client's Management": {
-            navigate("/agent/dashboard/management");
+          case "Refer & Earn": {
+            navigate("/agent/dashboard/agentrefer");
             return;
           }
 

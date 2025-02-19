@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import AboutPageScreen from "./features/landingPage/screen/AboutPageScreen.jsx";
 import BlogScreen from "./features/landingPage/screen/BlogScreen.jsx";
-
+import AgentRefer from "./features/dashBoard/screen/agent/AgentRefer/AgentRefer.jsx";
 import PostTwo from "./features/blogPost/PostTwo.jsx";
 import PostOne from "./features/blogPost/PostOne.jsx";
 import CopyRightScreen from "./features/landingPage/screen/CopyRightScreen.jsx";
@@ -158,6 +158,10 @@ const router = createBrowserRouter([
       {
         path: "dashboard/listed-houses",
         element: <AgentListedHouseScreen />
+      },
+      {
+        path: "dashboard/agentrefer",
+        element: <AgentRefer />
       },
       {
         path: "dashboard/management",
