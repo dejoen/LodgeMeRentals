@@ -7,15 +7,17 @@ import  clientProfileIcon  from '../../../../assets/clientProfileIcon.svg'
 import  menuIcon from '../../../../assets/menuIcon.svg'
 import { CardType } from '../../../../utils/CardType'
 import { openClientDrawer } from './ClientNavDrawer'
+import useGetClientUpdatedState from '../../hooks/client/useGetClientUpdatedState'
 
 const ClientNavBar = (props) => {
 
+   const {clientUpdatedState} = useGetClientUpdatedState()
     return (
         <div className=" font-nunito bg-white flex place-items-center ps-5 w-full h-20 shadow-xl rounded-br-[30px] rounded-bl-[30px]">
             
             
             <div className='w-[50%]'>
-            <p className=" font-bold text-2xl">{"Welcome User!"}</p>
+            <p className=" font-bold text-2xl">{`Welcome ${clientUpdatedState.data.userName}`}</p>
             <p className='font-bold hidden md:block'>{"what will you like to see today ?"}</p>
             </div>
 
