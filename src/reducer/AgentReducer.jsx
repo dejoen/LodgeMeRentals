@@ -30,6 +30,7 @@ import { io } from "socket.io-client";
                })
 
                socket.on('socketConnected',connectedUser=>{
+                console.log('connected')
                 localStorage.setItem('user',JSON.stringify(
                     {
                      showPopUp:false,

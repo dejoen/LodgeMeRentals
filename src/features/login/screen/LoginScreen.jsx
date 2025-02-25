@@ -32,6 +32,7 @@ import { io } from 'socket.io-client'
 
      const [user,setUser] = useState({})
      let socket = useRef(io())
+     
       useEffect(()=>{
          socket.current = socketConnectedReducerState.socket
          

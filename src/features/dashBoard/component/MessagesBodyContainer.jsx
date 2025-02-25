@@ -1,15 +1,82 @@
 import { CircleUserRound, Paperclip,   } from 'lucide-react';
-import useGetClientUpdatedState from '../hooks/client/useGetClientUpdatedState';
+import useGetUpdatedState from '../hooks/useGetUpdatedState';
 import useGetMessagesBetweenUsers from '../hooks/client/useGetMessagesBetweenUsers';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AgentClientChatCard from './AgentClientChatCard';
+import MessageCard from './agent/chat/MessageCard';
+import useGetUpdatedSocket from '../hooks/useGetUpdateSocket'
+import  MessageType from "../../../utils/MessageType.json"
+
+
+
+
 const  MessagesBodyContainer = () => {
 
-    const  {clientUpdatedState} = useGetClientUpdatedState()
- 
-   const {messagesFromServer} = useGetMessagesBetweenUsers(clientUpdatedState.data.token,'')
+    const  {agentState} = useGetUpdatedState()
 
+    const {connectedSocket} = useGetUpdatedSocket()
+
+    const data = agentState.data
+     const [textMessage,setTextMessage] = useState('')
   
+      const [defaultMessages,setDefaultMessages] = useState({})
+
+      const [messagesDetails,setMessagesDetials] = useState([])
+      const {messagesFromServer} = useGetMessagesBetweenUsers(data.token,'')
+
+      const [activeChatId,setActiveChatId] = useState()
+  
+  useEffect(()=>{
+   if(messagesFromServer &&    messagesFromServer.length >0){
+    setMessagesDetials(messagesFromServer)
+    setDefaultMessages(messagesFromServer[0])
+    setActiveChatId(messagesFromServer[0].senderId._id)
+   
+  }
+  },[messagesFromServer])
+
+  useEffect(()=>{
+    
+    if(connectedSocket){
+
+    
+     
+      connectedSocket.on('message-sent', (data)=>{
+
+     
+       setDefaultMessages(JSON.parse(data))
+
+       })
+
+       
+
+       
+    }
+
+  },[connectedSocket])
+
+
+  let layoutHeight = useRef();
+  
+  
+    useEffect(()=>{
+      
+     
+  
+       let timeout = setTimeout(() => {
+         if (layoutHeight.current)
+           layoutHeight.current.children[
+             layoutHeight.current.children.length - 1
+           ].scrollIntoView({ behavior: "smooth", blocK: "end" });
+       }, 100);
+  
+  
+       return () => {
+        if (timeout) clearTimeout(timeout);
+      };
+      
+    },[defaultMessages])
+
 
     return (
     <div className="overflow-hidden mx-auto md:ml-[22%] p-3 md:p-8  mt-[90px] md:w-[75%] h-fit  rounded-2xl m-5 md:shadow-2xl shadow-black">
@@ -17,9 +84,11 @@ const  MessagesBodyContainer = () => {
 <div className='w-full p-2 md:p-3 rounded-lg mt-4 inline-flex overflow-x-auto    gap-4' style={{scrollbarWidth:'none'}}>
 
     {
-         messagesFromServer && messagesFromServer.length> 0 && 
-           messagesFromServer.map((item,index)=>(
-            <AgentClientChatCard key={index} data={item} />
+         messagesDetails && messagesDetails.length> 0 && 
+           messagesDetails.map((item,index)=>(
+            <AgentClientChatCard key={index} data={item} onClick={(data)=>{
+            setDefaultMessages(data)
+            }} />
          ))
        
     }
@@ -33,8 +102,10 @@ const  MessagesBodyContainer = () => {
 
 <div className='flex items-center md:gap-4 gap-4'>
 <div className='flex items-center flex-col'>
-    <h3 className='md:text-xl font-bold '>{messagesFromServer && messagesFromServer[0].senderId.userName}</h3>
-    <p className='text-green-600 '>Online</p>
+    <h3 className='md:text-xl font-bold '>{messagesDetails && messagesDetails.length >0 && messagesDetails[0].senderId.userName}</h3>
+    <p onClick={()=>{
+      
+    }} className='text-green-600 '>Online</p>
 </div>
 { /*  <button className='flex items-center gap-1 md:gap-3 border rounded-lg px-3 py-2 border-black text-sm '> Set Appointment  <CirclePlus className='size-4'/></button>  
   <Search />
@@ -42,25 +113,59 @@ const  MessagesBodyContainer = () => {
 </div>
 
 </div>
-<div className='bg-white flex justify-center mx-auto items-center mt-4 md:mt-6 px-2 py-1 w-fit rounded-full'>
-<p className='text-sm  text-center'>TODAY</p>
-  
-</div>
-<div className='bg-white flex flex-col mt-4 px-4 py-1 w-[80%] md:w-[35%] rounded-lg'>
-<p className='font-semibold text-right'>How much is he house rent ?</p>
-<p className='text-sm'>7:00 Pm</p>
+
+<div ref={layoutHeight} className='max-h-[400px] overflow-y-auto p-3'>
+
+
+
+  {
+    defaultMessages && defaultMessages.messages  && defaultMessages.messages.map((m,i)=>(
+    <MessageCard key={i} senderId={defaultMessages.senderId._id} message={m} userId={data._id}  />
+    ))
+  }
 </div>
 
-<div className='bg-senderBg text-white flex flex-col justify-end right-0 mt-4 px-4 py-1 w-[80%] md:w-[35%] rounded-lg ml-auto'>
-  <p className='font-semibold'>Yearly rent or monthly rent ?</p>
-  <p className='text-sm text-right'>7:02 Pm</p>
-</div>
 
-<div className='bg-white px-3 py-2 rounded-lg mt-[20%] border border-gray-800'>
-    <input  type='text' placeholder='Send a message' className=' outline-none  bg-transparent'/>
+
+
+
+
+
+
+
+
+
+
+
+
+<div className='bg-white px-3 py-2 rounded-lg mt-[0%] border border-gray-800'>
+    <input  value={textMessage} type='text' placeholder='Send a message' className=' outline-none  bg-transparent'  onChange={(e)=>{
+   setTextMessage(e.target.value)
+}}/>
    <div className='flex items-center gap-3 justify-end'>
    <Paperclip className='size-5'/>
-   <button className='bg-senderBg px-5 py-1 text-white rounded-lg  '>Send</button>
+   <button className='bg-senderBg px-5 py-1 text-white rounded-lg  '  onClick={()=>{
+
+    if(connectedSocket){
+    
+      if(textMessage && activeChatId){
+       
+        connectedSocket.emit("send-message",JSON.stringify({
+          sender:data._id,
+          receiver:activeChatId,
+          time:Date.now(),
+          type:MessageType.TEXT,
+          data:textMessage
+       
+       }))
+  
+       setTextMessage('')
+      }
+    
+    }else{
+      console.log('no socket instance connected')
+    }
+   }}>Send</button>
    </div>
 </div>
 

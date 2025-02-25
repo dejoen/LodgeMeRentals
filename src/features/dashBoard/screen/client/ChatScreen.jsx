@@ -35,11 +35,16 @@ useEffect(
    
       if (userSocket)
        userSocket.on("message-sent", data => {
-
       
-      setChatinfo(JSON.parse(data))
+     
+
+
+    
+       setChatinfo(JSON.parse(data))
          // setMessages(JSON.parse(data.messages));
        })
+
+      
     },
     [userSocket]
   );
@@ -83,7 +88,7 @@ useEffect(
             <input type="text" className=" outline-none w-full h-[30px]" />
           </div>
 
-          <p> All Inbox</p>
+          <p > All Inbox</p>
         </div>
 
         <div className=" w-full flex flex-col gap-1 overflow-y-auto"  style={{ scrollbarWidth: "none" }}>
@@ -138,7 +143,7 @@ useEffect(
 
         <div ref={chatLayoutRef} className="relative h-[65%] overflow-hidden " style={{ scrollbarWidth: "none" }}>
         {
-         !(Object.entries(chatInfo).every((it)=>{ return it === null || it === undefined})) && <ChatBody chatInfo={chatInfo} />
+          chatInfo && !(Object.entries(chatInfo).every((it)=>{ return it === null || it === undefined})) && <ChatBody chatInfo={chatInfo} />
         }
         
         </div>
@@ -165,7 +170,7 @@ useEffect(
          
               if(userSocket){
 
-               
+              
 
 
               userSocket.emit("send-message",JSON.stringify({

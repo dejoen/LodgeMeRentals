@@ -1,9 +1,7 @@
 import { useEffect, useRef } from "react";
 import Message from "./Message";
-import { useState } from "react";
 import PropTypes from "prop-types";
-import useGetClientUpdatedState from "../../../hooks/client/useGetClientUpdatedState";
-import useGetClientSocket from "../../../hooks/client/useGetClientSocket";
+
 
 const ChatBody = ({ chatInfo }) => {
 
@@ -53,7 +51,7 @@ const ChatBody = ({ chatInfo }) => {
             <div className="w-full flex justify-center">
               <p className="bg-black rounded-md text-white p-1">Today</p>
             </div>}
-          <Message message={item} id={chatInfo.senderId._id}/>
+          <Message message={item} id={chatInfo.senderId._id} senderProfile={chatInfo.senderId.userProfile.profileImage}  receiverProfile={chatInfo.receiverId.userProfile.profileImage}  />
         </div>
       )}
     </div>

@@ -2,18 +2,21 @@ import { useContext } from "react"
 import AgentBody from "../../component/AgentBody"
 import AgentContainer from "../../component/AgentContainer"
 import AgentNavBarDrawer from "../../component/AgentNavBarDrawer"
-import { CombineContext } from "../../../../context/CombineContextProvider"
+import useGetUpdatedState from "../../hooks/useGetUpdatedState"
+
 
 
 const AgentDashboardView = () =>{
-     const {agentReducerState} = useContext(CombineContext)
+    const  {agentState}  = useGetUpdatedState()
+
+    
      
     return (
 
          
         
         <div className="w-full  h-fit md:mb-4   overflow-y-auto">
-            <AgentContainer header={"Welcome \n"+agentReducerState.data.userName+"!"} body={"What would you like to see today?"}/>
+            <AgentContainer header={"Welcome \n"+agentState.data.userName+"!"} body={"What would you like to see today?"}/>
            <AgentBody/>
            <AgentNavBarDrawer/>
           </div>  
