@@ -188,9 +188,11 @@ useEffect(
             />
 
             <div className="absolute bottom-1 right-1 flex gap-1 flex-row-reverse ">
+              
               <div className=" bg-[#BB7655] text-white p-1 rounded-md cursor-default" onClick={()=>{
              
               if(userSocket){
+
                userSocket.emit("send-message",JSON.stringify({
                     sender:clientUpdatedState.data._id,
                     receiver:activeChatId,
