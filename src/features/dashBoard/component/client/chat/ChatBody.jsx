@@ -1,6 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Message from "./Message";
 import PropTypes from "prop-types";
+import isMessageToday from "../../../../../utils/isMessageToday";
+import isMessageYesterday from "../../../../../utils/isMessageYesterday";
 
 
 const ChatBody = ({ chatInfo }) => {
@@ -8,6 +10,8 @@ const ChatBody = ({ chatInfo }) => {
 
   let layoutHeight = useRef();
 
+  const  [todayIndex,setTodayIndex] = useState()
+  const  [yesterDayIndex,setYesterDayIndex] = useState()
 
   useEffect(()=>{
     
@@ -21,13 +25,29 @@ const ChatBody = ({ chatInfo }) => {
      }, 100);
 
 
+     setTodayIndex(chatInfo.messages.findIndex((d,_)=>{
+      return isMessageToday(new Date(d.timeSent)) === true
+   }))
+
+   setYesterDayIndex(chatInfo.messages.findIndex((d,_)=>{
+    return isMessageYesterday(new Date(d.timeSent)) === true
+ }))
+
+ 
      return () => {
       if (timeout) clearTimeout(timeout);
     };
+
+    
     
   },[chatInfo])
  
 
+  const [display,setDisplay] = useState({
+    today:false
+  })
+
+  
   
 
 
@@ -42,15 +62,23 @@ const ChatBody = ({ chatInfo }) => {
 
       { chatInfo && chatInfo.messages && chatInfo.messages.reverse().map((item, index) =>
         <div key={index}>
-          {index === 0 &&
+
+{index=== 0 &&
             <div className="w-full flex justify-center">
-              <p className="bg-black rounded-md text-white p-1">Friday</p>
+              <p className="bg-black rounded-md text-white p-1">few days ago</p>
+            </div>}
+          {index=== yesterDayIndex &&
+            <div className="w-full flex justify-center">
+              <p className="bg-black rounded-md text-white p-1">Yesterday</p>
             </div>}
 
-          {index === 4 &&
+          { index === todayIndex && 
             <div className="w-full flex justify-center">
-              <p className="bg-black rounded-md text-white p-1">Today</p>
+              <p className={`  bg-black rounded-md text-white p-1`}>Today</p>
+          
+
             </div>}
+           
           <Message message={item} id={chatInfo.senderId._id} senderProfile={chatInfo.senderId.userProfile.profileImage}  receiverProfile={chatInfo.receiverId.userProfile.profileImage}  />
         </div>
       )}

@@ -20,6 +20,8 @@ const ChatScreen = () => {
 
 const {clientUpdatedState} = useGetClientUpdatedState()
 
+const [typing,setTyping] = useState(false)
+
 const [messages, setMessages] = useState([]);
 
 
@@ -33,16 +35,38 @@ const { messagesFromServer } = useGetMessagesBetweenUsers(
 useEffect(
     () => {
    
-      if (userSocket)
-       userSocket.on("message-sent", data => {
+      if (userSocket){
+        userSocket.on("message-sent", data => {
       
      
 
 
     
-       setChatinfo(JSON.parse(data))
-         // setMessages(JSON.parse(data.messages));
-       })
+          setChatinfo(JSON.parse(data))
+            // setMessages(JSON.parse(data.messages));
+          })
+
+
+
+
+          userSocket.on("typing", data => {
+      
+      
+    const user = JSON.parse(data)
+
+     if(user.typing){
+      setTyping(true)
+     }else{
+      setTyping(false)
+     }
+
+    
+           
+      
+              // setMessages(JSON.parse(data.messages));
+            })
+      }
+     
 
       
     },
@@ -98,6 +122,7 @@ useEffect(
               onClick={(chatInfo)=>{
                setChatinfo(chatInfo
                )
+               
                setActiveChatId(chatInfo.receiverId._id)
             
               }}
@@ -137,7 +162,9 @@ useEffect(
             >
               {  chatInfo && chatInfo.receiverId ?  chatInfo.receiverId.isOnline  ? "Online" : "Offline": state.publisher.isOnline ? "Online" : "Offline"}
             </p>
-            <p className="text-sm italic">Typing.......</p>
+             {
+              typing && <p className="text-sm italic">Typing.......</p>
+             }
           </div>
         </div>
 
@@ -163,17 +190,8 @@ useEffect(
             <div className="absolute bottom-1 right-1 flex gap-1 flex-row-reverse ">
               <div className=" bg-[#BB7655] text-white p-1 rounded-md cursor-default" onClick={()=>{
              
-             
-
-        
-    
-         
               if(userSocket){
-
-              
-
-
-              userSocket.emit("send-message",JSON.stringify({
+               userSocket.emit("send-message",JSON.stringify({
                     sender:clientUpdatedState.data._id,
                     receiver:activeChatId,
                     time:Date.now(),
