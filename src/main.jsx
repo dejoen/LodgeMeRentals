@@ -21,7 +21,7 @@ import AgentDashBoardScreen from "./features/dashBoard/screen/agent/AgentDashBoa
 import AgentDashboardView from "./features/dashBoard/screen/agent/AgentDashBoardView.jsx";
 import AgentMessageView from "./features/dashBoard/screen/agent/AgentMessageView.jsx";
 import ClientDashBoardScreen from "./features/dashBoard/screen/client/ClientDashBoardScreen.jsx";
-
+import ClientReferHero from "./features/dashBoard/component/client/ReferClient/ReferClient.jsx";
 import CombineContextProvider from "./context/CombineContextProvider.jsx";
 import PublishHouseScreen from "./features/dashBoard/screen/agent/publishHouse/PublishHouseScreen.jsx";
 import HouseOverViewScreen from "./features/dashBoard/screen/agent/publishHouse/HouseOverviewScreen.jsx";
@@ -36,7 +36,7 @@ import HelpAndSupportScreen from "./features/dashBoard/screen/agent/HelpAndSuppo
 import HelpAndSupportAcessibilityScreen from "./features/dashBoard/screen/agent/HelpAndSupport/HelpAndSupportAcessibilityScreen.jsx";
 import HelpAndSupportTroubleShootingScreen from "./features/dashBoard/screen/agent/HelpAndSupport/HelpAndsupportTroubleShootingscreen.jsx";
 import HelpAndSupportPoliciesScreen from "./features/dashBoard/screen/agent/HelpAndSupport/HelpandSupportPoliciesScreen.jsx";
-
+import ClientHelpAndSupport from "./features/dashBoard/screen/client/ClientHelp/ClientHelp&Support.jsx";
 import UserProfileOverviewScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileOverviewScreen.jsx";
 import UserProfileMainScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileMainScreen.jsx";
 import UserProfileAboutScreen from "./features/dashBoard/screen/agent/userprofile/UserProfileAboutScreen.jsx";
@@ -307,9 +307,19 @@ const router = createBrowserRouter([
         element:<ChatScreen/>
       },
       {
-        path:'profile',
+        path:'dashboard/profile',
         element:<ClientProfileScreen/>
-      }
+      },
+
+      {
+        path:'dashboard/help',
+        element:<ClientHelpAndSupport/>
+      },
+      {
+        path:'dashboard/refer',
+        element:<ClientReferHero/>
+      },
+     
 
     ]
   }

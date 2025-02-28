@@ -3,7 +3,7 @@
 import { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import  clientProfileIcon  from '../../../../assets/clientProfileIcon.svg'
-import AppointmentCard from './menuCards/AppointmentCard';
+//import AppointmentCard from './menuCards/AppointmentCard';
 import InboxCard from './menuCards/InboxCard';
 import NotificationCard from './menuCards/NotificationCard';
 import ProfileCard from './menuCards/ProfileCard';
@@ -117,7 +117,7 @@ const ClientNavDrawer = (props) => {
             </div>
         </div>
 
-        <div className=' border-b border-black p-1'>
+      {/*}  <div className=' border-b border-black p-1'>
 
             <p className='flex items-center  text-xl pb-4'>Appointment <span className='animate-pulse ' onClick={()=>{
        
@@ -145,7 +145,7 @@ const ClientNavDrawer = (props) => {
             {(activeCard.appointmentCard.isActive)?   <AppointmentCard display={'flex'}/> : <AppointmentCard display={'hidden'}/>} 
            
             </div>
-        </div>
+        </div> */}
 
         <div>
 

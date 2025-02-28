@@ -1,21 +1,28 @@
-import { useLocation } from "react-router-dom";
-import previewIcon from "../../../../assets/agentprofile/previewIcon.svg";
-import shareIcon from "../../../../assets/agentprofile/profileShareIcon.svg";
+//import { useLocation } from "react-router-dom";
+//import previewIcon from "../../../../assets/agentprofile/previewIcon.svg";
+//import shareIcon from "../../../../assets/agentprofile/profileShareIcon.svg";
 import editIcon from "../../../../assets/agentprofile/profileEditIcon.svg";
 import { useState } from "react";
-
+import { ArrowLeft } from 'lucide-react';
 import ClientEditProfileScreen from "../../component/client/ClientEditProfileScreen";
 import useGetClientUpdatedState from "../../hooks/client/useGetClientUpdatedState";
-
+import { useNavigate } from "react-router-dom";
 const ClientProfileScreen = () => {
-
+  const navigate = useNavigate()
   const { clientUpdatedState:state } = useGetClientUpdatedState();
   const [toggleEditProfileScreen, setToggleEditProfileScreen] = useState(false);
 
   return (
-    <div className="w-full h-dvh bg-slate-200 md:flex flex-wrap justify-center  pb-12 font-nunito relative">
+   <div className="bg-slate-200">
+   <div className="md:ml-12 md:pt-12 pt-6 ml-6 " onClick={()=>{
+            navigate("/client/dashboard")
+          }}>
+   <ArrowLeft />
+   </div>
+     <div className="w-full h-dvh  md:flex flex-wrap justify-center  pb-12 font-nunito relative">
+       
       <div className="md:w-[60%] flex flex-col place-items-center p-6 md:p-10 relative">
-        <div className="bg-[#D9D9D9] md:mt-10 w-full h-[200px] rounded-t-2xl relative">
+        <div className="bg-[#D9D9D9]  w-full h-[200px] rounded-t-2xl relative">
           <img
             className="w-full h-full object-cover rounded-t-2xl"
             src={state.data.userProfile.coverImage ? state.data.userProfile.coverImage : "/"}
@@ -93,6 +100,7 @@ const ClientProfileScreen = () => {
 
        
       </div>
+   </div>
     
   );
 };

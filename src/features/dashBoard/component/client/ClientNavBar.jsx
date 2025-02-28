@@ -8,9 +8,10 @@ import  menuIcon from '../../../../assets/menuIcon.svg'
 import { CardType } from '../../../../utils/CardType'
 import { openClientDrawer } from './ClientNavDrawer'
 import useGetClientUpdatedState from '../../hooks/client/useGetClientUpdatedState'
-
+import { RefreshCw } from 'lucide-react';
+import { useNavigate } from 'react-router-dom'
 const ClientNavBar = (props) => {
-
+   const navigate = useNavigate()
    const {clientUpdatedState} = useGetClientUpdatedState()
     return (
         <div className=" font-nunito bg-white flex place-items-center ps-5 w-full h-20 shadow-xl rounded-br-[30px] rounded-bl-[30px]">
@@ -42,6 +43,14 @@ const ClientNavBar = (props) => {
 
          <div className='  hidden  md:flex  w-[50%] md:w-svw md:me-5  place-items-center justify-end   gap-10'>
              
+          
+          <div className='flex items-center gap-2 bg-orange-400 px-3 py-2 rounded' onClick={()=>{
+            navigate("/client/dashboard/refer")
+          }}>
+          <RefreshCw size={18}/>
+            <p>Refer and Earn</p>
+          </div>
+          
             <div className='justify-center'>
             <img className='w-[20px]  md:w-[40px]  h-[20px]
              ' src={searchIcon} onPointerOver={()=>{

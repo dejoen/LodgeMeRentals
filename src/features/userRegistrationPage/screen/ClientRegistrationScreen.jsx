@@ -182,7 +182,7 @@ userEmail:e.target.value
                             }
                          })
                     }} />
-                    <p className='text-center mt-2'>By clicking you confirm that you have read, understood, and agree to be bound our <span className='underline'>Terms</span> and <span className='underline'>Conditions</span></p>
+                    <p className='text-center mt-2'>By clicking you confirm that you have read, understood, and agree to be bound by our <span className='underline'>Terms</span> and <span className='underline'>Conditions</span></p>
                 </div>
 
 
@@ -264,7 +264,7 @@ userEmail:e.target.value
        
   
   <ErrorPopUpScreen title={"Registration Message"} body={errorMessage}/>
-  <LoadingPopUpScreen sequence={['hold on now .....','why we.....','set up.....','your account.....']}/>
+  <LoadingPopUpScreen sequence={['hold on now .....','while we.....','set up.....','your account.....']}/>
 
   {
             (!clientReducerState.isLoggedIn &&  clientReducerState.showPopUp) ? 

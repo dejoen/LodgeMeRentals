@@ -14,6 +14,10 @@ const AgentCard = props => {
             navigate("/agent/dashboard/publish-home/houseOverview");
             return;
           }
+          case "Refer & Earn": {
+            navigate("/agent/dashboard/agentrefer");
+            return;
+          }
           case "Market Insights": {
             navigate("/agent/dashboard/market-insights");
             return;
@@ -22,10 +26,7 @@ const AgentCard = props => {
             navigate("/agent/dashboard/listed-houses");
             return;
           }
-          case "Refer & Earn": {
-            navigate("/agent/dashboard/agentrefer");
-            return;
-          }
+         
 
           case "Help & Support": {
             navigate("/agent/dashboard/helpandsupport/accessibility");
