@@ -1,10 +1,16 @@
 import LodgeMeIcon from "../../../../../assets/lodgeMeIcon.svg";
 import { Copy } from 'lucide-react';
-
-export default function AgentClentHero(){
-    
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from 'lucide-react';
+export default function ClientReferHero(){
+  const navigate = useNavigate();
     return( 
-        <div className="md:ml-[22%] ">
+        <div className=" ">
+           <div className="md:ml-12 md:pt-8 pt-5 ml-6 " onClick={()=>{
+            navigate("/client/dashboard")
+          }}>
+   <ArrowLeft />
+   </div>
          <div className="flex items-center gap-6  md:gap-12 w-[90%] mx-auto">
          <img className="w-[100px] mt-8" src={LodgeMeIcon} />
       <div className="pt-7">

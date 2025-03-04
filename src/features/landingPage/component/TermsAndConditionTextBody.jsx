@@ -7,7 +7,7 @@ const TermsAndConditionTextBody =  () =>{
 
        <p className="md:leading-[42px] leading-[32px] md:w-[90%] w-[90%]">LODGEME REAL ESTATE SERVICE PROVIDER.
 TERMS AND CONDITIONS & USER POLICY
-Version No.: (../../2024)
+Version No.: (02/25/2025)
 LODGEME GROUP: Is a real estate rental and sales service provider. Our platform is solely committed to bridging the gap between homeowners/agents and those looking for rental and for sale properties regardless of their location.
 
 These terms and conditions shall apply to all kinds of users (being homeowners/agents and those looking for rental and/ for sale properties). Please read these terms and conditions carefully before signing up/registering on the platform.

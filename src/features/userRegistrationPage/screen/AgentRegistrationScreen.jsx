@@ -188,7 +188,7 @@ const AgentRegistrationScreen = () => {
                             }
                           })
                     }}/>
-                    <p className='text-center mt-2'>By clicking you confirm that you have read, understood, and agree to be bound our <span className='underline'>Terms</span> and <span className='underline'>Conditions</span></p>
+                    <p className='text-center mt-2'>By clicking you confirm that you have read, understood, and agree to be bound by our <span className='underline'>Terms</span> and <span className='underline'>Conditions</span></p>
                 </div>
 
 
@@ -277,7 +277,7 @@ const AgentRegistrationScreen = () => {
        
             <ErrorPopUpScreen title={"Registration Message"} body={(errorMessage) ? errorMessage:'you  can not access dashboard without registering'}/>
 
-  <LoadingPopUpScreen sequence={['hold on now .....','why we.....','set up.....','your account.....']}/>
+  <LoadingPopUpScreen sequence={['hold on now .....','while we.....','set up.....','your account.....']}/>
    
             {
             (!agentReducerState.isLoggedIn && agentReducerState.showPopUp) ? 
