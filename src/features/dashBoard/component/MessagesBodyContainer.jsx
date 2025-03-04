@@ -37,6 +37,8 @@ const MessagesBodyContainer = () => {
     [messagesFromServer]
   );
 
+
+
   useEffect(
     () => {
       if (connectedSocket) {
@@ -90,14 +92,19 @@ const MessagesBodyContainer = () => {
 
       <div className="bg-messageBg p-2 md:p-3 rounded-lg mt-4">
         <div className="flex items-center justify-between gap-2 bg-white p-2 rounded md:flex-row flex-col md:px-5">
-          <CircleUserRound className="size-14" />
+          
+       <div className="w-fit h-fit" onClick={()=>{
+            //onClick(data)
+    }}>
+        <img  className='w-[60px] h-[60px] bg-orange-600 rounded-full' src={defaultMessages && defaultMessages.senderId ?defaultMessages.senderId.userProfile.profileImage : '/'} />
+    </div>
 
           <div className="flex items-center md:gap-4 gap-4">
             <div className="flex items-center flex-col">
               <h3 className="md:text-xl font-bold ">
-                {messagesDetails &&
-                  messagesDetails.length > 0 &&
-                  messagesDetails[0].senderId.userName}
+                {defaultMessages &&   defaultMessages.senderId &&
+                 
+                 defaultMessages.senderId.userName}
               </h3>
               <p onClick={() => {}} className="text-green-600 ">
                 Online

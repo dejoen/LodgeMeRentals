@@ -26,7 +26,11 @@ const Message = ({  message,id ,receiverProfile,senderProfile}) => {
           </div>
           <div className="w-full text-[12px]  flex justify-end">{
             
-            new Date(message.timeSent).toLocaleString("en-US",{timeStyle:'short',timeZone:"UTC"})
+            new Date(message.timeSent).toLocaleTimeString('en-US',{
+              timeZone:'Africa/Lagos',
+              hour:'2-digit',
+              minute:'2-digit'
+            })
             }
           </div>
        
