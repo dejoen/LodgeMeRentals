@@ -7,6 +7,7 @@ import useGetClientSocket from "../../hooks/client/useGetClientSocket";
 import  MessageType from "../../../../utils/MessageType.json"
 import useGetClientUpdatedState from "../../hooks/client/useGetClientUpdatedState";
 import useGetMessagesBetweenUsers from "../../hooks/client/useGetMessagesBetweenUsers";
+import { getMessagesBetweenUsers } from "../../service";
 
 const ChatScreen = () => {
   const chatLayoutRef = useRef();
@@ -20,7 +21,10 @@ const ChatScreen = () => {
 
 const {clientUpdatedState} = useGetClientUpdatedState()
 
-const [typing,setTyping] = useState(false)
+const [typing,setTyping] = useState({
+  senderId:'',
+  isTyping:false
+})
 
 const [messages, setMessages] = useState([]);
 
@@ -43,6 +47,16 @@ useEffect(
 
     
           setChatinfo(JSON.parse(data))
+
+          getMessagesBetweenUsers(clientUpdatedState.data.token,'').then(res=>{
+            return res.json()
+           }).then(result=>{
+           if(result.status === 200){
+            console.log(result.data)
+            setMessages(result.data)
+           }
+            
+           })
             // setMessages(JSON.parse(data.messages));
           })
 
@@ -55,12 +69,19 @@ useEffect(
     const user = JSON.parse(data)
 
      if(user.typing){
-      setTyping(true)
+      setTyping({
+        senderId:user.senderId,
+  isTyping:true
+      })
+   
      }else{
-      setTyping(false)
+      setTyping({
+        senderId:user.senderId,
+  isTyping:false
+      })
      }
 
-    
+       
            
       
               // setMessages(JSON.parse(data.messages));
@@ -163,7 +184,7 @@ useEffect(
               {  chatInfo && chatInfo.receiverId ?  chatInfo.receiverId.isOnline  ? "Online" : "Offline": state.publisher.isOnline ? "Online" : "Offline"}
             </p>
              {
-              typing && <p className="text-sm italic">Typing.......</p>
+               chatInfo && typing.isTyping && typing.senderId === chatInfo.receiverId._id && <p className="text-sm italic">Typing.......</p>
              }
           </div>
         </div>

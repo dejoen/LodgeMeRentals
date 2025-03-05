@@ -37,8 +37,6 @@ const MessagesBodyContainer = () => {
     [messagesFromServer]
   );
 
-
-
   useEffect(
     () => {
       if (connectedSocket) {
@@ -55,7 +53,12 @@ const MessagesBodyContainer = () => {
   useEffect(
     () => {
       let timeout = setTimeout(() => {
-        if (layoutHeight.current)
+        if (
+          layoutHeight.current &&
+          layoutHeight.current.children[
+            layoutHeight.current.children.length - 1
+          ]
+        )
           layoutHeight.current.children[
             layoutHeight.current.children.length - 1
           ].scrollIntoView({ behavior: "smooth", blocK: "end" });
@@ -88,27 +91,41 @@ const MessagesBodyContainer = () => {
           )}
       </div>
 
-
-
       <div className="bg-messageBg p-2 md:p-3 rounded-lg mt-4">
         <div className="flex items-center justify-between gap-2 bg-white p-2 rounded md:flex-row flex-col md:px-5">
-          
-       <div className="w-fit h-fit" onClick={()=>{
-            //onClick(data)
-    }}>
-        <img  className='w-[60px] h-[60px] bg-orange-600 rounded-full' src={defaultMessages && defaultMessages.senderId ?defaultMessages.senderId.userProfile.profileImage : '/'} />
-    </div>
+          <div
+            className="w-fit h-fit"
+            onClick={() => {
+              //onClick(data)
+            }}
+          >
+            <img
+              className="w-[60px] h-[60px] bg-orange-600 rounded-full"
+              src={
+                defaultMessages && defaultMessages.senderId
+                  ? defaultMessages.senderId.userProfile.profileImage
+                  : "/"
+              }
+            />
+          </div>
 
           <div className="flex items-center md:gap-4 gap-4">
             <div className="flex items-center flex-col">
               <h3 className="md:text-xl font-bold ">
-                {defaultMessages &&   defaultMessages.senderId &&
-                 
-                 defaultMessages.senderId.userName}
+                {defaultMessages &&
+                  defaultMessages.senderId &&
+                  defaultMessages.senderId.userName}
               </h3>
-              <p onClick={() => {}} className="text-green-600 ">
-                Online
-              </p>
+
+              {defaultMessages &&
+              defaultMessages.senderId &&
+              defaultMessages.senderId.isOnline
+                ? <p onClick={() => {}} className="text-green-600 ">
+                    {" "}Online{" "}
+                  </p>
+                : <p onClick={() => {}} className="text-red-600 ">
+                    {" "}Offline{" "}
+                  </p>}
             </div>
             {/*  <button className='flex items-center gap-1 md:gap-3 border rounded-lg px-3 py-2 border-black text-sm '> Set Appointment  <CirclePlus className='size-4'/></button>  
   <Search />
@@ -137,11 +154,14 @@ const MessagesBodyContainer = () => {
             className=" outline-none  bg-transparent"
             onChange={e => {
               setTextMessage(e.target.value);
-              if(connectedSocket){
-                connectedSocket.emit('typing',JSON.stringify({
-                  receiverId:activeChatId,
-                  typing:true
-                }))
+              if (connectedSocket) {
+                connectedSocket.emit(
+                  "typing",
+                  JSON.stringify({
+                    receiverId: activeChatId,
+                    typing: true
+                  })
+                );
               }
             }}
           />
@@ -163,10 +183,13 @@ const MessagesBodyContainer = () => {
                       })
                     );
 
-                    connectedSocket.emit('typing',JSON.stringify({
-                      receiverId:activeChatId,
-                      typing:false
-                    }))
+                    connectedSocket.emit(
+                      "typing",
+                      JSON.stringify({
+                        receiverId: activeChatId,
+                        typing: false
+                      })
+                    );
 
                     setTextMessage("");
                   }
