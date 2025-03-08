@@ -209,10 +209,10 @@ const ClientDashBoardScreen = () => {
                       }
                     }}
                   />
-                  <ClientPopUpMenu
+                {/* <ClientPopUpMenu
                     isMenuClosed={closeMenu}
                     iconHovered={iconHovered}
-                  />
+                  />*/}
 
                   <Outlet />
                   <ClientNavDrawer />
