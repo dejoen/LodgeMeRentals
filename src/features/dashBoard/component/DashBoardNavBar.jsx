@@ -8,11 +8,14 @@ import dashBoardNotification from "../../../assets/dnotificationicon.svg";
 //import requestIcon from "../../../assets/requesticon.svg";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import useGetAgentNotificationState from "../hooks/useGetAgentNotificationState";
+import useManageAgentState from "../hooks/useManageAgentState";
 
 const DashBoardNavBar = () => {
   const location = useLocation();
 
- 
+  const {updatedNotification} = useGetAgentNotificationState()
+  const {notificationState} = useManageAgentState()
  
   const [activeContainer, setActiveContainter] = useState(() => {
 
@@ -513,10 +516,10 @@ const DashBoardNavBar = () => {
         </div>
 */}
         <div
-          className={`flex h-[50px]  hover:bg-[#BB7655] ${activeContainer
+          className={`flex h-[50px]   hover:bg-[#BB7655] ${activeContainer
             .notificationNav.isActive
             ? "bg-[#BB7655] "
-            : ""}rounded-md place-items-center  ps-4 gap-2`}
+            : ""}rounded-md place-items-center  ps-4 gap-2 relative`}
           onClick={() => {
             setActiveContainter(prevState => {
               return {
@@ -544,8 +547,12 @@ const DashBoardNavBar = () => {
             navigate("notification");
           }}
         >
-          <img src={dashBoardNotification} />
-          <p>Notifications</p>
+        <div className="relative me-2">
+        <p className="absolute bottom-3 text-red-600  left-7 font-bold text-[18px] ">{notificationState && `${notificationState.newNotificationCount}`}</p>
+        <img src={dashBoardNotification} />
+      
+        </div>
+          <p className="ms-3">Notifications</p>
         </div>
 
     { /*   <div

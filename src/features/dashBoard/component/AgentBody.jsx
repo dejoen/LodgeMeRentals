@@ -20,8 +20,8 @@ const AgentBody = () =>{
              <AgentCard  header={"Log Out"} body={"Ready to Log Out? Click here to securely sign out and protect your account."} image={LogoutIcon}/>
 
         </div>
-<AgentRefer/>
-<AgentClentHero/>
+{/*<AgentRefer/>  <AgentClentHero/>*/}
+
        </div>
     );
 }

@@ -63,7 +63,7 @@ const ChatBody = ({ chatInfo }) => {
       { chatInfo && chatInfo.messages && chatInfo.messages.reverse().map((item, index) =>
         <div key={index}>
 
-{index=== 0 &&
+{/*{index=== 0 &&
             <div className="w-full flex justify-center">
               <p className="bg-black rounded-md text-white p-1">few days ago</p>
             </div>}
@@ -77,7 +77,7 @@ const ChatBody = ({ chatInfo }) => {
               <p className={`  bg-black rounded-md text-white p-1`}>Today</p>
           
 
-            </div>}
+            </div>} */}
            
           <Message message={item} id={chatInfo.senderId._id} senderProfile={chatInfo.senderId.userProfile.profileImage}  receiverProfile={chatInfo.receiverId.userProfile.profileImage}  />
         </div>

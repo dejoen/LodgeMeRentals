@@ -62,7 +62,7 @@ const ClientNavBar = (props) => {
             </div>
 
             <div className='' onClick={()=>{
-               navigate('/client/dashboard/profile')
+             
             }}>
             <img className='w-[20px]  md:w-[40px]  h-[28px]
              ' src={clientProfileIcon} 
@@ -76,6 +76,21 @@ const ClientNavBar = (props) => {
              
              />
             </div>
+
+            <div className='relative' onClick={()=>{
+             // navigate("/client/notification")
+            }}>
+            <img className='w-[20px]  md:w-[40px]  h-[20px]
+             ' src={notificationIcon}  
+             onPointerOver={()=>{
+
+               // props.setIconOver(CardType.NOTIFICATION)
+               
+             }}  />
+             <p className='absolute right-0 bottom-3 text-red-600 '>3</p>
+
+             </div>
+             
             
           { /*}  <div className=''>
             <img className='w-[20px]  md:w-[40px]  h-[20px]

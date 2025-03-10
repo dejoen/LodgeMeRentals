@@ -11,7 +11,8 @@ export default function useManageAgentState (){
         socketConnectedReducerState,
         allDataToPublishReducerState,
         allDataToPublishReducerDispatcher,
-        housesPublishedByAgentReducerState , housesPublishedByAgentReducerDispatcher}  = useContext(CombineContext)
+        housesPublishedByAgentReducerState , housesPublishedByAgentReducerDispatcher,  notificationDispatcher,
+        notificationState}  = useContext(CombineContext)
 
 
         
@@ -22,7 +23,7 @@ export default function useManageAgentState (){
             socketConnectedReducerState,
             allDataToPublishReducerState,
             allDataToPublishReducerDispatcher,
-            housesPublishedByAgentReducerState,housesPublishedByAgentReducerDispatcher}
+            housesPublishedByAgentReducerState,housesPublishedByAgentReducerDispatcher,notificationState,notificationDispatcher}
 
             
 

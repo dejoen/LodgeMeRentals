@@ -3,8 +3,10 @@ import { Navigate, Outlet } from "react-router-dom";
 import DashBoardNavBar from "../../component/DashBoardNavBar";
 import AgentVerificationPopUp from "../../component/AgentVerificationPopUp";
 import useGetUpdatedState from "../../hooks/useGetUpdatedState";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useManageAgentState from "../../hooks/useManageAgentState"
+import useGetAgentNotificationState from "../../hooks/useGetAgentNotificationState";
+import { getNotitifications } from "../../service";
 
 
 const AgentDashBoardScreen = () => {
@@ -12,7 +14,7 @@ const AgentDashBoardScreen = () => {
   const  {agentState}  = useGetUpdatedState()
 
  
-  
+  const {updateNotification} = useGetAgentNotificationState()
 
   const {socketConnectedReducerState,connectSocket,agentReducerDispatcher}  = useManageAgentState()
 
@@ -39,6 +41,21 @@ const AgentDashBoardScreen = () => {
       });
     });
 
+
+   useState(()=>{
+    getNotitifications(agentState.data.token).then(rs=>{
+      return rs.json()
+     }).then(result=>{
+     
+       if(result.status === 200){
+       
+         updateNotification(result.data,0)
+       }
+     }).catch(err=>{
+     // alert(JSON.stringify(err.message))
+     })
+
+   },[])
 
 
 

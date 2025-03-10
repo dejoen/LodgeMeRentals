@@ -74,3 +74,17 @@ import BaseURL from "../../utils/BaseURL"
  }
 
 
+ export  const getNotitifications = async (token)=>{
+    return  fetch(`${BaseURL.URL}/message/notifications`,{
+        method:"Get",
+        headers:{
+            'Authorization':`Bearer ${token}`,
+           "Content-Type":'application/json'
+        },
+         
+        
+       
+    }) 
+ }
+
+

@@ -16,6 +16,7 @@ import AllDataToPublishReducer, {
 import HousesPublishedByAgentReducer, {
   HousesPublishedByAgentInitialState
 } from "../reducer/HousesPublishedByAgentReducer.jsx";
+import NotificationReducer, { NotificationInitialState } from "../reducer/NotificationReducer.jsx";
 
 export const CombineContext = createContext();
 
@@ -41,6 +42,9 @@ const CombineContextProvider = ({ children }) => {
     HousesPublishedByAgentInitialState
     
   );
+
+
+  const [notificationState,notificationDispatcher] = useReducer(NotificationReducer,NotificationInitialState)
 
 
 
@@ -99,7 +103,9 @@ const CombineContextProvider = ({ children }) => {
         allDataToPublishReducerState,
         allDataToPublishReducerDispatcher,
         housesPublishedByAgentReducerState,
-        housesPublishedByAgentReducerDispatcher
+        housesPublishedByAgentReducerDispatcher,
+        notificationDispatcher,
+        notificationState
       }}
     >
       {children}
