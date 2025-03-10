@@ -13,7 +13,7 @@ const ClientProfileScreen = () => {
   const [toggleEditProfileScreen, setToggleEditProfileScreen] = useState(false);
 
   return (
-   <div className="bg-slate-200">
+   <div className="bg-slate-200 pb-20">
    <div className="md:ml-12 md:pt-12 pt-6 ml-6 " onClick={()=>{
             navigate("/client/dashboard")
           }}>
