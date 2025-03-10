@@ -5,8 +5,6 @@ import  AccessIcon from '../../../assets/accessicon.svg'
 import  ClientManagementIcon from '../../../assets/refer.png'
 import  HelpAbdsupportIcon  from '../../../assets/helpicon.svg'
 import  LogoutIcon from '../../../assets/logouticon.svg'
-import AgentRefer from "../screen/agent/AgentRefer/AgentRefer";
-import AgentClentHero from "./client/ReferClient/ReferClient";
 
 const AgentBody = () =>{
     return (

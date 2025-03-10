@@ -14,7 +14,7 @@ import TermsAndConditionScreen from "./features/landingPage/screen/TermsAndCondi
 import ResourcesScreen from "./features/landingPage/screen/ResourcesScreen.jsx";
 import FAQScreen from "./features/landingPage/screen/FAQScreen.jsx";
 import AgentRegistrationScreen from "./features/userRegistrationPage/screen/AgentRegistrationScreen.jsx";
-
+import ClientRequest from "./features/dashBoard/component/client/MakeRequest/ClientRequest.jsx";
 import LoginScreen from "./features/login/screen/LoginScreen.jsx";
 import ClientRegistrationScreen from "./features/userRegistrationPage/screen/ClientRegistrationScreen.jsx";
 import AgentDashBoardScreen from "./features/dashBoard/screen/agent/AgentDashBoardScreen.jsx";
@@ -320,7 +320,10 @@ const router = createBrowserRouter([
         element:<ClientReferHero/>
       },
      
-
+      {
+        path:'dashboard/request',
+        element:<ClientRequest/>
+      },
     ]
   }
 ]);

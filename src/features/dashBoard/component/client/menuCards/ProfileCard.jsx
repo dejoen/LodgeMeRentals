@@ -46,7 +46,9 @@ const ProfileCard = ({ display }) => {
       <div className="flex ms-6 mt-5 font-bold">
         <div className="flex gap-2"  >
         <GitPullRequestArrow size={19}/>
-          <p >Make A Request</p>
+          <p onClick={()=>{
+            navigate("/client/dashboard/request")
+          }}>Make A Request</p>
         </div>
       </div>
     
