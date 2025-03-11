@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useGetUpdatedSocket from "../hooks/useGetUpdateSocket";
 import NotificationCard from "./agent/NotificationCard";
 import { getNotitifications } from "../service";
@@ -11,7 +11,12 @@ export default function NotificationContainer() {
      const {agentState} = useGetUpdatedState()
      const [notifications,setNotifications] =  useState([])
 
-   const {updatedNotification} = useGetAgentNotificationState()
+   const {updatedNotification,notificationCount} = useGetAgentNotificationState()
+   
+
+    
+
+   
    
 
   return (
@@ -19,7 +24,7 @@ export default function NotificationContainer() {
       <div className="flex justify-between items-center w-[90%] mx-auto">
         <h2 className="text-xl font-bold">All Notifications</h2>
         <button className="text-gray-500 text-sm font-semibold">
-   
+       
         </button>
       </div>
 

@@ -36,6 +36,8 @@ const { messagesFromServer } = useGetMessagesBetweenUsers(
 
  const [activeChatId,setActiveChatId]  = useState(state.publisher._id)
 
+
+
 useEffect(
     () => {
    
@@ -63,7 +65,7 @@ useEffect(
 
 
 
-          userSocket.on("typing", data => {
+          /*userSocket.on("typing", data => {
       
       
     const user = JSON.parse(data)
@@ -85,7 +87,7 @@ useEffect(
            
       
               // setMessages(JSON.parse(data.messages));
-            })
+            })*/
       }
      
 
@@ -258,8 +260,8 @@ useEffect(
             </div>
 
             <div className="mt-4 flex">
-              <p>member since:</p>
-              <p className="">
+              <p className="text-[16px]">member since:</p>
+              <p className="text-[14px]">
                 {new Date(chatInfo && chatInfo.receiverId ?chatInfo.receiverId.timeCreated:state.publisher.timeCreated).toLocaleDateString()}
               </p>
             </div>

@@ -14,7 +14,7 @@ import useManageAgentState from "../hooks/useManageAgentState";
 const DashBoardNavBar = () => {
   const location = useLocation();
 
-  const {updatedNotification} = useGetAgentNotificationState()
+  const {updatedNotification,notificationCount} = useGetAgentNotificationState()
   const {notificationState} = useManageAgentState()
  
   const [activeContainer, setActiveContainter] = useState(() => {
@@ -548,7 +548,7 @@ const DashBoardNavBar = () => {
           }}
         >
         <div className="relative me-2">
-        <p className="absolute bottom-3 text-red-600  left-7 font-bold text-[18px] ">{notificationState && `${notificationState.newNotificationCount}`}</p>
+        <p className="absolute bottom-3 text-red-600  left-7 font-bold text-[18px] ">{ `${notificationCount}`}</p>
         <img src={dashBoardNotification} />
       
         </div>

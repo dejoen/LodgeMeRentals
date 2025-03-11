@@ -6,9 +6,12 @@ const  useGetAgentNotificationState = () => {
 
     const  [updatedNotification,setUpdatedNotification] = useState([])
 
+    const [notificationCount,setNotificationCount] = useState(0)
+
     useEffect(()=>{
      
        setUpdatedNotification(notificationState.notifications)
+       setNotificationCount(notificationState.newNotificationCount)
     },[notificationState])
 
 
@@ -23,7 +26,7 @@ const  useGetAgentNotificationState = () => {
         })
     }
 
-     return {updatedNotification,updateNotification}
+     return {updatedNotification,updateNotification,notificationCount}
 }
 
 export default useGetAgentNotificationState
