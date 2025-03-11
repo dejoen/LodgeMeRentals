@@ -43,22 +43,19 @@ useEffect(
    
       if (userSocket){
         userSocket.on("message-sent", data => {
-      
-     
-
-
-    
           setChatinfo(JSON.parse(data))
-
-          getMessagesBetweenUsers(clientUpdatedState.data.token,'').then(res=>{
+     
+          /* getMessagesBetweenUsers(clientUpdatedState.data.token,'').then(res=>{
             return res.json()
            }).then(result=>{
            if(result.status === 200){
             console.log(result.data)
-            setMessages(result.data)
+            setMessages(result.data) 
+           
+
            }
             
-           })
+           })*/
             // setMessages(JSON.parse(data.messages));
           })
 

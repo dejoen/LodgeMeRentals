@@ -24,7 +24,7 @@ const MessagesBodyContainer = () => {
   const { messagesFromServer } = useGetMessagesBetweenUsers(data.token, "");
 
   const [activeChatId, setActiveChatId] = useState();
-  const {updateNotification,updatedNotification} = useGetAgentNotificationState()
+ 
 
   useEffect(
     () => {
@@ -41,21 +41,11 @@ const MessagesBodyContainer = () => {
 
   useEffect(
     () => {
+      
       if (connectedSocket) {
         connectedSocket.on("message-sent", data => {
           setDefaultMessages(JSON.parse(data));
         });
-
-
-
-       connectedSocket.on('notification',(data)=>{
-        
-        const count = JSON.parse(data).length - updatedNotification.length
-          updateNotification(JSON.parse(data),count)
-        })
-
-
-      
       }
     },
     [connectedSocket]
