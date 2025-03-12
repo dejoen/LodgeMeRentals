@@ -25,13 +25,7 @@ const ChatBody = ({ chatInfo }) => {
      }, 100);
 
 
-     setTodayIndex(chatInfo.messages.findIndex((d,_)=>{
-      return isMessageToday(new Date(d.timeSent)) === true
-   }))
-
-   setYesterDayIndex(chatInfo.messages.findIndex((d,_)=>{
-    return isMessageYesterday(new Date(d.timeSent)) === true
- }))
+  
 
  
      return () => {
