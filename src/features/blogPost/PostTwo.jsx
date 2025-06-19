@@ -1,13 +1,11 @@
 import BlogCardContainer from "../landingPage/component/BlogCardContainer";
 
-const PostTwo = () =>{
+const PostTwo = () => {
+  return (
+    <div>
+      <BlogCardContainer />
+    </div>
+  );
+};
 
-    return (
-<div>
-    <BlogCardContainer/>
-
-</div>
-    );
-}
-
-export default PostTwo
+export default PostTwo;

@@ -1,18 +1,16 @@
-import { useEffect, useState } from "react"
-import useGetClientStateManagement from "./useGetClientStateManagement"
+import { useEffect, useState } from "react";
+import useGetClientStateManagement from "./useGetClientStateManagement";
 
-const useGetClientSocket = () =>{
+const useGetClientSocket = () => {
+  const { socketConnectedReducerState } = useGetClientStateManagement();
 
-    const {socketConnectedReducerState
-    } = useGetClientStateManagement()
+  const [socketUpdate, setSocketUpdate] = useState();
 
-    const [socketUpdate,setSocketUpdate] = useState()
+  useEffect(() => {
+    setSocketUpdate(socketConnectedReducerState.socket);
+  }, [socketConnectedReducerState]);
 
-    useEffect(()=>{
-        setSocketUpdate(socketConnectedReducerState.socket)
-    },[socketConnectedReducerState])
+  return socketUpdate;
+};
 
-    return socketUpdate
-}
-
-export default useGetClientSocket
+export default useGetClientSocket;

@@ -1,172 +1,165 @@
 /* eslint-disable react-refresh/only-export-components */
 
-
 import lodgeMeIcon from "../../../../../assets/agentprofile/lodgemeIconDarkImage.svg";
 
-import {  useState } from 'react'
-import { X } from 'lucide-react';
-import { useNavigate ,useLocation} from 'react-router-dom'
-const UserProfileBodyDrawer = () =>{
+import { useState } from "react";
+import { X } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
+const UserProfileBodyDrawer = () => {
+  const location = useLocation();
+  const [activeContainer, setActiveContainter] = useState(() => {
+    switch (location.pathname.split("/")[3]) {
+      case "overview": {
+        return {
+          overviewNav: {
+            isActive: true,
+          },
+          rentalHistoryNav: {
+            isActive: false,
+          },
+          documentsNav: {
+            isActive: false,
+          },
+          applicationNav: {
+            isActive: false,
+          },
+          paymentNav: {
+            isActive: false,
+          },
+        };
+      }
+      case "rental-history": {
+        return {
+          overviewNav: {
+            isActive: false,
+          },
+          rentalHistoryNav: {
+            isActive: true,
+          },
+          documentsNav: {
+            isActive: false,
+          },
+          applicationNav: {
+            isActive: false,
+          },
+          paymentNav: {
+            isActive: false,
+          },
+        };
+      }
 
-    const location =useLocation()
-    const [activeContainer,setActiveContainter] = useState(()=>{
-   
-        switch (location.pathname.split("/")[3]) {
-    
-            case "overview": {
-            return {
-              overviewNav: {
-                isActive: true
-              },
-              rentalHistoryNav: {
-                isActive: false
-              },
-              documentsNav: {
-                isActive: false
-              },
-             applicationNav: {
-                isActive: false
-              },
-              paymentNav: {
-                isActive: false
-              }
-            };
-          }
-          case "rental-history": {
-            return {
-              overviewNav: {
-                isActive: false
-              },
-              rentalHistoryNav: {
-                isActive: true
-              },
-              documentsNav: {
-                isActive: false
-              },
-             applicationNav: {
-                isActive: false
-              },
-              paymentNav: {
-                isActive: false
-              }
-            };
-          }
+      case "document": {
+        return {
+          overviewNav: {
+            isActive: false,
+          },
+          rentalHistoryNav: {
+            isActive: false,
+          },
+          documentsNav: {
+            isActive: true,
+          },
+          applicationNav: {
+            isActive: false,
+          },
+          paymentNav: {
+            isActive: false,
+          },
+        };
+      }
 
-          case "document": {
-            return {
-              overviewNav: {
-                isActive: false
-              },
-              rentalHistoryNav: {
-                isActive: false
-              },
-              documentsNav: {
-                isActive: true
-              },
-             applicationNav: {
-                isActive: false
-              },
-              paymentNav: {
-                isActive: false
-              }
-            };
-          }
-    
-          case "application": {
-            return {
-              overviewNav: {
-                isActive: false
-              },
-              rentalHistoryNav: {
-                isActive: false
-              },
-              documentsNav: {
-                isActive: false
-              },
-             applicationNav: {
-                isActive: true
-              },
-              paymentNav: {
-                isActive: false
-              }
-            };
-          }
+      case "application": {
+        return {
+          overviewNav: {
+            isActive: false,
+          },
+          rentalHistoryNav: {
+            isActive: false,
+          },
+          documentsNav: {
+            isActive: false,
+          },
+          applicationNav: {
+            isActive: true,
+          },
+          paymentNav: {
+            isActive: false,
+          },
+        };
+      }
 
-          case "payment": {
-            return {
-              overviewNav: {
-                isActive: false
-              },
-              rentalHistoryNav: {
-                isActive: false
-              },
-              documentsNav: {
-                isActive: false
-              },
-             applicationNav: {
-                isActive: false
-              },
-              paymentNav: {
-                isActive: true
-              }
-            };
-          }
-          
-          default:
-            null;
-        }
-      });
-    const navigate = useNavigate()
-  
-    
-     return (
-       
-      <div className="AgentDrawer absolute hidden top-0 right-0 z-[80] md:hidden bg-agentNavbarBgImage w-[250px] h-dvh ">
-       
-       <p className='text-white font-bold text-3xl m-3 hover:text-orange-600' onClick={()=>{
-         closeAgentProfileDrawer()
-       }}> <X /></p>
-      <div className='flex flex-col gap-3 place-items-center'>
-      
-     
-      <div className="font-nunito text-white flex flex-col ">
-        
-        <div
-          className={`flex h-[50px] hover:font-bold ${activeContainer
-            .overviewNav.isActive
-            ? "font-medium text-xl "
-            : ""} rounded-md place-items-center  ps-4 `}
+      case "payment": {
+        return {
+          overviewNav: {
+            isActive: false,
+          },
+          rentalHistoryNav: {
+            isActive: false,
+          },
+          documentsNav: {
+            isActive: false,
+          },
+          applicationNav: {
+            isActive: false,
+          },
+          paymentNav: {
+            isActive: true,
+          },
+        };
+      }
 
-          onClick={() => {
-            setActiveContainter(prevState => {
-              return {
-                ...prevState,
-                overviewNav: {
-                  isActive: true
-                },
-                rentalHistoryNav: {
-                  isActive: false
-                },
-               documentsNav: {
-                  isActive: false
-                },
-                applicationNav: {
-                  isActive: false
-                },
-                paymentNav: {
-                  isActive: false
-                }
-              };
-            });
+      default:
+        null;
+    }
+  });
+  const navigate = useNavigate();
 
-            navigate("overview/about");
-            closeAgentProfileDrawer()
-          }}
-        >
-         
-          <p>Overview</p>
-        </div>
-{ /*
+  return (
+    <div className="AgentDrawer absolute hidden top-0 right-0 z-[80] md:hidden bg-agentNavbarBgImage w-[250px] h-dvh ">
+      <p
+        className="text-white font-bold text-3xl m-3 hover:text-orange-600"
+        onClick={() => {
+          closeAgentProfileDrawer();
+        }}
+      >
+        {" "}
+        <X />
+      </p>
+      <div className="flex flex-col gap-3 place-items-center">
+        <div className="font-nunito text-white flex flex-col ">
+          <div
+            className={`flex h-[50px] hover:font-bold ${
+              activeContainer.overviewNav.isActive ? "font-medium text-xl " : ""
+            } rounded-md place-items-center  ps-4 `}
+            onClick={() => {
+              setActiveContainter((prevState) => {
+                return {
+                  ...prevState,
+                  overviewNav: {
+                    isActive: true,
+                  },
+                  rentalHistoryNav: {
+                    isActive: false,
+                  },
+                  documentsNav: {
+                    isActive: false,
+                  },
+                  applicationNav: {
+                    isActive: false,
+                  },
+                  paymentNav: {
+                    isActive: false,
+                  },
+                };
+              });
+
+              navigate("overview/about");
+              closeAgentProfileDrawer();
+            }}
+          >
+            <p>Overview</p>
+          </div>
+          {/*
         <div
           className={`flex h-[50px]  hover:font-bold ${activeContainer
             .rentalHistoryNav.isActive
@@ -303,68 +296,61 @@ const UserProfileBodyDrawer = () =>{
           <p>Payment Information</p>
         </div> 
         */}
-      </div>
-      <div className="absolute  bottom-0 w-full flex  ">
-      <img className=" hover:shadow-black hover:shadow-md mb-5  mx-auto" alt=" " src={lodgeMeIcon} onClick={()=>{
-        navigate('/')
-      }} />
-      
         </div>
-    </div>
- 
-      
-      
+        <div className="absolute  bottom-0 w-full flex  ">
+          <img
+            className=" hover:shadow-black hover:shadow-md mb-5  mx-auto"
+            alt=" "
+            src={lodgeMeIcon}
+            onClick={() => {
+              navigate("/");
+            }}
+          />
+        </div>
       </div>
-     );
- 
- }
- 
- 
- 
- 
- export const openAgentProfileDrawer = () =>{
- 
-    
-     
-     const drawer =   document.querySelector('.AgentDrawer')
-     drawer.style.display= "block"
-     drawer.animate([
-         {
-             transform:"translateX(100%)"
-         },
-         {
-             transform:"translateX(0%)"
-         }
-     ],{
-         duration:500
-     })
-  
-      return drawer
-     
- }
- 
- export const closeAgentProfileDrawer = () =>{
-   
-   const drawer =document.querySelector('.AgentDrawer')
-   drawer.animate([
-     {
-         transform:"translateX(0%)"
-     },
-     {
-         transform:"translateX(100%)"
-     }
- ],{
-     duration:500
- }).onfinish=()=>{
-     drawer.style.display= "none" 
- }
- 
- 
-   
-  
- 
-     
-    return drawer 
- }
+    </div>
+  );
+};
 
-export default UserProfileBodyDrawer
+export const openAgentProfileDrawer = () => {
+  const drawer = document.querySelector(".AgentDrawer");
+  drawer.style.display = "block";
+  drawer.animate(
+    [
+      {
+        transform: "translateX(100%)",
+      },
+      {
+        transform: "translateX(0%)",
+      },
+    ],
+    {
+      duration: 500,
+    },
+  );
+
+  return drawer;
+};
+
+export const closeAgentProfileDrawer = () => {
+  const drawer = document.querySelector(".AgentDrawer");
+  drawer.animate(
+    [
+      {
+        transform: "translateX(0%)",
+      },
+      {
+        transform: "translateX(100%)",
+      },
+    ],
+    {
+      duration: 500,
+    },
+  ).onfinish = () => {
+    drawer.style.display = "none";
+  };
+
+  return drawer;
+};
+
+export default UserProfileBodyDrawer;

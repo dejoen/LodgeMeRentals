@@ -6,16 +6,16 @@ import SimilarPropertiesCard from "./houseOverview/SimilarPropertiesCard";
 import FooterScreen from "../../../landingPage/screen/FooterScreen";
 import smallHouseIcon from "../../../../assets/smallHouseIcon.svg";
 import React from "react";
-import starDarkIcon from "../../.../../../../assets/StarDark.svg"
+import starDarkIcon from "../../.../../../../assets/StarDark.svg";
 
 const HouseOverView = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { state } = useLocation();
   //alert(JSON.stringify(state))
 
   let getFirstVideo = () => {
     if (state) {
-      const video = state.mediaUpload.find(media => media.type === "video");
+      const video = state.mediaUpload.find((media) => media.type === "video");
       return video.url;
     }
   };
@@ -24,10 +24,10 @@ const HouseOverView = () => {
     <React.Fragment>
       <div className="font-nunito  w-full md:m-5 ">
         <p className="ps-2 md:p-0 pt-8 mx-auto text-justify font-bold text-[] w-[90%] ">
-          {" "}The house details page offers a clear overview of a property,
-          including its price, location, photos, amenities, and availability.
-          Users can explore features, view multimedia content, and contact the
-          owner or agent directly for inquiries or bookings.
+          {" "}
+          The house details page offers a clear overview of a property, including its price, location, photos,
+          amenities, and availability. Users can explore features, view multimedia content, and contact the owner or
+          agent directly for inquiries or bookings.
         </p>
 
         <div className="md:w-full w-[90%] mx-auto mt-6 flex gap-4 place-items-center">
@@ -36,33 +36,20 @@ const HouseOverView = () => {
             className="bg-orange-500 w-[80px] h-[80px] rounded-full"
           />
           <div>
-            <p>
-              {state.publisher.userName
-                ? state.publisher.userName
-                : state.houseOverview.houseName}
-            </p>
+            <p>{state.publisher.userName ? state.publisher.userName : state.houseOverview.houseName}</p>
             <p className="text-ellipsis space-x-0 w-[42px]">
-              publishingAs:<span>
-                {state.publisher.userProfile.publishingAs}
-              </span>
+              publishingAs:
+              <span>{state.publisher.userProfile.publishingAs}</span>
             </p>
             <div className="flex gap-1 mt-2 justify-center place-items-center">
-              {
-              [1,2,4,5,6].map((item,index)=>(
-
-                <img className="h-[15px]" key={index} src={starDarkIcon}/>
-              ))
-
-}
-<div className="h-[20px] flex gap-1" >
-<p className="font-bold">5.0</p>
-<p>(203 reviews)</p>
-
-</div>
-
+              {[1, 2, 4, 5, 6].map((item, index) => (
+                <img className="h-[15px]" key={index} src={starDarkIcon} />
+              ))}
+              <div className="h-[20px] flex gap-1">
+                <p className="font-bold">5.0</p>
+                <p>(203 reviews)</p>
+              </div>
             </div>
-
-          
           </div>
         </div>
         <div className="ms-5 mt-5 flex place-items-center">
@@ -70,9 +57,7 @@ const HouseOverView = () => {
           <div className="flex mt-1 gap-3 w-[90%] mx-auto">
             <p>.Unityhostel</p>
             <p>.Unityhostel</p>
-            <p className="ms-6 text-gray-700">
-              {getTimeAgo(state.datePublished)}
-            </p>
+            <p className="ms-6 text-gray-700">{getTimeAgo(state.datePublished)}</p>
           </div>
         </div>
 
@@ -89,24 +74,25 @@ const HouseOverView = () => {
             <div className="w-full md:ms-5 p-2 flex gap-5   overflow-x-auto  h-[180px] overflow-y-hidden">
               {state &&
                 state.mediaUpload &&
-                state.mediaUpload.map(media =>
+                state.mediaUpload.map((media) => (
                   <div key={(state._id += 1)}>
-                    {media.type === "image"
-                      ? <div className=" rounded-md w-[170px] h-full">
-                          {" "}<img
-                            className="rounded-md h-full w-full object-contain object-center"
-                            src={media.url}
-                          />{" "}
-                        </div>
-                      : <div className="rounded-md w-[170px] h-full">
-                          {" "}<video
-                            className="rounded-md h-full  object-cover object-center"
-                            controls
-                            src={media.url}
-                          />{" "}
-                        </div>}
+                    {media.type === "image" ? (
+                      <div className=" rounded-md w-[170px] h-full">
+                        {" "}
+                        <img className="rounded-md h-full w-full object-contain object-center" src={media.url} />{" "}
+                      </div>
+                    ) : (
+                      <div className="rounded-md w-[170px] h-full">
+                        {" "}
+                        <video
+                          className="rounded-md h-full  object-cover object-center"
+                          controls
+                          src={media.url}
+                        />{" "}
+                      </div>
+                    )}
                   </div>
-                )}
+                ))}
             </div>
 
             <div className="md:ms-5 text-justify p-2">
@@ -117,25 +103,19 @@ This house is more than a home; it’s a statement of elegance and convenience.`
 
               <div className="mt-5">
                 <p className="font-bold">House Address</p>
-                <p>
-                  {state.houseOverview.houseAddress}
-                </p>
+                <p>{state.houseOverview.houseAddress}</p>
               </div>
 
               <div className="mt-1">
                 <p className="font-bold">Total number of rooms</p>
-                <p className="">
-                  {state.houseFeatures.totalNumberOfBedRooms}
-                </p>
+                <p className="">{state.houseFeatures.totalNumberOfBedRooms}</p>
               </div>
             </div>
           </div>
 
           <div className=" h-full w-full md:w-[30%] ">
             <div className="w-full p-2">
-              <div className="bg-[#BB7655] h-10   flex place-items-center p-2 text-white">
-                House Feature
-              </div>
+              <div className="bg-[#BB7655] h-10   flex place-items-center p-2 text-white">House Feature</div>
               <div className="bg-[#F0D38F80] px-4 max-h-ful relative ">
                 <div className="w-full flex place-items-center p-1">
                   <p>Fenced</p>
@@ -179,12 +159,7 @@ This house is more than a home; it’s a statement of elegance and convenience.`
 
                 <div className="w-full flex place-items-center p-1">
                   <p>Laundry Room</p>
-                  <input
-                    type="checkbox"
-                    className="absolute right-2"
-                    disabled
-                    checked={state.laundryRoom}
-                  />
+                  <input type="checkbox" className="absolute right-2" disabled checked={state.laundryRoom} />
                 </div>
 
                 <div className="w-full flex place-items-center p-1">
@@ -303,12 +278,7 @@ This house is more than a home; it’s a statement of elegance and convenience.`
 
                 <div className="w-full flex place-items-center p-1">
                   <p> Gym</p>
-                  <input
-                    type="checkbox"
-                    className="absolute right-2"
-                    disabled
-                    checked={state.houseFeatures.Gym}
-                  />
+                  <input type="checkbox" className="absolute right-2" disabled checked={state.houseFeatures.Gym} />
                 </div>
 
                 <div className="w-full flex place-items-center p-1">
@@ -348,9 +318,14 @@ This house is more than a home; it’s a statement of elegance and convenience.`
                 </ul>
 
                 <div className="bg-[#34A853] rounded-md w-[200px] p-2 text-center text-white mt-5">
-                  <p onClick={()=>{
-                    navigate('/client/dashboard/chat',{state})
-                  }} className="cursor-default">Contact Agent</p>
+                  <p
+                    onClick={() => {
+                      navigate("/client/dashboard/chat", { state });
+                    }}
+                    className="cursor-default"
+                  >
+                    Contact Agent
+                  </p>
                 </div>
               </div>
             </div>
@@ -364,9 +339,9 @@ This house is more than a home; it’s a statement of elegance and convenience.`
              overflow-x-auto  whitespace-nowrap space-x-5"
               style={{ scrollbarWidth: "none" }}
             >
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) =>
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
                 <OtherPropertiesPostedCard key={index} />
-              )}
+              ))}
             </div>
 
             <div className="w-full">
@@ -376,9 +351,9 @@ This house is more than a home; it’s a statement of elegance and convenience.`
               </div>
 
               <div className="w-full max-h-[400px] overflow-y-auto">
-                {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) =>
+                {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
                   <ReviewsCard key={index} />
-                )}
+                ))}
               </div>
             </div>
           </div>
@@ -391,9 +366,9 @@ This house is more than a home; it’s a statement of elegance and convenience.`
              overflow-x-auto  whitespace-nowrap space-x-5"
               style={{ scrollbarWidth: "none" }}
             >
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) =>
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
                 <SimilarPropertiesCard key={index} />
-              )}
+              ))}
             </div>
           </div>
         </div>

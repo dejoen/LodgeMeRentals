@@ -50,7 +50,7 @@ import ChatScreen from "./features/dashBoard/screen/client/ChatScreen.jsx";
 import ClientProfileScreen from "./features/dashBoard/screen/client/ClientProfileScreen.jsx";
 import AgentRequestsView from "./features/dashBoard/screen/agent/AgentRequestsView.jsx";
 import AgentNotificationView from "./features/dashBoard/screen/agent/AgentNotificationView.jsx";
-import AgentAppointmentView from './features/dashBoard/screen/agent/AgentAppointmentsView.jsx'
+import AgentAppointmentView from "./features/dashBoard/screen/agent/AgentAppointmentsView.jsx";
 import AgentSettingView from "./features/dashBoard/screen/agent/AgentSettingsView.jsx";
 import RentalHistor from "./features/dashBoard/screen/agent/RentalHistory.jsx";
 import DownloadHistor from "./features/dashBoard/screen/agent/DownloadHistory.jsx";
@@ -59,11 +59,11 @@ import ApplicationHistor from "./features/dashBoard/screen/agent/ApplicationHist
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPageScreen />
+    element: <LandingPageScreen />,
   },
   {
     path: "/about",
-    element: <AboutPageScreen />
+    element: <AboutPageScreen />,
   },
   {
     path: "/blog",
@@ -71,29 +71,29 @@ const router = createBrowserRouter([
     children: [
       {
         path: "one",
-        element: <PostOne />
+        element: <PostOne />,
       },
       {
         path: "two",
-        element: <PostTwo />
-      }
-    ]
+        element: <PostTwo />,
+      },
+    ],
   },
   {
     path: "/copyrights",
-    element: <CopyRightScreen />
+    element: <CopyRightScreen />,
   },
   {
     path: "/terms",
-    element: <TermsAndConditionScreen />
+    element: <TermsAndConditionScreen />,
   },
   {
     path: "/resources",
-    element: <ResourcesScreen />
+    element: <ResourcesScreen />,
   },
   {
     path: "/faq",
-    element: <FAQScreen />
+    element: <FAQScreen />,
   },
   {
     path: "/register-as-agent",
@@ -101,7 +101,7 @@ const router = createBrowserRouter([
       <CombineContextProvider>
         <AgentRegistrationScreen />
       </CombineContextProvider>
-    )
+    ),
   },
   {
     path: "/register-as-client",
@@ -110,7 +110,7 @@ const router = createBrowserRouter([
       <CombineContextProvider>
         <ClientRegistrationScreen />
       </CombineContextProvider>
-    )
+    ),
   },
   {
     path: "/agent/",
@@ -122,7 +122,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "dashboard",
-        element: <AgentDashboardView />
+        element: <AgentDashboardView />,
       },
       {
         path: "dashboard/publish-home",
@@ -130,42 +130,42 @@ const router = createBrowserRouter([
         children: [
           {
             path: "houseOverview",
-            element: <HouseOverViewScreen />
+            element: <HouseOverViewScreen />,
           },
           {
             path: "aboutHouse",
-            element: <AboutHouse />
+            element: <AboutHouse />,
           },
           {
             path: "houseFeatures",
-            element: <HouseFeatures />
+            element: <HouseFeatures />,
           },
           {
             path: "mediaUpload",
-            element: <MediaUpload />
+            element: <MediaUpload />,
           },
           {
             path: "rentalPrice",
-            element: <RentalPrice />
-          }
-        ]
+            element: <RentalPrice />,
+          },
+        ],
       },
 
       {
         path: "dashboard/market-insights",
-        element: <MarketInsightScreen />
+        element: <MarketInsightScreen />,
       },
       {
         path: "dashboard/listed-houses",
-        element: <AgentListedHouseScreen />
+        element: <AgentListedHouseScreen />,
       },
       {
         path: "dashboard/agentrefer",
-        element: <AgentRefer />
+        element: <AgentRefer />,
       },
       {
         path: "dashboard/management",
-        element: <AgentManagementScreen />
+        element: <AgentManagementScreen />,
       },
       {
         path: "dashboard/helpandsupport",
@@ -173,47 +173,44 @@ const router = createBrowserRouter([
         children: [
           {
             path: "accessibility",
-            element: <HelpAndSupportAcessibilityScreen />
+            element: <HelpAndSupportAcessibilityScreen />,
           },
           {
             path: "troubleShooting",
-            element: <HelpAndSupportTroubleShootingScreen />
+            element: <HelpAndSupportTroubleShootingScreen />,
           },
           {
             path: "policies",
-            element: <HelpAndSupportPoliciesScreen />
-          }
-        ]
+            element: <HelpAndSupportPoliciesScreen />,
+          },
+        ],
       },
 
       {
         path: "message",
-        element: <AgentMessageView />
+        element: <AgentMessageView />,
       },
       {
         path: "notification",
-        element: <AgentNotificationView />
+        element: <AgentNotificationView />,
       },
 
       {
         path: "appointment",
-        element: <AgentAppointmentView />
+        element: <AgentAppointmentView />,
       },
 
       {
         path: "setting",
-        element: <AgentSettingView />
+        element: <AgentSettingView />,
       },
 
       {
-        path:"requests",
-        element:<AgentRequestsView/>
-      }
-    ]
+        path: "requests",
+        element: <AgentRequestsView />,
+      },
+    ],
   },
-
-
-
 
   {
     path: "/agent/userprofile",
@@ -230,48 +227,44 @@ const router = createBrowserRouter([
         children: [
           {
             path: "about",
-            element: <UserProfileAboutScreen />
+            element: <UserProfileAboutScreen />,
           },
           {
             path: "stats",
-            element: <UserProfileStatisticsScreen/>
+            element: <UserProfileStatisticsScreen />,
           },
           {
             path: "posts",
-            element: <UserProfilePostsScreen/>
+            element: <UserProfilePostsScreen />,
           },
           {
             path: "rating",
-            element: <UserProfileRatingScreen/>
+            element: <UserProfileRatingScreen />,
           },
           {
             path: "legitimacy",
-            element: <UserProfileLegitimacyScreen/>
-          }
-
-        ]
+            element: <UserProfileLegitimacyScreen />,
+          },
+        ],
       },
       {
         path: "rental-history",
-        element: <RentalHistor/>
+        element: <RentalHistor />,
       },
       {
         path: "document",
-        element: <DownloadHistor />
+        element: <DownloadHistor />,
       },
       {
         path: "application",
-        element: < ApplicationHistor/>
+        element: <ApplicationHistor />,
       },
       {
         path: "payment",
-        element: < PaymentHistor/>
-      }
-    ]
+        element: <PaymentHistor />,
+      },
+    ],
   },
-
-
-
 
   {
     path: "/login",
@@ -280,11 +273,9 @@ const router = createBrowserRouter([
       <CombineContextProvider>
         <LoginScreen />
       </CombineContextProvider>
-    )
+    ),
   },
 
-
-  
   {
     path: "/client/",
     element: (
@@ -292,44 +283,43 @@ const router = createBrowserRouter([
         <ClientDashBoardScreen />
       </CombineContextProvider>
     ),
-    children:[
+    children: [
       {
-        path:'dashboard',
-        element:<ClientHomeScreen/>,
-        
+        path: "dashboard",
+        element: <ClientHomeScreen />,
       },
       {
-        path:'dashboard/houseOverview',
-        element:<HouseOverView/>,
+        path: "dashboard/houseOverview",
+        element: <HouseOverView />,
       },
       {
-        path:'dashboard/chat',
-        element:<ChatScreen/>
+        path: "dashboard/chat",
+        element: <ChatScreen />,
       },
       {
-        path:'dashboard/profile',
-        element:<ClientProfileScreen/>
+        path: "dashboard/profile",
+        element: <ClientProfileScreen />,
       },
 
       {
-        path:'dashboard/help',
-        element:<ClientHelpAndSupport/>
+        path: "dashboard/help",
+        element: <ClientHelpAndSupport />,
       },
       {
-        path:'dashboard/refer',
-        element:<ClientReferHero/>
+        path: "dashboard/refer",
+        element: <ClientReferHero />,
       },
-     
+
       {
-        path:'dashboard/request',
-        element:<ClientRequest/>
+        path: "dashboard/request",
+        element: <ClientRequest />,
       },
-    ]
-  }
+    ],
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>
+  </StrictMode>,
 );

@@ -1,15 +1,13 @@
-import ClientAdvertBanner from "../../component/client/banner/ClientAdvertBanner"
-import ClientDashBoardBody from "../../component/client/ClientDashboardBody"
+import ClientAdvertBanner from "../../component/client/banner/ClientAdvertBanner";
+import ClientDashBoardBody from "../../component/client/ClientDashboardBody";
 
-const ClientHomeScreen = ()=>{
+const ClientHomeScreen = () => {
+  return (
+    <div className="w-full">
+      <ClientAdvertBanner />
+      <ClientDashBoardBody />
+    </div>
+  );
+};
 
-    return (
-        <div className="w-full">
-            
-             <ClientAdvertBanner/>
-             <ClientDashBoardBody/>
-        </div>
-    )
-}
-
-export default ClientHomeScreen
+export default ClientHomeScreen;

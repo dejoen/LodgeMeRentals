@@ -15,17 +15,22 @@ const NeighborHoodInsights = () => {
               {
                 data: [
                   { id: 1, value: 10, label: "Rent Demands", color: "#323232" },
-                  { id: 1, value: 20, label: "Vacancy", color:'#BB7655'},
-                  { id: 1, value: 40, label: "Population Growth",color:'#34A853' },
+                  { id: 1, value: 20, label: "Vacancy", color: "#BB7655" },
+                  {
+                    id: 1,
+                    value: 40,
+                    label: "Population Growth",
+                    color: "#34A853",
+                  },
                   { id: 1, value: 10, label: "Security", color: "#323232" },
-                  { id: 1, value: 20, label: "Crime Rate", color:'#1C2E7A'}
+                  { id: 1, value: 20, label: "Crime Rate", color: "#1C2E7A" },
                 ],
-                innerRadius: 45
-              }
+                innerRadius: 45,
+              },
             ]}
             width={350}
             height={200}
-            margin={{right:200}}
+            margin={{ right: 200 }}
           />
         </div>
 
@@ -44,9 +49,7 @@ const NeighborHoodInsights = () => {
           </div>
 
           <div className=" min-w-fit max-h-fit p-5 border border-black rounded-lg">
-            <p className="font-bold mb-2">
-              {"Comparative  Insights"}
-            </p>
+            <p className="font-bold mb-2">{"Comparative  Insights"}</p>
             <div className="flex min-w-fit  flex-wrap    place-items-center gap-3 mb-2">
               <p className="text-sm  text-black w-[80px]">Rent</p>
               <LinearProgress
@@ -57,8 +60,8 @@ const NeighborHoodInsights = () => {
                   height: 10,
                   borderRadius: 3,
                   "& .MuiLinearProgress-bar": {
-                    backgroundColor: "#34A853"
-                  }
+                    backgroundColor: "#34A853",
+                  },
                 }}
               />
             </div>
@@ -72,8 +75,8 @@ const NeighborHoodInsights = () => {
                   height: 10,
                   borderRadius: 3,
                   "& .MuiLinearProgress-bar": {
-                    backgroundColor: "#DBAB31"
-                  }
+                    backgroundColor: "#DBAB31",
+                  },
                 }}
               />
             </div>
@@ -87,8 +90,8 @@ const NeighborHoodInsights = () => {
                   height: 10,
                   borderRadius: 3,
                   "& .MuiLinearProgress-bar": {
-                    backgroundColor: "#FF0000"
-                  }
+                    backgroundColor: "#FF0000",
+                  },
                 }}
               />
             </div>
@@ -102,8 +105,8 @@ const NeighborHoodInsights = () => {
                   height: 10,
                   borderRadius: 3,
                   "& .MuiLinearProgress-bar": {
-                    backgroundColor: "#FF0000"
-                  }
+                    backgroundColor: "#FF0000",
+                  },
                 }}
               />
             </div>

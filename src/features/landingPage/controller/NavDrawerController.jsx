@@ -1,11 +1,7 @@
-import { openDrawer } from "../component/NavDrawerBar"
-
-
+import { openDrawer } from "../component/NavDrawerBar";
 
 export const OpenNavigationSmallScreen = () => {
-     openDrawer()
-}
+  openDrawer();
+};
 
-export const NavigateToAboutScreen =() =>{
-  
-}
+export const NavigateToAboutScreen = () => {};

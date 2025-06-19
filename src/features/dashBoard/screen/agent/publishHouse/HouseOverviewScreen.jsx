@@ -12,12 +12,12 @@ const HouseOverViewScreen = () => {
 
   const navigate = useNavigate();
 
-  const allStateName = allStateData.map(state => {
+  const allStateName = allStateData.map((state) => {
     return state.name;
   });
 
-  const getLocalGovt = name => {
-    return allStateData.filter(lga => {
+  const getLocalGovt = (name) => {
+    return allStateData.filter((lga) => {
       return lga.name === name;
     });
   };
@@ -31,20 +31,23 @@ const HouseOverViewScreen = () => {
     return [];
   });
 
-  const updateData = state => {
+  const updateData = (state) => {
     const data = getLocalGovt(state);
 
     setActiveLocalGovt(data[0].lgas);
   };
 
-  const checkIfDataComplete = data => {
-    const result = Object.values(data).some(value => value === "");
+  const checkIfDataComplete = (data) => {
+    const result = Object.values(data).some((value) => value === "");
     return result;
   };
 
   return (
     <React.Fragment>
-      <div className=" w-full md:w-[90%] mx-auto  h-dvh  md:min-h-[85%] md:ml-[16%]  mt-20  bg-white z-20 rounded-md shadow-md overflow-y-scroll  pb-10" style={{scrollbarWidth:"none"}}>
+      <div
+        className=" w-full md:w-[90%] mx-auto  h-dvh  md:min-h-[85%] md:ml-[16%]  mt-20  bg-white z-20 rounded-md shadow-md overflow-y-scroll  pb-10"
+        style={{ scrollbarWidth: "none" }}
+      >
         <p className="font-bold ms-20 pt-8 pb-4">House Overview</p>
 
         <div className=" h-[75%]  flex flex-wrap justify-center overflow-y-scroll ">
@@ -54,14 +57,14 @@ const HouseOverViewScreen = () => {
               bodyText:
                 "Enter a unique name for your property, like “Sunny Apartments” or “Willow House.” This helps renters easily find and identify your listing. Make sure it’s accurate for clear communication.",
               placeHolderText: "house name",
-              inputType: "text"
+              inputType: "text",
             },
             {
               headeText: "House or Apartment address",
               bodyText:
                 "Provide the full **House or Apartment Address** to ensure potential renters can accurately locate your property. Make sure to enter details like street name, building number, and any additional information that helps identify your property clearly. This step is crucial for making your listing easily searchable and visible to users on the platform.",
               placeHolderText: "Address where house is located",
-              inputType: "text"
+              inputType: "text",
             },
 
             {
@@ -95,8 +98,8 @@ const HouseOverViewScreen = () => {
                 "⁠Three-story apartment",
                 "⁠Four-story apartment ",
                 "⁠ ⁠Five-story apartment",
-                "⁠Face-me-I-face-you"
-              ]
+                "⁠Face-me-I-face-you",
+              ],
             },
             {
               headeText: "State",
@@ -104,7 +107,7 @@ const HouseOverViewScreen = () => {
                 " Please enter the location of your property. Providing the accurate address or at least the state helps potential renters find your listing and understand where it’s situated.",
               placeHolderText: "Select state",
               inputType: "select",
-              options: allStateName
+              options: allStateName,
             },
             {
               headeText: "Local government",
@@ -112,9 +115,9 @@ const HouseOverViewScreen = () => {
                 "Please enter the local government area where your property is located. This helps renters get a clearer picture of the property’s local governance and community.Providing this information helps renters understand local services and administrative details.",
               placeHolderText: "Select local government",
               inputType: "select",
-              options: activeLocalGovt
-            }
-          ].map((item, index) =>
+              options: activeLocalGovt,
+            },
+          ].map((item, index) => (
             <HouseOverViewCard
               key={index}
               headerText={item.headeText}
@@ -125,27 +128,23 @@ const HouseOverViewScreen = () => {
               lgaContainer={index === 4 ? true : false}
               updateData={updateData}
             />
-          )}
+          ))}
         </div>
 
         <div className="w-full md:w-[90%] flex justify-end place-items-center pe-4 h-[20%] items-center pt-6 pb-12 gap-5">
           <p
-            className={`${saveIndicator
-              ? "block"
-              : "hidden"} ${!saveIndicator.includes("saved")
-              ? `${saveIndicator.includes("saving")
-                  ? "text-black"
-                  : "text-red-600"}`
-              : "text-green-600"}   `}
+            className={`${saveIndicator ? "block" : "hidden"} ${
+              !saveIndicator.includes("saved")
+                ? `${saveIndicator.includes("saving") ? "text-black" : "text-red-600"}`
+                : "text-green-600"
+            }   `}
           >
             {saveIndicator}
           </p>
           <p
             className="bg-[#BB7655]    hover:shadow-black hover:shadow-md  p-3 w-[100px] text-white text-center rounded-lg"
             onClick={() => {
-              const valid = checkIfDataComplete(
-                allDataToPublishReducerState.HouseOverview
-              );
+              const valid = checkIfDataComplete(allDataToPublishReducerState.HouseOverview);
 
               if (valid) {
                 setSaveindicator("Please enter all fields to continue");

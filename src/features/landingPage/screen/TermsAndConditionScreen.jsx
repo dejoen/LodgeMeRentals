@@ -4,18 +4,23 @@ import TermsAndConditionTextBody from "../component/TermsAndConditionTextBody";
 import FooterScreen from "./FooterScreen";
 import GetStartedScreen from "./GetStartedScreen";
 
-const TermsAndConditionScreen = () =>{
+const TermsAndConditionScreen = () => {
+  return (
+    <div>
+      <NavBarComponent
+        image={"bg-termsBackgroundImage"}
+        text={"Exclusive Rental Homes, Available Anytime"}
+        textSize={"text-4xl"}
+        buttonOneText={"LogIn"}
+        makeVisible={"block"}
+        adjustHeight={"h-fit"}
+      />
+      <TermsAndConditionTextBody />
+      <FooterScreen />
+      <NavDrawerBar />
+      <GetStartedScreen />
+    </div>
+  );
+};
 
-    return (
-   <div>
-    <NavBarComponent image={"bg-termsBackgroundImage"} text={"Exclusive Rental Homes, Available Anytime"} textSize={"text-4xl"}  buttonOneText={"LogIn"} makeVisible={"block"} adjustHeight={"h-fit"}/>
-     <TermsAndConditionTextBody/>
-     <FooterScreen/>
-      <NavDrawerBar/>
-      <GetStartedScreen/>
-      
-   </div>
-    );
-}
-
-export default TermsAndConditionScreen
+export default TermsAndConditionScreen;

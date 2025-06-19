@@ -15,17 +15,17 @@ const AgentManagementTable = () => {
           <p className=" text-center min-w-[120px] max-w-[120px]">Contract Status</p>
         </div>
         <div className="w-[1200px]  h-[1px] bg-black " />
-        <AgentManagementTableCard/>
-        <AgentManagementTableCard/>
-        <AgentManagementTableCard/>
-        <AgentManagementTableCard/>
-        <AgentManagementTableCard/>
-        <AgentManagementTableCard/>
-        <AgentManagementTableCard/>
-        <AgentManagementTableCard/>
+        <AgentManagementTableCard />
+        <AgentManagementTableCard />
+        <AgentManagementTableCard />
+        <AgentManagementTableCard />
+        <AgentManagementTableCard />
+        <AgentManagementTableCard />
+        <AgentManagementTableCard />
+        <AgentManagementTableCard />
       </div>
       <div className="w-full mt-3 text-sm">
-       <p className="place-self-end pe-3 underline">Next Page</p>
+        <p className="place-self-end pe-3 underline">Next Page</p>
       </div>
     </div>
   );

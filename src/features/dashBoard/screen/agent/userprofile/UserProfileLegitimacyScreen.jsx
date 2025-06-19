@@ -3,34 +3,34 @@ import UserProfileLegitimacyCard from "../../../component/agent/userProfile/User
 const UserProfileLegitimacyScreen = () => {
   return (
     <div className=" font-nunito w-full flex flex-wrap gap-5 md:justify-start  justify-center md:ml-6">
-      {
-      
-      [
-       // {
-       //   title: "Trust Score",
-       //   icon: ""
-      //  },
-       // {
-       //   title: "Address Verification",
-      ////    icon: ""
-      //  },
+      {[
+        // {
+        //   title: "Trust Score",
+        //   icon: ""
+        //  },
+        // {
+        //   title: "Address Verification",
+        ////    icon: ""
+        //  },
         {
           title: "ID Verification",
-          icon: ""
+          icon: "",
         },
-       // {
-       //   title: "Testimonials",
-       //   icon: ""
-       /// },
-       // {
-       //   title: "Compliance with law",
-       //   icon: ""
-      //  },
-      //  {
+        // {
+        //   title: "Testimonials",
+        //   icon: ""
+        /// },
+        // {
+        //   title: "Compliance with law",
+        //   icon: ""
+        //  },
+        //  {
         //  title: "Certifications",
-       //   icon: ""
-      //  }
-      ].map((item, index) => <UserProfileLegitimacyCard title={item.title} icon={item.icon}  key={index} />)}
+        //   icon: ""
+        //  }
+      ].map((item, index) => (
+        <UserProfileLegitimacyCard title={item.title} icon={item.icon} key={index} />
+      ))}
     </div>
   );
 };

@@ -1,16 +1,11 @@
 import AboutMeetOurTeamCard from "./AboutMeetOurTeamCard";
 
 const AboutMeetOurTeamCardContainer = () => {
+  return (
+    <div>
+      <AboutMeetOurTeamCard />
+    </div>
+  );
+};
 
-    return (
-  <div >
-   <AboutMeetOurTeamCard />
-   
-    
-  </div>
-
-    );
-
-}
-
-export default AboutMeetOurTeamCardContainer
+export default AboutMeetOurTeamCardContainer;

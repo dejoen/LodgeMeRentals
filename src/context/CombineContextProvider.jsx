@@ -1,94 +1,58 @@
 /* eslint-disable react/prop-types */
+
 import { createContext, useReducer } from "react";
-import ClientLoginReducer, {
-  clientLoginInitialState
-} from "../reducer/ClientLogInReducer.jsx";
+import ClientLoginReducer, { clientLoginInitialState } from "../reducer/ClientLogInReducer.jsx";
 import AgentReducer, { agentInitialState } from "../reducer/AgentReducer.jsx";
 import { io } from "socket.io-client";
 import BaseURL from "../utils/BaseURL.jsx";
-import SocketReducer, {
-  SocketInitialState
-} from "../reducer/SocketReducer.jsx";
+import SocketReducer, { SocketInitialState } from "../reducer/SocketReducer.jsx";
 
-import AllDataToPublishReducer, {
-  allDataToPublishReducerInitialState
-} from "../reducer/PublishHouseDataReducer.jsx";
+import AllDataToPublishReducer, { allDataToPublishReducerInitialState } from "../reducer/PublishHouseDataReducer.jsx";
 import HousesPublishedByAgentReducer, {
-  HousesPublishedByAgentInitialState
+  HousesPublishedByAgentInitialState,
 } from "../reducer/HousesPublishedByAgentReducer.jsx";
 import NotificationReducer, { NotificationInitialState } from "../reducer/NotificationReducer.jsx";
 
 export const CombineContext = createContext();
 
 const CombineContextProvider = ({ children }) => {
+  const [socketConnectedReducerState, socketConnectedReducerDispatcher] = useReducer(SocketReducer, SocketInitialState);
 
-  const [
-    socketConnectedReducerState,
-    socketConnectedReducerDispatcher
-  ] = useReducer(SocketReducer, SocketInitialState);
-
-
-  const [
-    allDataToPublishReducerState,
-    allDataToPublishReducerDispatcher
-  ] = useReducer(AllDataToPublishReducer, allDataToPublishReducerInitialState);
-
-
-  const [
-    housesPublishedByAgentReducerState,
-    housesPublishedByAgentReducerDispatcher
-  ] = useReducer(
-    HousesPublishedByAgentReducer,
-    HousesPublishedByAgentInitialState
-    
+  const [allDataToPublishReducerState, allDataToPublishReducerDispatcher] = useReducer(
+    AllDataToPublishReducer,
+    allDataToPublishReducerInitialState,
   );
 
+  const [housesPublishedByAgentReducerState, housesPublishedByAgentReducerDispatcher] = useReducer(
+    HousesPublishedByAgentReducer,
+    HousesPublishedByAgentInitialState,
+  );
 
-  const [notificationState,notificationDispatcher] = useReducer(NotificationReducer,NotificationInitialState)
+  const [notificationState, notificationDispatcher] = useReducer(NotificationReducer, NotificationInitialState);
 
-
-
-  const connectSocket = async token => {
+  const connectSocket = async (token) => {
     if (!token) {
       throw new Error("token needed to continue");
     }
     const socket = io(BaseURL.SOCKET_URL, {
       auth: {
-        token
-      }
-    } );
-
-
+        token,
+      },
+    });
 
     socketConnectedReducerDispatcher({
       TYPE: "Connect",
       payload: {
         ...socketConnectedReducerState,
         isSocketConnect: true,
-        socket
-      }
+        socket,
+      },
     });
   };
 
+  const [clientReducerState, clientReducerDispatcher] = useReducer(ClientLoginReducer, clientLoginInitialState);
 
-
-
-  const [clientReducerState, clientReducerDispatcher] = useReducer(
-    ClientLoginReducer,
-    clientLoginInitialState
-  );
-
-
-
-
-  const [agentReducerState, agentReducerDispatcher] = useReducer(
-    AgentReducer,
-    agentInitialState
-  );
-
-
-
-
+  const [agentReducerState, agentReducerDispatcher] = useReducer(AgentReducer, agentInitialState);
 
   return (
     <CombineContext.Provider
@@ -105,7 +69,7 @@ const CombineContextProvider = ({ children }) => {
         housesPublishedByAgentReducerState,
         housesPublishedByAgentReducerDispatcher,
         notificationDispatcher,
-        notificationState
+        notificationState,
       }}
     >
       {children}

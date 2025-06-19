@@ -1,12 +1,11 @@
 import BlogCardContainer from "../landingPage/component/BlogCardContainer";
 
-const PostOne = () =>{
+const PostOne = () => {
+  return (
+    <div>
+      <BlogCardContainer />
+    </div>
+  );
+};
 
-    return (
-<div>
-    <BlogCardContainer/>
-</div>
-    );
-}
-
-export default PostOne
+export default PostOne;

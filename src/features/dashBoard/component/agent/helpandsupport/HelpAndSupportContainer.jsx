@@ -9,9 +9,9 @@ import phoneIcon from "../../../../../assets/support/phonesupportIcon.svg";
 //import { Outlet, useNavigate } from "react-router-dom";
 
 const HelpAndSupportContainer = () => {
- // const [helpIconToggled, setHelpIconToggled] = useState(false);
+  // const [helpIconToggled, setHelpIconToggled] = useState(false);
 
- // const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <div className="  w-[98.6%] md:w-[80%] md:ml-[20%] mx-auto mt-[5.4rem] bg-white z-30 shadow-black shadow-md h-[87.6vh] cursor-default  rounded-lg ms-1 me-20 overflow-y-auto flex flex-col justify-center">
       <div className="font-bold text-3xl px-10 pt-10 text-center">
@@ -21,13 +21,13 @@ const HelpAndSupportContainer = () => {
       <div className="w-full p-5 flex flex-wrap justify-center md:flex-nowrap">
         <div className="md:max-w-[350px] p-2">
           <p className="font-bold">Need any Help ? We are here for you</p>
-       {/*}   <p>
+          {/*}   <p>
             This section is your go-to resource for resolving issues and
             ensuring smooth management of your rental business.
           </p>*/}
         </div>
 
-      {/*}  <div className="p-2 w-full relative  ">
+        {/*}  <div className="p-2 w-full relative  ">
           <div className="place-self-center md:place-self-end md:mt-[55px] bg-[#BB7655] p-2 rounded-md text-white me-10">
             <div className="flex gap-2">
               <p> Select Help </p>
@@ -92,7 +92,7 @@ const HelpAndSupportContainer = () => {
         <div className="w-full flex justify-center place-items-center mt-5 mb-5 gap-8">
           <img className="h-[4vh] " src={messageIcon} />
           <img className="h-[4vh] " src={phoneIcon} />
-         {/*} <img className="h-[4vh] " src={facebookIcon} />
+          {/*} <img className="h-[4vh] " src={facebookIcon} />
           <img className="h-[4vh] " src={instagramIcon} />
           <img className="h-[4vh] " src={twitterIcon} />
           <img className="h-[4vh] " src={whatsappIcon} /> */}

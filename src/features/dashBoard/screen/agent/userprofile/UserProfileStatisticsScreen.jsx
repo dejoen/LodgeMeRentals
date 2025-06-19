@@ -4,16 +4,20 @@ import { useContext } from "react";
 import { CombineContext } from "../../../../../context/CombineContextProvider";
 
 const UserProfileStatisticsScreen = () => {
-  const { agentReducerState } = useContext(CombineContext)
-   const user = agentReducerState.data
-   
+  const { agentReducerState } = useContext(CombineContext);
+  const user = agentReducerState.data;
+
   return (
     <div className=" font-nunito w-full p-5">
       <div className="flex flex-wrap justify-center place-items-center md:place-content-start gap-5 ">
         <p className="p-2">Account Status</p>
         <div className="flex justify-center place-content-center gap-1 border  rounded-lg p-2 text-sm">
-          <p className=" ">{  (user.isOnline === true) ? 'Online':'Offline'}</p>
-          <span className={` ${(agentReducerState.data && agentReducerState.data.isOnline) && 'text-green-600'}  font-bold `}>.</span>
+          <p className=" ">{user.isOnline === true ? "Online" : "Offline"}</p>
+          <span
+            className={` ${agentReducerState.data && agentReducerState.data.isOnline && "text-green-600"}  font-bold `}
+          >
+            .
+          </span>
         </div>
 
         <div className="flex p-2  gap-2 text-sm">
@@ -47,12 +51,8 @@ const UserProfileStatisticsScreen = () => {
 
       <div className="flex flex-wrap-reverse w-full mt-5">
         <div className="relative   md:max-w-[650px] ">
-          <p className="md:hidden text-center text-sm mt-5 ">
-            Profile Views and Impressions
-          </p>
-          <p className="hidden absolute  left-0 text-sm top-[50%] rotate-[-90deg]">
-            Profile Views and Impressions
-          </p>
+          <p className="md:hidden text-center text-sm mt-5 ">Profile Views and Impressions</p>
+          <p className="hidden absolute  left-0 text-sm top-[50%] rotate-[-90deg]">Profile Views and Impressions</p>
           <div className="relative md:ms-[90px]  w-[350px] md:w-[500px]">
             <BarChart
               height={300}
@@ -61,8 +61,8 @@ const UserProfileStatisticsScreen = () => {
                   scaleType: "band",
                   data: ["week 1", "week 2", "week 3", "week 4"],
                   categoryGapRatio: 0.5,
-                  barGapRatio: 0.1
-                }
+                  barGapRatio: 0.1,
+                },
               ]}
               series={[{ data: [38, 20, 15, 25], color: "#FCAD6D" }]}
             />
@@ -80,9 +80,7 @@ const UserProfileStatisticsScreen = () => {
               N<span>250</span>
             </p>
             <div className="w-full flex justify-center">
-              <p className="  text-center ms-3 w-[50px] rounded bg-[rgb(186,224,179)]  text-[#34A853]">
-                69%
-              </p>
+              <p className="  text-center ms-3 w-[50px] rounded bg-[rgb(186,224,179)]  text-[#34A853]">69%</p>
             </div>
           </div>
 

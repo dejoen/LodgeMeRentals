@@ -7,14 +7,15 @@ const ListedHousesHeader = () => {
     pending: false,
     paused: false,
     draft: false,
-    requiresModification: false
+    requiresModification: false,
   });
 
   return (
     <div className="w-full font-nunito overflow-x-auto flex gap-1 md:gap-5 md:justify-start p-5 ">
       <div
-        className={`${headerState.active &&
-          "bg-[#BB7655] text-white"}   rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%] `}
+        className={`${
+          headerState.active && "bg-[#BB7655] text-white"
+        }   rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%] `}
         onClick={() => {
           setHeaderState({
             ...headerState,
@@ -23,7 +24,7 @@ const ListedHousesHeader = () => {
             pending: false,
             paused: false,
             draft: false,
-            requiresModification: false
+            requiresModification: false,
           });
         }}
       >
@@ -31,8 +32,9 @@ const ListedHousesHeader = () => {
       </div>
 
       <div
-        className={`${headerState.denied &&
-          "bg-[#BB7655] text-white"}  rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%]`}
+        className={`${
+          headerState.denied && "bg-[#BB7655] text-white"
+        }  rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%]`}
         onClick={() => {
           setHeaderState({
             ...headerState,
@@ -41,76 +43,80 @@ const ListedHousesHeader = () => {
             pending: false,
             paused: false,
             draft: false,
-            requiresModification: false
+            requiresModification: false,
           });
         }}
       >
         <p>Denied</p>
       </div>
       <div
-        className={`${headerState.pending &&
-          "bg-[#BB7655] text-white"}   rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%]`}
+        className={`${
+          headerState.pending && "bg-[#BB7655] text-white"
+        }   rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%]`}
         onClick={() => {
-            setHeaderState({
-                ...headerState,
-                active: false,
-                denied: false,
-                pending: true,
-                paused: false,
-                draft: false,
-                requiresModification: false
-              });
+          setHeaderState({
+            ...headerState,
+            active: false,
+            denied: false,
+            pending: true,
+            paused: false,
+            draft: false,
+            requiresModification: false,
+          });
         }}
       >
         <p>Pending</p>
       </div>
       <div
-        className={`${headerState.paused &&
-          "bg-[#BB7655] text-white"}   rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%] `}
+        className={`${
+          headerState.paused && "bg-[#BB7655] text-white"
+        }   rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%] `}
         onClick={() => {
-            setHeaderState({
-                ...headerState,
-                active: false,
-                denied: false,
-                pending: false,
-                paused: true,
-                draft: false,
-                requiresModification: false
-              });
+          setHeaderState({
+            ...headerState,
+            active: false,
+            denied: false,
+            pending: false,
+            paused: true,
+            draft: false,
+            requiresModification: false,
+          });
         }}
       >
         <p>Paused</p>
       </div>
       <div
-        className={`${headerState.draft &&
-          "bg-[#BB7655] text-white"}   rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%]`}
+        className={`${
+          headerState.draft && "bg-[#BB7655] text-white"
+        }   rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%]`}
         onClick={() => {
-            setHeaderState({
-                ...headerState,
-                active: false,
-                denied: false,
-                pending: false,
-                paused: false,
-                draft: true,
-                requiresModification: false
-              });
+          setHeaderState({
+            ...headerState,
+            active: false,
+            denied: false,
+            pending: false,
+            paused: false,
+            draft: true,
+            requiresModification: false,
+          });
         }}
       >
         <p>Draft</p>
       </div>
       <div
-        className={`${headerState.requiresModification &&
-          "bg-[#BB7655] text-white"}  rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%] `}
+        className={`${
+          headerState.requiresModification && "bg-[#BB7655] text-white"
+        }  rounded-md flex justify-center place-items-center min-w-fit  p-3  md:min-w-[6%] `}
         onClick={() => {
-            setHeaderState({
-                ...headerState,
-                active: false,
-                denied: false,
-                pending: false,
-                paused: false,
-                draft: false,
-                requiresModification: true
-              });
+          setHeaderState({
+            ...headerState,
+            active: false,
+            denied: false,
+            pending: false,
+            paused: false,
+            draft: false,
+            requiresModification: true,
+          });
         }}
       >
         <p>Requires Modification</p>

@@ -4,7 +4,7 @@ const RequestCardContainer = () => {
   const [makeVisible, setMakeVisible] = useState(() => {
     return {
       seemMore: false,
-      sendOffer: false
+      sendOffer: false,
     };
   });
 
@@ -17,28 +17,16 @@ const RequestCardContainer = () => {
 
         <div className="w-full mt-3 relative ">
           <div className="flex flex-wrap gap-4 relative">
-            <p className="bg-[#BB7655] p-1 h-fit text-white rounded-lg w-fit ">
-              Osun
-            </p>
-            <p className="bg-[#BB7655] p-1 h-fit text-white rounded-lg w-fit ">
-              Osogbo
-            </p>
-            <p className="bg-[#BB7655] p-1 h-fit text-white rounded-lg w-fit ">
-              Alekunwodo
-            </p>
-            <p className="text-sm  p-1 h-fit md:absolute  md:right-[25%] ">
-              2 Bedroom flat
-            </p>
-            <p className="bg-[#34A853] ms-5 ps-1 pe-1  text-white md:absolute rounded-lg md:right-2">
-              #500k
-            </p>
+            <p className="bg-[#BB7655] p-1 h-fit text-white rounded-lg w-fit ">Osun</p>
+            <p className="bg-[#BB7655] p-1 h-fit text-white rounded-lg w-fit ">Osogbo</p>
+            <p className="bg-[#BB7655] p-1 h-fit text-white rounded-lg w-fit ">Alekunwodo</p>
+            <p className="text-sm  p-1 h-fit md:absolute  md:right-[25%] ">2 Bedroom flat</p>
+            <p className="bg-[#34A853] ms-5 ps-1 pe-1  text-white md:absolute rounded-lg md:right-2">#500k</p>
           </div>
           <div className="mt-5">
             <p>
-              Looking for a 2-bedroom apartment in a quiet neighborhood near the
-              city center. Must include parking space, a balcony, and be
-              pet-friendly. Budget is #500k – #500k per month. Prefer move-in by
-              February 1st.
+              Looking for a 2-bedroom apartment in a quiet neighborhood near the city center. Must include parking
+              space, a balcony, and be pet-friendly. Budget is #500k – #500k per month. Prefer move-in by February 1st.
             </p>
           </div>
 
@@ -47,21 +35,21 @@ const RequestCardContainer = () => {
               className="p-1 underline md:no-underline hover:underline "
               onClick={() => {
                 if (makeVisible.seemMore) {
-                  setMakeVisible(prevState => {
+                  setMakeVisible((prevState) => {
                     return {
                       ...prevState,
                       seemMore: false,
-                      sendOffer: false
+                      sendOffer: false,
                     };
                   });
                   return;
                 }
 
-                setMakeVisible(prevState => {
+                setMakeVisible((prevState) => {
                   return {
                     ...prevState,
                     seemMore: true,
-                    sendOffer: false
+                    sendOffer: false,
                   };
                 });
               }}
@@ -72,20 +60,20 @@ const RequestCardContainer = () => {
               className="bg-[#6A3921] text-white rounded-md p-1 "
               onClick={() => {
                 if (makeVisible.sendOffer) {
-                  setMakeVisible(prevState => {
+                  setMakeVisible((prevState) => {
                     return {
                       ...prevState,
                       seemMore: false,
-                      sendOffer: false
+                      sendOffer: false,
                     };
                   });
                   return;
                 }
-                setMakeVisible(prevState => {
+                setMakeVisible((prevState) => {
                   return {
                     ...prevState,
                     seemMore: false,
-                    sendOffer: true
+                    sendOffer: true,
                   };
                 });
               }}
@@ -94,11 +82,7 @@ const RequestCardContainer = () => {
             </p>
           </div>
         </div>
-        <div
-          className={`${makeVisible.seemMore && !makeVisible.sendOffer
-            ? "block"
-            : "hidden"}  h-fit p-2 `}
-        >
+        <div className={`${makeVisible.seemMore && !makeVisible.sendOffer ? "block" : "hidden"}  h-fit p-2 `}>
           <p>
             Maximum budget<span>3</span>
           </p>
@@ -113,10 +97,9 @@ const RequestCardContainer = () => {
           </p>
         </div>
         <div
-          className={`h-[200px]  mb-3 cursor-default ${makeVisible.sendOffer &&
-          !makeVisible.seemMore
-            ? "block"
-            : "hidden"}
+          className={`h-[200px]  mb-3 cursor-default ${
+            makeVisible.sendOffer && !makeVisible.seemMore ? "block" : "hidden"
+          }
      `}
         >
           <textarea
@@ -125,9 +108,7 @@ const RequestCardContainer = () => {
             placeholder="write a note"
           />
           <p className="w-full text-end">
-            <span className="bg-[#6A3921] m-2 text-white p-1 rounded-md">
-              Submit Offer
-            </span>
+            <span className="bg-[#6A3921] m-2 text-white p-1 rounded-md">Submit Offer</span>
           </p>
         </div>
       </div>

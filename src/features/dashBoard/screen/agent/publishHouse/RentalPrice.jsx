@@ -8,20 +8,15 @@ import { CircularProgress } from "@chakra-ui/progress";
 import { TypeAnimation } from "react-type-animation";
 
 const RentalPrice = () => {
-  const {
-    allDataToPublishReducerState,
-    allDataToPublishReducerDispatcher,
-    agentReducerState
-  } = useContext(CombineContext);
-
+  const { allDataToPublishReducerState, allDataToPublishReducerDispatcher, agentReducerState } =
+    useContext(CombineContext);
 
   const [saveIndicator, setSaveindicator] = useState("");
   const [error, setError] = useState({
     isError: false,
     title: "",
-    errorMessage: ""
+    errorMessage: "",
   });
-
 
   const [fetchData, setFetchData] = useState(false);
   const [successPage, setSuccessPage] = useState(false);
@@ -29,40 +24,25 @@ const RentalPrice = () => {
 
   return (
     <React.Fragment>
-      {!allDataToPublishReducerState.HouseOverview.houseName &&
-        <Navigate
-          to={"/agent/dashboard/publish-home/houseOverview"}
-          replace={true}
-        />}
+      {!allDataToPublishReducerState.HouseOverview.houseName && (
+        <Navigate to={"/agent/dashboard/publish-home/houseOverview"} replace={true} />
+      )}
 
       <div className="font-nunito w-full  h-dvh  md:min-h-[85%] p-2 md:ps-14  mt-20  bg-white z-20 rounded-md shadow-md overflow-y-auto overflow-x-hidden pb-10">
         <p className="font-bold mt-8">Rental Price</p>
         <p className="text-justify p-2 text-sm">
-          Please enter the rental price for your property. This price should
-          reflect the monthly rent amount in your local currency. It’s important
-          to set a competitive and accurate price to attract potential renters.
+          Please enter the rental price for your property. This price should reflect the monthly rent amount in your
+          local currency. It’s important to set a competitive and accurate price to attract potential renters.
         </p>
 
         <div className="w-full    rounded-md mt-2 me-20 ">
           <div>
             <p>Tips:</p>
             <ul className="list-item list-disc">
-              <li>
-                Consider the current market rates for similar properties in your
-                area.
-              </li>
-              <li>
-                {" "}Factor in any special amenities or features that might
-                justify a higher price.
-              </li>
-              <li>
-                Ensure the price is clear and does not include hidden fees,
-                unless explained separately.
-              </li>
-              <li>
-                {" "}Make sure the price aligns with the overall value and
-                appeal of the property!
-              </li>
+              <li>Consider the current market rates for similar properties in your area.</li>
+              <li> Factor in any special amenities or features that might justify a higher price.</li>
+              <li>Ensure the price is clear and does not include hidden fees, unless explained separately.</li>
+              <li> Make sure the price aligns with the overall value and appeal of the property!</li>
             </ul>
           </div>
           <div className=" w-full  mt-5 flex flex-wrap gap-8 place-items-center justify-center md:justify-normal">
@@ -71,16 +51,16 @@ const RentalPrice = () => {
               <input
                 type="text"
                 className="bg-[#acb4ac]  md:p-1 p-2 rounded-md "
-                onChange={e => {
+                onChange={(e) => {
                   allDataToPublishReducerDispatcher({
                     TYPE: "Save",
                     payload: {
                       ...allDataToPublishReducerState,
                       RentalPrice: {
                         ...allDataToPublishReducerState.RentalPrice,
-                        monthlyOrYearlyRent: e.target.value
-                      }
-                    }
+                        monthlyOrYearlyRent: e.target.value,
+                      },
+                    },
                   });
                 }}
               />
@@ -91,16 +71,16 @@ const RentalPrice = () => {
               <input
                 type="text"
                 className="bg-[#acb4ac]  md:p-1 p-2 rounded-md"
-                onChange={e => {
+                onChange={(e) => {
                   allDataToPublishReducerDispatcher({
                     TYPE: "Save",
                     payload: {
                       ...allDataToPublishReducerState,
                       RentalPrice: {
                         ...allDataToPublishReducerState.RentalPrice,
-                        securityDeposit: e.target.value
-                      }
-                    }
+                        securityDeposit: e.target.value,
+                      },
+                    },
                   });
                 }}
               />
@@ -111,16 +91,16 @@ const RentalPrice = () => {
               <input
                 type="text"
                 className="bg-[#acb4ac]  md:p-1 p-2 rounded-md"
-                onChange={e => {
+                onChange={(e) => {
                   allDataToPublishReducerDispatcher({
                     TYPE: "Save",
                     payload: {
                       ...allDataToPublishReducerState,
                       RentalPrice: {
                         ...allDataToPublishReducerState.RentalPrice,
-                        applicationFee: e.target.value
-                      }
-                    }
+                        applicationFee: e.target.value,
+                      },
+                    },
                   });
                 }}
               />
@@ -131,16 +111,16 @@ const RentalPrice = () => {
               <input
                 type="text"
                 className="bg-[#acb4ac] md:p-1 p-2 rounded-md"
-                onChange={e => {
+                onChange={(e) => {
                   allDataToPublishReducerDispatcher({
                     TYPE: "Save",
                     payload: {
                       ...allDataToPublishReducerState,
                       RentalPrice: {
                         ...allDataToPublishReducerState.RentalPrice,
-                        maintenanceFee: e.target.value
-                      }
-                    }
+                        maintenanceFee: e.target.value,
+                      },
+                    },
                   });
                 }}
               />
@@ -151,16 +131,16 @@ const RentalPrice = () => {
               <input
                 type="text"
                 className="bg-[#acb4ac]  md:p-1 p-2 rounded-md"
-                onChange={e => {
+                onChange={(e) => {
                   allDataToPublishReducerDispatcher({
                     TYPE: "Save",
                     payload: {
                       ...allDataToPublishReducerState,
                       RentalPrice: {
                         ...allDataToPublishReducerState.RentalPrice,
-                        petFees: e.target.value
-                      }
-                    }
+                        petFees: e.target.value,
+                      },
+                    },
                   });
                 }}
               />
@@ -170,16 +150,16 @@ const RentalPrice = () => {
               <p>Rental Term</p>
               <select
                 className="bg-[#acb4ac]  md:p-1 p-2 rounded-md w-[180px] "
-                onChange={e => {
+                onChange={(e) => {
                   allDataToPublishReducerDispatcher({
                     TYPE: "Save",
                     payload: {
                       ...allDataToPublishReducerState,
                       RentalPrice: {
                         ...allDataToPublishReducerState.RentalPrice,
-                        rentalTerm: e.target.value
-                      }
-                    }
+                        rentalTerm: e.target.value,
+                      },
+                    },
                   });
                 }}
               >
@@ -193,16 +173,16 @@ const RentalPrice = () => {
               <input
                 type="text"
                 className="bg-[#acb4ac]  md:p-1 p-2 rounded-md"
-                onChange={e => {
+                onChange={(e) => {
                   allDataToPublishReducerDispatcher({
                     TYPE: "Save",
                     payload: {
                       ...allDataToPublishReducerState,
                       RentalPrice: {
                         ...allDataToPublishReducerState.RentalPrice,
-                        cleaningServices: e.target.value
-                      }
-                    }
+                        cleaningServices: e.target.value,
+                      },
+                    },
                   });
                 }}
               />
@@ -213,16 +193,16 @@ const RentalPrice = () => {
               <input
                 type="text"
                 className="bg-[#acb4ac]  md:p-1 p-2 rounded-md"
-                onChange={e => {
+                onChange={(e) => {
                   allDataToPublishReducerDispatcher({
                     TYPE: "Save",
                     payload: {
                       ...allDataToPublishReducerState,
                       RentalPrice: {
                         ...allDataToPublishReducerState.RentalPrice,
-                        totalDue: e.target.value
-                      }
-                    }
+                        totalDue: e.target.value,
+                      },
+                    },
                   });
                 }}
               />
@@ -232,13 +212,11 @@ const RentalPrice = () => {
 
         <div className="w-full flex justify-end place-items-center h-[25%] gap-5 pe-4 ">
           <p
-            className={`${saveIndicator
-              ? "block"
-              : "hidden"} ${!saveIndicator.includes("saved")
-              ? `${saveIndicator.includes("saving")
-                  ? "text-black"
-                  : "text-red-600"}`
-              : "text-green-600"}   `}
+            className={`${saveIndicator ? "block" : "hidden"} ${
+              !saveIndicator.includes("saved")
+                ? `${saveIndicator.includes("saving") ? "text-black" : "text-red-600"}`
+                : "text-green-600"
+            }   `}
           >
             {saveIndicator}
           </p>
@@ -250,9 +228,7 @@ const RentalPrice = () => {
                 !allDataToPublishReducerState.RentalPrice.monthlyOrYearlyRent ||
                 !allDataToPublishReducerState.RentalPrice.totalDue
               ) {
-                setSaveindicator(
-                  "Please provide  atleast monthly/yearly rent and total dues data to continue"
-                );
+                setSaveindicator("Please provide  atleast monthly/yearly rent and total dues data to continue");
                 return;
               }
 
@@ -262,32 +238,26 @@ const RentalPrice = () => {
                   ...allDataToPublishReducerState,
                   RentalPrice: {
                     ...allDataToPublishReducerState.RentalPrice,
-                    securityDeposit: allDataToPublishReducerState.RentalPrice
-                      .securityDeposit
+                    securityDeposit: allDataToPublishReducerState.RentalPrice.securityDeposit
                       ? allDataToPublishReducerState.RentalPrice.securityDeposit
                       : "0",
-                    applicationFee: allDataToPublishReducerState.RentalPrice
-                      .applicationFee
+                    applicationFee: allDataToPublishReducerState.RentalPrice.applicationFee
                       ? allDataToPublishReducerState.RentalPrice.applicationFee
                       : "0",
-                    maintenanceFee: allDataToPublishReducerState.RentalPrice
-                      .maintenanceFee
+                    maintenanceFee: allDataToPublishReducerState.RentalPrice.maintenanceFee
                       ? allDataToPublishReducerState.RentalPrice.maintenanceFee
                       : "0",
                     petFees: allDataToPublishReducerState.RentalPrice.petFees
                       ? allDataToPublishReducerState.RentalPrice.petFees
                       : "0",
-                    rentalTerm: allDataToPublishReducerState.RentalPrice
-                      .rentalTerm
+                    rentalTerm: allDataToPublishReducerState.RentalPrice.rentalTerm
                       ? allDataToPublishReducerState.RentalPrice.rentalTerm
                       : "Yearly",
-                    cleaningServices: allDataToPublishReducerState.RentalPrice
-                      .cleaningServices
-                      ? allDataToPublishReducerState.RentalPrice
-                          .cleaningServices
-                      : "no cleaning service"
-                  }
-                }
+                    cleaningServices: allDataToPublishReducerState.RentalPrice.cleaningServices
+                      ? allDataToPublishReducerState.RentalPrice.cleaningServices
+                      : "no cleaning service",
+                  },
+                },
               });
 
               setSaveindicator("saving...");
@@ -312,29 +282,28 @@ const RentalPrice = () => {
               setFetchData(true);
 
               publishHouse(allDataToPublishReducerState, userData.token)
-                .then(result => {
+                .then((result) => {
                   return result.json();
                 })
-                .then(res => {
+                .then((res) => {
                   if (res.status === 200) {
                     setFetchData(false);
                     setSuccessPage(true);
-                    
                   } else {
                     setFetchData(false);
                     setError({
                       isError: true,
                       errorMessage: res.message,
-                      title: res.title
+                      title: res.title,
                     });
                   }
                 })
-                .catch(err => {
+                .catch((err) => {
                   setFetchData(false);
                   setError({
                     isError: true,
                     errorMessage: err,
-                    title: "Error Occured."
+                    title: "Error Occured.",
                   });
                 });
             }}
@@ -345,14 +314,14 @@ const RentalPrice = () => {
       </div>
 
       <div
-        className={`${error.isError || fetchData || successPage
-          ? "block"
-          : "hidden"} absolute   w-full top-0 bottom-0  bg-black bg-opacity-35 flex  mt-20  md:ps-[16%]  justify-center md:justify-normal  place-items-center mx-auto overflow-y-hidden`}
+        className={`${
+          error.isError || fetchData || successPage ? "block" : "hidden"
+        } absolute   w-full top-0 bottom-0  bg-black bg-opacity-35 flex  mt-20  md:ps-[16%]  justify-center md:justify-normal  place-items-center mx-auto overflow-y-hidden`}
       >
         <div
-          className={` ${error.isError
-            ? "block"
-            : "hidden"} animate-popUpAnimation w-[400px] m-5 md:w-[500px] h-[600px] bg-white rounded-md  `}
+          className={` ${
+            error.isError ? "block" : "hidden"
+          } animate-popUpAnimation w-[400px] m-5 md:w-[500px] h-[600px] bg-white rounded-md  `}
         >
           <img
             className="m-5 w-8"
@@ -363,9 +332,7 @@ const RentalPrice = () => {
           />
           <div className="  flex flex-col place-items-center justify-center mt-20 ">
             <img className="w-[200px]" src={errorIcon} />
-            <p className="pt-5 font-bold text-2xl">
-              {error.title}
-            </p>
+            <p className="pt-5 font-bold text-2xl">{error.title}</p>
             <p className="pt-5 ps-2 pe-2  flex flex-wrap  w-[300px] text-wrap  text-center overflow-hidden ">
               {error.errorMessage}
             </p>
@@ -373,26 +340,14 @@ const RentalPrice = () => {
         </div>
 
         <div
-          className={` ${fetchData
-            ? "block"
-            : "hidden"}  animate-popUpAnimation  bg-white w-[300px] md:w-1/2 h-[50vh] m-5 rounded-2xl flex flex-col items-center justify-center`}
+          className={` ${
+            fetchData ? "block" : "hidden"
+          }  animate-popUpAnimation  bg-white w-[300px] md:w-1/2 h-[50vh] m-5 rounded-2xl flex flex-col items-center justify-center`}
         >
           <CircularProgress size={80} color="#BB7655" isIndeterminate />
           <div className="mt-10">
             <TypeAnimation
-              sequence={[
-                500,
-                `Wait`,
-                1000,
-                `while`,
-                1000,
-                `we publish`,
-                1000,
-                `your house.....`,
-                1000,
-                "",
-                500
-              ]}
+              sequence={[500, `Wait`, 1000, `while`, 1000, `we publish`, 1000, `your house.....`, 1000, "", 500]}
               speed={50}
               style={{ fontSize: "2em" }}
               repeat={Infinity}
@@ -402,13 +357,11 @@ const RentalPrice = () => {
         </div>
 
         <div
-          className={` ${successPage
-            ? "block"
-            : "hidden"} font-nunito animate-popUpAnimation  bg-white w-full  md:w-1/2 h-fit mt-6  p-5 m-5 rounded-2xl flex flex-col items-center `}
+          className={` ${
+            successPage ? "block" : "hidden"
+          } font-nunito animate-popUpAnimation  bg-white w-full  md:w-1/2 h-fit mt-6  p-5 m-5 rounded-2xl flex flex-col items-center `}
         >
-          <p className="font-bold text-2xl mt-5">
-            {" "}Congratulations! Your Property is Live
-          </p>
+          <p className="font-bold text-2xl mt-5"> Congratulations! Your Property is Live</p>
 
           <p className="text-balance text-center mt-5">
             {
@@ -419,23 +372,16 @@ const RentalPrice = () => {
             <p className="ms-4 mt-4">What’s Next:</p>
 
             <ul className="list-item ms-8 list-disc text-sm">
+              <li> Manage Your Listing: Make updates or adjustments to the details anytime through your dashboard.</li>
+              <li> Track Inquiries: Keep an eye on messages from interested renters in your inbox.</li>
               <li>
-                {" "}Manage Your Listing: Make updates or adjustments to the
-                details anytime through your dashboard.
-              </li>
-              <li>
-                {" "}Track Inquiries: Keep an eye on messages from interested
-                renters in your inbox.
-              </li>
-              <li>
-                {" "}Enhance Visibility: Share your listing link on social media
-                or with potential tenants for even more exposure.
+                {" "}
+                Enhance Visibility: Share your listing link on social media or with potential tenants for even more
+                exposure.
               </li>
             </ul>
           </div>
-          <p className="mt-4">
-            {" "}Thank you for choosing LodgeMe to showcase your property!
-          </p>
+          <p className="mt-4"> Thank you for choosing LodgeMe to showcase your property!</p>
 
           <div className="w-full  ">
             <p

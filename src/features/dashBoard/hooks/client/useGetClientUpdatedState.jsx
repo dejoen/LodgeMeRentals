@@ -1,19 +1,18 @@
-import { useEffect, useState } from "react"
-import useGetClientStateManagement from "./useGetClientStateManagement"
+import { useEffect, useState } from "react";
+import useGetClientStateManagement from "./useGetClientStateManagement";
 
-const useGetClientUpdatedState = () =>{
+const useGetClientUpdatedState = () => {
+  const { clientReducerState } = useGetClientStateManagement();
 
-    const {clientReducerState} = useGetClientStateManagement()
+  const [clientUpdatedState, setClientUpdatedState] = useState(() => {
+    return clientReducerState;
+  });
 
-    const [clientUpdatedState,setClientUpdatedState] = useState(()=>{
-        return clientReducerState
-    })
+  useEffect(() => {
+    setClientUpdatedState(clientReducerState);
+  }, [clientReducerState]);
 
-    useEffect(()=>{
-       setClientUpdatedState(clientReducerState)
-    },[clientReducerState])
+  return { clientUpdatedState };
+};
 
-    return {clientUpdatedState}
-}
-
-export default useGetClientUpdatedState
+export default useGetClientUpdatedState;

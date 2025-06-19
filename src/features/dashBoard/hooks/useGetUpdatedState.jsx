@@ -1,25 +1,17 @@
-
 import { useContext, useEffect, useState } from "react";
 
-import {CombineContext}  from '../../../context/CombineContextProvider'
+import { CombineContext } from "../../../context/CombineContextProvider";
 
-export default function useGetUpdatedState (){
+export default function useGetUpdatedState() {
+  const { agentReducerState } = useContext(CombineContext);
 
- 
+  const [agentState, setAgentState] = useState(() => {
+    return agentReducerState;
+  });
 
-    const { agentReducerState}  = useContext(CombineContext)
+  useEffect(() => {
+    setAgentState(agentReducerState);
+  }, [agentReducerState]);
 
-        const [agentState,setAgentState] = useState(()=>{
-            return agentReducerState
-        })
-
-        useEffect(()=>{
-            
-         setAgentState(agentReducerState)
-       
-        },[agentReducerState])
-
-       
-        
-   return {agentState}
+  return { agentState };
 }

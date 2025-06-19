@@ -7,33 +7,30 @@ const MarketInsightBody = () => {
       <div>
         <p className="font-bold text-2xl">Market Insights</p>
         <p>
-          Market Insights page provides valuable data and trends to help
-          landlords, agents, and real professionals make informed decisions. The
-          page offer a detailed analysis of the rental market, demand patterns,
-          and area-specific insights.
+          Market Insights page provides valuable data and trends to help landlords, agents, and real professionals make
+          informed decisions. The page offer a detailed analysis of the rental market, demand patterns, and
+          area-specific insights.
         </p>
-      
-   
       </div>
       <div className="w-full ">
         <p className="font-bold m-5">Overview of the rental market.</p>
-           
-           <div className="flex flex-wrap justify-evenly gap-5"> 
-            {
-                  [1,2,6].map((items,index)=>(
-                  
-                  <MarketInsightsOverviewCard header="kkk" bodyOne="gsgg" bodyTwo="hhhs" percentage="19.10%" key={index}/>                 ))
-            }
-           </div>
-           </div> 
-           <NeighborHoodInsights/>
 
-           <div className=" absolute w-full flex justify-end  underline bottom-0 right-5
-         cursor-default  ">See More</div>
+        <div className="flex flex-wrap justify-evenly gap-5">
+          {[1, 2, 6].map((items, index) => (
+            <MarketInsightsOverviewCard header="kkk" bodyOne="gsgg" bodyTwo="hhhs" percentage="19.10%" key={index} />
+          ))}
+        </div>
+      </div>
+      <NeighborHoodInsights />
 
-
-           </div> 
-            );
+      <div
+        className=" absolute w-full flex justify-end  underline bottom-0 right-5
+         cursor-default  "
+      >
+        See More
+      </div>
+    </div>
+  );
 };
 
 export default MarketInsightBody;

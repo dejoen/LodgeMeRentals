@@ -1,16 +1,11 @@
 import HeroSectionScreen from "./HeroSectionScreen";
 
-const LandingPageScreen = () =>{
+const LandingPageScreen = () => {
+  return (
+    <div className="landingPageBody w-full font-nunito ">
+      <HeroSectionScreen />
+    </div>
+  );
+};
 
-    return(
-      <div className="landingPageBody w-full font-nunito ">
-        
-        <HeroSectionScreen/>
-       
-      
-        </div>
-    );
-}
-
-
-export default LandingPageScreen
+export default LandingPageScreen;

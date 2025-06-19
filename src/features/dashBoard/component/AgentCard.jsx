@@ -2,7 +2,7 @@
 
 import { useNavigate } from "react-router-dom";
 
-const AgentCard = props => {
+const AgentCard = (props) => {
   const navigate = useNavigate();
 
   return (
@@ -26,7 +26,6 @@ const AgentCard = props => {
             navigate("/agent/dashboard/listed-houses");
             return;
           }
-         
 
           case "Help & Support": {
             navigate("/agent/dashboard/helpandsupport/accessibility");
@@ -43,12 +42,8 @@ const AgentCard = props => {
     >
       <img className="ms-2 w-[80px] " src={props.image} />
       <div className="flex flex-col place-items-center justify-center">
-        <p className="font-bold text-xl">
-          {props.header}
-        </p>
-        <p className="text-center">
-          {props.body}
-        </p>
+        <p className="font-bold text-xl">{props.header}</p>
+        <p className="text-center">{props.body}</p>
       </div>
     </div>
   );

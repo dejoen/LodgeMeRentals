@@ -17,100 +17,100 @@ const UserProfileBodyContainer = () => {
         setMakeViewVisible(true);
         return {
           about: {
-            isActive: true
+            isActive: true,
           },
           stats: {
-            isActive: false
+            isActive: false,
           },
           posts: {
-            isActive: false
+            isActive: false,
           },
           ratings: {
-            isActive: false
+            isActive: false,
           },
           legitimacy: {
-            isActive: false
-          }
+            isActive: false,
+          },
         };
 
       case "stats":
         setMakeViewVisible(false);
         return {
           about: {
-            isActive: false
+            isActive: false,
           },
           stats: {
-            isActive: true
+            isActive: true,
           },
           posts: {
-            isActive: false
+            isActive: false,
           },
           ratings: {
-            isActive: false
+            isActive: false,
           },
           legitimacy: {
-            isActive: false
-          }
+            isActive: false,
+          },
         };
 
       case "posts":
         setMakeViewVisible(false);
         return {
           about: {
-            isActive: false
+            isActive: false,
           },
           stats: {
-            isActive: false
+            isActive: false,
           },
           posts: {
-            isActive: true
+            isActive: true,
           },
           ratings: {
-            isActive: false
+            isActive: false,
           },
           legitimacy: {
-            isActive: false
-          }
+            isActive: false,
+          },
         };
 
       case "rating":
         setMakeViewVisible(false);
         return {
           about: {
-            isActive: false
+            isActive: false,
           },
           stats: {
-            isActive: false
+            isActive: false,
           },
           posts: {
-            isActive: false
+            isActive: false,
           },
           ratings: {
-            isActive: true
+            isActive: true,
           },
           legitimacy: {
-            isActive: false
-          }
+            isActive: false,
+          },
         };
 
       case "legitimacy":
         setMakeViewVisible(false);
         return {
           about: {
-            isActive: false
+            isActive: false,
           },
           stats: {
-            isActive: false
+            isActive: false,
           },
           posts: {
-            isActive: false
+            isActive: false,
           },
           ratings: {
-            isActive: false
+            isActive: false,
           },
           legitimacy: {
-            isActive: true
-          }
+            isActive: true,
+          },
         };
 
       default:
@@ -121,30 +121,28 @@ const UserProfileBodyContainer = () => {
   return (
     <div className=" font-nunito w-full  shadow-black shadow-lg rounded-lg cursor-default flex flex-col gap-5 ">
       <div className="min-h-[400px]   ">
-        
         <div className="flex  justify-evenly  md:gap-12 m-6 overflow-x-auto ">
           <p
-            className={` ${buttonState.about.isActive &&
-              "bg-[#BB7655] text-white "}  p-2 rounded-md`}
+            className={` ${buttonState.about.isActive && "bg-[#BB7655] text-white "}  p-2 rounded-md`}
             onClick={() => {
-              setButtonState(prevState => {
+              setButtonState((prevState) => {
                 return {
                   ...prevState,
                   about: {
-                    isActive: true
+                    isActive: true,
                   },
                   stats: {
-                    isActive: false
+                    isActive: false,
                   },
                   posts: {
-                    isActive: false
+                    isActive: false,
                   },
                   ratings: {
-                    isActive: false
+                    isActive: false,
                   },
                   legitimacy: {
-                    isActive: false
-                  }
+                    isActive: false,
+                  },
                 };
               });
               setMakeViewVisible(true);
@@ -154,7 +152,7 @@ const UserProfileBodyContainer = () => {
             About
           </p>
 
-       { /*  <p
+          {/*  <p
             className={` ${buttonState.stats.isActive &&
               "bg-[#BB7655] text-white "}  p-2 rounded-md`}
             onClick={() => {
@@ -216,27 +214,26 @@ const UserProfileBodyContainer = () => {
           </p> */}
 
           <p
-            className={` ${buttonState.ratings.isActive &&
-              "bg-[#BB7655] text-white "}  p-2 rounded-md`}
+            className={` ${buttonState.ratings.isActive && "bg-[#BB7655] text-white "}  p-2 rounded-md`}
             onClick={() => {
-              setButtonState(prevState => {
+              setButtonState((prevState) => {
                 return {
                   ...prevState,
                   about: {
-                    isActive: false
+                    isActive: false,
                   },
                   stats: {
-                    isActive: false
+                    isActive: false,
                   },
                   posts: {
-                    isActive: false
+                    isActive: false,
                   },
                   ratings: {
-                    isActive: true
+                    isActive: true,
                   },
                   legitimacy: {
-                    isActive: false
-                  }
+                    isActive: false,
+                  },
                 };
               });
 
@@ -247,27 +244,26 @@ const UserProfileBodyContainer = () => {
             Ratings
           </p>
           <p
-            className={` ${buttonState.legitimacy.isActive &&
-              "bg-[#BB7655] text-white "}  p-2 rounded-md`}
+            className={` ${buttonState.legitimacy.isActive && "bg-[#BB7655] text-white "}  p-2 rounded-md`}
             onClick={() => {
-              setButtonState(prevState => {
+              setButtonState((prevState) => {
                 return {
                   ...prevState,
                   about: {
-                    isActive: false
+                    isActive: false,
                   },
                   stats: {
-                    isActive: false
+                    isActive: false,
                   },
                   posts: {
-                    isActive: false
+                    isActive: false,
                   },
                   ratings: {
-                    isActive: false
+                    isActive: false,
                   },
                   legitimacy: {
-                    isActive: true
-                  }
+                    isActive: true,
+                  },
                 };
               });
 
@@ -280,47 +276,31 @@ const UserProfileBodyContainer = () => {
         </div>
         <Outlet />
       </div>
-      <div
-        className={`${makeViewVisible
-          ? "block"
-          : "hidden"}  min-h-[150px]   `}
-      >
+      <div className={`${makeViewVisible ? "block" : "hidden"}  min-h-[150px]   `}>
         <div className="m-3 my-8 flex flex-col justify-center ">
           <div className="flex gap-1">
             <p className="font-bold ">Member Since:</p>
             <p>
               {agentState.data.timeCreated
                 ? new Date(agentState.data.timeCreated).toLocaleString("en-US", {
-                    dateStyle: "medium"
+                    dateStyle: "medium",
                   })
                 : "{Sign up date}"}
             </p>
           </div>
           <div className="flex gap-1">
             <p className="font-bold ">Language:</p>
-            <p>
-              {agentState.data.userProfile.language
-                ? agentState.data.userProfile.language
-                : "No Language"}
-            </p>
+            <p>{agentState.data.userProfile.language ? agentState.data.userProfile.language : "No Language"}</p>
           </div>
 
           <div className="flex gap-1">
             <p className="font-bold ">Gender:</p>
-            <p>
-              {agentState.data.userProfile.gender
-                ? agentState.data.userProfile.gender
-                : "Nil"}
-            </p>
+            <p>{agentState.data.userProfile.gender ? agentState.data.userProfile.gender : "Nil"}</p>
           </div>
         </div>
       </div>
 
-      <div
-        className={` ${makeViewVisible
-          ? "block"
-          : "hidden"} min-h-[200px]   p-3`}
-      >
+      <div className={` ${makeViewVisible ? "block" : "hidden"} min-h-[200px]   p-3`}>
         <div className="relative w-full flex">
           <p className="font-bold">Address</p>
         </div>
@@ -329,40 +309,24 @@ const UserProfileBodyContainer = () => {
           <div className=" space-y-4">
             <div>
               <p className="font-bold">Country</p>
-              <p>
-                {agentState.data.userProfile.country
-                  ? agentState.data.userProfile.country
-                  : "Nill"}
-              </p>
+              <p>{agentState.data.userProfile.country ? agentState.data.userProfile.country : "Nill"}</p>
             </div>
 
             <div>
               <p className="font-bold">Local Government</p>
-              <p>
-                {agentState.data.userProfile.localGovt
-                  ? agentState.data.userProfile.localGovt
-                  : "Nil"}
-              </p>
+              <p>{agentState.data.userProfile.localGovt ? agentState.data.userProfile.localGovt : "Nil"}</p>
             </div>
           </div>
 
           <div className=" space-y-4">
             <div>
               <p className="font-bold">State</p>
-              <p>
-                {agentState.data.userProfile.state
-                  ? agentState.data.userProfile.state
-                  : "Nil"}
-              </p>
+              <p>{agentState.data.userProfile.state ? agentState.data.userProfile.state : "Nil"}</p>
             </div>
 
             <div className="">
               <p className="font-bold">Postal Code</p>
-              <p>
-                {agentState.data.userProfile.postalCode
-                  ? agentState.data.userProfile.postalCode
-                  : "Nil"}
-              </p>
+              <p>{agentState.data.userProfile.postalCode ? agentState.data.userProfile.postalCode : "Nil"}</p>
             </div>
           </div>
         </div>

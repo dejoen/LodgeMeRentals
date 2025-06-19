@@ -3,48 +3,29 @@ import { createContext, useState } from "react";
 import { io } from "socket.io-client";
 import BaseURL from "../utils/BaseURL";
 
- 
+export const SocketContext = createContext();
 
-export const SocketContext = createContext()
+const SocketContextProvider = ({ children }) => {
+  const [socketConnected, setSocketConnected] = useState(false);
+  let socket = null;
 
+  const connectSocket = async (token) => {
+    if (!token) return "token needed";
 
-const SocketContextProvider = ({children}) =>{
-  const [socketConnected,setSocketConnected] = useState(false)
-  let socket = null
+    socket = io(`${BaseURL.LOCAL_URL_SOCKET}`, {
+      auth: {
+        token,
+      },
+    });
+  };
 
-   const connectSocket = async (token) =>{
-   
-      
-    if(!token) return 'token needed'
+  const getSocket = () => {
+    return socket;
+  };
 
-        socket =  io(`${BaseURL.LOCAL_URL_SOCKET}`,{
-        auth:{
-            token
-        }
-       })
-      
-    
-   }
+  return (
+    <SocketContext.Provider value={{ connectSocket, socketConnected, getSocket }}>{children}</SocketContext.Provider>
+  );
+};
 
-   const getSocket = () =>{
-     return socket
-   }
-
-   
-
- 
-
-
-
-
-    return (
-     <SocketContext.Provider value={{connectSocket,socketConnected,getSocket}}>
-
-        {children}
-     </SocketContext.Provider>
-
-    );
-}
-
-export default SocketContextProvider
-
+export default SocketContextProvider;

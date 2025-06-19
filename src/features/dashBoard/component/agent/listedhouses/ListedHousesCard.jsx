@@ -9,12 +9,7 @@ import pauseIcon from "../../../../../assets/listedhouses/pause.svg";
 import markAsRentedIcon from "../../../../../assets/listedhouses/markasread.svg";
 import { useRef, useState } from "react";
 
-const ListedHousesCard = ({
-  houseName,
-  shortDescription,
-  houseImage,
-  listId
-}) => {
+const ListedHousesCard = ({ houseName, shortDescription, houseImage, listId }) => {
   const containerRef = useRef();
 
   const [activateSecondContainer, setActivateSecondContainer] = useState(false);
@@ -23,26 +18,16 @@ const ListedHousesCard = ({
       ref={containerRef}
       className={`flex  flex-col text-black border-b border-black min-h-[10vh]  md:w-full md:place-items-center justify-center `}
     >
-
-      <div
-        className={`max-h-[56vh] md:max-h-[53vh]  w-full place-items-center flex  justify-evenly p-3  `}
-      >
+      <div className={`max-h-[56vh] md:max-h-[53vh]  w-full place-items-center flex  justify-evenly p-3  `}>
         <div className="hidden md:block  h-[15vh]   min-w-[120px] max-w-[120px] md:me-12 ">
-          <img
-            className="rounded-md  w-full h-full    "
-            src={houseImage ? houseImage : image}
-          />
+          <img className="rounded-md  w-full h-full    " src={houseImage ? houseImage : image} />
         </div>
         <div className="text-sm flex flex-col justify-center place-items-center  text-center min-w-[120px] max-w-[120px] md:me-8">
-          <p>
-            {houseName ? houseName : "house name"}
-          </p>
-          <p className="text-ellipsis">
-            {shortDescription ? shortDescription : "short description"}
-          </p>
+          <p>{houseName ? houseName : "house name"}</p>
+          <p className="text-ellipsis">{shortDescription ? shortDescription : "short description"}</p>
         </div>
 
-      {/* <p className=" text-center min-w-[120px] max-w-[120px] overflow-x-auto">
+        {/* <p className=" text-center min-w-[120px] max-w-[120px] overflow-x-auto">
           1
         </p>
         <p className=" text-center min-w-[120px]">0</p>
@@ -63,9 +48,9 @@ const ListedHousesCard = ({
       </div>
 
       <div
-        className={` ${activateSecondContainer
-          ? " flex"
-          : "hidden"} w-full mt-2 gap-4 justify-evenly md:justify-end pe-[2%] text-black  place-items-center `}
+        className={` ${
+          activateSecondContainer ? " flex" : "hidden"
+        } w-full mt-2 gap-4 justify-evenly md:justify-end pe-[2%] text-black  place-items-center `}
       >
         <div className="flex min-w-[120px] gap-2   place-items-center">
           <p className=" text-center ">Edit Listing</p>
@@ -102,7 +87,7 @@ ListedHousesCard.propTypes = {
   houseName: PropTypes.string,
   shortDescription: PropTypes.string,
   houseImage: PropTypes.string,
-  listId: PropTypes.string
+  listId: PropTypes.string,
 };
 
 export default ListedHousesCard;

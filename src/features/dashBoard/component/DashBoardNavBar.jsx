@@ -14,347 +14,324 @@ import useManageAgentState from "../hooks/useManageAgentState";
 const DashBoardNavBar = () => {
   const location = useLocation();
 
-  const {updatedNotification,notificationCount} = useGetAgentNotificationState()
-  const {notificationState} = useManageAgentState()
- 
-  const [activeContainer, setActiveContainter] = useState(() => {
+  const { updatedNotification, notificationCount } = useGetAgentNotificationState();
+  const { notificationState } = useManageAgentState();
 
+  const [activeContainer, setActiveContainter] = useState(() => {
     switch (location.pathname.split("/")[2]) {
-     
       case "dashboard": {
-      
         return {
           dashboardNav: {
-            isActive: true
+            isActive: true,
           },
           requestNav: {
-            isActive: false
+            isActive: false,
           },
           messageNav: {
-            isActive: false
+            isActive: false,
           },
           appointmentNav: {
-            isActive: false
+            isActive: false,
           },
           notificationNav: {
-            isActive: false
+            isActive: false,
           },
           SettingsNav: {
-            isActive: false
-          }
+            isActive: false,
+          },
         };
       }
 
       case "requests": {
         return {
           dashboardNav: {
-            isActive: false
+            isActive: false,
           },
           requestNav: {
-            isActive: true
+            isActive: true,
           },
           messageNav: {
-            isActive: false
+            isActive: false,
           },
           appointmentNav: {
-            isActive: false
+            isActive: false,
           },
           notificationNav: {
-            isActive: false
+            isActive: false,
           },
           SettingsNav: {
-            isActive: false
-          }
+            isActive: false,
+          },
         };
       }
-
 
       case "message": {
         return {
           dashboardNav: {
-            isActive: false
+            isActive: false,
           },
           requestNav: {
-            isActive: false
+            isActive: false,
           },
           messageNav: {
-            isActive: true
+            isActive: true,
           },
           appointmentNav: {
-            isActive: false
+            isActive: false,
           },
           notificationNav: {
-            isActive: false
+            isActive: false,
           },
           SettingsNav: {
-            isActive: false
-          }
+            isActive: false,
+          },
         };
       }
 
       case "notification": {
         return {
           dashboardNav: {
-            isActive: false
+            isActive: false,
           },
           requestNav: {
-            isActive: false
+            isActive: false,
           },
           messageNav: {
-            isActive: false
+            isActive: false,
           },
           appointmentNav: {
-            isActive: false
+            isActive: false,
           },
           notificationNav: {
-            isActive: true
+            isActive: true,
           },
           SettingsNav: {
-            isActive: false
-          }
+            isActive: false,
+          },
         };
       }
 
       case "appointment": {
         return {
           dashboardNav: {
-            isActive: false
+            isActive: false,
           },
           requestNav: {
-            isActive: false
+            isActive: false,
           },
           messageNav: {
-            isActive: false
+            isActive: false,
           },
           appointmentNav: {
-            isActive: true
+            isActive: true,
           },
           notificationNav: {
-            isActive: false
+            isActive: false,
           },
           SettingsNav: {
-            isActive: false
-          }
+            isActive: false,
+          },
         };
       }
-
 
       case "setting": {
         return {
           dashboardNav: {
-            isActive: false
+            isActive: false,
           },
           requestNav: {
-            isActive: false
+            isActive: false,
           },
           messageNav: {
-            isActive: false
+            isActive: false,
           },
           appointmentNav: {
-            isActive: false
+            isActive: false,
           },
           notificationNav: {
-            isActive: false
+            isActive: false,
           },
           SettingsNav: {
-            isActive: true
-          }
+            isActive: true,
+          },
         };
       }
-
 
       default:
         null;
     }
-
   });
 
-
-  useEffect(()=>{
+  useEffect(() => {
     switch (location.pathname.split("/")[2]) {
-     
       case "dashboard": {
-
-        setActiveContainter(prevState=>{
+        setActiveContainter((prevState) => {
           return {
             ...prevState,
             dashboardNav: {
-              isActive: true
+              isActive: true,
             },
             requestNav: {
-              isActive: false
+              isActive: false,
             },
             messageNav: {
-              isActive: false
+              isActive: false,
             },
             appointmentNav: {
-              isActive: false
+              isActive: false,
             },
             notificationNav: {
-              isActive: false
+              isActive: false,
             },
             SettingsNav: {
-              isActive: false
-            }
-          }
-        })
-      
-       return
+              isActive: false,
+            },
+          };
+        });
 
-        
+        return;
       }
 
       case "requests": {
-
-        setActiveContainter(prevstate=>{
+        setActiveContainter((prevstate) => {
           return {
             ...prevstate,
             dashboardNav: {
-              isActive: false
+              isActive: false,
             },
             requestNav: {
-              isActive: true
+              isActive: true,
             },
             messageNav: {
-              isActive: false
+              isActive: false,
             },
             appointmentNav: {
-              isActive: false
+              isActive: false,
             },
             notificationNav: {
-              isActive: false
+              isActive: false,
             },
             SettingsNav: {
-              isActive: false
-            }
-          }
-        })
+              isActive: false,
+            },
+          };
+        });
 
-        return
-        
+        return;
       }
-
 
       case "message": {
-
-        setActiveContainter(prevState=>{
+        setActiveContainter((prevState) => {
           return {
             ...prevState,
             dashboardNav: {
-              isActive: false
+              isActive: false,
             },
             requestNav: {
-              isActive: false
+              isActive: false,
             },
             messageNav: {
-              isActive: true
+              isActive: true,
             },
             appointmentNav: {
-              isActive: false
+              isActive: false,
             },
             notificationNav: {
-              isActive: false
+              isActive: false,
             },
             SettingsNav: {
-              isActive: false
-            }
-          }
-        })
-       return
+              isActive: false,
+            },
+          };
+        });
+        return;
       }
 
-
       case "notification": {
-
-        setActiveContainter(prevState=>{
+        setActiveContainter((prevState) => {
           return {
             ...prevState,
             dashboardNav: {
-              isActive: false
+              isActive: false,
             },
             requestNav: {
-              isActive: false
+              isActive: false,
             },
             messageNav: {
-              isActive: false
+              isActive: false,
             },
             appointmentNav: {
-              isActive: false
+              isActive: false,
             },
             notificationNav: {
-              isActive: true
+              isActive: true,
             },
             SettingsNav: {
-              isActive: false
-            }
-          }
-        })
-       return
+              isActive: false,
+            },
+          };
+        });
+        return;
       }
 
       case "appointment": {
-
-        setActiveContainter(prevState=>{
+        setActiveContainter((prevState) => {
           return {
             ...prevState,
             dashboardNav: {
-              isActive: false
+              isActive: false,
             },
             requestNav: {
-              isActive: false
+              isActive: false,
             },
             messageNav: {
-              isActive: false
+              isActive: false,
             },
             appointmentNav: {
-              isActive: true
+              isActive: true,
             },
             notificationNav: {
-              isActive: false
+              isActive: false,
             },
             SettingsNav: {
-              isActive: false
-            }
-          }
-        })
-       return
+              isActive: false,
+            },
+          };
+        });
+        return;
       }
 
       case "setting": {
-
-        setActiveContainter(prevState=>{
+        setActiveContainter((prevState) => {
           return {
             ...prevState,
             dashboardNav: {
-              isActive: false
+              isActive: false,
             },
             requestNav: {
-              isActive: false
+              isActive: false,
             },
             messageNav: {
-              isActive: false
+              isActive: false,
             },
             appointmentNav: {
-              isActive: false
+              isActive: false,
             },
             notificationNav: {
-              isActive: false
+              isActive: false,
             },
             SettingsNav: {
-              isActive:true
-            }
-          }
-        })
-       return
+              isActive: true,
+            },
+          };
+        });
+        return;
       }
-
-
 
       default:
         null;
     }
-
-     },[location.pathname])
+  }, [location.pathname]);
   const navigate = useNavigate();
 
   return (
@@ -365,32 +342,31 @@ const DashBoardNavBar = () => {
       </div>
       <div className="font-nunito text-white flex flex-col gap-2">
         <div
-          className={`flex h-[50px] hover:bg-[#BB7655] ${activeContainer
-            .dashboardNav.isActive
-            ? "bg-[#BB7655] "
-            : ""} rounded-md place-items-center  ps-4 gap-2`}
+          className={`flex h-[50px] hover:bg-[#BB7655] ${
+            activeContainer.dashboardNav.isActive ? "bg-[#BB7655] " : ""
+          } rounded-md place-items-center  ps-4 gap-2`}
           onClick={() => {
-            setActiveContainter(prevState => {
+            setActiveContainter((prevState) => {
               return {
                 ...prevState,
                 dashboardNav: {
-                  isActive: true
+                  isActive: true,
                 },
                 requestNav: {
-                  isActive: false
+                  isActive: false,
                 },
                 messageNav: {
-                  isActive: false
+                  isActive: false,
                 },
                 appointmentNav: {
-                  isActive: false
+                  isActive: false,
                 },
                 notificationNav: {
-                  isActive: false
+                  isActive: false,
                 },
                 SettingsNav: {
-                  isActive: false
-                }
+                  isActive: false,
+                },
               };
             });
 
@@ -400,8 +376,7 @@ const DashBoardNavBar = () => {
           <img src={dashBoardMenu} />
           <p>Dashboard</p>
         </div>
-{
-  /**
+        {/**
    * not using this flow for now 
    *  <div
           className={`flex h-[50px] hover:bg-[#BB7655] ${activeContainer
@@ -439,37 +414,34 @@ const DashBoardNavBar = () => {
           <img src={requestIcon} />
           <p>Requests</p>
         </div>
-   */
-}
-       
+   */}
 
         <div
-          className={`flex h-[50px] hover:bg-[#BB7655] ${activeContainer
-            .messageNav.isActive
-            ? "bg-[#BB7655] "
-            : ""}  rounded-md place-items-center  ps-4 gap-2`}
+          className={`flex h-[50px] hover:bg-[#BB7655] ${
+            activeContainer.messageNav.isActive ? "bg-[#BB7655] " : ""
+          }  rounded-md place-items-center  ps-4 gap-2`}
           onClick={() => {
-            setActiveContainter(prevState => {
+            setActiveContainter((prevState) => {
               return {
                 ...prevState,
                 dashboardNav: {
-                  isActive: false
+                  isActive: false,
                 },
                 requestNav: {
-                  isActive: false
+                  isActive: false,
                 },
                 messageNav: {
-                  isActive: true
+                  isActive: true,
                 },
                 appointmentNav: {
-                  isActive: false
+                  isActive: false,
                 },
                 notificationNav: {
-                  isActive: false
+                  isActive: false,
                 },
                 SettingsNav: {
-                  isActive: false
-                }
+                  isActive: false,
+                },
               };
             });
             navigate("message");
@@ -479,7 +451,7 @@ const DashBoardNavBar = () => {
           <p>Messages</p>
         </div>
 
-    {/*    <div
+        {/*    <div
           className={`flex h-[50px] hover:bg-[#BB7655] ${activeContainer
             .appointmentNav.isActive
             ? "bg-[#BB7655] "
@@ -516,46 +488,44 @@ const DashBoardNavBar = () => {
         </div>
 */}
         <div
-          className={`flex h-[50px]   hover:bg-[#BB7655] ${activeContainer
-            .notificationNav.isActive
-            ? "bg-[#BB7655] "
-            : ""}rounded-md place-items-center  ps-4 gap-2 relative`}
+          className={`flex h-[50px]   hover:bg-[#BB7655] ${
+            activeContainer.notificationNav.isActive ? "bg-[#BB7655] " : ""
+          }rounded-md place-items-center  ps-4 gap-2 relative`}
           onClick={() => {
-            setActiveContainter(prevState => {
+            setActiveContainter((prevState) => {
               return {
                 ...prevState,
                 dashboardNav: {
-                  isActive: false
+                  isActive: false,
                 },
                 requestNav: {
-                  isActive: false
+                  isActive: false,
                 },
                 messageNav: {
-                  isActive: false
+                  isActive: false,
                 },
                 appointmentNav: {
-                  isActive: false
+                  isActive: false,
                 },
                 notificationNav: {
-                  isActive: true
+                  isActive: true,
                 },
                 SettingsNav: {
-                  isActive: false
-                }
+                  isActive: false,
+                },
               };
             });
             navigate("notification");
           }}
         >
-        <div className="relative me-2">
-        <p className="absolute bottom-3 text-red-600  left-7 font-bold text-[18px] ">{ `${notificationCount}`}</p>
-        <img src={dashBoardNotification} />
-      
-        </div>
+          <div className="relative me-2">
+            <p className="absolute bottom-3 text-red-600  left-7 font-bold text-[18px] ">{`${notificationCount}`}</p>
+            <img src={dashBoardNotification} />
+          </div>
           <p className="ms-3">Notifications</p>
         </div>
 
-    { /*   <div
+        {/*   <div
           className={`flex h-[50px] hover:bg-[#BB7655] ${activeContainer
             .SettingsNav.isActive
             ? "bg-[#BB7655] "

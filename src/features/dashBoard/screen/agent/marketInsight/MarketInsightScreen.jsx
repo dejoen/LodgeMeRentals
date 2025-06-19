@@ -12,13 +12,11 @@ const MarketInsight = () => {
         header={"Welcome \n" + agentReducerState.data.userName + "!"}
         body={"What would you like to see today?"}
       />
-      {
-        /**
-         * market insight restructured this flow  would not be used now switching to  request view.
-         * used  <RequestContainer/> in place of <MarketInsightBody />
-        */
-      }
-      <RequestContainer/>
+      {/**
+       * market insight restructured this flow  would not be used now switching to  request view.
+       * used  <RequestContainer/> in place of <MarketInsightBody />
+       */}
+      <RequestContainer />
 
       <AgentNavBarDrawer />
     </div>

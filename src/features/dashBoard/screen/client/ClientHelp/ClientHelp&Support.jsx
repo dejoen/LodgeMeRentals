@@ -7,36 +7,37 @@ import phoneIcon from "../../../../../assets/support/phonesupportIcon.svg";
 ////import helpIcon from "../../../../../assets/support/supportmoreIcon.svg";
 //import { useState } from "react";
 //import { Outlet, useNavigate } from "react-router-dom";
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 const ClientHelpAndSupport = () => {
- // const [helpIconToggled, setHelpIconToggled] = useState(false);
+  // const [helpIconToggled, setHelpIconToggled] = useState(false);
 
- const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
-   <div>
-     <div className="md:ml-12 md:pt-12 pt-6 ml-6 " onClick={()=>{
-            navigate("/client/dashboard")
-          }}>
-   <ArrowLeft />
-   </div>
-     <div className="  w-[98.6%] md:w-[80%]  mx-auto   z-30  h-[87.6vh] cursor-default     overflow-y-auto flex flex-col justify-center">
-    
-    
-      <div className="font-bold text-3xl px-10 pt-10 text-center">
-        <p>Welcome to LodgeMe Support</p>
+    <div>
+      <div
+        className="md:ml-12 md:pt-12 pt-6 ml-6 "
+        onClick={() => {
+          navigate("/client/dashboard");
+        }}
+      >
+        <ArrowLeft />
       </div>
+      <div className="  w-[98.6%] md:w-[80%]  mx-auto   z-30  h-[87.6vh] cursor-default     overflow-y-auto flex flex-col justify-center">
+        <div className="font-bold text-3xl px-10 pt-10 text-center">
+          <p>Welcome to LodgeMe Support</p>
+        </div>
 
-      <div className="w-full p-5 flex flex-wrap justify-center md:flex-nowrap">
-        <div className="md:max-w-[350px] p-2">
-          <p className="font-bold">Need any Help ? We are here for you</p>
-       {/*}   <p>
+        <div className="w-full p-5 flex flex-wrap justify-center md:flex-nowrap">
+          <div className="md:max-w-[350px] p-2">
+            <p className="font-bold">Need any Help ? We are here for you</p>
+            {/*}   <p>
             This section is your go-to resource for resolving issues and
             ensuring smooth management of your rental business.
           </p>*/}
-        </div>
+          </div>
 
-      {/*}  <div className="p-2 w-full relative  ">
+          {/*}  <div className="p-2 w-full relative  ">
           <div className="place-self-center md:place-self-end md:mt-[55px] bg-[#BB7655] p-2 rounded-md text-white me-10">
             <div className="flex gap-2">
               <p> Select Help </p>
@@ -92,23 +93,23 @@ const ClientHelpAndSupport = () => {
             </p>
           </div>
         </div>*/}
-      </div>
+        </div>
 
-      {/*  <Outlet />*/}
+        {/*  <Outlet />*/}
 
-      <div className="w-full">
-        <p className="place-self-center mt-5 text-2xl ">Contact Support</p>
-        <div className="w-full flex justify-center place-items-center mt-5 mb-5 gap-8">
-          <img className="h-[4vh] " src={messageIcon} />
-          <img className="h-[4vh] " src={phoneIcon} />
-         {/*} <img className="h-[4vh] " src={facebookIcon} />
+        <div className="w-full">
+          <p className="place-self-center mt-5 text-2xl ">Contact Support</p>
+          <div className="w-full flex justify-center place-items-center mt-5 mb-5 gap-8">
+            <img className="h-[4vh] " src={messageIcon} />
+            <img className="h-[4vh] " src={phoneIcon} />
+            {/*} <img className="h-[4vh] " src={facebookIcon} />
           <img className="h-[4vh] " src={instagramIcon} />
           <img className="h-[4vh] " src={twitterIcon} />
           <img className="h-[4vh] " src={whatsappIcon} /> */}
+          </div>
         </div>
       </div>
     </div>
-   </div>
   );
 };
 

@@ -6,9 +6,9 @@ import menuIcon from "../../../assets/menuIcon.svg";
 import { openDrawer } from "./NavDrawerBar";
 import { useLocation, useNavigate } from "react-router-dom";
 import { openGetStartedPageScreen } from "../screen/GetStartedScreen";
-import { Search } from 'lucide-react';
+import { Search } from "lucide-react";
 
-const NavBarComponent = props => {
+const NavBarComponent = (props) => {
   const navigate = useNavigate();
   const location = useLocation();
   return (
@@ -19,9 +19,10 @@ const NavBarComponent = props => {
             <img className="w-[70px] h-[70px]" src={LodgeMeIcon} />
             <div className="flex w-full justify-end">
               <div className="  w-[100px]  flex justify-between">
-                <img src={searchIcon} onClick={() => {}}  className="w-[32px]"/>
+                <img src={searchIcon} onClick={() => {}} className="w-[32px]" />
 
-                <img className="w-[32px]"
+                <img
+                  className="w-[32px]"
                   src={menuIcon}
                   onClick={() => {
                     openDrawer();
@@ -32,72 +33,62 @@ const NavBarComponent = props => {
           </div>
         </div>
 
-       <div className="pt-20 z-50">
-       <div
-          className={`hero-text-bg ${props.image}   bg-no-repeat bg-cover bg-center   w-full h-[461px] flex place-items-center bg-slate-500 `}
-        >
+        <div className="pt-20 z-50">
           <div
-            className={`hero-text-container  w-full h-[355px]  top-[140px]    ${props.adjustHeight}`}
+            className={`hero-text-bg ${props.image}   bg-no-repeat bg-cover bg-center   w-full h-[461px] flex place-items-center bg-slate-500 `}
           >
-            <div
-              className={`hero-text h-[219px] ${props.adjustHeight}  flex flex-col p-2`}
-            >
-              <div
-                className={`text-white h-[54px]  mt-[30px] size-[50px] w-[90%] ms-[5px] text-4xl font-nunito font-bold   leading-[45px] text-center place-self-center `}
-              >
-                {props.text}
-              </div>
+            <div className={`hero-text-container  w-full h-[355px]  top-[140px]    ${props.adjustHeight}`}>
+              <div className={`hero-text h-[219px] ${props.adjustHeight}  flex flex-col p-2`}>
+                <div
+                  className={`text-white h-[54px]  mt-[30px] size-[50px] w-[90%] ms-[5px] text-4xl font-nunito font-bold   leading-[45px] text-center place-self-center `}
+                >
+                  {props.text}
+                </div>
 
-              <div
-                className={`mt-[100px] text-white font-bold text-center z-10 text-balance text-xl `}
-              >
-                Carefully selected, best homes thats meet with your rental needs
-              </div>
+                <div className={`mt-[100px] text-white font-bold text-center z-10 text-balance text-xl `}>
+                  Carefully selected, best homes thats meet with your rental needs
+                </div>
 
-              <div
-                className="bg-yellow-600 rounded-2xl w-[70%] text-center mt-8 place-self-center p-4 text-white z-10 hover:bg-white hover:text-yellow-600"
-                onClick={() => {
-                  if (props.buttonOneText === "Get Started") {
+                <div
+                  className="bg-yellow-600 rounded-2xl w-[70%] text-center mt-8 place-self-center p-4 text-white z-10 hover:bg-white hover:text-yellow-600"
+                  onClick={() => {
+                    if (props.buttonOneText === "Get Started") {
+                      openGetStartedPageScreen();
+                    } else {
+                      navigate("/login");
+                    }
+                  }}
+                >
+                  <p>{props.buttonOneText}</p>
+                </div>
+
+                <div
+                  className={`${props.makeVisible} bg-white rounded-2xl w-[70%] text-center mt-5 place-self-center p-4 text-black z-10 hover:bg-white hover:text-yellow-600`}
+                  onClick={() => {
                     openGetStartedPageScreen();
-                  } else {
-                    navigate("/login");
-                  }
-                }}
-              >
-                <p>
-                  {props.buttonOneText}
-                </p>
-              </div>
-
-              <div
-                className={`${props.makeVisible} bg-white rounded-2xl w-[70%] text-center mt-5 place-self-center p-4 text-black z-10 hover:bg-white hover:text-yellow-600`}
-                onClick={() => {
-                  openGetStartedPageScreen();
-                }}
-              >
-                <p>Register</p>
+                  }}
+                >
+                  <p>Register</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-       </div>
       </div>
 
       <div
         className={`nav-container-large-screen  hidden md:block ${props.image}  bg-no-repeat bg-cover bg-center h-[600px]`}
       >
-        <div
-          className={`bg-heroGradientImage fixed md:gap-1  w-full mx-auto h-24 pt-4 p-2 gap-2 text-white `}
-        >
+        <div className={`bg-heroGradientImage fixed md:gap-1  w-full mx-auto h-24 pt-4 p-2 gap-2 text-white `}>
           <div className="nav-container-body gap-10 flex justify-between items-center w-full  z-50 ">
             <img src={LodgeMeIcon} className="" />
 
-                   <div className=" w-fit h-5 
-           size-4  flex  gap-12 items-center  md:place-content-evenly ">
-                <p
-                className={`hover:text-orange-500 ${
-                  location.pathname === "/" ? "text-orange-500" : ""
-                }`}
+            <div
+              className=" w-fit h-5 
+           size-4  flex  gap-12 items-center  md:place-content-evenly "
+            >
+              <p
+                className={`hover:text-orange-500 ${location.pathname === "/" ? "text-orange-500" : ""}`}
                 onClick={() => {
                   navigate("/");
                 }}
@@ -105,16 +96,14 @@ const NavBarComponent = props => {
                 Home
               </p>
               <p
-                className={`hover:text-orange-500 ${
-                  location.pathname === "/about" ? "text-orange-500" : ""
-                }`}
+                className={`hover:text-orange-500 ${location.pathname === "/about" ? "text-orange-500" : ""}`}
                 onClick={() => {
                   navigate("/about");
                 }}
               >
                 About
               </p>
-        { /*        <p
+              {/*        <p
                   className="hover:underline "
                   onClick={() => {
                     navigate("/blog/one");
@@ -139,54 +128,50 @@ const NavBarComponent = props => {
                   Terms & Conditions
                 </p> */}
 
-<div className="  flex w-fit rounded-md bg-white h-10  md:w-1/2 ">
-                  <input
-                    type="text"
-                    className=" outline-none bg-none text-black w-[90%] bg-transparent pl-2 "
-                    placeholder="Search ....."
-                  />
+              <div className="  flex w-fit rounded-md bg-white h-10  md:w-1/2 ">
+                <input
+                  type="text"
+                  className=" outline-none bg-none text-black w-[90%] bg-transparent pl-2 "
+                  placeholder="Search ....."
+                />
 
-                  <Search className="   text-gray-400  w-[12%] h-full flex justify-end pe-1  place-items-center pr-3 " />
-                    
-                  
-                </div>
-              </div>
-
-              <div className=" w-fit  h-10 gap-8
-           size-4 flex  ms-5   md:w-ful md:justify-center md:ms-0 ">
-               
-                <div className="flex place-items-center bg-orange-500 rounded-md w-28 hover:bg-white hover:text-orange-500">
-                  <p
-                    className="w-full text-center"
-                    onClick={() => {
-                      navigate("/login");
-                    }}
-                  >
-                    {" "}Log in
-                  </p>
-                </div>
-                <div className="flex place-items-center mr-3 bg-white rounded-md  w-28 text-black hover:bg-orange-500  hover:text-white">
-                  <p
-                    className="w-full text-center"
-                    onClick={() => {
-                      openGetStartedPageScreen();
-                    }}
-                  >
-                    {" "}Register
-                  </p>
-                </div>
+                <Search className="   text-gray-400  w-[12%] h-full flex justify-end pe-1  place-items-center pr-3 " />
               </div>
             </div>
-         
+
+            <div
+              className=" w-fit  h-10 gap-8
+           size-4 flex  ms-5   md:w-ful md:justify-center md:ms-0 "
+            >
+              <div className="flex place-items-center bg-orange-500 rounded-md w-28 hover:bg-white hover:text-orange-500">
+                <p
+                  className="w-full text-center"
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
+                  {" "}
+                  Log in
+                </p>
+              </div>
+              <div className="flex place-items-center mr-3 bg-white rounded-md  w-28 text-black hover:bg-orange-500  hover:text-white">
+                <p
+                  className="w-full text-center"
+                  onClick={() => {
+                    openGetStartedPageScreen();
+                  }}
+                >
+                  {" "}
+                  Register
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="mx-auto w-full h-[600px]  pt-44 pl-5 pr-10">
           <div className=" xl:flex  font-nunito ">
-            <div
-              className={`hero-text-container xl-w-[90%] h-[355px] ${props.adjustHeight}   top-[140px]  `}
-            >
-              <div
-                className={`hero-text h-[219px] ${props.adjustHeight} flex flex-col `}
-              >
+            <div className={`hero-text-container xl-w-[90%] h-[355px] ${props.adjustHeight}   top-[140px]  `}>
+              <div className={`hero-text h-[219px] ${props.adjustHeight} flex flex-col `}>
                 <div
                   className={` text-white h-[54px]  mt-[10px]  w-[80%]  text-6xl font-bold   leading-[80px] text-center place-self-center ${props.lineHeight} ${props.textSize}`}
                 >
@@ -194,39 +179,36 @@ const NavBarComponent = props => {
                 </div>
 
                 <div className="mt-[120px] text-white font-bold text-center pl-10 z-10 text-balance text-xl">
-                  Carefully selected, best homes thats meet with your rental
-                  needs
+                  Carefully selected, best homes thats meet with your rental needs
                 </div>
 
-              <div className="flex justify-center items-center gap-5 mt-12">
-              <div
-                  className="bg-yellow-600 rounded-2xl   place-self-center w-[20%] text-center p-4 text-white  hover:bg-white hover:text-yellow-600"
-                  onClick={() => {
-                    if (props.buttonOneText === "Get Started") {
+                <div className="flex justify-center items-center gap-5 mt-12">
+                  <div
+                    className="bg-yellow-600 rounded-2xl   place-self-center w-[20%] text-center p-4 text-white  hover:bg-white hover:text-yellow-600"
+                    onClick={() => {
+                      if (props.buttonOneText === "Get Started") {
+                        openGetStartedPageScreen();
+                      } else {
+                        navigate("/login");
+                      }
+                    }}
+                  >
+                    <p>{props.buttonOneText}</p>
+                  </div>
+
+                  <div
+                    className={`${props.makeVisible} bg-white rounded-2xl w-[20%] text-center place-self-center p-4  text-black  hover:bg-white hover:text-yellow-600 `}
+                    onClick={() => {
                       openGetStartedPageScreen();
-                    } else {
-                      navigate("/login");
-                    }
-                  }}
-                >
-                  <p>
-                    {props.buttonOneText}
-                  </p>
+                    }}
+                  >
+                    <p>Register</p>
+                  </div>
                 </div>
-
-                <div
-                  className={`${props.makeVisible} bg-white rounded-2xl w-[20%] text-center place-self-center p-4  text-black  hover:bg-white hover:text-yellow-600 `}
-                  onClick={() => {
-                    openGetStartedPageScreen();
-                  }}
-                >
-                  <p>Register</p>
-                </div>
-              </div>
               </div>
             </div>
 
-          { /*   <div className="sideImage-Container hidden xl:block m-3 h-[200px] ">
+            {/*   <div className="sideImage-Container hidden xl:block m-3 h-[200px] ">
               <img className="w-[550px]  mx-" src={sideImage} />
             </div> */}
           </div>

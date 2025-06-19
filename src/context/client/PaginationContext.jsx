@@ -13,49 +13,44 @@ const PaginationContextProvider = ({ children }) => {
 
   const [loading, setLoading] = useState(false);
 
-  useEffect(
-    () => {
-      setLoading(true);
+  useEffect(() => {
+    setLoading(true);
 
-      const userData = clientReducerState.data;
+    const userData = clientReducerState.data;
 
-      const token = userData.token;
+    const token = userData.token;
 
-      fetchData(token)
-        .then(result => {
-          return result.json();
-        })
-        .then(res => {
-          setLoading(false);
-          setItems(res.housesPublished);
-        });
-    },
-    [clientReducerState]
-  );
+    fetchData(token)
+      .then((result) => {
+        return result.json();
+      })
+      .then((res) => {
+        setLoading(false);
+        setItems(res.housesPublished);
+      });
+  }, [clientReducerState]);
 
-  const setItem = items => {
-    setHomeItems(prev => {
+  const setItem = (items) => {
+    setHomeItems((prev) => {
       return [...prev, items];
     });
   };
 
-  const getItem = page => {
+  const getItem = (page) => {
     setLoading(true);
-    fetchData().then(res => {
+    fetchData().then((res) => {
       setLoading(false);
       setItems(homeItems[page]);
     });
   };
   return (
-    <PaginationContext.Provider
-      value={{ homeItems, setItem, getItem, items, loading }}
-    >
+    <PaginationContext.Provider value={{ homeItems, setItem, getItem, items, loading }}>
       {children}
     </PaginationContext.Provider>
   );
 };
 
-const fetchData = async token => {
+const fetchData = async (token) => {
   return getAllHousespublished(token);
 };
 

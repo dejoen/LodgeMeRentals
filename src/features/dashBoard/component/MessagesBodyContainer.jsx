@@ -1,12 +1,12 @@
 import { CircleUserRound, Paperclip } from "lucide-react";
 import useGetUpdatedState from "../hooks/useGetUpdatedState";
-import useGetMessagesBetweenUsers from "../hooks/client/useGetMessagesBetweenUsers";
 import { useEffect, useRef, useState } from "react";
 import AgentClientChatCard from "./AgentClientChatCard";
 import MessageCard from "./agent/chat/MessageCard";
 import useGetUpdatedSocket from "../hooks/useGetUpdateSocket";
 import MessageType from "../../../utils/MessageType.json";
-import useGetAgentNotificationState from "../hooks/useGetAgentNotificationState";
+import { getMessages } from "../service";
+import { Navigate } from "react-router-dom";
 
 const MessagesBodyContainer = () => {
   const { agentState } = useGetUpdatedState();
@@ -15,64 +15,87 @@ const MessagesBodyContainer = () => {
 
   const data = agentState.data;
 
+  if (!data || !data.token) {
+    <Navigate replace to={"/"} />;
+
+    return;
+  }
+
   const [textMessage, setTextMessage] = useState("");
 
   const [defaultMessages, setDefaultMessages] = useState({});
 
   const [messagesDetails, setMessagesDetials] = useState([]);
 
-  const { messagesFromServer } = useGetMessagesBetweenUsers(data.token, "");
+  const [chatCurrentIndex, setChatCurrentIndex] = useState(0);
 
   const [activeChatId, setActiveChatId] = useState();
- 
 
-  useEffect(
-    () => {
-      if (messagesFromServer && messagesFromServer.length > 0) {
-        setMessagesDetials(messagesFromServer);
-        const reverseMessages = messagesFromServer[0];
+  useEffect(() => {
+    getMessages(data.token)
+      .then(async (response) => {
+        try {
+          if (response.status === 200 && response.ok) {
+            const result = await response.json();
 
-        setDefaultMessages(reverseMessages);
-        setActiveChatId(messagesFromServer[0].senderId._id);
-      }
-    },
-    [messagesFromServer]
-  );
+            if (result.userMessages && messagesDetails.length === 0) {
+              setMessagesDetials(result.userMessages);
+              setDefaultMessages(result.userMessages[chatCurrentIndex]);
+              setActiveChatId(
+                result.userMessages[chatCurrentIndex].sender._id !== data._id
+                  ? result.userMessages[chatCurrentIndex].sender._id
+                  : result.userMessages[chatCurrentIndex].receiver._id,
+              );
+            }
+          }
+        } catch (error) {
+          alert(error);
+        }
+      })
+      .catch((err) => alert(err));
 
-  useEffect(
-    () => {
-      
-      if (connectedSocket) {
-        connectedSocket.on("message-sent", data => {
-          setDefaultMessages(JSON.parse(data));
-        });
-      }
-    },
-    [connectedSocket]
-  );
+    /* if (messagesFromServer && messagesFromServer.length > 0) {
+      setMessagesDetials(messagesFromServer);
+      const reverseMessages = messagesFromServer[0];
+
+      setDefaultMessages(reverseMessages);
+      setActiveChatId(messagesFromServer[0].senderId._id);
+    }*/
+  }, []);
+
+  useEffect(() => {
+    if (connectedSocket) {
+      connectedSocket.on("message-sent", (data) => {
+        setMessagesDetials(data);
+        setDefaultMessages(data[chatCurrentIndex]);
+        setActiveChatId(
+          data[chatCurrentIndex].sender._id !== data._id
+            ? data[chatCurrentIndex].sender._id
+            : data[chatCurrentIndex].receiver._id,
+        );
+      });
+
+      connectedSocket.on(" message-received", (data) => {
+        setDefaultMessages(data);
+      });
+    }
+  }, [connectedSocket]);
 
   let layoutHeight = useRef();
 
-  useEffect(
-    () => {
-      let timeout = setTimeout(() => {
-        if (
-          layoutHeight.current &&
-          layoutHeight.current.children[
-            layoutHeight.current.children.length - 1
-          ]
-        )
-          layoutHeight.current.children[
-            layoutHeight.current.children.length - 1
-          ].scrollIntoView({ behavior: "smooth", blocK: "end" });
-      }, 100);
+  useEffect(() => {
+    let timeout = setTimeout(() => {
+      if (layoutHeight.current && layoutHeight.current.children[layoutHeight.current.children.length - 1])
+        layoutHeight.current.children[layoutHeight.current.children.length - 1].scrollIntoView({
+          behavior: "smooth",
+          blocK: "end",
+        });
+    }, 100);
 
-      return () => {
-        if (timeout) clearTimeout(timeout);
-      };
-    },
-    [defaultMessages]
-  );
+    return () => {
+      if (timeout) clearTimeout(timeout);
+    };
+  }, [defaultMessages]);
 
   return (
     <div className="overflow-hidden mx-auto md:ml-[22%] p-3 md:p-8  mt-[90px] md:w-[75%] h-fit  rounded-2xl m-5 md:shadow-2xl shadow-black">
@@ -82,16 +105,21 @@ const MessagesBodyContainer = () => {
       >
         {messagesDetails &&
           messagesDetails.length > 0 &&
-          messagesDetails.map((item, index) =>
+          messagesDetails.map((item, index) => (
             <AgentClientChatCard
               key={index}
               data={item}
-              onClick={data => {
-                setDefaultMessages(data);
-                setActiveChatId(data.senderId._id);
+              index={index}
+              onClick={(data, index) => {
+                setDefaultMessages(messagesDetails[index]);
+                setActiveChatId(
+                  messagesDetails[index] && messagesDetails[index].sender._id !== data._id
+                    ? messagesDetails[index].sender._id
+                    : messagesDetails[index].receiver._id,
+                );
               }}
             />
-          )}
+          ))}
       </div>
 
       <div className="bg-messageBg p-2 md:p-3 rounded-lg mt-4">
@@ -104,31 +132,27 @@ const MessagesBodyContainer = () => {
           >
             <img
               className="w-[60px] h-[60px] bg-orange-600 rounded-full"
-              src={
-                defaultMessages && defaultMessages.senderId
-                  ? defaultMessages.senderId.userProfile.profileImage
-                  : "/"
-              }
+              src={defaultMessages && defaultMessages.sender ? defaultMessages.sender.userProfile.profileImage : "/"}
             />
           </div>
 
           <div className="flex items-center md:gap-4 gap-4">
             <div className="flex items-center flex-col">
               <h3 className="md:text-xl font-bold ">
-                {defaultMessages &&
-                  defaultMessages.senderId &&
-                  defaultMessages.senderId.userName}
+                {defaultMessages && defaultMessages.sender && defaultMessages.sender.userName}
               </h3>
 
-              {defaultMessages &&
-              defaultMessages.senderId &&
-              defaultMessages.senderId.isOnline
-                ? <p onClick={() => {}} className="text-green-600 ">
-                    {" "}Online{" "}
-                  </p>
-                : <p onClick={() => {}} className="text-red-600 ">
-                    {" "}Offline{" "}
-                  </p>}
+              {defaultMessages && defaultMessages.sender && defaultMessages.sender.isOnline ? (
+                <p onClick={() => {}} className="text-green-600 ">
+                  {" "}
+                  Online{" "}
+                </p>
+              ) : (
+                <p onClick={() => {}} className="text-red-600 ">
+                  {" "}
+                  Offline{" "}
+                </p>
+              )}
             </div>
             {/*  <button className='flex items-center gap-1 md:gap-3 border rounded-lg px-3 py-2 border-black text-sm '> Set Appointment  <CirclePlus className='size-4'/></button>  
   <Search />
@@ -139,14 +163,9 @@ const MessagesBodyContainer = () => {
         <div ref={layoutHeight} className="max-h-[400px] overflow-y-auto p-3">
           {defaultMessages &&
             defaultMessages.messages &&
-            defaultMessages.messages.map((m, i) =>
-              <MessageCard
-                key={i}
-                senderId={defaultMessages.senderId._id}
-                message={m}
-                userId={data._id}
-              />
-            )}
+            defaultMessages.messages.map((m, i) => (
+              <MessageCard key={i} senderId={defaultMessages.sender._id} message={m} userId={data._id} />
+            ))}
         </div>
 
         <div className="bg-white px-3 py-2 rounded-lg mt-[0%] border border-gray-800">
@@ -155,25 +174,27 @@ const MessagesBodyContainer = () => {
             type="text"
             placeholder="Send a message"
             className=" outline-none  bg-transparent"
-            onChange={e => {
+            onChange={(e) => {
               setTextMessage(e.target.value);
               if (connectedSocket) {
                 connectedSocket.emit(
                   "typing",
                   JSON.stringify({
                     receiverId: activeChatId,
-                    typing: true
-                  })
+                    typing: true,
+                  }),
                 );
               }
             }}
           />
           <div className="flex items-center gap-3 justify-end">
             <Paperclip className="size-5" />
+
             <button
               className="bg-senderBg px-5 py-1 text-white rounded-lg  "
               onClick={() => {
                 if (connectedSocket) {
+                  alert("shhhs");
                   if (textMessage && activeChatId) {
                     connectedSocket.emit(
                       "send-message",
@@ -182,16 +203,16 @@ const MessagesBodyContainer = () => {
                         receiver: activeChatId,
                         time: Date.now(),
                         type: MessageType.TEXT,
-                        data: textMessage
-                      })
+                        data: textMessage,
+                      }),
                     );
 
                     connectedSocket.emit(
                       "typing",
                       JSON.stringify({
                         receiverId: activeChatId,
-                        typing: false
-                      })
+                        typing: false,
+                      }),
                     );
 
                     setTextMessage("");

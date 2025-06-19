@@ -7,21 +7,27 @@ import ResourceHeader from "../component/ResourceHeader";
 import FooterScreen from "./FooterScreen";
 import GetStartedScreen from "./GetStartedScreen";
 
-const ResourcesScreen = () =>{
+const ResourcesScreen = () => {
+  return (
+    <div>
+      <NavBarComponent
+        image={"bg-resourceBackgroundImage"}
+        text={"Exclusive Rental Homes, Available Anytime"}
+        textSize={"text-4xl"}
+        lineHeight={"leading-[60px]"}
+        buttonOneText={"LogIn"}
+        makeVisible={"block"}
+        adjustHeight={"h-fit"}
+      />
+      <ResourceHeader />
+      <Basics />
+      <ToolsAndForms />
+      <ManageRental />
+      <FooterScreen />
+      <NavDrawerBar />
+      <GetStartedScreen />
+    </div>
+  );
+};
 
-    return (
-        <div>
-    <NavBarComponent image={"bg-resourceBackgroundImage"} text={"Exclusive Rental Homes, Available Anytime"} textSize={"text-4xl"} lineHeight={'leading-[60px]' } buttonOneText={"LogIn"} makeVisible={"block"} adjustHeight={"h-fit"}/>
-      <ResourceHeader/>
-      <Basics/>
-      <ToolsAndForms/>
-      <ManageRental/>
-       <FooterScreen/>
-     <NavDrawerBar/>
-     <GetStartedScreen/>
-        </div>
-    );
-}
-
-export default ResourcesScreen
-
+export default ResourcesScreen;

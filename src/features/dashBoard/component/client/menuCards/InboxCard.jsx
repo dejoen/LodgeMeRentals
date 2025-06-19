@@ -2,32 +2,26 @@
 
 import ClientMessageBody from "../ClientMessageBody";
 
-
 const InboxCard = (props) => {
-    
-return (
-            <div className={`pt-2 font-nunito ${props.display} flex-col  w-[360px] h-full bg-white shadow-lg rounded-sm  `}>
-            
-            <div className=" w-full flex  ">
-             <p className="hidden md:block font-bold ms-3">inbox<span>{'v'}</span></p>
-                <p className="absolute right-5 ">{'*'}<span>Filter</span></p>
-            </div>
+  return (
+    <div className={`pt-2 font-nunito ${props.display} flex-col  w-[360px] h-full bg-white shadow-lg rounded-sm  `}>
+      <div className=" w-full flex  ">
+        <p className="hidden md:block font-bold ms-3">
+          inbox<span>{"v"}</span>
+        </p>
+        <p className="absolute right-5 ">
+          {"*"}
+          <span>Filter</span>
+        </p>
+      </div>
 
-            <div className="h-full overflow-auto">
-                {
-                [1,2,3,4,5,6,7,8,9,10].map((item,index)=>(
-                    <ClientMessageBody key={index} />
-                ))
+      <div className="h-full overflow-auto">
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
+          <ClientMessageBody key={index} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
-                }
-            </div>
-              
-
-            </div>
-        );
-
-
-}
-
-
-export default InboxCard
+export default InboxCard;

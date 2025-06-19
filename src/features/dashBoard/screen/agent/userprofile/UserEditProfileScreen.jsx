@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import useGetImage from "../../../hooks/useGetImage";
 import useGetAllStateData from "../../../hooks/useGetAllStateData";
 import useUpdateAgentProfile from "../../../hooks/useUpdateAgentProfile";
-import { X } from 'lucide-react';
+import { X } from "lucide-react";
 import { any } from "prop-types";
 import useGetUpdatedState from "../../../hooks/useGetUpdatedState";
 
@@ -12,24 +12,15 @@ const UserEditProfileScreen = ({ updateUI }) => {
   const coverImageRef = useRef();
 
   const { data } = useGetImage([profilePicRef.current, coverImageRef.current]);
-  const {
-    getAllStateNames,
-    localGovt,
-    getStateLocalGovtArea
-  } = useGetAllStateData();
-  const {
-    updateProfileRequest,
-    errorMessage,
-    progressBar,
-    setUpdatedProfileSuccessfully,
-    updatedProfileSuccessfully
-  } = useUpdateAgentProfile();
+  const { getAllStateNames, localGovt, getStateLocalGovtArea } = useGetAllStateData();
+  const { updateProfileRequest, errorMessage, progressBar, setUpdatedProfileSuccessfully, updatedProfileSuccessfully } =
+    useUpdateAgentProfile();
 
   const { agentState } = useGetUpdatedState();
 
   const [localImageData, setLocalImageData] = useState({
     localProfileImage: "",
-    localCoverImage: ""
+    localCoverImage: "",
   });
 
   const [updateProfileFormData, setUpdateProfileFormData] = useState({
@@ -46,69 +37,63 @@ const UserEditProfileScreen = ({ updateUI }) => {
     localGovt: "",
     postalCode: "",
     publishingAs: "",
-    userName: ""
+    userName: "",
   });
 
-  useEffect(
-    () => {
-      if (data.profileImageString !== "") {
-        setUpdateProfileFormData({
-          ...updateProfileFormData,
-          profileImage: data.profileImageString.split(",")[1]
-        });
-        setLocalImageData({
-          ...localImageData,
-          localProfileImage: data.profileImageString
-        });
-      }
+  useEffect(() => {
+    if (data.profileImageString !== "") {
+      setUpdateProfileFormData({
+        ...updateProfileFormData,
+        profileImage: data.profileImageString.split(",")[1],
+      });
+      setLocalImageData({
+        ...localImageData,
+        localProfileImage: data.profileImageString,
+      });
+    }
 
-      if (data.coverImageString !== "") {
-        setUpdateProfileFormData({
-          ...updateProfileFormData,
-          coverImage: data.coverImageString.split(",")[1]
-        });
+    if (data.coverImageString !== "") {
+      setUpdateProfileFormData({
+        ...updateProfileFormData,
+        coverImage: data.coverImageString.split(",")[1],
+      });
 
-        setLocalImageData({
-          ...localImageData,
-          localCoverImage: data.coverImageString
-        });
-      }
-    },
-    [data]
-  );
+      setLocalImageData({
+        ...localImageData,
+        localCoverImage: data.coverImageString,
+      });
+    }
+  }, [data]);
 
-  useEffect(
-    () => {
-      if (updatedProfileSuccessfully) {
-        profilePicRef.current.value = "";
-        coverImageRef.current.value = "";
-        setLocalImageData({
-          ...localImageData,
-          localCoverImage: "",
-          localProfileImage: ""
-        });
-        setUpdateProfileFormData({
-          coverImage: "",
-          profileImage: "",
-          firstName: "",
-          lastName: "",
-          email: "",
-          language: "",
-          gender: "",
-          about: "",
-          country: "Nigeria",
-          state: "",
-          localGovt: "",
-          postalCode: "",
-          publishingAs: "Agent",
-          userName: ""
-        });
-        updateUI();
-        setUpdatedProfileSuccessfully(false);
-      }
-    },
-    [updatedProfileSuccessfully]
-  );
+  useEffect(() => {
+    if (updatedProfileSuccessfully) {
+      profilePicRef.current.value = "";
+      coverImageRef.current.value = "";
+      setLocalImageData({
+        ...localImageData,
+        localCoverImage: "",
+        localProfileImage: "",
+      });
+      setUpdateProfileFormData({
+        coverImage: "",
+        profileImage: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        language: "",
+        gender: "",
+        about: "",
+        country: "Nigeria",
+        state: "",
+        localGovt: "",
+        postalCode: "",
+        publishingAs: "Agent",
+        userName: "",
+      });
+      updateUI();
+      setUpdatedProfileSuccessfully(false);
+    }
+  }, [updatedProfileSuccessfully]);
 
   return (
     <div className="fixed inset-0 bg-black  bg-opacity-50 flex justify-center items-center z-50">
@@ -121,7 +106,7 @@ const UserEditProfileScreen = ({ updateUI }) => {
             setLocalImageData({
               ...localImageData,
               localCoverImage: "",
-              localProfileImage: ""
+              localProfileImage: "",
             });
             setUpdateProfileFormData({
               coverImage: "",
@@ -137,7 +122,7 @@ const UserEditProfileScreen = ({ updateUI }) => {
               localGovt: "",
               postalCode: "",
               publishingAs: "",
-              userName: ""
+              userName: "",
             });
             updateUI();
           }}
@@ -148,7 +133,8 @@ const UserEditProfileScreen = ({ updateUI }) => {
         <div className="md:m-5 p-2 md:p-0 mx-auto justify-center place-items-center">
           <p className="font-bold pt-5 pb-5 text-3xl">Edit User Profile</p>
           <p className="w-[90%] mx-auto text-center mb-3">
-            <span className="font-bold">Note:</span> You can choose what you want to specifically update as all fields are optional and at least one field should be selected before clicking save button.
+            <span className="font-bold">Note:</span> You can choose what you want to specifically update as all fields
+            are optional and at least one field should be selected before clicking save button.
           </p>
           <div className="flex flex-col place-items-center mb-5">
             <img
@@ -166,13 +152,7 @@ const UserEditProfileScreen = ({ updateUI }) => {
               Click to upload Profile Picture
             </p>
 
-            <input
-              ref={profilePicRef}
-              type="file"
-              accept="image/*"
-              className="hidden"
-              onChange={() => {}}
-            />
+            <input ref={profilePicRef} type="file" accept="image/*" className="hidden" onChange={() => {}} />
           </div>
 
           <div className="flex flex-col place-items-center">
@@ -189,12 +169,7 @@ const UserEditProfileScreen = ({ updateUI }) => {
             >
               Click to upload Cover Picture
             </p>
-            <input
-              ref={coverImageRef}
-              type="file"
-              accept="image/*"
-              className="hidden"
-            />
+            <input ref={coverImageRef} type="file" accept="image/*" className="hidden" />
           </div>
 
           <div className="flex flex-col border p-1 w-full md:w-[50%] mt-5 rounded-md cursor-default">
@@ -205,10 +180,10 @@ const UserEditProfileScreen = ({ updateUI }) => {
               id="firstName"
               placeholder="Enter your first name."
               value={updateProfileFormData.firstName}
-              onChange={e => {
+              onChange={(e) => {
                 setUpdateProfileFormData({
                   ...updateProfileFormData,
-                  firstName: e.target.value
+                  firstName: e.target.value,
                 });
               }}
             />
@@ -222,10 +197,10 @@ const UserEditProfileScreen = ({ updateUI }) => {
               id="lastName"
               placeholder="Enter your last name"
               value={updateProfileFormData.lastName}
-              onChange={e => {
+              onChange={(e) => {
                 setUpdateProfileFormData({
                   ...updateProfileFormData,
-                  lastName: e.target.value
+                  lastName: e.target.value,
                 });
               }}
             />
@@ -239,10 +214,10 @@ const UserEditProfileScreen = ({ updateUI }) => {
               id="userName"
               placeholder="Enter your user name"
               value={updateProfileFormData.userName}
-              onChange={e => {
+              onChange={(e) => {
                 setUpdateProfileFormData({
                   ...updateProfileFormData,
-                  userName: e.target.value
+                  userName: e.target.value,
                 });
               }}
             />
@@ -256,10 +231,10 @@ const UserEditProfileScreen = ({ updateUI }) => {
               id="email"
               placeholder="Enter email"
               value={updateProfileFormData.email}
-              onChange={e => {
+              onChange={(e) => {
                 setUpdateProfileFormData({
                   ...updateProfileFormData,
-                  email: e.target.value
+                  email: e.target.value,
                 });
               }}
             />
@@ -273,10 +248,10 @@ const UserEditProfileScreen = ({ updateUI }) => {
               id="Language"
               placeholder="Language you speak eg.English,Igbo"
               value={updateProfileFormData.language}
-              onChange={e => {
+              onChange={(e) => {
                 setUpdateProfileFormData({
                   ...updateProfileFormData,
-                  language: e.target.value
+                  language: e.target.value,
                 });
               }}
             />
@@ -286,10 +261,10 @@ const UserEditProfileScreen = ({ updateUI }) => {
             <label htmlFor="gender">Gender</label>
             <select
               id="gender"
-              onChange={e => {
+              onChange={(e) => {
                 setUpdateProfileFormData({
                   ...updateProfileFormData,
-                  gender: e.target.value
+                  gender: e.target.value,
                 });
               }}
             >
@@ -303,10 +278,10 @@ const UserEditProfileScreen = ({ updateUI }) => {
             <label htmlFor="agent">Publishing As</label>
             <select
               id="agent"
-              onChange={e => {
+              onChange={(e) => {
                 setUpdateProfileFormData({
                   ...updateProfileFormData,
-                  publishingAs: e.target.value
+                  publishingAs: e.target.value,
                 });
               }}
             >
@@ -323,10 +298,10 @@ const UserEditProfileScreen = ({ updateUI }) => {
               id="about"
               placeholder="Little description about you"
               value={updateProfileFormData.about}
-              onChange={e => {
+              onChange={(e) => {
                 setUpdateProfileFormData({
                   ...updateProfileFormData,
-                  about: e.target.value
+                  about: e.target.value,
                 });
               }}
             />
@@ -336,10 +311,10 @@ const UserEditProfileScreen = ({ updateUI }) => {
             <label htmlFor="Country">Country</label>
             <select
               id="Country"
-              onChange={e => {
+              onChange={(e) => {
                 setUpdateProfileFormData({
                   ...updateProfileFormData,
-                  country: e.target.value
+                  country: e.target.value,
                 });
               }}
             >
@@ -351,19 +326,17 @@ const UserEditProfileScreen = ({ updateUI }) => {
             <label htmlFor="State">State</label>
             <select
               id="State"
-              onChange={e => {
+              onChange={(e) => {
                 setUpdateProfileFormData({
                   ...updateProfileFormData,
-                  state: e.target.value
+                  state: e.target.value,
                 });
                 getStateLocalGovtArea(e.target.value);
               }}
             >
-              {getAllStateNames().map((name, index) =>
-                <option key={index}>
-                  {name}
-                </option>
-              )}
+              {getAllStateNames().map((name, index) => (
+                <option key={index}>{name}</option>
+              ))}
             </select>
           </div>
 
@@ -371,18 +344,16 @@ const UserEditProfileScreen = ({ updateUI }) => {
             <label htmlFor="localGovt">Local Government</label>
             <select
               id="localGovt"
-              onChange={e => {
+              onChange={(e) => {
                 setUpdateProfileFormData({
                   ...updateProfileFormData,
-                  localGovt: e.target.value
+                  localGovt: e.target.value,
                 });
               }}
             >
-              {localGovt.map((name, index) =>
-                <option key={index}>
-                  {name}
-                </option>
-              )}
+              {localGovt.map((name, index) => (
+                <option key={index}>{name}</option>
+              ))}
             </select>
           </div>
 
@@ -394,10 +365,10 @@ const UserEditProfileScreen = ({ updateUI }) => {
               id="postalCode"
               placeholder="postal code"
               value={updateProfileFormData.postalCode}
-              onChange={e => {
+              onChange={(e) => {
                 setUpdateProfileFormData({
                   ...updateProfileFormData,
-                  postalCode: e.target.value
+                  postalCode: e.target.value,
                 });
               }}
             />
@@ -408,10 +379,7 @@ const UserEditProfileScreen = ({ updateUI }) => {
               <p
                 className="text-center text-white bg-[#1C2E7A] p-2 rounded-lg w-[60px] cursor-pointer"
                 onClick={() => {
-                  updateProfileRequest(
-                    agentState.data.token,
-                    updateProfileFormData
-                  );
+                  updateProfileRequest(agentState.data.token, updateProfileFormData);
                 }}
               >
                 Save
@@ -421,11 +389,7 @@ const UserEditProfileScreen = ({ updateUI }) => {
               <CircularProgress size={40} />
             </div>
 
-            <p
-              className={`${errorMessage !== "no error" && !progressBar
-                ? "block"
-                : "hidden"} text-red-600`}
-            >
+            <p className={`${errorMessage !== "no error" && !progressBar ? "block" : "hidden"} text-red-600`}>
               {errorMessage}
             </p>
           </div>
@@ -436,7 +400,7 @@ const UserEditProfileScreen = ({ updateUI }) => {
 };
 
 UserEditProfileScreen.propTypes = {
-  updateUI: any
+  updateUI: any,
 };
 
 export default UserEditProfileScreen;

@@ -1,29 +1,21 @@
-import { useEffect, useState } from "react"
-import useGetClientSocket from "./useGetClientSocket"
+import { useEffect, useState } from "react";
+import useGetClientSocket from "./useGetClientSocket";
 
 const useGetSocketResponse = () => {
-    const [messagesFromMessageSent,setMessagesFromMessageSent] = useState()
+  const [messagesFromMessageSent, setMessagesFromMessageSent] = useState();
 
-    const userSocket = useGetClientSocket()
+  const userSocket = useGetClientSocket();
 
- useEffect(()=>{
-
-    if(userSocket){
-  
-      userSocket.on("message-sent", (data)=>{
-    
-    setMessagesFromMessageSent(JSON.parse(data));
-    return 
-}
-)
+  useEffect(() => {
+    if (userSocket) {
+      userSocket.on("message-sent", (data) => {
+        setMessagesFromMessageSent(JSON.parse(data));
+        return;
+      });
     }
+  }, []);
 
-},[])
+  return { messagesFromMessageSent };
+};
 
-return {messagesFromMessageSent}
-
-}
-
-
-
-export default useGetSocketResponse
+export default useGetSocketResponse;
