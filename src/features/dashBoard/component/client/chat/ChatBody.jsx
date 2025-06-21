@@ -37,7 +37,7 @@ const ChatBody = ({ chatInfo }) => {
     >
       {chatInfo &&
         chatInfo.messages.length > 0 &&
-        chatInfo.messages.reverse().map((item, index) => (
+        chatInfo.messages.map((item, index) => (
           <div key={index}>
             <Message message={item} />
           </div>

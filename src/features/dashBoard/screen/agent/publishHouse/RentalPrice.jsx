@@ -6,6 +6,7 @@ import errorIcon from "../../../../../assets/errorPopupIcon.svg";
 import backArrowIcon from "../../../../../assets/backarrowIcon.svg";
 import { CircularProgress } from "@chakra-ui/progress";
 import { TypeAnimation } from "react-type-animation";
+import { LucideArrowLeft } from "lucide-react";
 
 const RentalPrice = () => {
   const { allDataToPublishReducerState, allDataToPublishReducerDispatcher, agentReducerState } =
@@ -28,28 +29,42 @@ const RentalPrice = () => {
         <Navigate to={"/agent/dashboard/publish-home/houseOverview"} replace={true} />
       )}
 
-      <div className="font-nunito w-full  h-dvh  md:min-h-[85%] p-2 md:ps-14  mt-20  bg-white z-20 rounded-md shadow-md overflow-y-auto overflow-x-hidden pb-10">
-        <p className="font-bold mt-8">Rental Price</p>
-        <p className="text-justify p-2 text-sm">
+      <div className="font-nunito w-full  h-dvh  md:min-h-[85%] p-2 md:ps-[22%]  mt-20  bg-white z-20 rounded-md shadow-md overflow-y-auto overflow-x-hidden pb-10">
+        <div className=" pt-8 pb-4 flex place-items-center gap-6">
+          <LucideArrowLeft
+            size={34}
+            color="black"
+            onClick={() => {
+              navigate(-1);
+            }}
+          />
+          <h1 className="font-bold ">Rental Price</h1>
+        </div>
+
+        <p className="text-justify p-2 leading-8 w-[90%]">
           Please enter the rental price for your property. This price should reflect the monthly rent amount in your
           local currency. It’s important to set a competitive and accurate price to attract potential renters.
         </p>
 
         <div className="w-full    rounded-md mt-2 me-20 ">
-          <div>
-            <p>Tips:</p>
-            <ul className="list-item list-disc">
-              <li>Consider the current market rates for similar properties in your area.</li>
+          <div className="ms-6">
+            <h2 className="font-bold">Tips:</h2>
+            <ul className="list-item list-disc space-y-2 ">
+              <li className="">Consider the current market rates for similar properties in your area.</li>
               <li> Factor in any special amenities or features that might justify a higher price.</li>
               <li>Ensure the price is clear and does not include hidden fees, unless explained separately.</li>
               <li> Make sure the price aligns with the overall value and appeal of the property!</li>
             </ul>
           </div>
-          <div className=" w-full  mt-5 flex flex-wrap gap-8 place-items-center justify-center md:justify-normal">
+
+          <div className=" w-full  mt-10 flex flex-wrap gap-8 place-items-center justify-center md:justify-normal">
             <div>
               <p>Monthly/Yearly Rent</p>
               <input
                 type="text"
+                value={new Intl.NumberFormat().format(
+                  allDataToPublishReducerState.RentalPrice.monthlyOrYearlyRent.replace(/[a-z A-Z]/g, ""),
+                )}
                 className="bg-[#acb4ac]  md:p-1 p-2 rounded-md "
                 onChange={(e) => {
                   allDataToPublishReducerDispatcher({
@@ -58,7 +73,7 @@ const RentalPrice = () => {
                       ...allDataToPublishReducerState,
                       RentalPrice: {
                         ...allDataToPublishReducerState.RentalPrice,
-                        monthlyOrYearlyRent: e.target.value,
+                        monthlyOrYearlyRent: e.target.value.replace(/[a-z A-Z ,]/g, ""),
                       },
                     },
                   });
@@ -71,6 +86,9 @@ const RentalPrice = () => {
               <input
                 type="text"
                 className="bg-[#acb4ac]  md:p-1 p-2 rounded-md"
+                value={new Intl.NumberFormat().format(
+                  allDataToPublishReducerState.RentalPrice.securityDeposit.replace(/[a-z A-Z]/g, ""),
+                )}
                 onChange={(e) => {
                   allDataToPublishReducerDispatcher({
                     TYPE: "Save",
@@ -78,7 +96,7 @@ const RentalPrice = () => {
                       ...allDataToPublishReducerState,
                       RentalPrice: {
                         ...allDataToPublishReducerState.RentalPrice,
-                        securityDeposit: e.target.value,
+                        securityDeposit: e.target.value.replace(/[a-z A-Z ,]/g, ""),
                       },
                     },
                   });
@@ -91,6 +109,9 @@ const RentalPrice = () => {
               <input
                 type="text"
                 className="bg-[#acb4ac]  md:p-1 p-2 rounded-md"
+                value={new Intl.NumberFormat().format(
+                  allDataToPublishReducerState.RentalPrice.applicationFee.replace(/[a-z A-Z]/g, ""),
+                )}
                 onChange={(e) => {
                   allDataToPublishReducerDispatcher({
                     TYPE: "Save",
@@ -98,7 +119,7 @@ const RentalPrice = () => {
                       ...allDataToPublishReducerState,
                       RentalPrice: {
                         ...allDataToPublishReducerState.RentalPrice,
-                        applicationFee: e.target.value,
+                        applicationFee: e.target.value.replace(/[a-z A-Z ,]/g, ""),
                       },
                     },
                   });
@@ -111,6 +132,9 @@ const RentalPrice = () => {
               <input
                 type="text"
                 className="bg-[#acb4ac] md:p-1 p-2 rounded-md"
+                value={new Intl.NumberFormat().format(
+                  allDataToPublishReducerState.RentalPrice.maintenanceFee.replace(/[a-z A-Z]/g, ""),
+                )}
                 onChange={(e) => {
                   allDataToPublishReducerDispatcher({
                     TYPE: "Save",
@@ -118,7 +142,7 @@ const RentalPrice = () => {
                       ...allDataToPublishReducerState,
                       RentalPrice: {
                         ...allDataToPublishReducerState.RentalPrice,
-                        maintenanceFee: e.target.value,
+                        maintenanceFee: e.target.value.replace(/[a-z A-Z ,]/g, ""),
                       },
                     },
                   });
@@ -131,6 +155,9 @@ const RentalPrice = () => {
               <input
                 type="text"
                 className="bg-[#acb4ac]  md:p-1 p-2 rounded-md"
+                value={new Intl.NumberFormat().format(
+                  allDataToPublishReducerState.RentalPrice.petFees.replace(/[a-z A-Z]/g, ""),
+                )}
                 onChange={(e) => {
                   allDataToPublishReducerDispatcher({
                     TYPE: "Save",
@@ -138,7 +165,7 @@ const RentalPrice = () => {
                       ...allDataToPublishReducerState,
                       RentalPrice: {
                         ...allDataToPublishReducerState.RentalPrice,
-                        petFees: e.target.value,
+                        petFees: e.target.value.replace(/[a-z A-Z ,]/g, ""),
                       },
                     },
                   });
@@ -170,9 +197,13 @@ const RentalPrice = () => {
 
             <div>
               <p>Cleaning services</p>
+
               <input
                 type="text"
                 className="bg-[#acb4ac]  md:p-1 p-2 rounded-md"
+                value={new Intl.NumberFormat().format(
+                  allDataToPublishReducerState.RentalPrice.cleaningServices.replace(/[a-z A-Z]/g, ""),
+                )}
                 onChange={(e) => {
                   allDataToPublishReducerDispatcher({
                     TYPE: "Save",
@@ -180,7 +211,7 @@ const RentalPrice = () => {
                       ...allDataToPublishReducerState,
                       RentalPrice: {
                         ...allDataToPublishReducerState.RentalPrice,
-                        cleaningServices: e.target.value,
+                        cleaningServices: e.target.value.replace(/[a-z A-Z ,]/g, ""),
                       },
                     },
                   });
@@ -193,6 +224,7 @@ const RentalPrice = () => {
               <input
                 type="text"
                 className="bg-[#acb4ac]  md:p-1 p-2 rounded-md"
+                value={allDataToPublishReducerState.RentalPrice.totalDue}
                 onChange={(e) => {
                   allDataToPublishReducerDispatcher({
                     TYPE: "Save",
@@ -224,13 +256,20 @@ const RentalPrice = () => {
           <p
             className="bg-[#BB7655] hover:shadow-black hover:shadow-md  p-3 w-[100px] text-white text-center rounded-lg"
             onClick={() => {
-              if (
-                !allDataToPublishReducerState.RentalPrice.monthlyOrYearlyRent ||
-                !allDataToPublishReducerState.RentalPrice.totalDue
-              ) {
-                setSaveindicator("Please provide  atleast monthly/yearly rent and total dues data to continue");
+              if (!allDataToPublishReducerState.RentalPrice.monthlyOrYearlyRent) {
+                setSaveindicator("Please provide  atleast monthly/yearly rent data to continue");
                 return;
               }
+
+              alert(Number(allDataToPublishReducerState.RentalPrice.cleaningServices.replace(/[,]/g, "") ?? 0));
+              const sumAllPrices =
+                Number(allDataToPublishReducerState.RentalPrice.monthlyOrYearlyRent.replace(/[,]/g, "")) +
+                Number(allDataToPublishReducerState.RentalPrice.securityDeposit.replace(/[,]/g, "")) +
+                Number(allDataToPublishReducerState.RentalPrice.applicationFee.replace(/[,]/g, "")) +
+                Number(allDataToPublishReducerState.RentalPrice.maintenanceFee.replace(/[,]/g, "")) +
+                Number(allDataToPublishReducerState.RentalPrice.petFees.replace(/[,]/g, ""));
+
+              alert(sumAllPrices);
 
               allDataToPublishReducerDispatcher({
                 TYPE: "Save",
@@ -262,7 +301,7 @@ const RentalPrice = () => {
 
               setSaveindicator("saving...");
               setTimeout(() => {
-                setSaveindicator("saved");
+                //setSaveindicator("saved");
               }, 3000);
             }}
           >

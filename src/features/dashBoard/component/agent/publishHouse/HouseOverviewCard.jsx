@@ -10,15 +10,16 @@ const HouseOverViewCard = ({ headerText, bodyText, placeHolderText, inputType, o
   const inputRef = useRef();
 
   return (
-    <div className="font-nunito  w-[300px] border-black border border-opacity-20 rounded-md p-3 m-2  md:m-5 h-[250px] flex flex-col gap-3 place-items-center justify-center ">
+    <div className="font-nunito  w-[300px]  border-black border border-opacity-20 rounded-md p-3 m-2  md:m-5 h-[250px] flex flex-col gap-3 place-items-center justify-center ">
       <p className="font-bold" ref={headerRef}>
         {headerText}
       </p>
       <p className="text-xs">{bodyText}</p>
+
       <div className=" border-black border border-opacity-20 rounded-md m-2">
         {inputType === "text" && (
           <input
-            className="outline-none p-2"
+            className="outline-none p-2 border border-black rounded-md"
             type="text"
             placeholder={placeHolderText}
             ref={inputRef}
@@ -57,7 +58,7 @@ const HouseOverViewCard = ({ headerText, bodyText, placeHolderText, inputType, o
         )}
         {inputType === "select" && (
           <select
-            className="w-[200px] p-2 "
+            className="w-[200px] p-2  border border-black rounded-md"
             onChange={(e) => {
               // const data = getLocalGovt(e.target.value)
 

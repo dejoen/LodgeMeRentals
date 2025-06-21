@@ -1,12 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useNavigation } from "react-router-dom";
 import HouseOverViewCard from "../../../component/agent/publishHouse/HouseOverviewCard";
 
 import allStateData from "../../../../../utils/AllStateData.json";
 import React, { useContext, useState } from "react";
 import { CombineContext } from "../../../../../context/CombineContextProvider";
+import { LucideArrowLeft } from "lucide-react";
 
 const HouseOverViewScreen = () => {
   const { allDataToPublishReducerState } = useContext(CombineContext);
+
+  const router = useNavigate();
 
   const [saveIndicator, setSaveindicator] = useState("");
 
@@ -45,10 +48,19 @@ const HouseOverViewScreen = () => {
   return (
     <React.Fragment>
       <div
-        className=" w-full md:w-[90%] mx-auto  h-dvh  md:min-h-[85%] md:ml-[16%]  mt-20  bg-white z-20 rounded-md shadow-md overflow-y-scroll  pb-10"
+        className=" cursor-default w-full md:w-[90%] mx-auto  h-dvh  md:ml-[16%]  mt-20  bg-white z-20 rounded-md shadow-md overflow-y-hidden  pb-10"
         style={{ scrollbarWidth: "none" }}
       >
-        <p className="font-bold ms-20 pt-8 pb-4">House Overview</p>
+        <div className="ms-20 pt-8 pb-4 flex place-items-center gap-6">
+          <LucideArrowLeft
+            size={34}
+            color="black"
+            onClick={() => {
+              navigate(-1);
+            }}
+          />
+          <h1 className="font-bold ">House Overview</h1>
+        </div>
 
         <div className=" h-[75%]  flex flex-wrap justify-center overflow-y-scroll ">
           {[
@@ -131,7 +143,7 @@ const HouseOverViewScreen = () => {
           ))}
         </div>
 
-        <div className="w-full md:w-[90%] flex justify-end place-items-center pe-4 h-[20%] items-center pt-6 pb-12 gap-5">
+        <div className="w-full flex justify-end place-items-center  h-[20%] items-center pt-6  gap-5 absolute bottom-[-4%] right-5">
           <p
             className={`${saveIndicator ? "block" : "hidden"} ${
               !saveIndicator.includes("saved")

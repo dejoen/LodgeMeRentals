@@ -112,6 +112,7 @@ const MessagesBodyContainer = () => {
               index={index}
               onClick={(data, index) => {
                 setDefaultMessages(messagesDetails[index]);
+                setChatCurrentIndex(index);
                 setActiveChatId(
                   messagesDetails[index] && messagesDetails[index].sender._id !== data._id
                     ? messagesDetails[index].sender._id
@@ -194,7 +195,6 @@ const MessagesBodyContainer = () => {
               className="bg-senderBg px-5 py-1 text-white rounded-lg  "
               onClick={() => {
                 if (connectedSocket) {
-                  alert("shhhs");
                   if (textMessage && activeChatId) {
                     connectedSocket.emit(
                       "send-message",

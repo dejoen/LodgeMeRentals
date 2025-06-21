@@ -5,6 +5,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import React, { useRef, useState, useContext } from "react";
 import { CombineContext } from "../../../../../context/CombineContextProvider";
 import useMediaUploadData from "../../../hooks/useMediaUploadData";
+import { LucideArrowLeft } from "lucide-react";
 
 const MediaUpload = () => {
   const { getVideoFiles } = useMediaUploadData();
@@ -38,11 +39,20 @@ const MediaUpload = () => {
         <Navigate to={"/agent/dashboard/publish-home/houseOverview"} replace={true} />
       )}
 
-      <div className="font-nunito w-full  h-dvh  md:min-h-[85%]   mt-20  bg-white z-20 rounded-md shadow-md overflow-y-auto  pb-10">
-        <p className="font-bold ms-5 mt-8 text-2xl">Media Upload</p>
+      <div className="font-nunito w-full  h-dvh  md:min-h-[85%] md:ps-[21%] p-2  mt-20  bg-white z-20 rounded-md shadow-md overflow-y-auto  pb-10">
+        <div className=" pt-8 pb-4 flex place-items-center gap-6">
+          <LucideArrowLeft
+            size={34}
+            color="black"
+            onClick={() => {
+              navigate(-1);
+            }}
+          />
+          <h1 className="font-bold ">Media Upload</h1>
+        </div>
 
         <div className=" h-[75%]  flex flex-col  overflow-y-auto overflow-x-hidden">
-          <p className="text-justify p-2">
+          <p className="text-justify p-2 leading-8  w-[90%]">
             To attract potential renters, upload high-quality images and videos of your property. Showcase key areas
             such as the living room, kitchen, bedrooms, and outdoor spaces. These media files help users visualize the
             space and make informed decisions. Ensure your files are clear and accurately represent the property to give
