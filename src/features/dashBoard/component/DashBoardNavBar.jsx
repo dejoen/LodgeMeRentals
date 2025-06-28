@@ -6,12 +6,12 @@ import dashBoardMessageIcon from "../../../assets/dmessageicon.svg";
 import dashBoardNotification from "../../../assets/dnotificationicon.svg";
 //import dashBoardSettings from "../../../assets/dsettingsicon.svg";
 //import requestIcon from "../../../assets/requesticon.svg";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import useGetAgentNotificationState from "../hooks/useGetAgentNotificationState";
 import useManageAgentState from "../hooks/useManageAgentState";
 
-const DashBoardNavBar = () => {
+const DashBoardNavBar = React.memo(() => {
   const location = useLocation();
 
   const { updatedNotification, notificationCount } = useGetAgentNotificationState();
@@ -563,6 +563,6 @@ const DashBoardNavBar = () => {
       </div>
     </div>
   );
-};
+});
 
 export default DashBoardNavBar;

@@ -5,10 +5,10 @@ import AccessIcon from "../../../assets/accessicon.svg";
 import ClientManagementIcon from "../../../assets/refer.png";
 import HelpAbdsupportIcon from "../../../assets/helpicon.svg";
 import LogoutIcon from "../../../assets/logouticon.svg";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import useGetAgentNotificationState from "../hooks/useGetAgentNotificationState";
 
-const AgentBody = () => {
+const AgentBody = React.memo(() => {
   const audionRef = useRef();
   const { updatedNotification } = useGetAgentNotificationState();
 
@@ -49,6 +49,6 @@ const AgentBody = () => {
       {/*<AgentRefer/>  <AgentClentHero/>*/}
     </div>
   );
-};
+});
 
 export default AgentBody;

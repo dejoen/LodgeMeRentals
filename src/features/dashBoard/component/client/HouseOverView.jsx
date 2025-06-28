@@ -98,7 +98,7 @@ const HouseOverView = () => {
             <div className="md:ms-5 text-justify p-2">
               <p>
                 {` Grace Haven offers a luxurious living experience in the heart of Lekki. This home combines contemporary architecture with functionality, perfect for families or professionals seeking comfort and style. Each room is thoughtfully designed, with large windows providing ample natural light. Enjoy entertaining guests in the open-plan living and dining area or relax in the serene backyard by the pool. Located in a secure and quiet neighborhood, Grace Haven is just minutes away from top schools, shopping malls, and recreational facilities.
-This house is more than a home; it’s a statement of elegance and convenience.`}
+                    This house is more than a home; it’s a statement of elegance and convenience.`}
               </p>
 
               <div className="mt-5">

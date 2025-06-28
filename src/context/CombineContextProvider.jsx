@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import { createContext, useReducer } from "react";
+import React, { createContext, useReducer } from "react";
 import ClientLoginReducer, { clientLoginInitialState } from "../reducer/ClientLogInReducer.jsx";
 import AgentReducer, { agentInitialState } from "../reducer/AgentReducer.jsx";
 import { io } from "socket.io-client";
@@ -15,7 +15,7 @@ import NotificationReducer, { NotificationInitialState } from "../reducer/Notifi
 
 export const CombineContext = createContext();
 
-const CombineContextProvider = ({ children }) => {
+const CombineContextProvider = React.memo(({ children }) => {
   const [socketConnectedReducerState, socketConnectedReducerDispatcher] = useReducer(SocketReducer, SocketInitialState);
 
   const [allDataToPublishReducerState, allDataToPublishReducerDispatcher] = useReducer(
@@ -75,6 +75,6 @@ const CombineContextProvider = ({ children }) => {
       {children}
     </CombineContext.Provider>
   );
-};
+});
 
 export default CombineContextProvider;

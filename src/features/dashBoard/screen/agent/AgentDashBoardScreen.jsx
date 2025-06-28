@@ -2,13 +2,13 @@ import { Navigate, Outlet } from "react-router-dom";
 import DashBoardNavBar from "../../component/DashBoardNavBar";
 import AgentVerificationPopUp from "../../component/AgentVerificationPopUp";
 import useGetUpdatedState from "../../hooks/useGetUpdatedState";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import useManageAgentState from "../../hooks/useManageAgentState";
 import useGetAgentNotificationState from "../../hooks/useGetAgentNotificationState";
 import { getNotitifications } from "../../service";
 import useGetUpdatedSocket from "../../hooks/useGetUpdateSocket";
 
-const AgentDashBoardScreen = () => {
+const AgentDashBoardScreen = React.memo(() => {
   const audionRef = useRef();
   const { agentState } = useGetUpdatedState();
   const audio = new Audio("/src/assets/notification.mp3");
@@ -83,6 +83,6 @@ const AgentDashBoardScreen = () => {
       </div>
     );
   }
-};
+});
 
 export default AgentDashBoardScreen;

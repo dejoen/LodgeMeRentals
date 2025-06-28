@@ -1,10 +1,10 @@
-import { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import AgentBody from "../../component/AgentBody";
 import AgentContainer from "../../component/AgentContainer";
 import AgentNavBarDrawer from "../../component/AgentNavBarDrawer";
 import useGetUpdatedState from "../../hooks/useGetUpdatedState";
 
-const AgentDashboardView = () => {
+const AgentDashboardView = React.memo(() => {
   const { agentState } = useGetUpdatedState();
 
   return (
@@ -18,6 +18,6 @@ const AgentDashboardView = () => {
       <AgentNavBarDrawer />
     </div>
   );
-};
+});
 
 export default AgentDashboardView;

@@ -8,10 +8,10 @@ import dashBoardNotification from "../../../assets/dnotificationicon.svg";
 //import  dashBoardSettings from '../../../assets/dsettingsicon.svg'
 //import  requestIcon from '../../../assets/requesticon.svg'
 import profileIcon from "../../../assets/agentprofile/profileIconWhite.svg";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const AgentNavBarDrawer = () => {
+const AgentNavBarDrawer = React.memo(() => {
   const location = useLocation();
   const [activeContainer, setActiveContainter] = useState(() => {
     switch (location.pathname.split("/")[2]) {
@@ -471,7 +471,7 @@ const AgentNavBarDrawer = () => {
       </div>
     </div>
   );
-};
+});
 
 export const openAgentDrawer = () => {
   const drawer = document.querySelector(".AgentDrawer");
