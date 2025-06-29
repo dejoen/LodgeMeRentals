@@ -12,7 +12,7 @@ const HouseOverView = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   //alert(JSON.stringify(state))
-
+  console.log(state);
   let getFirstVideo = () => {
     if (state) {
       const video = state.mediaUpload.find((media) => media.type === "video");
@@ -22,19 +22,15 @@ const HouseOverView = () => {
 
   return (
     <React.Fragment>
-      <div className="font-nunito  w-full md:m-5 ">
-        <p className="ps-2 md:p-0 pt-8 mx-auto text-justify font-bold text-[] w-[90%] ">
-          {" "}
+      <div className="font-nunito  w-full md:m-5 " style={{ scrollbarWidth: "none" }}>
+        <p className="ps-2 md:p-0  mx-auto text-justify font-bold  w-[80%] leading-8 ">
           The house details page offers a clear overview of a property, including its price, location, photos,
           amenities, and availability. Users can explore features, view multimedia content, and contact the owner or
           agent directly for inquiries or bookings.
         </p>
 
         <div className="md:w-full w-[90%] mx-auto mt-6 flex gap-4 place-items-center">
-          <img
-            src={state.publisher.userProfile.profileImage}
-            className="bg-orange-500 w-[80px] h-[80px] rounded-full"
-          />
+          <img src={state.publisher.userProfile.profileImage} className="bg-black/40 w-[80px] h-[80px] rounded-full" />
           <div>
             <p>{state.publisher.userName ? state.publisher.userName : state.houseOverview.houseName}</p>
             <p className="text-ellipsis space-x-0 w-[42px]">
@@ -52,21 +48,27 @@ const HouseOverView = () => {
             </div>
           </div>
         </div>
-        <div className="ms-5 mt-5 flex place-items-center">
-          <img className="h-[15px] w-[15px]" src={smallHouseIcon} />
-          <div className="flex mt-1 gap-3 w-[90%] mx-auto">
-            <p>.Unityhostel</p>
-            <p>.Unityhostel</p>
-            <p className="ms-6 text-gray-700">{getTimeAgo(state.datePublished)}</p>
+
+        <div className="ms-5 mt-5 flex place-items-center space-x-3">
+          <img className="md:ms-16 h-[24px] w-[24px]" src={smallHouseIcon} />
+
+          <div className="flex  gap-3 flex-wrap place-items-center p-1 ">
+            <p className="md:text-[16px] md:w-[150px] text-nowrap overflow-hidden text-ellipsis">
+              .{state.houseOverview.houseName ? state.houseOverview.houseName : ""}
+            </p>
+            <p className="md:text-[16px] md:w-[200px] text-nowrap overflow-hidden text-ellipsis]">
+              .{state.houseOverview.houseType ? state.houseOverview.houseType : ""}
+            </p>
+            <p className=" text-gray-700">{getTimeAgo(state.datePublished)}</p>
           </div>
         </div>
 
         <div className="w-[95%] mx-auto flex  flex-wrap  ">
           <div className=" h-full w-full md:w-[70%] ">
-            <div className="w-[100%] mx-auto h-[400px]  p-2">
+            <div className="w-full p-1  h-fit  bg-black   flex place-items-center justify-center">
               <video
                 src={getFirstVideo()}
-                className="bg-gray-400  rounded-md object-cover object-center w-full h-full "
+                className="bg-gray-400  rounded-md object-cover object-center w-fit h-fit max-h-[380px] "
                 controls
               />
             </div>
@@ -95,10 +97,9 @@ const HouseOverView = () => {
                 ))}
             </div>
 
-            <div className="md:ms-5 text-justify p-2">
-              <p>
-                {` Grace Haven offers a luxurious living experience in the heart of Lekki. This home combines contemporary architecture with functionality, perfect for families or professionals seeking comfort and style. Each room is thoughtfully designed, with large windows providing ample natural light. Enjoy entertaining guests in the open-plan living and dining area or relax in the serene backyard by the pool. Located in a secure and quiet neighborhood, Grace Haven is just minutes away from top schools, shopping malls, and recreational facilities.
-                    This house is more than a home; it’s a statement of elegance and convenience.`}
+            <div className="md:ms-5 text-justify p-2 ">
+              <p className="min-h-[250px]">
+                {state.aboutHouse.description ? state.aboutHouse.description : "No description"}
               </p>
 
               <div className="mt-5">

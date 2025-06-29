@@ -8,13 +8,13 @@ import GetStartedScreen from "./GetStartedScreen";
 const HeroSectionScreen = () => {
   useEffect(() => {
     window.addEventListener("resize", () => {
-      document.querySelector(".drawer").style.display = "none";
+      if (document.querySelector(".drawer")) document.querySelector(".drawer").style.display = "none";
     });
 
     return () => {
       window.removeEventListener("resize", () => {});
     };
-  });
+  }, []);
 
   return (
     <div className="w-full  h-dvh  ">

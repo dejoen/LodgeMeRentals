@@ -30,9 +30,9 @@ const ClientHouseCard = ({ item, parent }) => {
       className="shadow shadow-black w-[350px] h-[390px]  bg-[#FFC8391A] rounded-2xl flex flex-col justify-center"
       ref={cardRef}
     >
-      <div className="bg-[#D9D9D9] w-[290px] h-[180px] m-4 rounded-3xl">
+      <div className=" w-[290px] h-[180px] m-4 ">
         <Carousel
-          className=" w-fill h-full rounded-md "
+          className=" bg-[#D9D9D9] w-full   max-h-[180px] rounded-md "
           responsive={responsive}
           ssr={true}
           afterChange={(e) => {
@@ -42,7 +42,11 @@ const ClientHouseCard = ({ item, parent }) => {
           {item.mediaUpload.map(
             (media) =>
               (media.type === "image" && (
-                <img key={media.lodgeUploadId} className="w-[100%] h-[100%]" src={media.url} />
+                <img
+                  key={media.lodgeUploadId}
+                  className="w-full h-[100%] object-contain object-center aspect-auto"
+                  src={media.url}
+                />
               )) ||
               (media.type === "video" && (
                 <video
@@ -50,7 +54,7 @@ const ClientHouseCard = ({ item, parent }) => {
                   playsInline
                   controls
                   muted
-                  className="w-[100%] h-[100%] object-cover"
+                  className="w-[100%] h-[100%] object-cover object-center"
                   onEnded={(e) => {
                     e.currentTarget.play();
                   }}
@@ -62,18 +66,18 @@ const ClientHouseCard = ({ item, parent }) => {
           )}
         </Carousel>
       </div>
-      <div className="ms-3">
+      <div className="ms-3 ">
         <p className="font-bold">{item.houseOverview.houseName}</p>
-        <p className="font-bold text-sm">For Rent</p>
-        <p className="text-sm">
+        <p className="font-bold text-sm pt-2">For Rent</p>
+        <p className="text-sm pt-2">
           Address:<span>{item.houseOverview.houseAddress}</span>
         </p>
-        <p className="text-sm">
+        <p className="text-sm pt-2">
           Location:
           <span>{`${item.houseOverview.localGovtArea},${item.houseOverview.state}`}</span>
         </p>
       </div>
-      <div className="w-[280px] bg-[#F9BA8F] p-2 text-center rounded-2xl m-1 mb-3 place-self-center hover:bg-opacity-55 cursor-pointer">
+      <div className="w-[280px] bg-[#F9BA8F] p-2 text-center rounded-2xl m-1 mb-3 place-self-center hover:bg-opacity-55 cursor-pointer mt-2">
         <p
           onClick={() => {
             navigate("/client/dashboard/houseOverview", { state: item });
