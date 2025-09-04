@@ -1,8 +1,12 @@
+import { useEffect } from "react";
 import AgentContainer from "../../component/AgentContainer";
 import AgentNavBarDrawer from "../../component/AgentNavBarDrawer";
 import MessagesBodyContainer from "../../component/MessagesBodyContainer";
 
 const AgentMessageView = () => {
+  useEffect(()=>{
+ console.log('from message..')
+  },[])
   return (
     <div className="w-full  h-full overflow-y-auto">
       <AgentContainer header={"Messages"} />

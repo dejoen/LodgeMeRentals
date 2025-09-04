@@ -16,9 +16,10 @@ const DashBoardNavBar = React.memo(() => {
 
   const { updatedNotification, notificationCount } = useGetAgentNotificationState();
   const { notificationState } = useManageAgentState();
+  const path  = location.pathname.split("/")[2] ?? ''
 
   const [activeContainer, setActiveContainter] = useState(() => {
-    switch (location.pathname.split("/")[2]) {
+    switch (path) {
       case "dashboard": {
         return {
           dashboardNav: {
@@ -163,7 +164,7 @@ const DashBoardNavBar = React.memo(() => {
   });
 
   useEffect(() => {
-    switch (location.pathname.split("/")[2]) {
+    switch (path) {
       case "dashboard": {
         setActiveContainter((prevState) => {
           return {
@@ -343,7 +344,7 @@ const DashBoardNavBar = React.memo(() => {
       <div className="font-nunito text-white flex flex-col gap-2">
         <div
           className={`flex h-[50px] hover:bg-[#BB7655] ${
-            activeContainer.dashboardNav.isActive ? "bg-[#BB7655] " : ""
+            activeContainer?.dashboardNav.isActive ? "bg-[#BB7655] " : ""
           } rounded-md place-items-center  ps-4 gap-2`}
           onClick={() => {
             setActiveContainter((prevState) => {
@@ -418,7 +419,7 @@ const DashBoardNavBar = React.memo(() => {
 
         <div
           className={`flex h-[50px] hover:bg-[#BB7655] ${
-            activeContainer.messageNav.isActive ? "bg-[#BB7655] " : ""
+            activeContainer?.messageNav.isActive ? "bg-[#BB7655] " : ""
           }  rounded-md place-items-center  ps-4 gap-2`}
           onClick={() => {
             setActiveContainter((prevState) => {
@@ -489,7 +490,7 @@ const DashBoardNavBar = React.memo(() => {
 */}
         <div
           className={`flex h-[50px]   hover:bg-[#BB7655] ${
-            activeContainer.notificationNav.isActive ? "bg-[#BB7655] " : ""
+            activeContainer?.notificationNav.isActive ? "bg-[#BB7655] " : ""
           }rounded-md place-items-center  ps-4 gap-2 relative`}
           onClick={() => {
             setActiveContainter((prevState) => {

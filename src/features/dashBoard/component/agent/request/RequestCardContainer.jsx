@@ -1,6 +1,7 @@
 import { useState } from "react";
+import getTimeAgo from "../../../../../utils/getTimeAgo";
 
-const RequestCardContainer = () => {
+const RequestCardContainer = ({data}) => {
   const [makeVisible, setMakeVisible] = useState(() => {
     return {
       seemMore: false,
@@ -9,24 +10,28 @@ const RequestCardContainer = () => {
   });
 
   return (
-    <div className="  font-nunito relative bg-[#FFC83980] w-full  rounded-lg min-h-fit p-8 flex  gap-5">
-      <img src="/" className="bg-orange-700 h-[50px] w-[50px] rounded-full" />
+    <div className="m-3  font-nunito relative bg-[#FFC83980] w-full  rounded-lg min-h-fit p-8 flex  gap-5">
+      <img src={data.userID.
+userProfile.
+profileImage??'/'} className="bg-orange-700 h-[50px] w-[50px] rounded-full" />
       <div className="relative w-full mt-2 md:flex flex-col">
-        <p>Adedayo Ddedayo</p>
-        <p className="md:absolute text-sm md:right-0">Just now</p>
+        <p>{data.userID
+.userName}</p>
+        <p className="md:absolute text-sm md:right-0">{getTimeAgo(new Date(data.
+updatedAt))}</p>
 
         <div className="w-full mt-3 relative ">
           <div className="flex flex-wrap gap-4 relative">
-            <p className="bg-[#BB7655] p-1 h-fit text-white rounded-lg w-fit ">Osun</p>
-            <p className="bg-[#BB7655] p-1 h-fit text-white rounded-lg w-fit ">Osogbo</p>
-            <p className="bg-[#BB7655] p-1 h-fit text-white rounded-lg w-fit ">Alekunwodo</p>
-            <p className="text-sm  p-1 h-fit md:absolute  md:right-[25%] ">2 Bedroom flat</p>
-            <p className="bg-[#34A853] ms-5 ps-1 pe-1  text-white md:absolute rounded-lg md:right-2">#500k</p>
+            <p className="bg-[#BB7655] p-1 h-fit text-white rounded-lg w-fit ">{data.location.state}</p>
+            <p className="bg-[#BB7655] p-1 h-fit text-white rounded-lg w-fit ">{data.location.localGovt}</p>
+            <p className="bg-[#BB7655] p-1 h-fit text-white rounded-lg w-fit ">{data.location.area}</p>
+            <p className="text-sm  p-1 h-fit md:absolute  md:right-[25%] ">{data.propertyType.appartmentType
+}</p>
+            <p className="bg-[#34A853] ms-5 ps-1 pe-1  text-white md:absolute rounded-lg md:right-2">{data.budget.maximumBudget}</p>
           </div>
           <div className="mt-5">
             <p>
-              Looking for a 2-bedroom apartment in a quiet neighborhood near the city center. Must include parking
-              space, a balcony, and be pet-friendly. Budget is #500k – #500k per month. Prefer move-in by February 1st.
+              {data.additionalDescription}
             </p>
           </div>
 
@@ -84,16 +89,20 @@ const RequestCardContainer = () => {
         </div>
         <div className={`${makeVisible.seemMore && !makeVisible.sendOffer ? "block" : "hidden"}  h-fit p-2 `}>
           <p>
-            Maximum budget<span>3</span>
+            Maximum budget: <span>{data.budget.maximumBudget}</span>
           </p>
           <p>
-            Mininum budget <span>4</span>
+            Mininum budget: <span>{data.budget.minimumBudget}</span>
           </p>
           <p>
-            Number of rooms needed<span>4</span>
+            Number of rooms needed: <span>{data.propertyType.
+numberOfRooms
+}</span>
           </p>
           <p>
-            Number of toilets<span>4</span>
+            Number of toilets: <span>{data.propertyType.
+numberOfToilet
+}</span>
           </p>
         </div>
         <div

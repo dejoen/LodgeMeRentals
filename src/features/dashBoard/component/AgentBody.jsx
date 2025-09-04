@@ -7,10 +7,14 @@ import HelpAbdsupportIcon from "../../../assets/helpicon.svg";
 import LogoutIcon from "../../../assets/logouticon.svg";
 import React, { useEffect, useRef } from "react";
 import useGetAgentNotificationState from "../hooks/useGetAgentNotificationState";
+import { Outlet } from "react-router-dom";
 
 const AgentBody = React.memo(() => {
   const audionRef = useRef();
   const { updatedNotification } = useGetAgentNotificationState();
+
+ 
+ 
 
   return (
     <div>
@@ -45,6 +49,7 @@ const AgentBody = React.memo(() => {
           body={"Ready to Log Out? Click here to securely sign out and protect your account."}
           image={LogoutIcon}
         />
+     
       </div>
       {/*<AgentRefer/>  <AgentClentHero/>*/}
     </div>
